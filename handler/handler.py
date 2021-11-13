@@ -55,7 +55,7 @@ class handler:
   def runModel(model_name , program = None, load = None):
     try:
       case = model_name + " with : " + program
-      print("<>"*60 )
+      print("<>"*50 )
       print(">>> starting model: " +  case)
       handler.special_run(model_name , program , load )
       handler.model_report.append(case + " ==> successful ")
