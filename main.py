@@ -15,7 +15,7 @@ handler.read_data(None , 512 , 512) # datapath , width , height
 handler.runModel("cnnSeq","program_0") # model , program
 handler.runModel("cnnFunctional","program_0") # model , program
 handler.runModel("res","program_0") # model , program
-handler.runModel("res","program_1") # model , program
+handler.runModel("res","program_2") # model , program
 handler.runModel("lstm","program_0") # model , program
 handler.runModel("lstmBi","program_0") # model , program
 handler.runModel("vgg16","program_0") # model , program
