@@ -56,6 +56,7 @@ class handler:
       handler.special_run(model_name , program , load )
       handler.model_report.append(model_name + " with : " + program + " --> successful ")
       print(">>> successful model: " + model_name + " with : " + program )
+      handler.current_network = None
     except Exception as e :
       handler.model_report.append(model_name + " --> failed ")
       print("XXX Error in model: " + model_name + " with : " + program)
