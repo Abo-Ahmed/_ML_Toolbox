@@ -8,18 +8,11 @@ handler.intial_configurations(True , True , '/content/_master') # mount , detail
 # loading and preparing dataset images
 handler.read_data(None , 512 , 512) # datapath , width , height
 
-# cnnSeq , cnnFunctional , res
-# res - 1 - '/content/drive/MyDrive/CoLab/p_dan_pre_model/model-resnet_custom_v4.h5'
-# vgg16 , vgg16seq , lstm ,lstmBi , vggLstm , conv2Dlstm
+handler.runModels(["cnnFunctional" , "cnnSeq" ,   "res" , 
+                    "vgg16" , "vgg16seq", "vggLstm",
+                     "lstm" , "lstmBi" , "conv2Dlstm"])
+
 # handler.special_run("cnnFunctional","program_0")
-handler.runModel("cnnSeq","program_0") # model , program
-handler.runModel("cnnFunctional","program_0") # model , program
-handler.runModel("res","program_0") # model , program
-handler.runModel("res","program_2") # model , program
-handler.runModel("lstm","program_0") # model , program
-handler.runModel("lstmBi","program_0") # model , program
-handler.runModel("vgg16","program_0") # model , program
-handler.runModel("vgg16Seq","program_0") # model , program
-handler.runModel("vggLstm","program_0") # model , program
+# handler.runModel("cnnFunctional","program_0") # model , program
 
 handler.final_configurations()
