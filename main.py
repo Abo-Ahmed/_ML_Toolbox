@@ -27,7 +27,7 @@ handler.intial_configurations(True , True , '/content/_master') # mount , detail
 
 def hardTask():
     x = 1
-    for i in range(1000000):
+    for i in range(500000):
         x = x * i + i 
 
 configure.use_gpu(hardTask ) 
