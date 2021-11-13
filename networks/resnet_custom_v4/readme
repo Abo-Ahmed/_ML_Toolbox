@@ -1,0 +1,45 @@
+
+auther: KichangKim
+
+network link: https://github.com/KichangKim/DeepDanbooru/releases
+
+online service: http://dev.kanotype.net:8003/deepdanbooru/
+
+telegram bot: https://telegram.me/deepdanbooru_bot
+
+Here is breif information for this system.
+
+Used library : CNTK
+Network : resnet based (299x299 image -> about 6000 tags)
+Training time : about 28 days (Ryzen 7 1800X + Geforce 1070)
+I hope you enjoy this.
+
+[2019/04/17] Pre-trained model for evaluation is available now. See readme.txt in archive file for usage.
+
+resnet-custom-v1 (current web version)
+https://drive.google.com/open?id=1A9XbamcusitGdR6QRjXaPCAWsd0IidUe
+resnet-custom-v2 (experimental)
+https://drive.google.com/open?id=1BQXr6l6xumGlvJwLhNaow7nvrCi3uHdJ
+
+What sort of ResNet?
+The basic block is same to resnet-bottleneck-block from CNTK's official ResNet sample. (ResNet-152 ImageNet model). https://github.com/Microsoft/CNTK/blob/master/Examples/Image/Classification/ResNet/Python/resnet_models.py
+I modified it to have more stacks of bottleneck blocks and depth. Also, the last layer is changed from Dense to GAP for removing DropOut.
+
+What sort of accuracy/precision do you get?
+In fact, I did not have any sort of accuracy/precision value for test-dataset. All data is used for only training. The initial loss of training session is about 4000 (binary cross entropy), then finally it is optimized to about 68. Model selection and hyper-parameter tuning is performed by my own eyes with my favorite images manually.
+
+How many images were used?
+Total dataset is 3300000 images, but some sort of filtering is applied and about 1900000 images are actually used. (Drop input image which has too few tags)
+Total training sample count is 18000000. Input images are augmented by scaling (0.9 ~ 1.1), rotation (0 ~ 360) and translation (0.9~1.1 of width or height).
+
+What have you used it for?
+I trained the model via CNTK python library. Input images are transformed into 299x299x3 by PIL. Web iterface is implemented by CNTK python + waitress + click. But Telegram Bot is implemented by CNTK C# Library and used OpenCV for image transform. So you can see the result of evaluation is slightly different between web interface and telegram bot due to difference of image transform routine.
+All input images and tags are obtained from the site, called Danbooru. (So I called my system DeepDanbooru.)
+
+For people who want to play with this in tensorflow, here's the v2 model converted (hopefully properly - had to patch up quite a few things along the way, model seems to work fine though) to tensorflow using mmdnn:
+Model: https://drive.google.com/file/d/1gq7QFVzBxzw-jGiKB1siJzvxg5mGuUH6/view?usp=sharing
+edit: https://drive.google.com/open?id=12uzze66YirvUAccZDfZNsEq34No4u7Fo and the tag list (same as in original download) Example ipython notebook: https://drive.google.com/file/d/1dM5SinN3ppGY67R6IuTksMmGy2WrDiIf/view
+
+
+
+

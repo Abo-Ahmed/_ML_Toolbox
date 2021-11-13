@@ -1,0 +1,10 @@
+
+LSTM
+An LSTM is a type of recurrent neural network that addresses the vanishing gradient problem in vanilla RNNs through additional cells, input and output gates. Intuitively, vanishing gradients are solved through additional additive components, and forget gate activations, that allow the gradients to flow through the network without vanishing as quickly.
+
+Bidirectional lstm
+A Bidirectional LSTM, or biLSTM, is a sequence processing model that consists of two LSTMs: one taking the input in a forward direction, and the other in a backwards direction. BiLSTMs effectively increase the amount of information available to the network, improving the context available to the algorithm (e.g. knowing what words immediately follow and precede a word in a sentence).
+
+attentional lstm
+At both the encoder and decoder LSTM, one Attention layer (named “Attention gate”) has been used. So, while encoding or “reading” the image, only one part of the image gets focused on at each time step. And similarly, while writing, only a certain part of the image gets generated at that time-step.
+

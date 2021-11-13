@@ -1,0 +1,46 @@
+The VGG convolutional neural network architecture, named for the Visual Geometry Group at Oxford, was an important milestone in the use of deep learning methods for computer vision.
+
+The key innovation in this architecture was the definition and repetition of what we will refer to as VGG-blocks. These are groups of convolutional layers that use small filters (e.g. 3×3 pixels) followed by a max pooling layer.
+
+From <https://machinelearningmastery.com/how-to-implement-major-architecture-innovations-for-convolutional-neural-networks/> 
+
+VGG19 is a variant of VGG model which in short consists of 19 layers (16 convolution layers, 3 Fully connected layer, 5 MaxPool layers and 1 SoftMax layer). There are other variants of VGG like VGG11, VGG16 and others. VGG19 has 19.6 billion FLOPs.
+Compared with VGG16, VGG19 is slightly better but requests more memory
+
+From <https://iq.opengenus.org/vgg19-architecture/> 
+
+• A fixed size of (224 * 224) RGB image was given as input to this network which means that the matrix was of shape (224,224,3).
+
+
+Output of this network is classification of 1000 classes of imageNet dataset
+
+
+VGG19
+So in simple language VGG is a deep CNN used to classify images. The layers in VGG19 model are as follows:
+• Conv3x3 (64)
+• Conv3x3 (64)
+• MaxPool
+• Conv3x3 (128)
+• Conv3x3 (128)
+• MaxPool
+• Conv3x3 (256)
+• Conv3x3 (256)
+• Conv3x3 (256)
+• Conv3x3 (256)
+• MaxPool
+• Conv3x3 (512)
+• Conv3x3 (512)
+• Conv3x3 (512)
+• Conv3x3 (512)
+• MaxPool
+• Conv3x3 (512)
+• Conv3x3 (512)
+• Conv3x3 (512)
+• Conv3x3 (512)
+• MaxPool
+• Fully Connected (4096)
+• Fully Connected (4096)
+• Fully Connected (1000)
+• SoftMax
+
+From <https://iq.opengenus.org/vgg19-architecture/> 

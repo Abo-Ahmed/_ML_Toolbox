@@ -1,0 +1,22 @@
+The ResNet that we will build here has the following structure:
+	• Input with shape (32, 32, 3)
+	• 1 Conv2D layer, with 64 filters
+	• 2, 5, 5, 2 residual blocks with 64, 128, 256, and 512 filters
+	• AveragePooling2D layer with pool size = 4
+	• Flatten layer
+	• Dense layer with 10 output nodes
+It has a total of 30 conv+dense layers. All the kernel sizes are 3x3. We use ReLU activation and BatchNormalization after conv layers.
+The plain version is the same except for the skip connections.
+
+From <https://towardsdatascience.com/building-a-resnet-in-keras-e8f1322a49ba> 
+
+
+
+We create first a helper function that takes a tensor as input and adds relu and batch normalization to it:
+
+def relu_bn(inputs: Tensor) -> Tensor:
+    relu = ReLU()(inputs)
+    bn = BatchNormalization()(relu)
+    return bn
+
+

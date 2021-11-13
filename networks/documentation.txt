@@ -1,0 +1,127 @@
+
+Number of files: 16
+Number of functions: 68
+Number of line: 758
+==================================
+File tree:
+
+>> dataset
+	dataset.py
+-----------------------------
+
+>> handler
+	class_basic_model.py
+	handler.py
+-----------------------------
+
+>> model
+	class_cnnFunctional.py
+	class_cnnSeq.py
+	class_lstm.py
+	class_lstmBi.py
+	class_lstmConv2d.py
+	class_res.py
+	class_vgg16.py
+	class_vgg16Seq.py
+	class_vgg_lstm.py
+-----------------------------
+
+>> tools
+	configure.py
+	graphs.py
+	results.py
+-----------------------------
+
+==================================
+Function tree:
+
+>> dataset.py
+	 read_folder_images
+	 prepare_matrix
+	 read_images
+	 read_resize_image
+	 read_predict
+	 read_special_image
+	 read_random
+	 upload_images
+-----------------------------
+
+>> class_basic_model.py
+	 __init__
+	 __del__
+	 build 
+	 load_model
+	 load_weights
+	 program_0
+	 train 
+	 test 
+	 predict 
+	 inf_predict 
+	 random_predict 
+	 save_model
+	 summery_plot
+	 plot
+	 summery
+	 calculate_CM
+	 calculate_results
+	 show_results
+	 show_graphs
+>> handler.py
+	 load_modules
+	 intial_configurations
+	 read_data
+	 runModel
+	 special_run
+	 final_configurations
+-----------------------------
+
+>> class_cnnFunctional.py
+	 build 
+>> class_cnnSeq.py
+	 build 
+>> class_lstm.py
+	 build 
+>> class_lstmBi.py
+	 build 
+>> class_lstmConv2d.py
+	 build 
+	 batchizeData
+>> class_res.py
+	 relu_bn
+	 create_plain_net
+	 build
+	 program_1
+	 special_predict
+	 load_metadata
+	 get_rating
+>> class_vgg16.py
+	 build 
+>> class_vgg16Seq.py
+	 build 
+>> class_vgg_lstm.py
+	 build 
+	 program_1
+	 train
+-----------------------------
+
+>> configure.py
+	 print_line 
+	 printer
+	 checkTools
+	 show_version 
+	 configure_tensor
+	 readTags
+	 use_gpu 
+	 use_cpu 
+>> graphs.py
+	 plot_array
+>> results.py
+	 format_percentage
+	 CM_accuracy
+	 accuracy
+	 recall
+	 precision
+	 f1
+	 print_results
+	 get_results
+-----------------------------
