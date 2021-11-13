@@ -58,9 +58,8 @@ class basic_model (object):
     ################
 
     def program_0(self,ep = 10):
-        self.train(ep)
+        # self.train(ep)
         self.test()
-
 
     def train (self , epochs = 10):
         print('>> training ' + self.name + ' model ...')
@@ -119,12 +118,10 @@ class basic_model (object):
         print('>> saving ' + self.name + ' model ...')
         self.model.save(self.save_path) # saving the entire model
 
-    def checkpoint(self, path = "cp.ckpt"): # saves the best weights
+    def checkpoint(self, checkpoint_path = "cp.ckpt"): # saves the best weights
         if self.model == None:
             print("XX No modle found for " + self.name)
             return
-        checkpoint_path = "training_1/cp.ckpt"
-        checkpoint_dir = os.path.dirname(checkpoint_path)
         return tf.keras.callbacks.ModelCheckpoint(filepath=checkpoint_path,
                                                  save_weights_only=True,
                                                  verbose=1)
