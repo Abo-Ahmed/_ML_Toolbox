@@ -58,7 +58,7 @@ class handler:
       print(">>> successful model: " + model_name + " with : " + program )
       handler.current_network = None
     except Exception as e :
-      handler.model_report.append(model_name + " --> failed ")
+      handler.model_report.append(model_name + " with : " + program + " --> failed ")
       print("XXX Error in model: " + model_name + " with : " + program)
       print(e)
   
@@ -77,9 +77,6 @@ class handler:
   def final_configurations() :
     configure.print_line()
     print(">>> final results: \n", "\n".join(handler.model_report))
-    seconds = time.time() - handler.start_time
-    minutes = seconds / 60
-    print("--- execution time: {} minutes , {} seconds ---".format(int(minutes)  , int(seconds - (minutes * 60)) ))
+    configure.show_period(time.time() - handler.start_time)
     
-
 print(">>> handler module loadded ...")

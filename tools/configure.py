@@ -61,26 +61,25 @@ class configure:
       return lines
 
   @staticmethod
-  def use_gpu (callable ,title = "code") :
+  def use_device (callable , device = "/cpu:0", title = "code") :
     try:
-      with tf.device('/gpu:0'):  
-        print(">>> Running "  + title + " on GPU")
+      start = time.time() 
+      with tf.device(device):  
+        print(">>> Running "  + title + " on " + device)
         callable()
         return 0
     except Exception as e:
-        print("XXX Failed "  + title + " on GPU")
+        print("XXX Failed "  + title + " on " + device)
         print(e)
         return -1
-      
-    
+    finally :
+      configure.show_period(time.time() - start)
+
   @staticmethod
-  def use_cpu (callable , title = "code"):
-    try:
-      with tf.device('/cpu:0'):  
-        print(">>> Running "  + title + " on CPU")
-        callable()
-        return 0
-    except Exception as e:
-        print("XXX Failed "  + title + " on CPU")
-        print(e)
-        return 1
+  def show_period(seconds):
+    minutes = seconds / 60
+    print("--- execution time: {} minutes , {} seconds ---".format(int(minutes)  , int(seconds - (minutes * 60)) ))
+
+
+  
+      
