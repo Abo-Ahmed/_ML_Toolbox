@@ -85,8 +85,8 @@ class configure:
 
   @staticmethod
   def show_period(seconds):
-    minutes = seconds / 60
-    print("--- execution time: {} minutes , {} seconds ---".format(int(minutes)  , int(seconds - (minutes * 60)) ))
+    minutes = int(seconds / 60)
+    print("--- execution time: {} minutes , {} seconds ---".format(minutes  , seconds - (minutes * 60) ))
 
 
   
