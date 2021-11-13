@@ -12,14 +12,6 @@ class dataset:
   def prepare_matrix(true_set ,false_set , title):
     if(handler.colored):
       x_set =  np.random.rand(len(true_set)+len(false_set),handler.image_width,handler.image_height , 3 )
-      
-      print("true_set",true_set)
-      print("x_set",x_set)
-      print("true_set",true_set.shape)
-      print("x_set",x_set.shape)
-      print(handler.image_width)
-      print(handler.image_height)
-      
       x_set[0:len(true_set),:,:,:] = true_set
       x_set[len(true_set):len(true_set)+len(false_set),:,:,:] = false_set
     else:
@@ -40,6 +32,10 @@ class dataset:
   @staticmethod
   def read_images(first_path , second_path , title):
       print(">> reading " + title + " dataset ...")
+      print("first_path",first_path)
+      print("second_path",second_path)
+      print("title",title)
+
       return dataset.prepare_matrix( dataset.read_folder_images(first_path ) , dataset.read_folder_images(second_path ) , title)
 
   @staticmethod
