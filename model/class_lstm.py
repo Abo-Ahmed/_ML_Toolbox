@@ -2,10 +2,11 @@ class lstm(basic_model):
 
     def build (self):
         super().build()
+        SequenceLength = 5 
         self.model = Sequential()
         temp = tf.keras.layers.LSTM(
             units = 10,
-            input_shape=( 5 , 512 ),
+            input_shape=( SequenceLength , 512 ),
             activation="tanh",
             recurrent_activation="sigmoid",
             use_bias=True,
@@ -35,6 +36,17 @@ class lstm(basic_model):
         
         self.model.compile(loss='categorical_crossentropy', optimizer='rmsprop')
 
+        handler.train_x = self.batchizeData(handler.train_x , SequenceLength )
+        handler.train_y = self.batchizeData(handler.train_y , SequenceLength )
+        handler.test_x = self.batchizeData(handler.test_x , SequenceLength )
+        handler.test_y = self.batchizeData(handler.test_y , SequenceLength )
+        
+    def batchizeData(self , dataList ,  batchSize ):
+        batches = []
+        for i in range(len(dataList) // batchSize ):
+            batches.append(dataList[i * batchSize:i * batchSize + batchSize])
+        return np.ndarray(batches)
+        # return batches
 
 
 # ValueError: in user code:
