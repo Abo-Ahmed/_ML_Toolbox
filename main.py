@@ -18,7 +18,7 @@ handler.read_data(None , 512 , 512) # datapath , width , height
 # res - 1 - '/content/drive/MyDrive/CoLab/p_dan_pre_model/model-resnet_custom_v4.h5'
 # handler.special_run("cnnFunctional","program_0")
 handler.special_run("cnnSeq","program_0") # model , program
-handler.special_run("cnnFunctional","program_0") # model , program
+# handler.special_run("cnnFunctional","program_0") # model , program
 # handler.runModel("res","program_0") # model , program
 # handler.runModel("res","program_1") # model , program
 # handler.runModel("lstm","program_0") # model , program

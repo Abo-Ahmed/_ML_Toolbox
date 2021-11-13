@@ -2,18 +2,6 @@
 
 class handler:
 
-  def __init__(self):
-      test_x = []
-      test_y = []
-      train_x = []
-      train_y = []
-      predict_x = []
-      predict_y = []
-      data_limit = 30
-      image_width = 512
-      image_height = 512
-      colored = True
-      project_directory = ''
   test_x = []
   test_y = []
   train_x = []
@@ -30,24 +18,6 @@ class handler:
   start_time = 0 
   model_report = []
  
-  @staticmethod
-  def reset_variables():
-      handler.test_x = []
-      handler.test_y = []
-      handler.train_x = []
-      handler.train_y = []
-      handler.predict_x = []
-      handler.predict_y = []
-      handler.data_limit = 30
-      handler.image_width = 512
-      handler.image_height = 512
-      handler.colored = True
-      handler.project_directory = ''
-
-      handler.current_network = None
-      handler.start_time = 0 
-      handler.model_report = []
-
   @staticmethod
   def load_modules():
     folders = ['/handler' , '/tools', '/dataset' , '/model']
