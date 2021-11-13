@@ -21,7 +21,7 @@ Y = np.random.randint(low = 0 ,high= 2  ,  size = dataSize).transpose()
 
 N = 0.01
 
-print('>>> Labels - Y --> ' + str(Y))
+print('>>> Labels - Y ==> ' + str(Y))
 print('\n>>> Inputs - X')
 print (X)
   
@@ -65,10 +65,10 @@ def show_state(index):
   print('----------------------------------------------------------\n@@@ Iteration ' + str(index) + ' results:')
   print('>>> Weights - W')
   print(W) 
-  print('\n>>> Final weights - F --> ' + str(F))
-  print('>>> Expectations - Y_ --> ' + str(Y_))
-  print('>>> Error - E --> ' + str(E))
-  print('>>> Error Rate - R --> ' + str(R))
+  print('\n>>> Final weights - F ==> ' + str(F))
+  print('>>> Expectations - Y_ ==> ' + str(Y_))
+  print('>>> Error - E ==> ' + str(E))
+  print('>>> Error Rate - R ==> ' + str(R))
   print('##############################################################')
 
 def update_weights( W , B , F):

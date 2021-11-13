@@ -27,11 +27,11 @@ class results:
 
     @staticmethod
     def print_results(tp , tn , fp , fn ):
-        print(">> showing results:")
-        print(">>> accuracy: " + results.accuracy(tp , tn , fp , fn))
-        print(">>> precision: " + results.precision(tp , fp ))
-        print(">>> recall: " + results.recall(tp , fn ))
-        print(">>> f1: " + results.f1(tp , fp , fn ))
+        print(">>> showing results:")
+        print("--- accuracy: " + results.accuracy(tp , tn , fp , fn))
+        print("--- precision: " + results.precision(tp , fp ))
+        print("--- recall: " + results.recall(tp , fn ))
+        print("--- f1: " + results.f1(tp , fp , fn ))
         configure.print_line()
 
     @staticmethod

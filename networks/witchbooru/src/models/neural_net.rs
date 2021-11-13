@@ -28,7 +28,7 @@ impl NeuralNet {
         Ok(Self { model })
     }
 
-    pub fn predict(&self, img: DynamicImage) -> Result<Arc<Tensor>> {
+    pub fn predict(&self, img: DynamicImage) -> Result<Arc<Tensor>>> {
         let resized = resize_and_pad_img(img, WIDTH as u32, HEIGHT as u32);
 
         const NORM_SCALE: f32 = 1. / 255.;
@@ -48,7 +48,7 @@ fn resize_and_pad_img(
     img: DynamicImage,
     target_width: u32,
     target_height: u32,
-) -> ImageBuffer<Rgb<u8>, Vec<u8>> {
+) -> ImageBuffer<Rgb<u8>, Vec<u8>>> {
     let (tw, th) = (target_width, target_height);
     if img.dimensions() == (tw, th) {
         return img.into_rgb8();

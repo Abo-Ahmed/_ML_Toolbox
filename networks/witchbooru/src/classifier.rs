@@ -17,8 +17,8 @@ pub struct Params {
 }
 
 pub struct Prediction<'a> {
-    general_tags: Vec<Tag<'a>>,
-    character_tags: Vec<Tag<'a>>,
+    general_tags: Vec<Tag<'a>>>,
+    character_tags: Vec<Tag<'a>>>,
 }
 
 impl Prediction<'_> {
@@ -129,8 +129,8 @@ impl Ord for ScoreCmp<'_> {
         let mut left = self.0.score.to_bits() as i32;
         let mut right = other.0.score.to_bits() as i32;
 
-        left ^= (((left >> 31) as u32) >> 1) as i32;
-        right ^= (((right >> 31) as u32) >> 1) as i32;
+        left ^= (((left >>> 31) as u32) >>> 1) as i32;
+        right ^= (((right >>> 31) as u32) >>> 1) as i32;
 
         left.cmp(&right)
     }

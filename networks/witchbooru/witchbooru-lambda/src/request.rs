@@ -30,7 +30,7 @@ pub async fn extract_image(req: &Request) -> anyhow::Result<DynamicImage> {
     Err(anyhow!("Missing file or url"))
 }
 
-async fn from_multipart(req: &Request) -> anyhow::Result<Option<DynamicImage>> {
+async fn from_multipart(req: &Request) -> anyhow::Result<Option<DynamicImage>>> {
     let content_type = if let Some(content_type) = req.headers().get(http::header::CONTENT_TYPE) {
         content_type.to_str()?
     } else {
@@ -75,7 +75,7 @@ async fn from_multipart(req: &Request) -> anyhow::Result<Option<DynamicImage>> {
     }
 }
 
-async fn from_form_urlencoded(req: &Request) -> anyhow::Result<Option<DynamicImage>> {
+async fn from_form_urlencoded(req: &Request) -> anyhow::Result<Option<DynamicImage>>> {
     #[derive(Deserialize)]
     struct RequestParams {
         url: String,
@@ -88,7 +88,7 @@ async fn from_form_urlencoded(req: &Request) -> anyhow::Result<Option<DynamicIma
     }
 }
 
-async fn from_query_params(req: &Request) -> anyhow::Result<Option<DynamicImage>> {
+async fn from_query_params(req: &Request) -> anyhow::Result<Option<DynamicImage>>> {
     if let Some(url) = req.query_string_parameters().get("url") {
         download_image(url).await.map(Some)
     } else {

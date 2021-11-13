@@ -15,20 +15,20 @@ from urllib.request import urlretrieve
 
 def download(url, file):
     if not os.path.isfile(file):
-        print(">>>> Download file... " + file + " ...")
+        print(">>> Download file... " + file + " ...")
         urlretrieve(url,file)
-        print(">>>> File downloaded")
+        print(">>> File downloaded")
     else:
-        print ('>>>> h5 model is already downloaded!')
+        print ('>>> h5 model is already downloaded!')
 
 # Root directory of the project
-print('>>>> downloading network from github')
+print('>>> downloading network from github')
 !pip install -q xlrd
 !git clone https://github.com/GantMan/nsfw_model
 
-print('>>>>> downloading h5 model')
+print('>>> downloading h5 model')
 download('https://s3.amazonaws.com/nsfwdetector/nsfw.299x299.h5','nsfw_detector.h5')
-print('>>>>> setting the local directory')
+print('>>> setting the local directory')
 ROOT_DIR = os.path.abspath("/content/nsfw_model")
 sys.path.append(ROOT_DIR)  # To find local version of the library
 from nsfw_detector import NSFWDetector
@@ -39,10 +39,10 @@ def display_one(a, title1 = "Original"):
     plt.show()
 
 def cnn_NSFW_model(imgs):
-    print ('>>>> start NSFW detector')
+    print ('>>> start NSFW detector')
     detector = NSFWDetector('/content/nsfw_detector.h5')
     # Predict multiple images at once using Keras batch prediction
-    print ('>>>> prediction of group')
+    print ('>>> prediction of group')
     results = detector.predict(imgs, batch_size=2)
     return (results)
 
@@ -112,7 +112,7 @@ class_names = ['BG', 'person', 'bicycle', 'car', 'motorcycle', 'airplane',
                'teddy bear', 'hair drier', 'toothbrush']
 
 def show_results(result):
-  print('>>>> showing resutls')
+  print('>>> showing resutls')
   print(result)
   for x in result:
     # display_one(image, result[x])

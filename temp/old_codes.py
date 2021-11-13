@@ -10,7 +10,7 @@
         counter = counter + 1
         if (counter > 30):
           break
-    print( '>> {}: {}'.format( destnation_path , len(imageSet)))
+    print( '>>> {}: {}'.format( destnation_path , len(imageSet)))
     print(items)
     configure.print_line('=')
     items.clear()

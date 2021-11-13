@@ -27,29 +27,29 @@ class basic_model (object):
         self.recall = 0
         self.f1 = 0
 
-        print(">> " + self.name + " model intiated ...")
+        print(">>> " + self.name + " model intiated ...")
 
     ################
     ## destructor
     ################
     def __del__(self):
-        print("XX deleted, model " + self.name)
+        print("xxx deleted, model " + self.name)
 
     ################
     ## model retreival
     ################
     def build (self):
-        print('>> bulding ' + self.name + ' model ...')
+        print('>>> bulding ' + self.name + ' model ...')
 
     def load_model(self , path = None):
-        print('>> loading ' + self.name + ' model ...')
-        if path != None:
+        print('>>> loading ' + self.name + ' model ...')
+        if path:
             self.load_path = path
         self.model = tf.keras.models.load_model(self.load_path)
 
     def load_weights(self , path = None):
-        print('>> loading ' + self.name + ' weights ...')
-        if path != None:
+        print('>>> loading ' + self.name + ' weights ...')
+        if path:
             self.load_path = path
         self.model.load_weights(self.load_path)
 
@@ -61,68 +61,66 @@ class basic_model (object):
         self.train(ep)
         self.test()
 
+    def program_1(self):
+        self.predict()
+
     # verbose=0 will show you nothing (silent)
     # verbose=1 will show you an animated progress
     # verbose=2 will just mention the number of epoch 
     def train (self , epochs = 5):
-        print('>> training ' + self.name + ' model ...')
+        print('>>> training ' + self.name + ' model ...')
         self.model.fit(handler.train_x, handler.train_y, epochs , verbose=1)
 
     def test (self):
-        print('>> testing ' + self.name + ' model ...')
+        print('>>> testing ' + self.name + ' model ...')
         self.loss, self.acc = self.model.evaluate(handler.test_x, handler.test_y, verbose=2)
         print('>>> Restored model, accuracy: {:5.2f}%'.format(100 * self.acc))
 
     def predict (self , smpl = None):
+        print('>>> Predicting with ' + self.name + ' model ...')
         dataset.read_predict()
-        print('>> Predicting with ' + self.name + ' model ...')
-        if smpl != None:
+        if smpl:
             handler.predict_x = smpl
         handler.predict_y = self.model.predict(handler.predict_x)
-        print('>>> predict_y:')
-        print(handler.predict_y)
+        print('>>> predict_y:' , handler.predict_y)
 
     def inf_predict (self):
-        print('>> Predicting with ' + self.name + ' model ...')
         while True :
-            dataset.read_predict()
-            handler.predict_y = self.model.predict(handler.predict_x)
-            print('>>> predict_y:')
-            print(handler.predict_y)
+            self.predict()
 
     def random_predict (self):
-        print('>> Predicting with ' + self.name + ' model ...')
+        print('>>> Random predict with ' + self.name + ' model ...')
         dataset.read_random()
         handler.predict_y = self.model.predict(handler.predict_x)
-        print('>>> predict_y:')
-        print(handler.predict_y)
+        print('>>> predict_y:' , handler.predict_y)
 
     ################
     ## saving model
     ################
     def save_weights(self, path = None): # saves the current weights
-        if self.model == None:
-            print("XX No modle found for " + self.name)
-            return
-        if path != None:
+        if path:
             self.save_path = path
-        print('>> saving ' + self.name + ' weights ...')
-        self.model.save_weights(self.save_path) # saving weights only
+        if self.model == None:
+            print("xxx No modle found for " + self.name)
+        else:
+            print('>>> saving ' + self.name + ' weights ...')
+            self.model.save_weights(self.save_path) # saving weights only
 
     def save_model(self, path = None):
-        if self.model == None:
-            print("XX No modle found for " + self.name)
-            return
-        if path != None:
+        if path :
             self.save_path = path
-        print('>> saving ' + self.name + ' model ...')
-        self.model.save(self.save_path) # saving the entire model
+        if self.model == None:
+            print("xxx No modle found for " + self.name)
+        else:
+            print('>>> saving ' + self.name + ' model ...')
+            self.model.save(self.save_path) # saving the entire model
 
     def checkpoint(self, checkpoint_path = "cp.ckpt"): # saves the best weights
         if self.model == None:
-            print("XX No modle found for " + self.name)
-            return
-        return tf.keras.callbacks.ModelCheckpoint(filepath=checkpoint_path,
+            print("xxx No modle found for " + self.name)
+            return -1
+        else:
+            return tf.keras.callbacks.ModelCheckpoint(filepath=checkpoint_path,
                                                  save_weights_only=True,
                                                  verbose=1)
 
@@ -130,32 +128,32 @@ class basic_model (object):
     ## model detials
     ################
     
-    def summery_plot(self , details = True,plotted = True):
+    def summery_plot(self , details = True, plotted = True):
         if self.model == None:
-            print("XX No modle found for " + self.name)
-            return
-        try:
-            if(details):
-                self.summery()
-            if(plotted):
-                self.plot()
-        except Exception as e:
-            print("Error plotting  mode")
-        
-    
+            print("xxx No modle found for " + self.name)
+            return -1
+        else:
+            try:
+                if(details):
+                    self.summery()
+                if(plotted):
+                    self.plot()
+            except Exception as e:
+                print("xxx Error in summery_plot model")
+            
     def plot(self):
-        print('>> plotting model: ' + self.name)
+        print('>>> plotting model: ' + self.name)
         tf.keras.utils.plot_model(self.model, to_file=self.name + '.png', show_shapes=True)
 
     def summery(self):
-        print('>> showing ' + self.name + ' summery ...')
+        print('>>> showing ' + self.name + ' summery ...')
         self.model.summary()
 
     ################
     ## accuracy
     ################
 
-    def calculate_CM():
+    def calculate_CM(self, y_actu , y_pred):
         self.CM = confusion_matrix(y_actu, y_pred)
 
     def calculate_results(self):

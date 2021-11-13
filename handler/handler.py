@@ -25,8 +25,8 @@ class handler:
       for filename in os.listdir(handler.project_directory + foldername):
         if filename.endswith('.py') and filename != 'handler.py':
           execfile(handler.project_directory + foldername + '/' + filename)
-          print(">> " + filename + " loadded ...")
-    configure.printer(">> all modules loaded ...")
+          print(">>> " + filename + " loadded ...")
+    configure.printer(">>> all modules loaded ...")
 
   @staticmethod
   def intial_configurations(mount , details , path):
@@ -35,8 +35,7 @@ class handler:
     handler.load_modules()
     configure.show_version(mount, details) 
     configure.configure_tensor()
-    configure.printer(">> intial configurations done...")
-
+    configure.printer(">>> intial configurations done...")
 
   @staticmethod
   def read_data(data_path = None , img_width = 512 , img_height = 512):
@@ -50,17 +49,16 @@ class handler:
   @staticmethod
   def runModel(model_name , program = None, load = None):
     try:
-      print()
+      case = model_name + " with : " + program
       print("<>"*60 )
-      print(">>> starting model: " + model_name + " with : " + program )
+      print(">>> starting model: " +  case)
       handler.special_run(model_name , program , load )
-      handler.model_report.append(model_name + " with : " + program + " --> successful ")
-      print(">>> successful model: " + model_name + " with : " + program )
+      handler.model_report.append(case + " ==> successful ")
+      print(">>> successful model: " + case )
       handler.current_network = None
     except Exception as e :
-      handler.model_report.append(model_name + " with : " + program + " --> failed ")
-      print("XXX Error in model: " + model_name + " with : " + program)
-      print(e)
+      handler.model_report.append( case + " ==> failed ")
+      print("XXX Error in model: " + case , e)
   
   @staticmethod
   def special_run(model_name , program = None, load = None):

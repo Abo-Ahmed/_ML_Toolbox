@@ -50,8 +50,7 @@ class res(basic_model):
         self.model = self.create_plain_net()
         
 
-    def program_1(self):
-        # self.model = preTrained()
+    def program_2(self):
         self.load_model('/content/drive/MyDrive/CoLab/p_dan_pre_model/model-resnet_custom_v4.h5')
         self.summery_plot()
         configure.readTags("_master/networks/resnet_custom_v4/tags.txt")

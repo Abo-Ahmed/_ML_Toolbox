@@ -8,7 +8,7 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--View Controller-->
+        <!--View Controller==>
         <scene sceneID="ufC-wZ-h7g">
             <objects>
                 <viewController id="vXZ-lx-hvc" customClass="ViewController" customModule="NSFWDetector_Example" customModuleProvider="target" sceneMemberID="viewController">
@@ -81,7 +81,7 @@
             </objects>
             <point key="canvasLocation" x="136.80000000000001" y="132.26600985221674"/>
         </scene>
-        <!--Camera View Controller-->
+        <!--Camera View Controller==>
         <scene sceneID="w3C-it-FVh">
             <objects>
                 <viewController id="BwA-7F-EYc" customClass="CameraViewController" customModule="NSFWDetector_Example" customModuleProvider="target" sceneMemberID="viewController">
@@ -171,7 +171,7 @@
             </objects>
             <point key="canvasLocation" x="137" y="928"/>
         </scene>
-        <!--Image View Controller-->
+        <!--Image View Controller==>
         <scene sceneID="8QO-hV-4gb">
             <objects>
                 <viewController id="dEG-1C-ZVU" customClass="ImageViewController" customModule="NSFWDetector_Example" customModuleProvider="target" sceneMemberID="viewController">
@@ -238,7 +238,7 @@
             </objects>
             <point key="canvasLocation" x="1879" y="132"/>
         </scene>
-        <!--Navigation Controller-->
+        <!--Navigation Controller==>
         <scene sceneID="TqS-q8-q8Y">
             <objects>
                 <navigationController storyboardIdentifier="ImageNavController" automaticallyAdjustsScrollViewInsets="NO" id="di1-d5-g9s" sceneMemberID="viewController">

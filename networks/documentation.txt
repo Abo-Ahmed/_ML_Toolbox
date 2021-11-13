@@ -5,16 +5,16 @@ Number of line: 753
 ==================================
 File tree:
 
->> dataset
+>>> dataset
 	dataset.py
 -----------------------------
 
->> handler
+>>> handler
 	class_basic_model.py
 	handler.py
 -----------------------------
 
->> model
+>>> model
 	class_cnnFunctional.py
 	class_cnnSeq.py
 	class_lstm.py
@@ -26,7 +26,7 @@ File tree:
 	class_vgg_lstm.py
 -----------------------------
 
->> tools
+>>> tools
 	configure.py
 	graphs.py
 	results.py
@@ -35,7 +35,7 @@ File tree:
 ==================================
 Function tree:
 
->> dataset.py
+>>> dataset.py
 	 read_folder_images
 	 prepare_matrix
 	 read_images
@@ -46,7 +46,7 @@ Function tree:
 	 upload_images
 -----------------------------
 
->> class_basic_model.py
+>>> class_basic_model.py
 	 __init__
 	 __del__
 	 build 
@@ -66,7 +66,7 @@ Function tree:
 	 calculate_results
 	 show_results
 	 show_graphs
->> handler.py
+>>> handler.py
 	 load_modules
 	 intial_configurations
 	 read_data
@@ -75,18 +75,18 @@ Function tree:
 	 final_configurations
 -----------------------------
 
->> class_cnnFunctional.py
+>>> class_cnnFunctional.py
 	 build 
->> class_cnnSeq.py
+>>> class_cnnSeq.py
 	 build 
->> class_lstm.py
+>>> class_lstm.py
 	 build 
->> class_lstmBi.py
+>>> class_lstmBi.py
 	 build 
->> class_lstmConv2d.py
+>>> class_lstmConv2d.py
 	 build 
 	 batchizeData
->> class_res.py
+>>> class_res.py
 	 relu_bn
 	 create_plain_net
 	 build
@@ -94,17 +94,17 @@ Function tree:
 	 special_predict
 	 load_metadata
 	 get_rating
->> class_vgg16.py
+>>> class_vgg16.py
 	 build 
->> class_vgg16Seq.py
+>>> class_vgg16Seq.py
 	 build 
->> class_vgg_lstm.py
+>>> class_vgg_lstm.py
 	 build 
 	 program_1
 	 train
 -----------------------------
 
->> configure.py
+>>> configure.py
 	 print_line 
 	 printer
 	 checkTools
@@ -113,9 +113,9 @@ Function tree:
 	 readTags
 	 use_gpu 
 	 use_cpu 
->> graphs.py
+>>> graphs.py
 	 plot_array
->> results.py
+>>> results.py
 	 format_percentage
 	 CM_accuracy
 	 accuracy

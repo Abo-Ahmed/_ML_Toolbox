@@ -81,7 +81,7 @@ async fn download_tags(
     client: &S3Client,
     bucket: String,
     key: String,
-) -> anyhow::Result<Vec<String>> {
+) -> anyhow::Result<Vec<String>>> {
     let mut buf = String::new();
     get_byte_stream(client, bucket, key)
         .await?
@@ -97,7 +97,7 @@ async fn download_binary(
     client: &S3Client,
     bucket: String,
     key: String,
-) -> anyhow::Result<Vec<u8>> {
+) -> anyhow::Result<Vec<u8>>> {
     let mut buf = Vec::new();
     get_byte_stream(client, bucket, key)
         .await?

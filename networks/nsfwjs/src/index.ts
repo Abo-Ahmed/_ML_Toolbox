@@ -163,7 +163,7 @@ export class NSFWJS {
       | HTMLCanvasElement
       | HTMLVideoElement,
     topk = 5
-  ): Promise<Array<{ className: string; probability: number }>> {
+  ): Promise<Array<{ className: string; probability: number }>>> {
     const logits = this.infer(img) as tf.Tensor2D
 
     const classes = await getTopKClasses(logits, topk)
@@ -215,7 +215,7 @@ export class NSFWJS {
 async function getTopKClasses(
   logits: tf.Tensor2D,
   topK: number
-): Promise<Array<{ className: string; probability: number }>> {
+): Promise<Array<{ className: string; probability: number }>>> {
   const values = await logits.data()
 
   const valuesAndIndices = []

@@ -16,13 +16,13 @@ for root, dirs, files in os.walk(root):
             dirs.remove(r)
 
     for d in dirs:
-        fileTree = fileTree + "\n>> " + d 
+        fileTree = fileTree + "\n>>> " + d 
         newRoot = root+"\\"+d   
         for newRoot, ds, fs in os.walk(newRoot):
             for f in fs:
                 if f.endswith(".py"):
                     fileTree = fileTree + "\n\t" + f
-                    functionTree = functionTree + "\n>> " + f
+                    functionTree = functionTree + "\n>>> " + f
                     fileCounter = fileCounter + 1
                     fileName = "D:\\master\\_master\\"+ d + "\\" + f
                     with open(fileName) as file:

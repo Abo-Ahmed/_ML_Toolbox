@@ -32,7 +32,7 @@ fn predict(c: &mut Criterion) {
     });
 }
 
-fn read_list<P: AsRef<Path>>(path: P) -> std::io::Result<Vec<String>> {
+fn read_list<P: AsRef<Path>>>(path: P) -> std::io::Result<Vec<String>>> {
     BufReader::new(File::open(path)?).lines().collect()
 }
 

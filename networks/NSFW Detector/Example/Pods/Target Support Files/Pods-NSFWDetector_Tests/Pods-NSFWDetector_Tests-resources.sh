@@ -87,7 +87,7 @@ EOM
       ;;
     *)
       echo "$RESOURCE_PATH" || true
-      echo "$RESOURCE_PATH" >> "$RESOURCES_TO_COPY"
+      echo "$RESOURCE_PATH" >>> "$RESOURCES_TO_COPY"
       ;;
   esac
 }

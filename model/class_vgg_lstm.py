@@ -30,7 +30,7 @@ class vggLstm(basic_model):
                 loss='sparse_categorical_crossentropy',
                 metrics=['accuracy'])
 
-    def program_1(self):
+    def program_2(self):
         self.model.fit(
             # Training data : features (review) and classes (positive or negative)
             handler.x_train, handler.y_train,

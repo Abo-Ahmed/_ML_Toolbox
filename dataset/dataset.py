@@ -25,13 +25,13 @@ class dataset:
     y_set[0:len(true_set)] = np.ones(len(true_set))
     y_set[len(true_set):len(true_set)+len(false_set)] = np.zeros(len(false_set))
 
-    print( '>> {} dimensions: {} , {}'.format( title , x_set.shape, y_set.shape ))
+    print( '>>> {} dimensions: {} , {}'.format( title , x_set.shape, y_set.shape ))
     configure.print_line('=')
     return x_set , y_set
 
   @staticmethod
   def read_images(first_path , second_path , title):
-      print(">> reading " + title + " dataset ...")
+      print(">>> reading " + title + " dataset ...")
       return dataset.prepare_matrix( dataset.read_folder_images(first_path ) , dataset.read_folder_images(second_path ) , title)
 
   @staticmethod
@@ -43,7 +43,7 @@ class dataset:
 
   @staticmethod
   def read_predict():
-      print(">> reading PREDICT images ...")
+      print(">>> reading PREDICT images ...")
       imageSet = []
       items = dataset.upload_images()
       for img in items:
@@ -60,7 +60,7 @@ class dataset:
     
   @staticmethod
   def read_random():
-      print(">> reading RANDOM images ...")
+      print(">>> reading RANDOM images ...")
       randomImg = random.choice(os.listdir("/content/_master/dataset/random"))
       handler.predict_x = np.array([dataset.read_resize_image("/content/_master/dataset/random/"+randomImg)])
       print( '>>> {}: {}'.format( 'random: ' , len(handler.predict_x)))
@@ -71,7 +71,7 @@ class dataset:
   def upload_images():
     uploaded = files.upload()
     for fn in uploaded.keys():
-      print('>> User uploaded file "{name}" with length {length} bytes'.format(name=fn, length=len(uploaded[fn])))
+      print('>>> User uploaded file "{name}" with length {length} bytes'.format(name=fn, length=len(uploaded[fn])))
       print(uploaded[fn])
     print(uploaded.keys())
     return list(uploaded.keys())

@@ -3,10 +3,10 @@ class configure:
 
   @staticmethod
   def print_line (symbol = None):
-    if symbol == None:
-      print('%' * 40 + '\n')
+    if symbol:
+      print(symbol * 40)      
     else:
-      print(symbol * 30)
+      print('%' * 40 + '\n')
 
   @staticmethod
   def printer(txt,symbol = None):
@@ -23,25 +23,25 @@ class configure:
   def show_version (mount , details) :
     device_name = tf.test.gpu_device_name()
     if device_name != '/device:GPU:0':
-      #raise SystemError('GPU device not found')
-      print('XX GPU device not found')
-    print('>> Tenserflow version: ' + tf.__version__ + ' - Tenserflow Device Name: ' + device_name )
-    print('>> Keras version: ' + tf.keras.__version__)
+      print('xxx GPU device not found')
+      device_name = "GPU not found"
+    print('>>> Tenserflow version: ' + tf.__version__ + ' - with ' + device_name )
+    print('>>> Keras version: ' + tf.keras.__version__)
     
     if(mount):
       drive.mount('/content/drive')
     else:
-      print(">> Drive already mounted... ")
+      print(">>> Drive already mounted... ")
     
     if(details):
-      print('>> List of all local devices:')
+      print('>>> List of all local devices:')
       local_device_protos = device_lib.list_local_devices()
       print( [ x.name for x in local_device_protos ])
     configure.print_line()
 
   @staticmethod
   def configure_tensor() :
-    print('>> tensor configuration ...')
+    print('>>> tensor configuration ...')
     try:
       config = tf.ConfigProto()
       config.gpu_options.allow_growth = True
@@ -49,8 +49,8 @@ class configure:
       config.log_device_placement = True
       return config
     except:
-      print('>> cannot configure tensorflow')
-      return
+      print('>>> cannot configure tensorflow')
+      return -1
 
   @staticmethod
   def readTags(filePath):
@@ -60,7 +60,6 @@ class configure:
       print (len(lines))
       print (lines)
       return lines
-
 
   @staticmethod
   def use_cpu (callable) :
@@ -87,7 +86,7 @@ class configure:
   @staticmethod
   def show_period(seconds):
     minutes = int(seconds / 60)
-    print("--- execution time: {} minutes , {} seconds ---".format(minutes  , seconds - (minutes * 60) ))
+    print("--- execution time: {} minutes , {:0.5} seconds ---".format(minutes  , seconds - (minutes * 60) ))
 
 
   

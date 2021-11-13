@@ -13,21 +13,21 @@ from tensorflow.python.client import device_lib
 from __future__ import print_function
 
 def show_version () :
-  print('>> versions Info:')
-  print('>> Tenserflow version: ' + tf.__version__)
+  print('>>> versions Info:')
+  print('>>> Tenserflow version: ' + tf.__version__)
   device_name = tf.test.gpu_device_name()
   if device_name != '/device:GPU:0':
     raise SystemError('GPU device not found')
-  print('>> Tenserflow Device Name: ' + device_name )
-  print('>> Keras version: ' + tf.keras.__version__)
-  print('>> List of all local devices:')
+  print('>>> Tenserflow Device Name: ' + device_name )
+  print('>>> Keras version: ' + tf.keras.__version__)
+  print('>>> List of all local devices:')
   local_device_protos = device_lib.list_local_devices()
   print( [ x.name for x in local_device_protos ])
   print('\n%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%\n\n')
 
 def autoencoder_minst_model():
   # a- loading the data set
-  print('>> loading dataset...')
+  print('>>> loading dataset...')
   (X_train,_), (X_test,_)=mnist.load_data()
 
   # b- data normalization
@@ -39,7 +39,7 @@ def autoencoder_minst_model():
   print("Testing set : ",X_test.shape)
 
   # c- model building with simple sequential CNN
-  print('>> building Auto-encoder model...')
+  print('>>> building Auto-encoder model...')
   input_dim=X_train.shape[1]
   encoding_dim=32
   compression_factor=float(input_dim/encoding_dim)
@@ -53,7 +53,7 @@ def autoencoder_minst_model():
   autoencoder.fit(X_train,X_train,epochs=50, batch_size=256, shuffle=True, validation_data=(X_test,X_test))
 
   # d- test image and prediction
-  print('>> Testnig Auto-encoder model...')
+  print('>>> Testnig Auto-encoder model...')
   num_images=10
   np.random.seed(42)
   random_test_images=np.random.randint(X_test.shape[0], size=num_images)
@@ -85,11 +85,11 @@ def autoencoder_minst_model():
 
 def use_gpu () :
   with tf.device('/gpu:0'):  
-    print('>> GPU is running')
+    print('>>> GPU is running')
     autoencoder_minst_model()
     
 # start of main program code 
 show_version()   
 gpu_time = timeit.timeit('use_gpu()', number=1, setup="from __main__ import use_gpu")
-print('>> time required for this task on GPU...')
+print('>>> time required for this task on GPU...')
 print(gpu_time)

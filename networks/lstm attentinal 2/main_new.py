@@ -86,9 +86,9 @@ def preditFval(predictions, test_label):
     recall = TP / (float)(TP + FN)
     Fscore = (2 * precision * recall) / (precision + recall)  # ZeroDivisionError: integer division or modulo by zero
 
-    print(">> Report the result ...")
-    print("-1 --> ", len([1 for i in range(num) if predictions[i][1] < predictions[i][0]]))
-    print("+1 --> ", len([1 for i in range(num) if predictions[i][1] > predictions[i][0]]))
+    print(">>> Report the result ...")
+    print("-1 ==> ", len([1 for i in range(num) if predictions[i][1] < predictions[i][0]]))
+    print("+1 ==> ", len([1 for i in range(num) if predictions[i][1] > predictions[i][0]]))
     print("TP=", TP, "  FP=", FP, " FN=", FN, " TN=", TN)
     print("precision= ", precision)
     print("recall= ", recall)

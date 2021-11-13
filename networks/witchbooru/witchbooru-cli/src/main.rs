@@ -44,6 +44,6 @@ fn main() -> anyhow::Result<()> {
     Ok(())
 }
 
-fn read_list<P: AsRef<Path>>(path: P) -> std::io::Result<Vec<String>> {
+fn read_list<P: AsRef<Path>>>(path: P) -> std::io::Result<Vec<String>>> {
     BufReader::new(File::open(path)?).lines().collect()
 }
