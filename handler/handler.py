@@ -24,7 +24,7 @@ class handler:
   image_width = 512
   image_height = 512
   colored = True
-  project_directory = ''
+  project_directory = '/content/_master'
 
   current_network = None
   start_time = 0 
