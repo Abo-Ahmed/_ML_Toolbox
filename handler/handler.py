@@ -62,13 +62,14 @@ class handler:
   def intial_configurations(mount , details , path):
     handler.start_time = time.time()
     handler.project_directory = path
+    print("path" , path)
+    print("handler.project_directory" ,handler.project_directory)
     handler.load_modules()
     handler.reset_variables()
     configure.show_version(mount, details) 
     configure.configure_tensor()
     configure.printer(">> intial configurations done...")
-    print("path" , path)
-    print("handler.project_directory" ,handler.project_directory)
+
 
   @staticmethod
   def read_data(data_path = None , img_width = 512 , img_height = 512):
