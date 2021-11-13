@@ -57,17 +57,17 @@ class basic_model (object):
     ## model operations
     ################
 
-    def program_0(self,ep = 10):
-        # self.train(ep)
+    def program_0(self,ep = 5):
+        self.train(ep)
         self.test()
-
-    def train (self , epochs = 10):
-        print('>> training ' + self.name + ' model ...')
-        self.model.fit(handler.train_x, handler.train_y, epochs , verbose=1)
 
     # verbose=0 will show you nothing (silent)
     # verbose=1 will show you an animated progress
     # verbose=2 will just mention the number of epoch 
+    def train (self , epochs = 5):
+        print('>> training ' + self.name + ' model ...')
+        self.model.fit(handler.train_x, handler.train_y, epochs , verbose=1)
+
     def test (self):
         print('>> testing ' + self.name + ' model ...')
         self.loss, self.acc = self.model.evaluate(handler.test_x, handler.test_y, verbose=2)

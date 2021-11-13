@@ -27,4 +27,3 @@ handler.runModel("vggLstm","program_0") # model , program
 
 # 4- show excution time
 handler.final_configurations()
-print(servent)

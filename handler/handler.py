@@ -8,7 +8,7 @@ class handler:
   train_y = []
   predict_x = []
   predict_y = []
-  data_limit = 30
+  data_limit = 20
   image_width = 512
   image_height = 512
   colored = True
