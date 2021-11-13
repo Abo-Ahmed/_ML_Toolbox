@@ -6,13 +6,13 @@ execfile('/content/_master/handler/handler.py')
 handler.intial_configurations(True , True , '/content/_master') # mount , details , project path
 
 # loading and preparing dataset images
+handler.colored = False
 handler.read_data(None , 512 , 512) # datapath , width , height
 
 # handler.runModels(["cnnFunctional" , "cnnSeq" ,   "res" , 
 #                     "vgg16" , "vgg16seq", "vggLstm",
 #                      "lstm" , "lstmBi" , "conv2Dlstm"])
 
-handler.colored = False
 handler.special_run("lstm","program_0")
 # handler.runModel("cnnFunctional","program_0") # model , program
 
