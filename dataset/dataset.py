@@ -5,8 +5,16 @@ class dataset:
   @staticmethod
   def read_folder_images(destnation_path):
     images = [ cv2.imread(file) for indx , file in enumerate(glob.glob( destnation_path + "/*.jpg")) if indx < handler.data_limit]
-    img_array = [ np.resize( img.shape  , (handler.image_width , handler.image_height , 3 )) for img in images ]
+    if (handler.colored):
+      img_array = [ np.resize( img.shape  , (handler.image_width , handler.image_height , 3 )) for img in images ]
+    else:
+      img_array = [ np.resize( cv2.cvtColor( img ,cv2.COLOR_BGR2GRAY).shape   , (handler.image_width , handler.image_height  )) for img in images ]
     return np.array(img_array)
+
+  # @staticmethod
+  # def read_BW_images(destnation_path):
+  #   images = [ cv2.imread(file) for indx , file in enumerate(glob.glob( destnation_path + "/*.jpg")) if indx < handler.data_limit]
+  #   return np.array(img_array)
 
   @staticmethod
   def prepare_matrix(true_set ,false_set , title):
