@@ -1,7 +1,7 @@
 
 Number of files: 16
-Number of functions: 68
-Number of line: 753
+Number of functions: 71
+Number of line: 707
 ==================================
 File tree:
 
@@ -53,6 +53,7 @@ Function tree:
 	 load_model
 	 load_weights
 	 program_0
+	 program_1
 	 train 
 	 test 
 	 predict 
@@ -90,7 +91,7 @@ Function tree:
 	 relu_bn
 	 create_plain_net
 	 build
-	 program_1
+	 program_2
 	 special_predict
 	 load_metadata
 	 get_rating
@@ -100,7 +101,7 @@ Function tree:
 	 build 
 >>> class_vgg_lstm.py
 	 build 
-	 program_1
+	 program_2
 	 train
 -----------------------------
 
@@ -111,8 +112,10 @@ Function tree:
 	 show_version 
 	 configure_tensor
 	 readTags
-	 use_gpu 
 	 use_cpu 
+	 use_gpu 
+	 use_device 
+	 show_period
 >>> graphs.py
 	 plot_array
 >>> results.py
