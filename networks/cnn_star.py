@@ -7,8 +7,7 @@ import time
 import glob
 import numpy as np
 import matplotlib.pyplot as plt
-from google.colab import drive
-from google.colab import files
+from google.colab import drive , files
 from sklearn.metrics import confusion_matrix
 from __future__ import print_function
 from PIL import Image

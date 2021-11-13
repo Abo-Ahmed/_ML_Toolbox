@@ -24,7 +24,7 @@ class handler:
   image_width = 512
   image_height = 512
   colored = True
-  project_directory = '/content/_master'
+  project_directory = ''
 
   current_network = None
   start_time = 0 
@@ -67,6 +67,7 @@ class handler:
     configure.show_version(mount, details) 
     configure.configure_tensor()
     configure.printer(">> intial configurations done...")
+    print("handler.project_directory" ,handler.project_directory)
 
   @staticmethod
   def read_data(data_path = None , img_width = 512 , img_height = 512):
