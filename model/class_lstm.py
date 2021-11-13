@@ -45,8 +45,8 @@ class lstm(basic_model):
         batches = []
         for i in range(len(dataList) // batchSize ):
             batches.append(dataList[i * batchSize:i * batchSize + batchSize])
-        return np.ndarray(batches)
-        # return batches
+        # return np.ndarray(batches)
+        return batches
 
 
 # ValueError: in user code:
