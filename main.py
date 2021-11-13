@@ -26,7 +26,7 @@ handler.intial_configurations(True , True , '/content/_master') # mount , detail
 # handler.runModel("vggLstm","program_0") # model , program
 
 def hardTask():
-    for i in range(100000):
+    for i in range(1000000):
         x = x * i
 
 configure.use_gpu(hardTask ) 
