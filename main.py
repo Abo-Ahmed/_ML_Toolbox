@@ -26,11 +26,11 @@ handler.intial_configurations(True , True , '/content/_master') # mount , detail
 # handler.runModel("vggLstm","program_0") # model , program
 
 def hardTask():
-    for i in range(100000):
-        print("i: ", i)
+    for i in range(1000000):
+        pass
 
-configure.use_device(hardTask , "/cpu:0" , "hardTask") # callable , device "/gpu:0"  "/cpu:0" , title
-configure.use_device(hardTask , "/gpu:0" , "hardTask") # callable , device "/gpu:0"  "/cpu:0" , title
+configure.use_gpu(hardTask ) 
+configure.use_cpu(hardTask ) 
 
 # 4- show excution time
 handler.final_configurations()

@@ -60,17 +60,25 @@ class configure:
       print (lines)
       return lines
 
+
+  @staticmethod
+  def use_cpu (callable) :
+    return configure.use_device(callable , "/cpu:0")
+
+  @staticmethod
+  def use_gpu (callable) :
+    return configure.use_device(callable , "/gpu:0")
+
   @staticmethod
   def use_device (callable , device = "/cpu:0", title = "code") :
+    start = time.time() 
     try:
-      start = time.time() 
       with tf.device(device):  
         print(">>> Running "  + title + " on " + device)
         callable()
         return 0
     except Exception as e:
-        print("XXX Failed "  + title + " on " + device)
-        print(e)
+        print("XXX Failed "  + title + " on " + device , e)
         return -1
     finally :
       configure.show_period(time.time() - start)
