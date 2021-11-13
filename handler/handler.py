@@ -67,6 +67,7 @@ class handler:
     configure.show_version(mount, details) 
     configure.configure_tensor()
     configure.printer(">> intial configurations done...")
+    print("path" , path)
     print("handler.project_directory" ,handler.project_directory)
 
   @staticmethod
