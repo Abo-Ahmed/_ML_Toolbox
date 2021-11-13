@@ -46,7 +46,8 @@ class lstm(basic_model):
         for i in range(len(dataList) // batchSize ):
             batches.append(dataList[i * batchSize:i * batchSize + batchSize])
         # return np.ndarray(batches)
-        return batches
+        return tf.convert_to_tensor(batches, dtype=tf.float32)
+        # return batches
 
 
 # ValueError: in user code:
