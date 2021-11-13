@@ -47,7 +47,7 @@ class handler:
       handler.train_x , handler.train_y = dataset.read_images(data_path + '/train/NSFW', data_path + '/train/SFW' , "TRAIN")
 
   @staticmethod
-  def runAllModels(models):
+  def runModels(models):
     for m in models:
       handler.runModel(m,"program_0") # model , program
 
