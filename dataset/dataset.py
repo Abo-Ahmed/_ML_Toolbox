@@ -4,6 +4,10 @@ class dataset:
 
   @staticmethod
   def read_folder_images(destnation_path):
+
+    print("handler.data_limit",handler.data_limit)
+    print("handler.image_width",handler.image_width)
+    print("handler.image_height",handler.image_height)
     images = [ cv2.imread(file) for indx , file in enumerate(glob.glob( destnation_path + "/*.jpg")) if indx < handler.data_limit]
     img_array = [ np.resize( img.shape  , (handler.image_width , handler.image_height , 3 )) for img in images ]
     print("destnation_path",destnation_path)
