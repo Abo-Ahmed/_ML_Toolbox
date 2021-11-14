@@ -36,8 +36,8 @@ class lstm(basic_model):
         
         self.model.compile(loss='categorical_crossentropy', optimizer='adam', metrics=['accuracy'])
 
-        handler.train_x = [ 11 , 52 , 66 , 88 , 91 , 100 , 1.1]
-        handler.train_y = [ 1 , 2  ,  1 , 2  , 1 ,  1  , 2]
+        handler.train_x = [ 11 , 52 , 66 , 88 , 91 , 100 , 1.1 , 11 , 52 , 66 , 88 , 91 , 100 , 1.1 ]
+        handler.train_y = [ 1 , 2  ,  1 , 2  , 1 ,  1  , 2 , 1 , 2  ,  1 , 2  , 1 ,  1  , 2]
 
         handler.train_x = self.batchizeData(handler.train_x , SequenceLength )
         handler.train_y = self.batchizeData(handler.train_y , SequenceLength )
