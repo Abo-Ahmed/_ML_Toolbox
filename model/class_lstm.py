@@ -6,7 +6,7 @@ class lstm(basic_model):
         self.model = Sequential()
         temp = tf.keras.layers.LSTM(
             units = 10,
-            input_shape=( SequenceLength , 512 ),
+            input_shape=( SequenceLength , 512 , 512),
             activation="tanh",
             recurrent_activation="sigmoid",
             use_bias=True,
@@ -43,7 +43,7 @@ class lstm(basic_model):
 
         print(handler.train_x)
         print(handler.train_x.shape)
-        
+
     def batchizeData(self , dataList ,  batchSize ):
         batches = []
         for i in range(len(dataList) // batchSize ):
