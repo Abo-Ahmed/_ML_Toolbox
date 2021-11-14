@@ -6,7 +6,7 @@ class lstmBi(basic_model):
         super().build()
         self.model = Sequential()
         self.model.add(Bidirectional(LSTM(nClasses, return_sequences=True), input_shape=(SequenceLength, 1)))
-        self.model.add(Bidirectional(LSTM(nClasses)))
+        self.model.add(Bidirectional(LSTM(nClasses, return_sequences=True), input_shape=(SequenceLength, 1)))
         self.model.add(Dense(nClasses))
         self.model.add(Activation('softmax'))
         
