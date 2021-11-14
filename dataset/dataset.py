@@ -11,11 +11,6 @@ class dataset:
       img_array = [ np.resize( cv2.cvtColor( img ,cv2.COLOR_BGR2GRAY).shape   , (handler.image_width , handler.image_height  )) for img in images ]
     return np.array(img_array)
 
-  # @staticmethod
-  # def read_BW_images(destnation_path):
-  #   images = [ cv2.imread(file) for indx , file in enumerate(glob.glob( destnation_path + "/*.jpg")) if indx < handler.data_limit]
-  #   return np.array(img_array)
-
   @staticmethod
   def prepare_matrix(true_set ,false_set , title):
     if(handler.colored):
@@ -84,4 +79,12 @@ class dataset:
     print(uploaded.keys())
     return list(uploaded.keys())
   
+  @staticmethod
+  def batchizeData(self , dataList ,  batchSize ):
+      batches = []
+      for i in range(len(dataList) // batchSize ):
+          batches.append(dataList[i * batchSize:i * batchSize + batchSize])
+      # return np.ndarray(batches)
+      return tf.convert_to_tensor(batches, dtype=tf.float32)
+      # return batches
 
