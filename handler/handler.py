@@ -64,7 +64,7 @@ class handler:
       print(">>> successful model: " + case )
       handler.currentNetwork = None
     except Exception as e :
-      handler.modelReport.append( case + " ==> failed ")
+      handler.modelReport.append( case + " ==> failed " + str(e).split("\n")[0] )
       print("XXX Error in model: " + case , e)
   
   @staticmethod
