@@ -10,9 +10,9 @@ handler.read_data(None , 512 , 512) # datapath , width , height
 
 # handler.runModels(["cnnFunctional" , "cnnSeq" ,   "res" , 
 #                     "vgg16" , "vgg16seq", "vggLstm",
-#                      "lstm" , "lstmBi" , "conv2Dlstm"])
+#                      "conv2Dlstm" , "lstm" , "lstmBi"])
 
-handler.special_run("vggLstm","program_0")
+handler.special_run("conv2Dlstm","program_0")
 # handler.runModel("cnnFunctional","program_0") # model , program
 
 handler.final_configurations()
