@@ -74,7 +74,7 @@ _________________________________________________________________
 2/2 - 0s - loss: 339.9829 - accuracy: 0.5000 - 259ms/epoch - 129ms/step
 >>> Restored model, accuracy: 50.00%
 >>> successful model: CnnFunctional with : program_0
-xxx deleted, model CnnFunctional
+XXX deleted, model CnnFunctional
 <><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><>
 >>> starting model: CnnSeq with : program_0
 >>> CnnSeq model intiated ...
@@ -83,7 +83,7 @@ XXX Error in model: CnnSeq with : program_0 failed to allocate memory [Op:AddV2]
 <><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><>
 >>> starting model: res with : program_0
 >>> res model intiated ...
-xxx deleted, model CnnSeq
+XXX deleted, model CnnSeq
 >>> bulding res model ...
 >>> showing res summery ...
 Model: "model_1"
@@ -177,7 +177,7 @@ _________________________________________________________________
 2/2 - 9s - loss: 0.3989 - accuracy: 0.7500 - 9s/epoch - 4s/step
 >>> Restored model, accuracy: 75.00%
 >>> successful model: res with : program_0
-xxx deleted, model res
+XXX deleted, model res
 <><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><>
 >>> starting model: vgg16 with : program_0
 >>> vgg16 model intiated ...
@@ -243,7 +243,7 @@ _________________________________________________________________
 2/2 - 42s - loss: 10.2563 - accuracy: 0.5000 - 42s/epoch - 21s/step
 >>> Restored model, accuracy: 50.00%
 >>> successful model: vgg16 with : program_0
-xxx deleted, model vgg16
+XXX deleted, model vgg16
 <><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><>
 >>> starting model: vgg16seq with : program_0
 XXX Error in model: vgg16seq with : program_0 'vgg16seq'
@@ -318,7 +318,7 @@ _________________________________________________________________
 2/2 - 2s - loss: 0.6937 - accuracy: 0.5000 - 2s/epoch - 1s/step
 >>> Restored model, accuracy: 50.00%
 >>> successful model: vgg16Seq with : program_0
-xxx deleted, model vgg16Seq
+XXX deleted, model vgg16Seq
 <><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><>
 >>> starting model: LstmConv2d with : program_0
 >>> LstmConv2d model intiated ...
@@ -1002,7 +1002,7 @@ WARNING:tensorflow:5 out of the last 9 calls to <function Model.make_test_functi
 1/1 - 21s - loss: 0.6931 - accuracy: 1.0000 - 21s/epoch - 21s/step
 >>> Restored model, accuracy: 100.00%
 >>> successful model: LstmConv2d with : program_0
-xxx deleted, model LstmConv2d
+XXX deleted, model LstmConv2d
 <><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><>
 >>> starting model: lstm with : program_0
 >>> lstm model intiated ...
@@ -1035,7 +1035,7 @@ WARNING:tensorflow:6 out of the last 10 calls to <function Model.make_test_funct
 1/1 - 1s - loss: 11.2661 - accuracy: 0.6000 - 595ms/epoch - 595ms/step
 >>> Restored model, accuracy: 60.00%
 >>> successful model: lstm with : program_0
-xxx deleted, model lstm
+XXX deleted, model lstm
 <><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><>
 >>> starting model: LstmBi with : program_0
 >>> LstmBi model intiated ...
@@ -1071,7 +1071,7 @@ _________________________________________________________________
 1/1 - 2s - loss: 11.2661 - accuracy: 0.6000 - 2s/epoch - 2s/step
 >>> Restored model, accuracy: 60.00%
 >>> successful model: LstmBi with : program_0
-xxx deleted, model LstmBi
+XXX deleted, model LstmBi
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 >>> final results: 

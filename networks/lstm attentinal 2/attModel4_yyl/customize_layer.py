@@ -142,4 +142,4 @@ if __name__ == '__main__':
     model.summary()
     print (model.loss)
 
-    # plot_model(model,'xxx.png',show_shapes=True)
+    # plot_model(model,'XXX.png',show_shapes=True)

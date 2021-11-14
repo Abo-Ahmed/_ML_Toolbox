@@ -23,7 +23,7 @@ class configure:
   def show_version (mount , details) :
     deviceName = tf.test.gpu_device_name()
     if deviceName != '/device:GPU:0':
-      print('xxx GPU device not found')
+      print('XXX GPU device not found')
       deviceName = "GPU not found"
     print('>>> Tenserflow version: ' + tf.__version__ + ' - with ' + deviceName )
     print('>>> Keras version: ' + tf.keras.__version__)
