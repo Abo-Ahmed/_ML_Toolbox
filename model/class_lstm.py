@@ -43,10 +43,10 @@ class lstm(basic_model):
         handler.test_x = [ 11 , 52 , 66 , 88 , 91 , 100 , 1.1 , 11 , 52 , 66 , 88 , 91 , 100 , 1.1 ]
         handler.test_y = [ 1 , 2  ,  1 , 2  , 1 ,  1  , 2 , 1 , 2  ,  1 , 2  , 1 ,  1  , 2]
 
-        handler.train_x = self.batchizeData(dataset.train_x , SequenceLength )
-        handler.train_y = self.batchizeData(dataset.train_y , SequenceLength )
-        handler.test_x = self.batchizeData(dataset.test_x , SequenceLength )
-        handler.test_y = self.batchizeData(dataset.test_y , SequenceLength )
+        handler.train_x = dataset.batchizeData(handler.train_x , SequenceLength )
+        handler.train_y = dataset.batchizeData(handler.train_y , SequenceLength )
+        handler.test_x = dataset.batchizeData(handler.test_x , SequenceLength )
+        handler.test_y = dataset.batchizeData(handler.test_y , SequenceLength )
 
         print(handler.train_x)
         print(handler.train_x.shape)
