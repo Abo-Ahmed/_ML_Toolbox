@@ -9,11 +9,11 @@ handler.intial_configurations(True , True , '/content/_master') # mount , detail
 handler.colored = False
 handler.read_data(None , 512 , 512) # datapath , width , height
 
-# handler.runModels(["cnnFunctional" , "cnnSeq" ,   "res" , 
-#                     "vgg16" , "vgg16seq", "vggLstm",
-#                      "lstm" , "lstmBi" , "conv2Dlstm"])
+handler.runModels(["cnnFunctional" , "cnnSeq" ,   "res" , 
+                    "vgg16" , "vgg16seq", "vggLstm",
+                     "lstm" , "lstmBi" , "conv2Dlstm"])
 
-handler.special_run("lstmBi","program_0")
+# handler.special_run("lstmBi","program_0")
 # handler.runModel("cnnFunctional","program_0") # model , program
 
 handler.final_configurations()
