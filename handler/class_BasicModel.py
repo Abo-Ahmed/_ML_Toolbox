@@ -8,7 +8,7 @@ class BasicModel (object):
     def __init__(self):
         self.model = None
         self.name = type(self).__name__
-        self.path = '/content/_master/model/'
+        self.path = '/content/drive/MyDrive/CoLab/models/'
         self.loopEpochs = 15
         self.loopIndex = 0 
         self.loopLimit = 100
@@ -31,15 +31,15 @@ class BasicModel (object):
         try:
             self.model = tf.keras.models.load_model(self.path)
         except Exception as e:
-            print('XXX failed loading model: ' + self.name )
+            print('XXX failed loading model: ' + self.name  , e)
 
     def load_weights(self):
         print('>>> loading ' + self.name + ' weights ...')
         try:
             # odd only retrieved - even for backup
             self.model.load_weights(self.path + "odd-" + self.name)
-        except:
-            print('XXX failed loading weights for: ' + self.name )
+        except Exception as e:
+            print('XXX failed loading weights for: ' + self.name  ,e)
             
     def load_parameters(self):
         print('>>> loading ' + self.name + ' parameters ...')
@@ -52,8 +52,8 @@ class BasicModel (object):
             self.loopEpochs = int(dir["loopEpochs"])
             self.loopIndex = int(dir["loopIndex"]) 
             self.loopLimit = int(dir["loopLimit"])
-        except:
-            print('XXX failed loading parameters for: ' + self.name )
+        except Exception as e:
+            print('XXX failed loading parameters for: ' + self.name  , e)
 
     ################
     ## model operations
@@ -129,14 +129,14 @@ class BasicModel (object):
         try:
             self.model.save_weights(self.path + title + "-" + self.name ) # saving weights only
         except Exception as e:
-            print('XXX failed saving ' + self.name + ' weights ...')
+            print('XXX failed saving ' + self.name + ' weights ...' , e)
 
     def save_model(self):
         print('>>> saving ' + self.name + ' model ...')
         try:
             self.model.save(self.path) # saving the entire model
         except Exception as e:
-            print('XXX failed saving ' + self.name + ' model ...')
+            print('XXX failed saving ' + self.name + ' model ...' , e)
 
     def checkpoint(self, checkpoint_path = "cp.ckpt"): # saves the best weights
         return tf.keras.callbacks.ModelCheckpoint(filepath=checkpoint_path,
