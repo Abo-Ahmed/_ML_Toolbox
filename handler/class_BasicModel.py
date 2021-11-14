@@ -37,14 +37,14 @@ class BasicModel (object):
         print('>>> loading ' + self.name + ' weights ...')
         try:
             # odd only retrieved - even for backup
-            self.model.load_weights(self.path + "odd-" + self.name)
+            self.model.load_weights(self.path + "odd-" + self.name + ".index")
         except Exception as e:
             print('XXX failed loading weights for: ' + self.name  ,e)
             
     def load_parameters(self):
         print('>>> loading ' + self.name + ' parameters ...')
         try:
-            file = open(self.path + "parmas-" + self.name + ".pkl", "rb")
+            file = open(self.path + "params-" + self.name + ".pkl", "rb")
             dir = pickle.load(file)
             self.name = dir["name"]
             self.path = dir["path"]
@@ -120,7 +120,7 @@ class BasicModel (object):
                     "acc": self.acc,
                     "loss": self.loss 
                 }
-        file = open(self.path + "parmas-" + self.name + ".pkl" , "wb")
+        file = open(self.path + "params-" + self.name + ".pkl" , "wb")
         pickle.dump(dic, file)
         file.close()        
         
