@@ -6,7 +6,7 @@ class lstm(basic_model):
         self.model = Sequential()
         temp = tf.keras.layers.LSTM(
             units = 2,
-            input_shape=( 512 , 512 , 1),
+            input_shape=( 512 , 1),
             activation="tanh",
             recurrent_activation="sigmoid",
             use_bias=True,
