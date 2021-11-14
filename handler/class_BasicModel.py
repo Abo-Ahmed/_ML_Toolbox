@@ -47,7 +47,6 @@ class BasicModel (object):
             file = open(self.path + "params-" + self.name + ".pkl", "rb")
             dir = pickle.load(file)
             self.name = dir["name"]
-            self.path = dir["path"]
             self.loopEpochs = int(dir["loopEpochs"])
             self.loopIndex = int(dir["loopIndex"]) 
             self.loopLimit = int(dir["loopLimit"])
@@ -65,8 +64,8 @@ class BasicModel (object):
         self.loop_train()
 
     def loop_train(self):
-        self.load_weights()
         self.load_parameters() 
+        self.load_weights()
         for i in range(self.loopLimit - self.loopIndex):
             dataset.load_new_batch(i + self.loopIndex) # todo: implement
             self.train(self.loopEpochs)
@@ -111,13 +110,9 @@ class BasicModel (object):
         print('>>> saving ' + self.name + ' parameters with index: ' + str(index))
         dic =   {
                     "name": self.name,
-                    "path": self.path ,
-                    "path": self.path,
                     "loopEpochs": self.loopEpochs ,
                     "loopIndex": self.loopIndex,
                     "loopLimit": index ,
-                    "acc": self.acc,
-                    "loss": self.loss 
                 }
         file = open(self.path + "params-" + self.name + ".pkl" , "wb")
         pickle.dump(dic, file)
