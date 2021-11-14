@@ -5,8 +5,8 @@ class lstm(basic_model):
         SequenceLength = 5 
         self.model = Sequential()
         temp = tf.keras.layers.LSTM(
-            units = 10,
-            input_shape=( SequenceLength , 512 , 512),
+            units = 2,
+            input_shape=( 512 , 512 , 1),
             activation="tanh",
             recurrent_activation="sigmoid",
             use_bias=True,
@@ -34,7 +34,7 @@ class lstm(basic_model):
         self.model.add(Dense(5))
         self.model.add(Activation('softmax'))
         
-        self.model.compile(loss='categorical_crossentropy', optimizer='rmsprop')
+        model.compile(loss='categorical_crossentropy', optimizer='adam', metrics=['accuracy'])
 
         handler.train_x = self.batchizeData(handler.train_x , SequenceLength )
         handler.train_y = self.batchizeData(handler.train_y , SequenceLength )
