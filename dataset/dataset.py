@@ -4,21 +4,21 @@ class dataset:
 
   @staticmethod
   def read_folder_images(destnation_path):
-    images = [ cv2.imread(file) for indx , file in enumerate(glob.glob( destnation_path + "/*.jpg")) if indx < handler.data_limit]
+    images = [ cv2.imread(file) for indx , file in enumerate(glob.glob( destnation_path + "/*.jpg")) if indx < handler.dataLimit]
     if (handler.colored):
-      img_array = [ np.resize( img.shape  , (handler.image_width , handler.image_height , 3 )) for img in images ]
+      img_array = [ np.resize( img.shape  , (handler.imageWidth , handler.imageHeight , 3 )) for img in images ]
     else:
-      img_array = [ np.resize( cv2.cvtColor( img ,cv2.COLOR_BGR2GRAY).shape   , (handler.image_width , handler.image_height  )) for img in images ]
+      img_array = [ np.resize( cv2.cvtColor( img ,cv2.COLOR_BGR2GRAY).shape   , (handler.imageWidth , handler.imageHeight  )) for img in images ]
     return np.array(img_array)
 
   @staticmethod
   def prepare_matrix(true_set ,false_set , title):
     if(handler.colored):
-      x_set =  np.random.rand(len(true_set)+len(false_set),handler.image_width,handler.image_height , 3 )
+      x_set =  np.random.rand(len(true_set)+len(false_set),handler.imageWidth,handler.imageHeight , 3 )
       x_set[0:len(true_set),:,:,:] = true_set
       x_set[len(true_set):len(true_set)+len(false_set),:,:,:] = false_set
     else:
-      x_set =  np.random.rand(len(true_set)+len(false_set),handler.image_width,handler.image_height )
+      x_set =  np.random.rand(len(true_set)+len(false_set),handler.imageWidth,handler.imageHeight )
       x_set[0:len(true_set),:,:] = true_set
       x_set[len(true_set):len(true_set)+len(false_set),:,:] = false_set
 
@@ -40,9 +40,9 @@ class dataset:
   @staticmethod
   def read_resize_image(img):
     if (handler.colored):
-      return np.resize( cv2.imread( img).shape  , (handler.image_width , handler.image_height , 3 )) 
+      return np.resize( cv2.imread( img).shape  , (handler.imageWidth , handler.imageHeight , 3 )) 
     else:
-      return np.resize( cv2.cvtColor(cv2.imread( img),cv2.COLOR_BGR2GRAY).shape  , (handler.image_width , handler.image_height ))
+      return np.resize( cv2.cvtColor(cv2.imread( img),cv2.COLOR_BGR2GRAY).shape  , (handler.imageWidth , handler.imageHeight ))
 
   @staticmethod
   def read_predict():
@@ -59,7 +59,7 @@ class dataset:
 
   @staticmethod
   def read_special_image(path):
-    return  np.resize( cv2.cvtColor(cv2.imread(path),cv2.COLOR_BGR2GRAY).shape  , (handler.image_width , handler.image_height ))
+    return  np.resize( cv2.cvtColor(cv2.imread(path),cv2.COLOR_BGR2GRAY).shape  , (handler.imageWidth , handler.imageHeight ))
     
   @staticmethod
   def read_random():

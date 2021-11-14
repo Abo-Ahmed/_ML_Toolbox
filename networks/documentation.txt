@@ -1,7 +1,7 @@
 
 Number of files: 16
-Number of functions: 70
-Number of line: 695
+Number of functions: 72
+Number of line: 696
 ==================================
 File tree:
 
@@ -15,15 +15,15 @@ File tree:
 -----------------------------
 
 >>> model
-	class_cnnFunctional.py
-	class_cnnSeq.py
-	class_lstm.py
-	class_lstmBi.py
-	class_lstmConv2d.py
-	class_res.py
-	class_vgg16.py
-	class_vgg16Seq.py
-	class_vgg_lstm.py
+	class_CnnFunctional.py
+	class_CnnSeq.py
+	class_Lstm.py
+	class_LstmBi.py
+	class_LstmConv2d.py
+	class_ResNet.py
+	class_Vgg16.py
+	class_Vgg16Seq.py
+	class_VggLstm.py
 -----------------------------
 
 >>> tools
@@ -45,6 +45,7 @@ Function tree:
 	 read_random
 	 upload_images
 	 batchize_data
+	 load_new_batch
 -----------------------------
 
 >>> class_BasicModel.py
@@ -55,6 +56,7 @@ Function tree:
 	 load_weights
 	 program_0
 	 program_1
+	 loop_train
 	 train 
 	 test 
 	 predict 
@@ -64,7 +66,7 @@ Function tree:
 	 summery_plot
 	 plot
 	 summery
-	 calculate_CM
+	 calculate_cm
 	 calculate_results
 	 show_results
 	 show_graphs
@@ -78,17 +80,17 @@ Function tree:
 	 final_configurations
 -----------------------------
 
->>> class_cnnFunctional.py
+>>> class_CnnFunctional.py
 	 build 
->>> class_cnnSeq.py
+>>> class_CnnSeq.py
 	 build 
->>> class_lstm.py
+>>> class_Lstm.py
 	 build 
->>> class_lstmBi.py
+>>> class_LstmBi.py
 	 build 
->>> class_lstmConv2d.py
+>>> class_LstmConv2d.py
 	 build 
->>> class_res.py
+>>> class_ResNet.py
 	 relu_bn
 	 create_plain_net
 	 build
@@ -96,11 +98,11 @@ Function tree:
 	 special_predict
 	 load_metadata
 	 get_rating
->>> class_vgg16.py
+>>> class_Vgg16.py
 	 build 
->>> class_vgg16Seq.py
+>>> class_Vgg16Seq.py
 	 build 
->>> class_vgg_lstm.py
+>>> class_VggLstm.py
 	 build 
 -----------------------------
 
@@ -110,7 +112,7 @@ Function tree:
 	 check_tools
 	 show_version 
 	 configure_tensor
-	 readTags
+	 read_tags
 	 use_cpu 
 	 use_gpu 
 	 use_device 

@@ -13,3 +13,4 @@ class CnnSeq(BasicModel):
                         loss='sparse_categorical_crossentropy',
                         metrics=['accuracy'])
 
+        

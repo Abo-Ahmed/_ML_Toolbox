@@ -9,11 +9,11 @@ class BasicModel (object):
     def __init__(self):
         self.model = None
         self.name = type(self).__name__
-        self.loadPath = ''
+        self.loadPath = '/content/_master/dataset/'
         self.savePath = ''
 
         self.loopEpochs = 10
-        self.loopStatus = 0 
+        self.loopIndex = 0 
         self.loopLimit = 1000
 
         self.tp = 0
@@ -54,9 +54,28 @@ class BasicModel (object):
 
     def load_weights(self , path = None):
         print('>>> loading ' + self.name + ' weights ...')
-        if path:
-            self.loadPath = path
-        self.model.load_weights(self.loadPath)
+        try:
+            if path:
+                self.loadPath = path
+            self.model.load_weights(self.loadPath + title + "-" + self.name)
+        except:
+            print('>>> failed to load weights for: ' + self.name )
+            
+
+    def load_parameters(self):
+        try:
+            file = open(self.loadPath + "parmas-" + self.name + ".pkl", "rb")
+            dir = pickle.load(file)
+            self.name = dir["name"]
+            self.loadPath = dir["loadPath"]
+            self.savePath = dir["savePath"]
+            self.loopEpochs = dir["loopEpochs"]
+            self.loopIndex = dir["loopIndex"] 
+            self.loopLimit = dir["loopLimit"]
+            self.acc = dir["acc"] 
+            self.loss = dir["loss"]
+        except:
+            print('>>> failed to load parameters for: ' + self.name )
 
     ################
     ## model operations
@@ -67,18 +86,17 @@ class BasicModel (object):
         self.test()
 
     def program_1(self):
-        self.predict()
+        self.loop_train()
 
     def loop_train(self):
-        # 0 - load previous session weights , values
-        for i in self.loopLimit - self.loopLimit:
-            dataset.load_new_batch(i) # todo: implement
+        self.load_parameters() 
+        self.load_weights()
+        for i in self.loopLimit - self.loopIndex:
+            dataset.load_new_batch(i + self.loopIndex) # todo: implement
             self.train(self.loopEpochs)
-            if (i % 2):
-                pass
-            else:
-                pass
-            # 3- save weights , values
+            self.test()
+            self.save_weights(title=("odd" if ((i + self.loopIndex ) % 2) else "even"))
+            self.save_parameters(i + self.loopIndex)
 
     # verbose=0 will show you nothing (silent)
     # verbose=1 will show you an animated progress
@@ -113,14 +131,31 @@ class BasicModel (object):
     ################
     ## saving model
     ################
-    def save_weights(self, path = None): # saves the current weights
+    def save_parameters(self,index):
+        print('>>> saving ' + self.name + ' parameters with index: ' + index)
+        dic =   {
+                    "name": type(self).__name__,
+                    "loadPath": self.loadPath ,
+                    "savePath": self.savePath,
+                    "loopEpochs": self.loopEpochs ,
+                    "loopIndex": self.loopIndex,
+                    "loopLimit": index ,
+                    "acc": self.acc,
+                    "loss": self.loss 
+                }
+        file = open(self.loadPath + "parmas-" + self.name + ".pkl", "rb", "wb")
+        pickle.dump(dic, file)
+        file.close()        
+        
+
+    def save_weights(self, path = None , title = ""): # saves the current weights
         if path:
-            self.savePath = path
+            self.loadPath = path
         if self.model == None:
             print("xxx No modle found for " + self.name)
         else:
             print('>>> saving ' + self.name + ' weights ...')
-            self.model.save_weights(self.savePath) # saving weights only
+            self.model.save_weights(self.loadPath + title + "-" + self.name ) # saving weights only
 
     def save_model(self, path = None):
         if path :
@@ -170,7 +205,7 @@ class BasicModel (object):
     ################
 
     def calculate_cm(self, y_actu , y_pred):
-        self.cm = confusion_matrix(y_actu, y_pred)
+        self.cm = results.confusion_matrix(y_actu, y_pred)
 
     def calculate_results(self):
         [self.accuracy , self.precision , self.recall , self.f1] = results.get_results(self.tp , self.tn , self.fp , self.fn )
