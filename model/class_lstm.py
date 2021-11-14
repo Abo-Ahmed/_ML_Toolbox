@@ -34,7 +34,7 @@ class lstm(basic_model):
         self.model.add(Dense(5))
         self.model.add(Activation('softmax'))
         
-        model.compile(loss='categorical_crossentropy', optimizer='adam', metrics=['accuracy'])
+        self.model.compile(loss='categorical_crossentropy', optimizer='adam', metrics=['accuracy'])
 
         handler.train_x = self.batchizeData(handler.train_x , SequenceLength )
         handler.train_y = self.batchizeData(handler.train_y , SequenceLength )
