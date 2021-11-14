@@ -2,14 +2,16 @@ class vggLstm(basic_model):
 
     def build (self):
         super().build()
-        frames, channels, rows, columns = 5,3,512,512
-        video = Input(shape=(frames, rows, columns,channels))
+        channels, rows, columns = 3,512,512
+        SequenceLength = 5 
+        nClasses = 1
+        video = Input(shape=(SequenceLength, rows, columns,channels))
         cnn_base = VGG16(   input_shape=(rows, columns, channels),
                             weights="imagenet", 
                             include_top=False ,                         
                             input_tensor=None,
                             pooling=None,
-                            classes=1000,
+                            classes=1,
                             classifier_activation="softmax")
         cnn_out = GlobalAveragePooling2D()(cnn_base.output)
         cnn = Model(cnn_base.input, cnn_out)
@@ -28,10 +30,10 @@ class vggLstm(basic_model):
 
         self.model.compile(loss='categorical_crossentropy', optimizer='adam', metrics=['accuracy'])
 
-        handler.train_x = dataset.batchizeData(handler.train_x , frames )
-        handler.train_y = dataset.batchizeData(handler.train_y , frames )
-        handler.test_x = dataset.batchizeData(handler.test_x , frames )
-        handler.test_y = dataset.batchizeData(handler.test_y , frames )
+        handler.train_x = dataset.batchizeData(handler.train_x , SequenceLength )
+        handler.train_y = dataset.batchizeData(handler.train_y , SequenceLength )
+        handler.test_x = dataset.batchizeData(handler.test_x , SequenceLength )
+        handler.test_y = dataset.batchizeData(handler.test_y , SequenceLength )
 
         print(handler.train_x)
         print(handler.train_x.shape)
