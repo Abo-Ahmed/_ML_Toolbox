@@ -50,6 +50,7 @@ class BasicModel (object):
             self.loopEpochs = int(dir["loopEpochs"])
             self.loopIndex = int(dir["loopIndex"]) 
             self.loopLimit = int(dir["loopLimit"])
+            print(self.name , self.loopEpochs , self.loopIndex , self.loopLimit)
         except Exception as e:
             print('XXX failed loading parameters for: ' + self.name  , e)
 
@@ -108,6 +109,7 @@ class BasicModel (object):
     ################
     def save_parameters(self,index):
         print('>>> saving ' + self.name + ' parameters with index: ' + str(index))
+        print(self.name , self.loopEpochs , self.loopIndex , self.loopLimit)
         dic =   {
                     "name": self.name,
                     "loopEpochs": self.loopEpochs ,
