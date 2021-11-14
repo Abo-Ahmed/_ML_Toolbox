@@ -63,6 +63,7 @@ class BasicModel (object):
             
 
     def load_parameters(self):
+        print('>>> loading ' + self.name + ' parameters ...')
         try:
             file = open(self.loadPath + "parmas-" + self.name + ".pkl", "rb")
             dir = pickle.load(file)
