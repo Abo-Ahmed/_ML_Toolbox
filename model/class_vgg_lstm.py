@@ -23,10 +23,11 @@ class vggLstm(basic_model):
 
         self.model.compile(loss='categorical_crossentropy', optimizer='adam', metrics=['accuracy'])
 
-        handler.train_x = dataset.batchizeData(handler.train_x , SequenceLength )
-        handler.train_y = dataset.batchizeData(handler.train_y , SequenceLength )
-        handler.test_x = dataset.batchizeData(handler.test_x , SequenceLength )
-        handler.test_y = dataset.batchizeData(handler.test_y , SequenceLength )
-        print(handler.train_x)
-        print(handler.train_x.shape)
-
+        if(not handler.batched):
+            handler.train_x = dataset.batchizeData(handler.train_x , SequenceLength )
+            handler.train_y = dataset.batchizeData(handler.train_y , SequenceLength )
+            handler.test_x = dataset.batchizeData(handler.test_x , SequenceLength )
+            handler.test_y = dataset.batchizeData(handler.test_y , SequenceLength )
+            print(handler.train_x)
+            print(handler.train_x.shape)
+            handler.batched = True

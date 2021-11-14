@@ -12,6 +12,7 @@ class handler:
   image_width = 512
   image_height = 512
   colored = True
+  batched = False
   project_directory = ''
 
   current_network = None
