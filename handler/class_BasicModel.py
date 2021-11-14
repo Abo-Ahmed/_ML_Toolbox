@@ -113,8 +113,8 @@ class BasicModel (object):
         dic =   {
                     "name": self.name,
                     "loopEpochs": self.loopEpochs ,
-                    "loopIndex": self.loopIndex,
-                    "loopLimit": index ,
+                    "loopIndex": index,
+                    "loopLimit": self.loopLimit ,
                 }
         file = open(self.path + "params-" + self.name + ".pkl" , "wb")
         pickle.dump(dic, file)
