@@ -8,7 +8,7 @@ class BasicModel (object):
     def __init__(self):
         self.model = None
         self.name = type(self).__name__
-        self.path = '/content/drive/MyDrive/CoLab/models/'
+        self.path = "/content/drive/MyDrive/CoLab/models/"
         self.loopEpochs = 15
         self.loopIndex = 0 
         self.loopLimit = 100
