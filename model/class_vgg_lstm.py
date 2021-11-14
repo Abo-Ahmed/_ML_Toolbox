@@ -16,19 +16,17 @@ class vggLstm(basic_model):
         print("ch 1")
         encoded_frames = TimeDistributed(cnn)(video)
         print("ch 2")
-        encoded_sequence = LSTM(256)(encoded_frames)
+        encoded_sequence = LSTM(1)(encoded_frames)
         print("ch 3")
-        hidden_layer = Dense(1024, activation="relu")(encoded_sequence)
+        hidden_layer = Dense(1, activation="relu")(encoded_sequence)
         print("ch 4")
-        outputs = Dense(10, activation="softmax")(hidden_layer)
+        outputs = Dense(1, activation="softmax")(hidden_layer)
         print("ch 5")
 
         self.model = Model(video, outputs)
         print("ch 6")
 
-        self.model.compile(optimizer='adam',
-                loss='sparse_categorical_crossentropy',
-                metrics=['accuracy'])
+        self.model.compile(loss='categorical_crossentropy', optimizer='adam', metrics=['accuracy'])
 
         handler.train_x = dataset.batchizeData(handler.train_x , frames )
         handler.train_y = dataset.batchizeData(handler.train_y , frames )
