@@ -48,7 +48,6 @@ class BasicModel (object):
             dir = pickle.load(file)
             self.name = dir["name"]
             self.path = dir["path"]
-            self.path = dir["path"]
             self.loopEpochs = int(dir["loopEpochs"])
             self.loopIndex = int(dir["loopIndex"]) 
             self.loopLimit = int(dir["loopLimit"])
@@ -66,8 +65,8 @@ class BasicModel (object):
         self.loop_train()
 
     def loop_train(self):
-        self.load_parameters() 
         self.load_weights()
+        self.load_parameters() 
         for i in range(self.loopLimit - self.loopIndex):
             dataset.load_new_batch(i + self.loopIndex) # todo: implement
             self.train(self.loopEpochs)
