@@ -11,18 +11,18 @@ class vggLstm(basic_model):
                             include_top=False ,                         
                             input_tensor=None,
                             pooling=None,
-                            classes=1,
+                            classes=nClasses,
                             classifier_activation="softmax")
         cnn_out = GlobalAveragePooling2D()(cnn_base.output)
         cnn = Model(cnn_base.input, cnn_out)
         print("ch 1")
         encoded_frames = TimeDistributed(cnn)(video)
         print("ch 2")
-        encoded_sequence = LSTM(1)(encoded_frames)
+        encoded_sequence = LSTM(nClasses)(encoded_frames)
         print("ch 3")
-        hidden_layer = Dense(1, activation="relu")(encoded_sequence)
+        hidden_layer = Dense(nClasses, activation="relu")(encoded_sequence)
         print("ch 4")
-        outputs = Dense(1, activation="softmax")(hidden_layer)
+        outputs = Dense(nClasses, activation="softmax")(hidden_layer)
         print("ch 5")
 
         self.model = Model(video, outputs)
