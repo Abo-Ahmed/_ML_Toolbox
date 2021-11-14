@@ -3,7 +3,7 @@ class lstmConv2d(basic_model):
     def build (self):
         super().build()
         channels, rows, columns = 3,512,512
-        SequenceLength = 3 
+        SequenceLength = 2 
         nClasses = 1
         in_shape = (SequenceLength, rows, columns, channels)
         self.model = Sequential()
