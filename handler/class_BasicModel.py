@@ -133,9 +133,9 @@ class BasicModel (object):
     ## saving model
     ################
     def save_parameters(self,index):
-        print('>>> saving ' + self.name + ' parameters with index: ' + index)
+        print('>>> saving ' + self.name + ' parameters with index: ' + str(index))
         dic =   {
-                    "name": type(self).__name__,
+                    "name": self.name,
                     "loadPath": self.loadPath ,
                     "savePath": self.savePath,
                     "loopEpochs": self.loopEpochs ,
