@@ -3,7 +3,7 @@ class vggLstm(basic_model):
     def build (self):
         super().build()
         channels, rows, columns = 3,512,512
-        SequenceLength = 5 
+        SequenceLength = 3 
         nClasses = 1
         video = Input(shape=(SequenceLength, rows, columns,channels))
         cnn_base = VGG16(   input_shape=(rows, columns, channels),
