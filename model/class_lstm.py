@@ -3,7 +3,7 @@ class lstm(basic_model):
     def build (self):
         super().build()
         SequenceLength = 5 
-        nClasses = 2
+        nClasses = 1
         self.model = Sequential()
         temp = tf.keras.layers.LSTM(
             units = nClasses,
