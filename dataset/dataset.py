@@ -80,7 +80,7 @@ class dataset:
     return list(uploaded.keys())
   
   @staticmethod
-  def batchizeData(self , dataList ,  batchSize ):
+  def batchizeData( dataList ,  batchSize ):
       batches = []
       for i in range(len(dataList) // batchSize ):
           batches.append(dataList[i * batchSize:i * batchSize + batchSize])
