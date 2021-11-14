@@ -24,10 +24,10 @@ class lstmConv2d(basic_model):
 
         out_shape = self.model.output_shape
         print(out_shape)
-        # self.model.add(Reshape((nClasses, out_shape[1] * out_shape[2] * out_shape[3] * out_shape[4])))
-        # self.model.add(LSTM(nClasses, return_sequences=False))
-        # self.model.add(Dropout(0.5))
-        self.model.add(Dense(nClasses, activation='softmax'))
+        self.model.add(Reshape((SequenceLength,  out_shape[2] * out_shape[3] * out_shape[4])))
+        self.model.add(LSTM(SequenceLength, return_sequences=False))
+        self.model.add(Dropout(0.5))
+        self.model.add(Dense(SequenceLength, activation='softmax'))
         self.model.compile(loss='categorical_crossentropy', optimizer='sgd', metrics=['accuracy'])
 
         handler.train_x = dataset.batchizeData(handler.train_x , SequenceLength )
