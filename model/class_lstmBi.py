@@ -12,6 +12,12 @@ class lstmBi(basic_model):
         
         self.model.compile(loss='categorical_crossentropy', optimizer='rmsprop')
 
+        handler.train_x = [ 11 , 52 , 66 , 88 , 91 , 100 , 1.1 , 11 , 52 , 66 , 88 , 91 , 100 , 1.1 ]
+        handler.train_y = [ 1 , 2  ,  1 , 2  , 1 ,  1  , 2 , 1 , 2  ,  1 , 2  , 1 ,  1  , 2]
+
+        handler.test_x = [ 11 , 52 , 66 , 88 , 91 , 100 , 1.1 , 11 , 52 , 66 , 88 , 91 , 100 , 1.1 ]
+        handler.test_y = [ 1 , 2  ,  1 , 2  , 1 ,  1  , 2 , 1 , 2  ,  1 , 2  , 1 ,  1  , 2]
+
         handler.train_x = dataset.batchizeData(handler.train_x , SequenceLength )
         handler.train_y = dataset.batchizeData(handler.train_y , SequenceLength )
         handler.test_x = dataset.batchizeData(handler.test_x , SequenceLength )
