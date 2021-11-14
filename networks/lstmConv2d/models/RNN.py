@@ -10,13 +10,13 @@ from keras.layers import Dense, Dropout
 from keras.layers.recurrent import LSTM
 
 N_CLASSES = 101
-SequenceLength = 10
+sequenceLength = 10
 
 
 def RNN(weights_dir, CNN_output):
     model = Sequential()
 
-    model.add(LSTM(256, return_sequences=True, input_shape=(SequenceLength, CNN_output)))
+    model.add(LSTM(256, return_sequences=True, input_shape=(sequenceLength, CNN_output)))
     model.add(Dropout(0.9))
     model.add(Dense(N_CLASSES, activation='softmax'))
 

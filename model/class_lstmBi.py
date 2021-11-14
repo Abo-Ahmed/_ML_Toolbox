@@ -1,12 +1,12 @@
-class lstmBi(basic_model): 
+class LstmBi(BasicModel): 
 
     def build (self):
-        SequenceLength = 5 
+        sequenceLength = 5 
         nClasses = 1
         super().build()
         self.model = Sequential()
-        self.model.add(Bidirectional(LSTM(nClasses, return_sequences=True), input_shape=(SequenceLength, 1)))
-        self.model.add(Bidirectional(LSTM(nClasses, return_sequences=True), input_shape=(SequenceLength, 1)))
+        self.model.add(Bidirectional(LSTM(nClasses, return_sequences=True), input_shape=(sequenceLength, 1)))
+        self.model.add(Bidirectional(LSTM(nClasses, return_sequences=True), input_shape=(sequenceLength, 1)))
         self.model.add(Dense(nClasses))
         self.model.add(Activation('softmax'))
         
@@ -18,10 +18,10 @@ class lstmBi(basic_model):
         handler.test_x = [ 11 , 52 , 66 , 88 , 91 , 100 , 1.1 , 11 , 52 , 66 , 88 , 91 , 100 , 1.1 ]
         handler.test_y = [ 1 , 2  ,  1 , 2  , 1 ,  1  , 2 , 1 , 2  ,  1 , 2  , 1 ,  1  , 2]
 
-        handler.train_x = dataset.batchizeData(handler.train_x , SequenceLength )
-        handler.train_y = dataset.batchizeData(handler.train_y , SequenceLength )
-        handler.test_x = dataset.batchizeData(handler.test_x , SequenceLength )
-        handler.test_y = dataset.batchizeData(handler.test_y , SequenceLength )
+        handler.train_x = dataset.batchize_data(handler.train_x , sequenceLength )
+        handler.train_y = dataset.batchize_data(handler.train_y , sequenceLength )
+        handler.test_x = dataset.batchize_data(handler.test_x , sequenceLength )
+        handler.test_y = dataset.batchize_data(handler.test_y , sequenceLength )
 
         print(handler.train_x)
         print(handler.train_x.shape)

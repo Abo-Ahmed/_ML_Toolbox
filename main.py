@@ -8,11 +8,11 @@ handler.intial_configurations(True , True , '/content/_master') # mount , detail
 # loading and preparing dataset images
 handler.read_data(None , 512 , 512) # datapath , width , height
 
-handler.runModels(["cnnFunctional" , "cnnSeq" ,   "res" , 
-                    "vgg16" , "vgg16seq", "vgg16Seq",
-                     "lstmConv2d" , "lstm" , "lstmBi"])
+handler.run_models(["CnnFunctional" , "CnnSeq" ,   "ResNet" , 
+                    "Vgg16" , "vgg16Seq", "VggLstm",
+                     "LstmConv2d" , "Lstm" , "LstmBi"])
 
-# handler.special_run("lstmConv2d","program_0")
-# handler.runModel("cnnFunctional","program_0") # model , program
+# handler.special_run("LstmConv2d","program_0")
+# handler.run_model("CnnFunctional","program_0") # model , program
 
 handler.final_configurations()

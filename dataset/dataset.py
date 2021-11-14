@@ -80,7 +80,7 @@ class dataset:
     return list(uploaded.keys())
   
   @staticmethod
-  def batchizeData( dataList ,  batchSize ):
+  def batchize_data( dataList ,  batchSize ):
       batches = []
       for i in range(len(dataList) // batchSize ):
           batches.append(dataList[i * batchSize:i * batchSize + batchSize])
@@ -88,3 +88,6 @@ class dataset:
       return tf.convert_to_tensor(batches, dtype=tf.float32)
       # return batches
 
+  @staticmethod
+  def load_new_batch(batchNo):
+    pass

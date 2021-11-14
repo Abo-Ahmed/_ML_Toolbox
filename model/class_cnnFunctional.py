@@ -1,5 +1,5 @@
 
-class cnnFunctional(basic_model): 
+class CnnFunctional(BasicModel): 
 
     def build (self):
         super().build()

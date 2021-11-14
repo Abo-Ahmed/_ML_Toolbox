@@ -8,7 +8,7 @@ Resolving deltas: 100% (277/277), done.
 Checking out files: 100% (1250/1250), done.
 >>> main module loaded ...
 >>> handler module loadded ...
->>> class_basic_model.py loadded ...
+>>> class_BasicModel.py loadded ...
 >>> configure.py loadded ...
 >>> results.py loadded ...
 >>> graphs.py loadded ...
@@ -44,10 +44,10 @@ Mounted at /content/drive
 >>> TRAIN dimensions: (40, 512, 512, 3) , (40,)
 ========================================
 <><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><>
->>> starting model: cnnFunctional with : program_0
->>> cnnFunctional model intiated ...
->>> bulding cnnFunctional model ...
->>> showing cnnFunctional summery ...
+>>> starting model: CnnFunctional with : program_0
+>>> CnnFunctional model intiated ...
+>>> bulding CnnFunctional model ...
+>>> showing CnnFunctional summery ...
 Model: "model"
 _________________________________________________________________
  Layer (type)                Output Shape              Param #   
@@ -67,23 +67,23 @@ Total params: 402,658,826
 Trainable params: 402,658,826
 Non-trainable params: 0
 _________________________________________________________________
->>> plotting model: cnnFunctional
->>> training cnnFunctional model ...
+>>> plotting model: CnnFunctional
+>>> training CnnFunctional model ...
 8/8 [==============================] - 4s 161ms/step - loss: 548.2567 - accuracy: 0.5000
->>> testing cnnFunctional model ...
+>>> testing CnnFunctional model ...
 2/2 - 0s - loss: 1869.6230 - accuracy: 0.5000 - 243ms/epoch - 121ms/step
 >>> Restored model, accuracy: 50.00%
->>> successful model: cnnFunctional with : program_0
-xxx deleted, model cnnFunctional
+>>> successful model: CnnFunctional with : program_0
+xxx deleted, model CnnFunctional
 <><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><>
->>> starting model: cnnSeq with : program_0
->>> cnnSeq model intiated ...
->>> bulding cnnSeq model ...
-XXX Error in model: cnnSeq with : program_0 failed to allocate memory [Op:AddV2]
+>>> starting model: CnnSeq with : program_0
+>>> CnnSeq model intiated ...
+>>> bulding CnnSeq model ...
+XXX Error in model: CnnSeq with : program_0 failed to allocate memory [Op:AddV2]
 <><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><>
 >>> starting model: res with : program_0
 >>> res model intiated ...
-xxx deleted, model cnnSeq
+xxx deleted, model CnnSeq
 >>> bulding res model ...
 >>> showing res summery ...
 Model: "model_1"
@@ -248,16 +248,16 @@ xxx deleted, model vgg16
 >>> starting model: vgg16seq with : program_0
 XXX Error in model: vgg16seq with : program_0 'vgg16seq'
 <><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><>
->>> starting model: vggLstm with : program_0
->>> vggLstm model intiated ...
->>> bulding vggLstm model ...
+>>> starting model: VggLstm with : program_0
+>>> VggLstm model intiated ...
+>>> bulding VggLstm model ...
 ch 1
 ch 2
 ch 3
 ch 4
 ch 5
 ch 6
->>> showing vggLstm summery ...
+>>> showing VggLstm summery ...
 Model: "model_4"
 _________________________________________________________________
  Layer (type)                Output Shape              Param #   
@@ -278,9 +278,9 @@ Total params: 15,775,562
 Trainable params: 15,775,562
 Non-trainable params: 0
 _________________________________________________________________
->>> plotting model: vggLstm
->>> training vggLstm model ...
-XXX Error in model: vggLstm with : program_0 in user code:
+>>> plotting model: VggLstm
+>>> training VggLstm model ...
+XXX Error in model: VggLstm with : program_0 in user code:
 
     File "/usr/local/lib/python3.7/dist-packages/keras/engine/training.py", line 878, in train_function  *
         return step_function(self, iterator)
@@ -300,7 +300,7 @@ XXX Error in model: vggLstm with : program_0 in user code:
 <><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><>
 >>> starting model: lstm with : program_0
 >>> lstm model intiated ...
-xxx deleted, model vggLstm
+xxx deleted, model VggLstm
 >>> bulding lstm model ...
 tf.Tensor(
 [[ 11.   52.   66.   88.   91. ]
@@ -331,14 +331,14 @@ _________________________________________________________________
 >>> successful model: lstm with : program_0
 xxx deleted, model lstm
 <><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><>
->>> starting model: lstmBi with : program_0
->>> lstmBi model intiated ...
->>> bulding lstmBi model ...
+>>> starting model: LstmBi with : program_0
+>>> LstmBi model intiated ...
+>>> bulding LstmBi model ...
 tf.Tensor(
 [[ 11.   52.   66.   88.   91. ]
  [100.    1.1  11.   52.   66. ]], shape=(2, 5), dtype=float32)
 (2, 5)
->>> showing lstmBi summery ...
+>>> showing LstmBi summery ...
 Model: "sequential_3"
 _________________________________________________________________
  Layer (type)                Output Shape              Param #   
@@ -358,28 +358,28 @@ Total params: 59
 Trainable params: 59
 Non-trainable params: 0
 _________________________________________________________________
->>> plotting model: lstmBi
->>> training lstmBi model ...
+>>> plotting model: LstmBi
+>>> training LstmBi model ...
 1/1 [==============================] - 8s 8s/step - loss: 11.2661 - accuracy: 0.6000
->>> testing lstmBi model ...
+>>> testing LstmBi model ...
 WARNING:tensorflow:5 out of the last 8 calls to <function Model.make_test_function.<locals>.test_function at 0x7fc5bc159ef0> triggered tf.function retracing. Tracing is expensive and the excessive number of tracings could be due to (1) creating @tf.function repeatedly in a loop, (2) passing tensors with different shapes, (3) passing Python objects instead of tensors. For (1), please define your @tf.function outside of the loop. For (2), @tf.function has experimental_relax_shapes=True option that relaxes argument shapes that can avoid unnecessary retracing. For (3), please refer to https://www.tensorflow.org/guide/function#controlling_retracing and https://www.tensorflow.org/api_docs/python/tf/function for  more details.
 1/1 - 2s - loss: 11.2661 - accuracy: 0.6000 - 2s/epoch - 2s/step
 >>> Restored model, accuracy: 60.00%
->>> successful model: lstmBi with : program_0
-xxx deleted, model lstmBi
+>>> successful model: LstmBi with : program_0
+xxx deleted, model LstmBi
 <><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><>
 >>> starting model: conv2Dlstm with : program_0
 XXX Error in model: conv2Dlstm with : program_0 'conv2Dlstm'
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 >>> final results: 
- cnnFunctional with : program_0 ==> successful 
-cnnSeq with : program_0 ==> failed 
+ CnnFunctional with : program_0 ==> successful 
+CnnSeq with : program_0 ==> failed 
 res with : program_0 ==> successful 
 vgg16 with : program_0 ==> successful 
 vgg16seq with : program_0 ==> failed 
-vggLstm with : program_0 ==> failed 
+VggLstm with : program_0 ==> failed 
 lstm with : program_0 ==> successful 
-lstmBi with : program_0 ==> successful 
+LstmBi with : program_0 ==> successful 
 conv2Dlstm with : program_0 ==> failed 
 --- execution time: 3 minutes , 29.154 seconds ---

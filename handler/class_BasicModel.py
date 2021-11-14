@@ -2,23 +2,28 @@
 # evaluate() is for evaluating the already trained model using the validation (or test) data and the corresponding labels. Returns the loss value and metrics values for the model.
 # predict() is for the actual prediction. It generates output predictions for the input samples.
 
-class basic_model (object):
+class BasicModel (object):
     ################
     ## constructor
     ################
     def __init__(self):
         self.model = None
         self.name = type(self).__name__
-        self.load_path = ''
-        self.save_path = ''
-        self.TP = 0
-        self.TN = 0
-        self.FP = 0
-        self.FN = 0
-        self.CM = []
+        self.loadPath = ''
+        self.savePath = ''
+
+        self.loopEpochs = 10
+        self.loopStatus = 0 
+        self.loopLimit = 1000
+
+        self.tp = 0
+        self.tn = 0
+        self.fp = 0
+        self.fn = 0
+        self.cm = []
         
-        self.all_acc = []
-        self.all_loss = []
+        self.allAcc = []
+        self.allLoss = []
         self.loss = 0
         self.acc = 0
 
@@ -44,14 +49,14 @@ class basic_model (object):
     def load_model(self , path = None):
         print('>>> loading ' + self.name + ' model ...')
         if path:
-            self.load_path = path
-        self.model = tf.keras.models.load_model(self.load_path)
+            self.loadPath = path
+        self.model = tf.keras.models.load_model(self.loadPath)
 
     def load_weights(self , path = None):
         print('>>> loading ' + self.name + ' weights ...')
         if path:
-            self.load_path = path
-        self.model.load_weights(self.load_path)
+            self.loadPath = path
+        self.model.load_weights(self.loadPath)
 
     ################
     ## model operations
@@ -63,6 +68,17 @@ class basic_model (object):
 
     def program_1(self):
         self.predict()
+
+    def loop_train(self):
+        # 0 - load previous session weights , values
+        for i in self.loopLimit - self.loopLimit:
+            dataset.load_new_batch(i) # todo: implement
+            self.train(self.loopEpochs)
+            if (i % 2):
+                pass
+            else:
+                pass
+            # 3- save weights , values
 
     # verbose=0 will show you nothing (silent)
     # verbose=1 will show you an animated progress
@@ -99,21 +115,21 @@ class basic_model (object):
     ################
     def save_weights(self, path = None): # saves the current weights
         if path:
-            self.save_path = path
+            self.savePath = path
         if self.model == None:
             print("xxx No modle found for " + self.name)
         else:
             print('>>> saving ' + self.name + ' weights ...')
-            self.model.save_weights(self.save_path) # saving weights only
+            self.model.save_weights(self.savePath) # saving weights only
 
     def save_model(self, path = None):
         if path :
-            self.save_path = path
+            self.savePath = path
         if self.model == None:
             print("xxx No modle found for " + self.name)
         else:
             print('>>> saving ' + self.name + ' model ...')
-            self.model.save(self.save_path) # saving the entire model
+            self.model.save(self.savePath) # saving the entire model
 
     def checkpoint(self, checkpoint_path = "cp.ckpt"): # saves the best weights
         if self.model == None:
@@ -153,15 +169,15 @@ class basic_model (object):
     ## accuracy
     ################
 
-    def calculate_CM(self, y_actu , y_pred):
-        self.CM = confusion_matrix(y_actu, y_pred)
+    def calculate_cm(self, y_actu , y_pred):
+        self.cm = confusion_matrix(y_actu, y_pred)
 
     def calculate_results(self):
-        [self.accuracy , self.precision , self.recall , self.f1] = results.get_results(self.TP , self.TN , self.FP , self.FN )
+        [self.accuracy , self.precision , self.recall , self.f1] = results.get_results(self.tp , self.tn , self.fp , self.fn )
 
     def show_results(self):
-        results.print_results(self.TP , self.TN , self.FP , self.FN )
+        results.print_results(self.tp , self.tn , self.fp , self.fn )
 
     def show_graphs(self):
-        graphs.plot_array(self.all_acc)
-        graphs.plot_array(self.all_loss)
+        graphs.plot_array(self.allAcc)
+        graphs.plot_array(self.allLoss)

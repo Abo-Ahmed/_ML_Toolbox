@@ -1,13 +1,13 @@
-class lstm(basic_model): 
+class Lstm(BasicModel): 
 
     def build (self):
         super().build()
-        SequenceLength = 5 
+        sequenceLength = 5 
         nClasses = 1
         self.model = Sequential()
         temp = tf.keras.layers.LSTM(
             units = nClasses,
-            input_shape=(SequenceLength , 1 ),
+            input_shape=(sequenceLength , 1 ),
             activation="tanh",
             recurrent_activation="sigmoid",
             use_bias=True,
@@ -43,29 +43,10 @@ class lstm(basic_model):
         handler.test_x = [ 11 , 52 , 66 , 88 , 91 , 100 , 1.1 , 11 , 52 , 66 , 88 , 91 , 100 , 1.1 ]
         handler.test_y = [ 1 , 2  ,  1 , 2  , 1 ,  1  , 2 , 1 , 2  ,  1 , 2  , 1 ,  1  , 2]
 
-        handler.train_x = dataset.batchizeData(handler.train_x , SequenceLength )
-        handler.train_y = dataset.batchizeData(handler.train_y , SequenceLength )
-        handler.test_x = dataset.batchizeData(handler.test_x , SequenceLength )
-        handler.test_y = dataset.batchizeData(handler.test_y , SequenceLength )
+        handler.train_x = dataset.batchize_data(handler.train_x , sequenceLength )
+        handler.train_y = dataset.batchize_data(handler.train_y , sequenceLength )
+        handler.test_x = dataset.batchize_data(handler.test_x , sequenceLength )
+        handler.test_y = dataset.batchize_data(handler.test_y , sequenceLength )
 
         print(handler.train_x)
         print(handler.train_x.shape)
-
-
-# ValueError: in user code:
-
-#     File "/usr/local/lib/python3.7/dist-packages/keras/engine/training.py", line 878, in train_function  *
-#         return step_function(self, iterator)
-#     File "/usr/local/lib/python3.7/dist-packages/keras/engine/training.py", line 867, in step_function  **
-#         outputs = model.distribute_strategy.run(run_step, args=(data,))
-#     File "/usr/local/lib/python3.7/dist-packages/keras/engine/training.py", line 860, in run_step  **
-#         outputs = model.train_step(data)
-#     File "/usr/local/lib/python3.7/dist-packages/keras/engine/training.py", line 808, in train_step
-#         y_pred = self(x, training=True)
-#     File "/usr/local/lib/python3.7/dist-packages/keras/utils/traceback_utils.py", line 67, in error_handler
-#         raise e.with_traceback(filtered_tb) from None
-#     File "/usr/local/lib/python3.7/dist-packages/keras/engine/input_spec.py", line 263, in assert_input_compatibility
-#         raise ValueError(f'Input {input_index} of layer "{layer_name}" is '
-
-#     ValueError: Input 0 of layer "sequential_4" is incompatible with the 
-#      layer: expected shape=(None, 5, 10), found shape=(10, 512, 512, 3)

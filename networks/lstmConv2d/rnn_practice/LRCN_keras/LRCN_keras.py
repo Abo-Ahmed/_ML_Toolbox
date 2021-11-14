@@ -16,13 +16,13 @@ from UCF_utils import video_generator, get_data_list
 
 N_CLASSES = 101
 IMSIZE = (216, 216)
-SequenceLength = 10
+sequenceLength = 10
 BatchSize = 2
 
 
 def load_model():
     # use simple CNN structure
-    in_shape = (SequenceLength, IMSIZE[0], IMSIZE[1], 3)
+    in_shape = (sequenceLength, IMSIZE[0], IMSIZE[1], 3)
     model = Sequential()
     model.add(ConvLSTM2D(32, kernel_size=(7, 7), padding='valid', return_sequences=True, input_shape=in_shape))
     model.add(Activation('relu'))
@@ -41,7 +41,7 @@ def load_model():
 
     out_shape = model.output_shape
     # print('====Model shape: ', out_shape)
-    model.add(Reshape((SequenceLength, out_shape[2] * out_shape[3] * out_shape[4])))
+    model.add(Reshape((sequenceLength, out_shape[2] * out_shape[3] * out_shape[4])))
     model.add(LSTM(64, return_sequences=False))
     model.add(Dropout(0.5))
     model.add(Dense(N_CLASSES, activation='softmax'))
@@ -58,9 +58,9 @@ def fit_model(model, train_data, test_data):
         if os.path.exists('LRCN_keras.h5'):
             model.load_weights('LRCN_keras.h5')
             print('Load weights')
-        train_generator = video_generator(train_data, BatchSize, seq_len=SequenceLength, img_size=IMSIZE,
+        train_generator = video_generator(train_data, BatchSize, seq_len=sequenceLength, img_size=IMSIZE,
                                           num_classes=101)
-        test_generator = video_generator(test_data, BatchSize, seq_len=SequenceLength, img_size=IMSIZE, num_classes=101)
+        test_generator = video_generator(test_data, BatchSize, seq_len=sequenceLength, img_size=IMSIZE, num_classes=101)
         print('Start fitting model')
         checkpointer = keras.callbacks.ModelCheckpoint('LRCN_weights.h5', save_weights_only=True)
         model.fit_generator(

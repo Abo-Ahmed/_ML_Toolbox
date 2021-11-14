@@ -1,4 +1,4 @@
-class vgg16Seq(basic_model): 
+class vgg16Seq(BasicModel): 
 
     def build (self):
         super().build()

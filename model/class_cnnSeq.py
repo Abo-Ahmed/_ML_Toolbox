@@ -1,5 +1,5 @@
 
-class cnnSeq(basic_model): 
+class CnnSeq(BasicModel): 
 
     def build (self):
         super().build()

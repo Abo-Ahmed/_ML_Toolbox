@@ -1,14 +1,14 @@
 Cloning into '_master'...
-remote: Enumerating objects: 1541, done.
-remote: Counting objects: 100% (1541/1541), done.
-remote: Compressing objects: 100% (1382/1382), done.
-remote: Total 1541 (delta 164), reused 1504 (delta 127), pack-reused 0
-Receiving objects: 100% (1541/1541), 291.30 MiB | 34.59 MiB/s, done.
-Resolving deltas: 100% (164/164), done.
-Checking out files: 100% (1247/1247), done.
+remote: Enumerating objects: 1779, done.
+remote: Counting objects: 100% (1779/1779), done.
+remote: Compressing objects: 100% (1536/1536), done.
+remote: Total 1779 (delta 334), reused 1656 (delta 211), pack-reused 0
+Receiving objects: 100% (1779/1779), 291.35 MiB | 33.28 MiB/s, done.
+Resolving deltas: 100% (334/334), done.
+Checking out files: 100% (1250/1250), done.
 >>> main module loaded ...
 >>> handler module loadded ...
->>> class_basic_model.py loadded ...
+>>> class_BasicModel.py loadded ...
 >>> configure.py loadded ...
 >>> results.py loadded ...
 >>> graphs.py loadded ...
@@ -27,7 +27,7 @@ Checking out files: 100% (1247/1247), done.
 
 >>> Tenserflow version: 2.7.0 - with /device:GPU:0
 >>> Keras version: 2.7.0
-Drive already mounted at /content/drive; to attempt to forcibly remount, call drive.mount("/content/drive", force_remount=True).
+Mounted at /content/drive
 >>> List of all local devices:
 ['/device:CPU:0', '/device:GPU:0']
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -43,127 +43,127 @@ Drive already mounted at /content/drive; to attempt to forcibly remount, call dr
 >>> reading TRAIN dataset ...
 >>> TRAIN dimensions: (40, 512, 512, 3) , (40,)
 ========================================
-<><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><>
->>> starting model: cnnSeq with : program_0
->>> cnnSeq model intiated ...
->>> bulding cnnSeq model ...
->>> showing cnnSeq summery ...
-Model: "sequential_5"
+<><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><>
+>>> starting model: CnnFunctional with : program_0
+>>> CnnFunctional model intiated ...
+>>> bulding CnnFunctional model ...
+>>> showing CnnFunctional summery ...
+Model: "model"
 _________________________________________________________________
  Layer (type)                Output Shape              Param #   
 =================================================================
- flatten_4 (Flatten)         (None, 786432)            0         
+ input_1 (InputLayer)        [(None, 512, 512, 3)]     0         
                                                                  
- dense_9 (Dense)             (None, 512)               402653696 
+ flatten (Flatten)           (None, 786432)            0         
                                                                  
- dropout_1 (Dropout)         (None, 512)               0         
+ dense (Dense)               (None, 512)               402653696 
                                                                  
- dense_10 (Dense)            (None, 10)                5130      
+ dropout (Dropout)           (None, 512)               0         
+                                                                 
+ dense_1 (Dense)             (None, 10)                5130      
                                                                  
 =================================================================
 Total params: 402,658,826
 Trainable params: 402,658,826
 Non-trainable params: 0
 _________________________________________________________________
->>> plotting model: cnnSeq
->>> training cnnSeq model ...
-8/8 [==============================] - 2s 162ms/step - loss: 965.7869 - accuracy: 0.3000
->>> testing cnnSeq model ...
-WARNING:tensorflow:5 out of the last 9 calls to <function Model.make_test_function.<locals>.test_function at 0x7fd0a9455950> triggered tf.function retracing. Tracing is expensive and the excessive number of tracings could be due to (1) creating @tf.function repeatedly in a loop, (2) passing tensors with different shapes, (3) passing Python objects instead of tensors. For (1), please define your @tf.function outside of the loop. For (2), @tf.function has experimental_relax_shapes=True option that relaxes argument shapes that can avoid unnecessary retracing. For (3), please refer to https://www.tensorflow.org/guide/function#controlling_retracing and https://www.tensorflow.org/api_docs/python/tf/function for  more details.
-WARNING:tensorflow:5 out of the last 9 calls to <function Model.make_test_function.<locals>.test_function at 0x7fd0a9455950> triggered tf.function retracing. Tracing is expensive and the excessive number of tracings could be due to (1) creating @tf.function repeatedly in a loop, (2) passing tensors with different shapes, (3) passing Python objects instead of tensors. For (1), please define your @tf.function outside of the loop. For (2), @tf.function has experimental_relax_shapes=True option that relaxes argument shapes that can avoid unnecessary retracing. For (3), please refer to https://www.tensorflow.org/guide/function#controlling_retracing and https://www.tensorflow.org/api_docs/python/tf/function for  more details.
-2/2 - 0s - loss: 625.6844 - accuracy: 0.5000 - 234ms/epoch - 117ms/step
+>>> plotting model: CnnFunctional
+>>> training CnnFunctional model ...
+8/8 [==============================] - 4s 163ms/step - loss: 2457.9797 - accuracy: 0.3250
+>>> testing CnnFunctional model ...
+2/2 - 0s - loss: 339.9829 - accuracy: 0.5000 - 259ms/epoch - 129ms/step
 >>> Restored model, accuracy: 50.00%
->>> successful model: cnnSeq with : program_0
-xxx deleted, model cnnSeq
-<><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><>
->>> starting model: cnnFunctional with : program_0
->>> cnnFunctional model intiated ...
->>> bulding cnnFunctional model ...
-XXX Error in model: cnnFunctional with : program_0 failed to allocate memory [Op:AddV2]
-<><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><>
+>>> successful model: CnnFunctional with : program_0
+xxx deleted, model CnnFunctional
+<><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><>
+>>> starting model: CnnSeq with : program_0
+>>> CnnSeq model intiated ...
+>>> bulding CnnSeq model ...
+XXX Error in model: CnnSeq with : program_0 failed to allocate memory [Op:AddV2]
+<><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><>
 >>> starting model: res with : program_0
 >>> res model intiated ...
-xxx deleted, model cnnFunctional
+xxx deleted, model CnnSeq
 >>> bulding res model ...
 >>> showing res summery ...
-Model: "model_5"
+Model: "model_1"
 _________________________________________________________________
  Layer (type)                Output Shape              Param #   
 =================================================================
- input_8 (InputLayer)        [(None, 512, 512, 3)]     0         
+ input_2 (InputLayer)        [(None, 512, 512, 3)]     0         
                                                                  
- batch_normalization_20 (Bat  (None, 512, 512, 3)      12        
- chNormalization)                                                
+ batch_normalization (BatchN  (None, 512, 512, 3)      12        
+ ormalization)                                                   
                                                                  
- conv2d_31 (Conv2D)          (None, 512, 512, 32)      896       
+ conv2d (Conv2D)             (None, 512, 512, 32)      896       
                                                                  
- re_lu_18 (ReLU)             (None, 512, 512, 32)      0         
+ re_lu (ReLU)                (None, 512, 512, 32)      0         
                                                                  
- batch_normalization_21 (Bat  (None, 512, 512, 32)     128       
- chNormalization)                                                
+ batch_normalization_1 (Batc  (None, 512, 512, 32)     128       
+ hNormalization)                                                 
                                                                  
- conv2d_32 (Conv2D)          (None, 512, 512, 32)      9248      
+ conv2d_1 (Conv2D)           (None, 512, 512, 32)      9248      
                                                                  
- re_lu_19 (ReLU)             (None, 512, 512, 32)      0         
+ re_lu_1 (ReLU)              (None, 512, 512, 32)      0         
                                                                  
- batch_normalization_22 (Bat  (None, 512, 512, 32)     128       
- chNormalization)                                                
+ batch_normalization_2 (Batc  (None, 512, 512, 32)     128       
+ hNormalization)                                                 
                                                                  
- conv2d_33 (Conv2D)          (None, 512, 512, 32)      9248      
+ conv2d_2 (Conv2D)           (None, 512, 512, 32)      9248      
                                                                  
- re_lu_20 (ReLU)             (None, 512, 512, 32)      0         
+ re_lu_2 (ReLU)              (None, 512, 512, 32)      0         
                                                                  
- batch_normalization_23 (Bat  (None, 512, 512, 32)     128       
- chNormalization)                                                
+ batch_normalization_3 (Batc  (None, 512, 512, 32)     128       
+ hNormalization)                                                 
                                                                  
- conv2d_34 (Conv2D)          (None, 512, 512, 32)      9248      
+ conv2d_3 (Conv2D)           (None, 512, 512, 32)      9248      
                                                                  
- re_lu_21 (ReLU)             (None, 512, 512, 32)      0         
+ re_lu_3 (ReLU)              (None, 512, 512, 32)      0         
                                                                  
- batch_normalization_24 (Bat  (None, 512, 512, 32)     128       
- chNormalization)                                                
+ batch_normalization_4 (Batc  (None, 512, 512, 32)     128       
+ hNormalization)                                                 
                                                                  
- conv2d_35 (Conv2D)          (None, 512, 512, 32)      9248      
+ conv2d_4 (Conv2D)           (None, 512, 512, 32)      9248      
                                                                  
- re_lu_22 (ReLU)             (None, 512, 512, 32)      0         
+ re_lu_4 (ReLU)              (None, 512, 512, 32)      0         
                                                                  
- batch_normalization_25 (Bat  (None, 512, 512, 32)     128       
- chNormalization)                                                
+ batch_normalization_5 (Batc  (None, 512, 512, 32)     128       
+ hNormalization)                                                 
                                                                  
- conv2d_36 (Conv2D)          (None, 256, 256, 64)      18496     
+ conv2d_5 (Conv2D)           (None, 256, 256, 64)      18496     
                                                                  
- re_lu_23 (ReLU)             (None, 256, 256, 64)      0         
+ re_lu_5 (ReLU)              (None, 256, 256, 64)      0         
                                                                  
- batch_normalization_26 (Bat  (None, 256, 256, 64)     256       
- chNormalization)                                                
+ batch_normalization_6 (Batc  (None, 256, 256, 64)     256       
+ hNormalization)                                                 
                                                                  
- conv2d_37 (Conv2D)          (None, 256, 256, 64)      36928     
+ conv2d_6 (Conv2D)           (None, 256, 256, 64)      36928     
                                                                  
- re_lu_24 (ReLU)             (None, 256, 256, 64)      0         
+ re_lu_6 (ReLU)              (None, 256, 256, 64)      0         
                                                                  
- batch_normalization_27 (Bat  (None, 256, 256, 64)     256       
- chNormalization)                                                
+ batch_normalization_7 (Batc  (None, 256, 256, 64)     256       
+ hNormalization)                                                 
                                                                  
- conv2d_38 (Conv2D)          (None, 256, 256, 64)      36928     
+ conv2d_7 (Conv2D)           (None, 256, 256, 64)      36928     
                                                                  
- re_lu_25 (ReLU)             (None, 256, 256, 64)      0         
+ re_lu_7 (ReLU)              (None, 256, 256, 64)      0         
                                                                  
- batch_normalization_28 (Bat  (None, 256, 256, 64)     256       
- chNormalization)                                                
+ batch_normalization_8 (Batc  (None, 256, 256, 64)     256       
+ hNormalization)                                                 
                                                                  
- conv2d_39 (Conv2D)          (None, 256, 256, 64)      36928     
+ conv2d_8 (Conv2D)           (None, 256, 256, 64)      36928     
                                                                  
- re_lu_26 (ReLU)             (None, 256, 256, 64)      0         
+ re_lu_8 (ReLU)              (None, 256, 256, 64)      0         
                                                                  
- batch_normalization_29 (Bat  (None, 256, 256, 64)     256       
- chNormalization)                                                
+ batch_normalization_9 (Batc  (None, 256, 256, 64)     256       
+ hNormalization)                                                 
                                                                  
- average_pooling2d_2 (Averag  (None, 64, 64, 64)       0         
- ePooling2D)                                                     
+ average_pooling2d (AverageP  (None, 64, 64, 64)       0         
+ ooling2D)                                                       
                                                                  
- flatten_6 (Flatten)         (None, 262144)            0         
+ flatten_2 (Flatten)         (None, 262144)            0         
                                                                  
- dense_12 (Dense)            (None, 10)                2621450   
+ dense_3 (Dense)             (None, 10)                2621450   
                                                                  
 =================================================================
 Total params: 2,790,294
@@ -172,261 +172,25 @@ Non-trainable params: 838
 _________________________________________________________________
 >>> plotting model: res
 >>> training res model ...
-8/8 [==============================] - 7s 737ms/step - loss: 33.2854 - accuracy: 0.6500
+8/8 [==============================] - 37s 668ms/step - loss: 29.0177 - accuracy: 0.7750
 >>> testing res model ...
-WARNING:tensorflow:6 out of the last 11 calls to <function Model.make_test_function.<locals>.test_function at 0x7fd0a7bf48c0> triggered tf.function retracing. Tracing is expensive and the excessive number of tracings could be due to (1) creating @tf.function repeatedly in a loop, (2) passing tensors with different shapes, (3) passing Python objects instead of tensors. For (1), please define your @tf.function outside of the loop. For (2), @tf.function has experimental_relax_shapes=True option that relaxes argument shapes that can avoid unnecessary retracing. For (3), please refer to https://www.tensorflow.org/guide/function#controlling_retracing and https://www.tensorflow.org/api_docs/python/tf/function for  more details.
-WARNING:tensorflow:6 out of the last 11 calls to <function Model.make_test_function.<locals>.test_function at 0x7fd0a7bf48c0> triggered tf.function retracing. Tracing is expensive and the excessive number of tracings could be due to (1) creating @tf.function repeatedly in a loop, (2) passing tensors with different shapes, (3) passing Python objects instead of tensors. For (1), please define your @tf.function outside of the loop. For (2), @tf.function has experimental_relax_shapes=True option that relaxes argument shapes that can avoid unnecessary retracing. For (3), please refer to https://www.tensorflow.org/guide/function#controlling_retracing and https://www.tensorflow.org/api_docs/python/tf/function for  more details.
-2/2 - 2s - loss: 10.6818 - accuracy: 0.5500 - 2s/epoch - 892ms/step
->>> Restored model, accuracy: 55.00%
+2/2 - 9s - loss: 0.3989 - accuracy: 0.7500 - 9s/epoch - 4s/step
+>>> Restored model, accuracy: 75.00%
 >>> successful model: res with : program_0
 xxx deleted, model res
-<><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><>
->>> starting model: res with : program_1
->>> res model intiated ...
->>> bulding res model ...
->>> showing res summery ...
-Model: "model_6"
-_________________________________________________________________
- Layer (type)                Output Shape              Param #   
-=================================================================
- input_9 (InputLayer)        [(None, 512, 512, 3)]     0         
-                                                                 
- batch_normalization_30 (Bat  (None, 512, 512, 3)      12        
- chNormalization)                                                
-                                                                 
- conv2d_40 (Conv2D)          (None, 512, 512, 32)      896       
-                                                                 
- re_lu_27 (ReLU)             (None, 512, 512, 32)      0         
-                                                                 
- batch_normalization_31 (Bat  (None, 512, 512, 32)     128       
- chNormalization)                                                
-                                                                 
- conv2d_41 (Conv2D)          (None, 512, 512, 32)      9248      
-                                                                 
- re_lu_28 (ReLU)             (None, 512, 512, 32)      0         
-                                                                 
- batch_normalization_32 (Bat  (None, 512, 512, 32)     128       
- chNormalization)                                                
-                                                                 
- conv2d_42 (Conv2D)          (None, 512, 512, 32)      9248      
-                                                                 
- re_lu_29 (ReLU)             (None, 512, 512, 32)      0         
-                                                                 
- batch_normalization_33 (Bat  (None, 512, 512, 32)     128       
- chNormalization)                                                
-                                                                 
- conv2d_43 (Conv2D)          (None, 512, 512, 32)      9248      
-                                                                 
- re_lu_30 (ReLU)             (None, 512, 512, 32)      0         
-                                                                 
- batch_normalization_34 (Bat  (None, 512, 512, 32)     128       
- chNormalization)                                                
-                                                                 
- conv2d_44 (Conv2D)          (None, 512, 512, 32)      9248      
-                                                                 
- re_lu_31 (ReLU)             (None, 512, 512, 32)      0         
-                                                                 
- batch_normalization_35 (Bat  (None, 512, 512, 32)     128       
- chNormalization)                                                
-                                                                 
- conv2d_45 (Conv2D)          (None, 256, 256, 64)      18496     
-                                                                 
- re_lu_32 (ReLU)             (None, 256, 256, 64)      0         
-                                                                 
- batch_normalization_36 (Bat  (None, 256, 256, 64)     256       
- chNormalization)                                                
-                                                                 
- conv2d_46 (Conv2D)          (None, 256, 256, 64)      36928     
-                                                                 
- re_lu_33 (ReLU)             (None, 256, 256, 64)      0         
-                                                                 
- batch_normalization_37 (Bat  (None, 256, 256, 64)     256       
- chNormalization)                                                
-                                                                 
- conv2d_47 (Conv2D)          (None, 256, 256, 64)      36928     
-                                                                 
- re_lu_34 (ReLU)             (None, 256, 256, 64)      0         
-                                                                 
- batch_normalization_38 (Bat  (None, 256, 256, 64)     256       
- chNormalization)                                                
-                                                                 
- conv2d_48 (Conv2D)          (None, 256, 256, 64)      36928     
-                                                                 
- re_lu_35 (ReLU)             (None, 256, 256, 64)      0         
-                                                                 
- batch_normalization_39 (Bat  (None, 256, 256, 64)     256       
- chNormalization)                                                
-                                                                 
- average_pooling2d_3 (Averag  (None, 64, 64, 64)       0         
- ePooling2D)                                                     
-                                                                 
- flatten_7 (Flatten)         (None, 262144)            0         
-                                                                 
- dense_13 (Dense)            (None, 10)                2621450   
-                                                                 
-=================================================================
-Total params: 2,790,294
-Trainable params: 2,789,456
-Non-trainable params: 838
-_________________________________________________________________
->>> plotting model: res
->>> Predicting with res model ...
->>> reading PREDICT images ...
-7230083-t6-enh.jpg
-7230083-t6-enh.jpg(image/jpeg) - 19245 bytes, last modified: 5/14/2021 - 100% done
-Saving 7230083-t6-enh.jpg to 7230083-t6-enh.jpg
->>> User uploaded file "7230083-t6-enh.jpg" with length 19245 bytes
-b'\xff\xd8\xff\xe0\x00\x10JFIF\x00\x01\x01\x00\x00\x01\x00\x01\x00\x00\xff\xdb\x00\x84\x00\x06\x04\x05\x06\x05\x04\x06\x06\x05\x06\x07\x07\x06\x08\n\x10\n\n\t\t\n\x14\x0e\x0f\x0c\x10\x17\x14\x18\x18\x17\x14\x16\x16\x1a\x1d%\x1f\x1a\x1b#\x1c\x16\x16 , #&\')*)\x19\x1f-0-(0%()(\x01\x07\x07\x07\n\x08\n\x13\n\n\x13(\x1a\x16\x1a((((((((((((((((((((((((((((((((((((((((((((((((((\xff\xc2\x00\x11\x08\x01\x19\x01\xf4\x03\x01"\x00\x02\x11\x01\x03\x11\x01\xff\xc4\x00\x1c\x00\x00\x02\x02\x03\x01\x01\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x03\x04\x02\x05\x00\x01\x06\x07\x08\xff\xda\x00\x08\x01\x01\x00\x00\x00\x00\xf9kp\x1ef\xf5&\xa7=\xee[\xc1\x0e #\x05\x99\'#\x12r\x9c\xe7\xa8\xb4Bv\x16\x13\x9c\xe7\x9cwa\xb0\xd4s\xfc\x95^\xdb\xb8\xeb\xb5\x08T\xf9\x9e\xf5\x9b\xd6I\x83\xcby=\xefC\x10\xa2vLM\x90\x86!%9\xea3d\x9d\x07DR\xcfr\xe7k\xfb\x1c\x10\xc4\x1e;\xce\xa1\xe96\xb1\x80\xa9\xbc\xcfY\x99\x98W6Id\xb7\xa8\xc0\x03#l\xced\x99HI\xcc\x9b\x84]+\xdd\x83D,\xa4\xa7)g}%\x83]oE\xe4\xf7\x9d\xac \x11\xd2y\x8efo$\xd1\xa5-\x90\x99\x01\x84\x04m\x83H\x85!\xa4I\x96Q\x13-\x13\xaf\xb29\x0b9r\xdd\x1ar\xd2\x8b9_\xe6=7E\x00\x0ca\xa6\xf2\xbc\xcd\xebm\x9c\x92\x91\t\xb8\x8d`cn\x90\xb2)\nY\x90\x93\xd8\xa6\xf4\xee\xfa\x92\x98\xd3\x9c-\xda\xda\xb4\x14\t\xb5W\x1b\x11\xc0"\x10)\xfc\xa33xW\xf7"\x92[\xc8\tQ3\x12Z\x18\xd39HiL\x83\x8b\xc6g\xb5h\xe7$\xcbd\x8d\xc4aH\x86\xd8\xe4\x84X\x04"\x08)<\xa33rx\xd2<\xa5\x99\x90\n\xf8j\xed7v\xf1LS\x14\x85\xd0Yl\xbdU\xe9\x8cI\xb9gM\x7f\xa1\x82\x88\xf5\x98:\xe4D1\xae\xb8)<\x9fY\xb6\x9c4\xa7-\xcf \x15\xc4u\x03-\xca\xe2\xf5\x96\x0cY\xc8s|\x96}\xb9\nV\x1f\xb6\xe7s\xa2\x84P\xae\xb0\x10@\x0ea\x10\x8de\xc1I\xe4\xf1\xdc\xec\xca]\xc8\xa4\xc1\xae\x10\x13HnY\xb25\xd4Z\x18\xc4\xde\x9e1\xfb\x8b\x12\x9a\xda\xd0\x154\x9d\x15\xcc@\x83"]a%]B\xb0@\xba\xf4>S\xa9\xbc\xc9I\xb2\xcfzX+\xc5\x9a\xf8Kz\x94\xc9+\xae\xa1\xd2c/\x13\xa4\xe9\xccP#!W\xdc\xf7\xdb\x85\\\xe4\x10s\xad\x82\x1c\xddL\x17\x02\xd4^O6\x1e4\x88Bo"\xb2\xa18\x16\xcd\xce[\x94\xa5\xb7z\xfb\x93\xbew\xbb\x86O\x1ev\xb9\xfc\xd4}\x1e\xc5d\x1d\x00h\xb9N\xa8kqU\xf1\x88V\xa8\xf2B\xbc\xc4\xe6yKr\x02k\xc8\x95\xbb\xc9Nr\x96adN\x9b\xbcd\xdd\xad\xc1\x0bM\x80OY\xbd\xfaX\x0b\xb1\x07\x8b\xa4\xec\xe9\xf9\xe4\x15Mx\x86\xbb\xc8\n\xf1\xe6Fe)\rt\xf4\xcdhg-\xeeS$\xb7\x92\x9f\xa1\xf5e\xe8:\xd3\x90\x9c\x9bRi:\xfd\x0f}%\xbd\x98\xa9\xb8g\xfa\x04\xf9\x15\xd7M%\x04\x87\x91ko\xbas\xcc\x9a\x02\xca\xb1\n\xe2\xefy)\xe1%-\xeb\xa1\xf5"\xbf\xdd\xb72\xd3R\x99\x1e\x8b\xa0\xa6S\x9c\xb3\xe9\xee\xe4\xa7\tO\xd4\x98<\x80V]T\x92\xa4\xf3\rk\x0fj\xf9e\x15\x92\x9b4\xd99\xcb$Io$b\xfa\xdd\xb1\xbb\x0b\xc21\xe4\xd7\xcc`C`B\xf3\xee\xf73\xa9a\xaa\xf5\xe7\xca\xd7\xae\xaa\xeb\xac\x9d\x17\x96ffI\xfbr\x8dE\xecj\x97&\xe7i\xd6\xdc1]\xce"\x8c\xbb\xfe\xe4\x97\xbd\x8a\xa7w\xc2:\x9e\x85T\xe8-.\xd6\x0b\xfdQ\xe1C\xd3W\x0e\xa7\x98\x82\xea\xac\x05\xd5\xa2\xf2\xb9K5\xac%\xa1\x92xUr\'C\xed\xbe\x96{\x02\x9c\xcap\x1euvW\xbb\xacr\xc2^C]e~\x0eJ\xab\xd0\xe9\xab\xba|\x00wd\x83\\UgM\x15\x96\x02\xcbPyl\xe7<\xd6\xb5\xa93eK"\xfaO\xd0/\xb3"\x9c\xa7;\x9c\xef)Mu\xd1\r\xda\x95\xb9\x05i\xe9:k\n\x12\xdby\x17=\xe8^\x9c\xda\x9a\x1dO\x11\\N\xa6\xc4\x00Qj\x1f.!79o0r\x1c\t\xea\xfe\xf8\xc3\x0c\xb0vNr\xcf\x93\x12p\xad\xe6\xdf\xbf|<\x87\xa0\xac\x8a\x1e}N\xff\x00\x99E\n\xefF\xf6I\xaf\xe7\xd4\xc3]+\x9b\xd9*\xbd\x07\x98\xcer\x9c\x8d)\xc95w\xd7\xfd%\xb7n[;,\x90\xe7]\xa7\x88*\n\xfen\xd6\xe3~U\xea\x91\x80\xe9|V\x93\x91\xd6\xa9;oz\xe2x:[Gci\x94\x16\x16 \xa1\xf33\xefr)\nL\xa6\x81}\xdf\xa53\x17}\x8b\'1\xccb\x9c\x81i\x8c\xa9\xf3\xc9\xf4>Y\xeaP\xa7p\xfe3\xe2R \xf9\xaf\xa0;\x0f\x9e\xa0\x1c\xe8lcW\xd3qd\xbf\xad\xf3"\xcfe,\x8f*\xd5%\xd2{\x99\xd9d\xfdu\xf1\xd8\r\x89\x8ei\x89\xe9f\x0b\x8a7\x97zw<;\xf8x\x17\x90\x19\x8a4\xfd\xc1>7\xaf\xe3W\xb2\xe8\xf9\xe3X\xd1\xa0\x02\xf2%\x9e\xcb2\x15Z\x92\x13\xd3\xfd\x15\xa2\xb2\xd3\x9d\x95\x8a]\x03\x05)g\x03\x9by\x99\xc7yO\xa8y\xe7b\xd5w\xcahins\xb4\xeb\x83\xe9\xdd\x07\x1d\xe6\xa5^\xbe\xee\xa5u\xd2\xac\xa9\x9c\xc8I\x9aiTl\xfe\xd3\xd60vXa\x99\xb9\xe8\xc6!\x8d"+\xb6X\x8di\xfcr\xdf\x8f\xf4\x9d\xf8\x8f\x91\xc3t\xea}\x0f\x1f,\xf6C\xf1\x15S\xe7\xec5Z%\xd5w\x8a\x9c\xcd2\x9aeR\x9do|\xbd;\x0c0\xc1\xb5a\xd3\xf4\xa61e2\xc8B\xdb\xb2\xe7\xfco\xa9\xbd\xa3\xf9m=\xab\xcfz\xf7T\xdf\x04Hc\xdc\xfcl\xa9\xc2%,g\xe7\xf3)HR\x90\xa5\xd57\xb0\xdc\xb0\xc1\xd9`\xbat\xd67\xb7\x8fOd\x9c\xf7\xbc\xca/\r\xf4\xd5\xbcK\xcd\xb5\x95K{\x08\xfa\xdeJ\xb6\x0e\xa7QuX\xa0\xd5\xce\x8a\xaf\x80)\x88B\xcc\xa6)\x9b\xf5\x00\xb0f\x18`\xb8\xe1\x88R\xbf{z\xc4\xb7\x92\xd6\xfc\xb3\x8a\xf4\xf5\xfeTGQ\xe7\xbbL\xb5\xeb\xaa+\xa6\xff\x004\xe1j\xc4\x00^\xb3S\xc1\x18\x93\x99\xc8C\x14\xbd\xaf}G\x8c\x1c\xc7>\x9c4\xc8BH\xdd]\xe6oy\x0f\x99\xbd>\xd7\x8a\xf9\xf4{@_A\x03\xca\xaa:\xd2YT-oF\x11.\xfd\xb8j\xf8r\x92e$\xccR\x97\xd3\xba\x15\xeb&\xc1\xca}?2Ns\x91\t\x7f\xd3f\xb3\x86\xf2\xbfU\x9f\xce\xfc\xacGE\xeb=\x99\xfer\xa4\xbf\xf4g(\xae+S\x10w\xd0iz\xae0\xa4\x91\xc93\x14\x84\xf5\xd7\x18E8a\x98[\xa0\x99g2NS\x97Iy\xa9|\xe9\xdeZr\xde\x10\x18\xd2_{\x0c<\xef\xcb\xf5\x87\xea{\x06)\xc6\x00]\xbc\x00Vq\xc5$\x8cB\x1c\x85\x7f\xd3\x18e\x84\xd3\xde\x0c-]\xc8\x81\xc7W\x83\x87\xed\xa8\t\xe0^\xaby\xe4\xdeb\xa5n\xbd\xe4\x01\xf0\x18k3-z\xb7\x02\x16\xefD\x15\xea9c\x12F!Lb\xdb\xf7l\x19\xa6\x0b\x1aq\xd4\xbdf\xd9\x18\xad\xd1\x81\xd1P\xdb3\xc9\xda\n\xcb\xe6jxg\xa4z\x0f\x9fqt\x1a\xcc\xd6\xf3w]\x01\xba\x19\x00a\xa5\xe7\x08Y\x14\x84`\xa5\xbe\xeb\x0eVY58\xa2F\x92i\xd0\x8e{\x0b\x9b\xba\xb4\xf2\xf7]\xa6\xf0\xc5\xb6\xe7\xb4\xf0\xdc\xdf9\xadf\xf3[\xd6\xc9\xd3\xf6\xe2\x10\xc3U\xcd\x18\xb2\x91\x88C\x1b\xa0\xe9LVYEg\x15\x15\x83\x8a\xeam\xeaR\x96=/2\xe8\xfa\xaf\x13\xe4\x96[\xbe\x17?\xcf\x87p\xcc\xcd\xeb32\xcb\xb3|a\xac\xe7\x88BL\x84\x91\r}\xd1\x9c\xa7$\x1a\xa7\xc5-m\xcf_\xa11\x84\xdel\\\'^_\x10\x8c\xa9\xbd\x12\xbf\x98\xa8\xcbj|\xcc\xcc\xcc\xcc\xcd\xdd\xf4\xfbB\x93y"\x1be)-\xae\xceVf\xc0\x14\xddu\xbb\x97\xd4\x82\xcd\xcc\x93\x8e+\xc2w<\xef\x05\x18\xd5\xdb\xd6,#\xd8\xd2\xe6fffff\xee:$\xff\x00\xff\xc4\x00\x1a\x01\x00\x03\x01\x01\x01\x01\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x01\x02\x03\x04\x05\x06\xff\xda\x00\x08\x01\x02\x10\x00\x00\x00\x00\x90@\x00\x00)\x85\xc7\xd5KJ\xb4\xb4\x05-\x00&\x02fJg\x9b\xb2q\xe9\xd8\x0b\tH`\x00\x80Y\xc9\xbd\xce\x1a\xd09\xd0\x94!\x82L`\xb1U\xad\t\x88\x05\xa2\x90\x01\nf\xad\x99\xc0\xee\xedK\x10\xd5H\x00)\x99S[\xacg\x8f\n\xf4\xba\x84\xd4\xb6T\x0cMD\xca\x95{\xe7<\x9c\x92\xfa}f\x9c\xe0\xf6lR\xda\x88I\x13\xd2m\x97\x8d\x17\x96\xfatw\xce2U\xd4\x80\xd6h\x1dl?B8<\xa9\x9fbr\xdf\x87\x0e\xd6\xf4"d\xb7\x0c\x04t\xf4u<\xef\x93\xcd\xf6\'\x8f\x1f3\x8f\xd8\xd3K\x98\x8c\xdfL$\xd8\x01\xd1\xe9-W\x16\xf1\xc0\xab\xcf\xf6\xfcu\xd4Fq\xd5Y\xcam\xa6\x0f_Kh\xc9\xe3\xcd\xe6\x1e\xb6~.\xbd\x97\x9es=BRS`\xcfK\xb7\x19\xcf\x9f\x9b\xe7}\xaf_\xc0\xcb\xb7\xa62\x89\xce\xbb\x14\x934\xad\x87G\xab\x0b\x9f\x8f\x0f3\xe9\xbc\xef7\xa3\xbf^l\xe1c\xd1\xb9)Jj\xec\xaf^c\x9dJ\xbf\x06\xbd=\x9f6q1\xd3\xa0@\xb4\xaa\x9a]=\x13\x96m\x99y\xd7\xde\xd6\x19J\xcb\xae\x9a\x94\xd5\xcbO\xd0k\x9a\xe8\x02\x04a\x119\xf4\xd8\n\xa14\xaf\xd7\xcb<\xad0\x037\xff\xc4\x00\x19\x01\x00\x03\x01\x01\x01\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x01\x02\x03\x04\x05\xff\xda\x00\x08\x01\x03\x10\x00\x00\x00\x00\x00h\x06\x86\x9bewq\xd6\xb9\xe5\x90\x00\x001\r\x0cj\x99\xa7_\x1e\xbba\xcd#@\x14\x81\xa0\x06\xa8c\x9c\xef\xb3\x1cd\x1a\x06\xd0\x14\xdc\x08\x1d5*i\xc8\x02c\x00\x1e\xa3Q(\xaa\xd2\xb1\xc8L\x00\x0b$\x07\xad\'Fy\xab\xd3\xd3\xb8\xf3y@\x1b\x92\x86Hke&.z\xae\xde\xc4\xf1\xf2e\x0e\x92Z\x81#\xd52\xc7\xcek\xb7p\xc5\x86>yCF\x96\xd4\xc5\xbc\xe4+UZ\xbe\x8d\x99\xe3\xddrvtqd\x96\xee\xe8\x89\x9c\xd2\x19Z\xedI\xe9\xaf\x80o~\x96\xdcXbmUF+ \x90\x1a\xae\xbbF\x1emu\xef\x97\x7f\x95\xe8.k\xbby\xe6\xb3h\x12\x05}\xa4\xf9S\xbfO|\xf0\xd7~xF\x96\xeb.d\x00 K\xafN>\x1d:6\xf5\xb8\xb8=U\x87&\xdaUi>x\x03hr\xfa\x97\x99;uk\xd7\xe3\xf7t\xe5\xc3\x9f]Ui\x8f\x13\n\xa19/\xab\x83\x95\xe9N\xcfNy9_S\xb7\xa778]\x11)\xab\xbe\\\xefIF\xdd\xd9\xf1%\xd8\xea\xaf\x93$\xea\xc9@\xf6\xc7\x96\xb7\x8c\xc0u4\xba\xa9\xd5\xf2\xe4;\xb5 \x1d\x1c\x9c{m\x93\x90\x01\xbf\xff\xc4\x00"\x10\x00\x01\x04\x02\x03\x01\x01\x01\x01\x01\x00\x00\x00\x00\x00\x00\x01\x00\x02\x03\x04\x05\x11\x06\x10\x12 \x13\x140\x15\xff\xda\x00\x08\x01\x01\x00\x01\x02\x01oO\xfa\x08\x01\xf6V\xca\xd0\x00y\r\xd6\xb4\x1b\xe7@k\xce\x88\xd3[\xa66\xac\x1e<\x06x\x0c!\xee\x0c\xf34L\xc77\x0b\xfc\xb2\x870\xbf\n\xd5\xa25k\xfcX5\xaf\xa7"\x8a\t\xa0\x005\xa0\xd0\x03@\x03@kE5\xa0y\xa1\\7\xcf\x9f>|\xe4\xe6kX\x0bH\x81\xa0\xd9\xadZ\x9c\xf35\xd8\x9a\xfa\xd1\x05Z\xff\x00\x06\x00;\xd6\xb4\x8a(\xad5\xad\x01\xba\x0b@h\x004\x06\xb4P\rn\xabC\x1b\x00\x03A\xbemKV,\x84q\'\xa7\x16\xa6H\x16U\xf6\xaac\xb1\'\xa2\x8fV\xfe\xc0`\x1f\x00i\x1e\x9cJhk@\xd6\x80\x00\x0e\x80\xd0\x08\xf4\xc6\x06\x86\xd4\x84\x00<\xf9\x03\xcc\x91W\xc7\xe4i\xb1<Kb\x84\xa5\xcf\xb7r\xfd\x0cf\x88 \x83\xd5\xb1\xf5\x18\xebZ\x03H\xa7"\x8a\x01\x8d\r\x03Z\xd0\x01\xba\x03@kE1\x80k\x1f\x00\ro\x90\xdf:\xfc\xa3n\xbc\xcb^\xdd?\xe5\x928(\\\xafJ\xa9Z(\x82\n*\xdf\xd3\x1a\x06\x90\x01\x0f\x87#\xd3D\x8f\x8a`\x9a\x82\x00\x00\x00\x03@h\xa0\x18\xddE\x14Q\x06\x86\x86\x80\x03!\r\xc7\xb7\xc9\x1a\xb6\x18\xc9[Y\xb2\xbe\x04A\x04i\xc8\xa7+\x7f 1\xbd\x01\xf2S\x91M\x05\x12\xa2\x92)\x02\x08 \x82\x00\r\x11\xa8\xd9\xe47\x1f\\0444\x88)\xd9u\xd4\x1aA\x12\x974Eb\x83\xa8\x0cu\x9a\xa5\x10\x9c\x08r*\xd7\xccm@\x0f\x8dh\xa2\x9d\xd3D\x8f\xec\x18l\xb54\x04:\xd6\x8ac\x03|\xd4\xae\x1a\x1a\x00\x100Q#0\xfc{\x08\xd7\x99\x1b\xfc~\n \xa7+0\x14QD89[\xf8`\x00\x0e\x80\x01\x14IN$\xb0L\xef\xa8\xa5\xafd \x82\xd1\x001\xbec\x8e\xac \x06\xb5\xb4\xea\xb6\xac\xab15\xc3\x87f\xb5!1\xf9)\xc1\xc9\xc2GI\x0c\xb1\x94\xe4S\x91W;\x026\x81\xae\x80\xe8\xa2\x8aq\x08\'\x1e\xb5\xd0\xee\xb5\xd8\x9c\xd0\x88\x89\x80\x01\x8e\xae\x1a\x1a\x1b;\xcd\xe7d$\xb7\xe9\xd0\xc7\x1e\xb4\xe7\xc6\xd2\x08z\x82Y\x1c\xd69d\x8e\xd3\x93\x91Wz\xd4mhZ\t\xa0u\xa2\x9c\x9cS\x1b3\xbb\x03Z\xf8\x82j\x96\xf4\xc65\xba\xab\x04q\x80\x04\xc0\xcb\x1c\x9d\xb5\xb4m\xeab )\xc0\x8c\x93\xb1\xd227\'+O\xd9;r*\xd3\x13@\x03\xb1\xde\x93\xd3\x91M\x0fw\xd0Z\xd0ZAP\xb7\x1b4\xd6\xd2\xae\x00h\x19\x03J\x95\x885\xad&\xba\x9c\xc0\xc6\xd2\x11Y\t(\x02\xae\xbe\xd5\x9f/k\x86\xf6U\x84\x13\x1c\xd7 \x82\x1di999\x00\xd1)\xd6\xb5\xadt:\xd7@a\xa9\x00\x1b\x8e\xae\xd6\x81\xa0\xd9$\x8e_u\xe1\x9e\xb9\x08\x98ee\xb6\xdd\x04\xab\xf3N\xea\xd4H\x9a;\x0cr!\xc1\xe0\xad\xd8=\x03\x1c\xa17\xa1\xd9O\xe9\x8d\x9d\xff\x00Z\xd0\xefK\x15M\xac\x02\x08b\x8c\x00\xd2\'\xba\xd8\xd5\xa7A8u\x98YW6!\x97\x1bA\xb5\xdcf\x9a\xcc\xa1\xd1\xdb\x0f\x99\xe4\'\'\'\x07\x87+G\xad&I\x13\xc2\x1d\x14\xf2K\x1b!(\xa6\xf5\xadh-k\xb8\xa3\xc7\xd5\xd3[B\xb8h\r\x19;\xd5S\xda\xd3f:\x12\xc33\xdf\x04\xf9\x92\xda\xb1\xb5\xf2H\xca\x12\xce\xc7C\x18*\xe4\x85\x14\xe4S\x93\x93\x95\xb1\xf5\x14\xec~\xd4\x85\xa214\x83\xb0*\xd3\x87\x8b\xb3\x85;\x83I\xc3\xedb\xdfP\xb4\x0c\x15 \x00\xa1]\xad{\xaa@\xea\xf7N6u+#\xb9\xfa\xd0\x95L\xfbM\xc7Xe\xad\xa8\x9cS\x13\xdb~tQNNE\x14U\xce\xb5\xadkA5\xcc\xb2\xe7n6Y\x91ib\xb1X\xae%\x0c[\x00\x004\xea9\xae<x\x98\x88(#\x82\'\xaf\xc7Z\xe6\x94\xdfZ\xad\xf8\x9dj\x0b\xb4k\xce\xc3\x956s\x10Hk\x95\xfd\xb5\xa5t\xf1Y\x17r\x97\xead\x99!NNE\x14\xe5w\xa0\x82\xd6\xbc\xf9-\xd0Q\'\xbc\x90\x83x\xe7\x1b\xad]\xa1\xa1\xcd\x12\t\xdb?\xed\xf9\xc5\x1en\xac\xe5\x94\xf1\x919Q\x82Y\x9d\x999\xeeA\x97\xc7\xe5n\xdd\x87)\x16N<\x96@bnf\xcd\xbb\x10\xc9\x8f\xe5\xd42r5\xe6X\xff\x00\x0b\xa2G>8,\xd7\xbd\xb2\x8arr\xbb\xf2\x16\xb5\xaf%\xa9\xc54q\\\x0bZ\x00\r\xe9\xa8t\xd4\xd4\xe7X\x95\xb1K\x85\x96\xbd\xca\xd1T\xaf\xc7#\xe3\x8c\xc1\xde\xc3\xf0\xfa\xc7\x1a\xfc3\xf8\xed\x8e9n\xb4\x8d\xbf:*H\n\xc1r\x10\xc2\xa4vB\xc6\x8a{|Am\x93\x14S\x95\xd4\x16\xbbj\x1dk\xcc\x9d\x05\xc71-\x97\xfba\xb6\xc4\xd0\x03@@\x04\x03\xe0\x8a\xb8\x01>I1\x17*X\x96\xad\xc4G\x0e\xf8{\xee\xd5\xb8\xcc\x94\xbd\x15i\xdc&\xb1Y\xfc\xbb\xad\xb2hm\x95\xaa\xad\xb2\xd72\xb5\xcd\xab\xa8!\xd0\xe9\xbd\x0e\x9c^Bj\xc1\xd3\t\xa8*3\x80\x13PA\x00\x9a\x87O1G\xd5\xaa7\xf1\xd4\xe4i\xc0\x00\xa5t6Y\x1a\xe5\xed\x9e\xf3\\\xa4r\xe1pZ\x9a\xe5\xbfD\xb9\xb5\xa6cmJ\xd7\xc6m*\xf7#\x9a\xda\x08v:\x1d\xcf \xeb\x03U555\x05\x8e\x99\xa8&\xad\xb1\x89\xbd\x05\xbf\x87\xb2\xe5`\xb1H,\xec\xf8\x98\xba\xe6v\xdfZ&\xabR\xb4\x0c\xe6X\xe3\xf1\xf9:rQ\x92Ls\\euvO#\xd3\xda$\x9a\xdb{\x08t\xd4\x15\x896\x10\\F$\x10M\xea\x19+[\xfd\xa4\xb6\xc0:\x1d\xca\xd8d\xf8"\xc4xb\x16nj\x8d+#j\xdc\x9dNW\x1a\xc7eq\xbcn\xe5\x1a\xcf_\xaf 4+\xda\x91\xad`\x91\xc9\xcaQ#Z\x07C\xb05<N\t\x8b\x8e4 Bjii\x04\xba\x83\x90A\x02:\t\xd1\t\xa2\x998\xfb\xfel^3\xfa\xe1\x89\xa1s\x9c\x83\x8fW$\xaf\x0e:\x9b\x84\x8d\xc7d\x7f\xeb\xde\xbb\x1bm=\xe6\xab,HQD\xeaH\x82\x1f\x00\x04\x06\xa5\x82X\x82\xc3\xa0\x82\t\xa4\x10\x82zi\xa7y\xae\x04\x10w\xb0w,\x7f\x88\x83\xd6\xf2\xcd\xc8\xcd\x89\x8c,\xb6B\xc4\xbdN\xf2x\xa61\xd6\x8bo\xc4{\ng\xc2\xc9\\\xee\x89q\xab\x15\x82\x82\x1d\x04\x10A\x04\x13\xe2\x9e\xae$5\x02\x0bKH \xb1\x02\x0c6!\xc9Eg{\xd8;\xde\xfdoy\xd9j\xba\x11b^Qh\x9e\xaf\x1aK\x19\x95\x86`\xaf\xbb\xa8\x19nF\xa8\xdb3\x8a)\xc6\x16\x01e\x04\x10\xe9\xbd\x84\x10\xea\xbc.\xae\x10--@\xb4\x83\x0b\x81\x0ba\x07Ej\x1c\x94s-\xef~\xb7\xbey{\x8b0\x99\x9frE\xbd\xc8\xeaX\xc8#\xa9e\x99\x0b\xaeLl\xeey\xad\x1d\x89\t%\xc4(\x18U\x84\x10\xec \x82\x08!\xd7\x1c\x84\xa7\x00\x9aA\x05\xa4\x18\x9c\x08;\xd8v\xf6\xc9*_\xf5\xeb\xdf\xafNv~\xf6:\xae\xf9e\xe7\x1e\xadI\x8d\xa94\x1f\xcf\xc8\x1b["\xd9Tb\xcc\x8ck\x9c\xf2I$\xd5\x898\xd8-C\xe0 \x82\x08 \xb1\x11\x83;\x10- \x82\xd2\xc3\xb0v\x0e\xc1@\xee\x8d\xcf[\xf5\xeb\x97\xe4x\xddOE\xd9\xeb\xee\xeaI\x1e\xee1\x14r\xcf&^\xe042X\xf9\xaeL\xa1l\xf2\x14I11\xa0\x92\xac\xa0\x87A\x0e\x82\x08 \x82\x8d\x07\x034k_\xd0\xdb\x7f\xd55\xc0\xe0A\x07`\xef{\x0e\xc7X.\xf4\x1d\xc8nq\xd8 <\x9e\xdb\x9cI3I\x83\xc7\x98q\xcb\x97e;\x8aj\xf9J\xa2\xcc\x84\x92J\xad\x12r*\xc9\x08t\x10\xe8!\xdd!\xb6\x96\x90\xa4\x84\xb4\x12\xcf\xc5\xee\xc6\xcd\xeb\xd03OZ\xdf\xe8l\xcb?\xed\x1d\x98\xac\x7f\xdb\xb3\x94\xa6\xdb\x97\xb7\xca\xad\xb8\xbai%\x89\xb8:\xb7\xec]\xbc\xe7|\xd3\xbd\r\xf2\x8aq\xad\x1a$\x97\x1bD!\xd0C\xa6\xa0\x87X\xa0\xd2\x08s\\\x1c\x8b^\xe7\xca\xf5# \x9f\xd3]\x8e4&\xc8\xe3\xefM\x98/\x18\xc9\xabc\xfd_Y\x17eS\xedd\xe6.\xeb\x8c\xd1\xc8\xdb\xad\x91\xccX\xfb\xdd[\xcc\x99\x82&\x93\xb2\x8a\xb2\x82\x08t;\x08u\x89M!\xc0\xb4\x83\xeai\x81\xd4\x85\xc5\xec\x86\xc7\xa7\x87\xc0\xca\xf6!\x14\xa5\x86h0\xf1>\x97%\x14\x1b>31bQ\xd56\xd3\xb3\x96\xb7q\xff\x00\xe4\xc7\xe3\xf2\x01\xc4\x92I6PMC\xa1\xd8 \x83\x8a;i\xdbHu\x99X\xc2\xcfR\xc8\x1c\xc6=\xbb\x13\xef\xd6\xf6\x1d\xea\xb4\xf6-\xe7\x8e,\x83\x9d\xb9#\x7f\x17\x0e+\x8e\xccYs\xe4r\xf3\xfeUnT\xbcJ*\xc1\x08\x10P(t\x13V0\xb4\x82\x0bO\xb8\xd8\xe9\x1f(%\xea\x84\x96"=\x08\xf7\xb0}o\xd3\xd6nlX\xcc\\/\x04\x92\xb1w\xe1\xb3\x90\x1dJ?\xcc\x1a\xb9\x08\xe7&Wt>\x02\x08u\x8eA1\x04:bz\x08\xa8\x91T\x94\xaaN\xc7M\xf8\x95ZX\xd5\xc9QA;\xab\n\x04\xfe\xa0V\xbf\xdb\x1c\x9c\xa5_\xff\xc4\x00H\x10\x00\x02\x01\x02\x03\x04\x07\x06\x03\x05\x05\x05\t\x01\x00\x00\x01\x02\x03\x00\x11\x04\x12!\x10\x131A\x05 "2Qaq\x14#0BR\x813\x91\xa1$br\xb1\xd1\x06\x15CS\xc1@DP\x92\xe1%&4Ts\x82\x83\xa2\xb2\xf0\xff\xda\x00\x08\x01\x01\x00\x03?\x01O\x98\x1f\xb5\' h_\xb3{u\xed\xb3\xd3f\x9dO*\xf2\xff\x00`\xf4\xaf!\xf9V\xbc\x05[\x95y\n\xcc\xd6\xb5\x08\xe3\xd4\x0b\xd0\xf0\x1f\x95\x0f\n\x1e\x03\xf2\xa1\xe5\xf9P\xf0\x1f\x95(\x04\x90-\xe9G\x15\x89\rk"\xf0\x15\xe4?*\x1e\x03\xf2\xa1,/\x19\xd30\xb5\xc0\xac1\xc2\xcb\x1cQ\x05\x16\xb2\x9f1\xce\xa6-\x1e\xf8\xabi\xf2\xe8I\xf0\xff\x00\xad\x15\xc5K\xbd\xb9\x8e3\xdb(./\xe1E\x98\xba\x81b{\xa3\x95<Rd\x94\x15o\x03@\x8bU\xe6\x90\xf2\xcb\xb3\xca\x86\xcfx=?\xe1\x1f;u\xce\x90\xc6u<kw\x94\n\xba/\xa6\xdfr\x9e\x97\xac\xf2\xb5\x8fe\r\xbe\xf4\xb3a\xa4\x89UW7\x03n\x07\xc6\xa4\xc0\x0b\xe2U%\x8b\\\xcd\x97T\xfb\xd3M;\xc8\xfd\xe67\xa3[\x9c%\xdcv\xdf^\xaf\xbc\x1e\x9f\x02\xe7\xfd\xb2\xfbL\xafaA@\x03\xac \x85\x9c\xfd\xa9\xa4}\xe3w\x9a\xb7b:\xf7k\xe9AucaJt\xb8\x07\xc0\xe9R\x1c\x12\x98\x82\xef2\xe9\x9b\x81\xa8\xd6Rf\xcd\x87\x91\xb8\x83\xddc\xebW\x1a~\x94}\x9c\xc6\x84\x06ng\x95\x08\xa3g/\xc4\xd9\x05\xb5j`\xd0\xcb?\xa9O\xe5\xd6\xf7\x83\xd3\xaf\x7f\x89\xaf\xfb\x1d\xcdn\xe3\xe1\xa9\xeb\xcd\xd2\x18\xac\x90\xad\xd1?*\x92!\xa8\x8e\xfeMX\x89c\\\xb1\x1d\x0f#E#Et\x901\xe0\xa5x\xd5\xbb\xdf\x88y\x8f\x97\xd2\x87\xb0F\x0fo\xcc\xeb\xce\x92(D2\xe9\xe0k\r\x12d/\x1e^C\x8d\x0e\x10\xc6}N\x95\x88\x97\x16\xc9\x0fo\\\xa3K\xde\xb7-\xbe\xc5\x91$\xe7\x97%\xeb\xfb\xc1\xe9\xff\x00\x03\xbe\xdc\xcd\x98\xf0\x1dv\xc46\xedt_\x9d\xbc) R\xa8\x02\xc6\x96QngjH\xd9\x89ub-unU\x1a\xc5.Y&\xcc\x14\x9e#OZ2\xa4J\xfai\xd9\xfe\xa6\x99\x01\xb8 T\xb2\xe6 \xa2\xd8\xeb{\xd4\xf9d\x8d\x0cA\xb8f\x04\xd4QE\x19\x8e0\x19A_\x81\xef\x07\xa7Z\xf5o\x8bca\\\x03|[\xd6\x9b\x0c\x8e\x00\xa0\x88\x00\x16\xeb<\xd1\x16\x8c\xe5\x1c\x16\xfc\xcf\x8f\xa5.\x17\x0fa\xcb\x99\xe6|i\xe5\x85e\x90i\xaeA\xeb\xc4\xf5.f_\xa9Uj}\xeb\xc7\x18M\xdap.u\x1eT#\x01\xf1O\x19\xb6\xa1WJ)\x84\xce\xdc^\xee~\xf4\xa0\x9c\xcc\x05^\x15#\x9e\xbf\x03\xde\x0fN\xae\xbf\x1b*\xd5\xce\xc6C\xe5J\xfc>6T\xcex\x9a\xd3\xa8\x14\x12\xda\x01M/jk\xa2rNg\xd6\x84\x10;\xfd#\x85\x19e\x8e\x10l^\xc0\xf9PU\n\xa2\xca\x05\x87\xa6\xd1\x1ce\x9b\x80\xa9f\xc5\xb5\xb2\xc4\x96\x1a\xb1\xd7\x87\x1bPx\xf7P=\xa2\x1a\xb3\x0e,j9\x06T[x\x96$\x9a\xcf\xf8\xd23\xf9\x1a\x81x^\x9a\x0e\xda\x9c\xc9\xcf\xcb\xe0{\xc1\xe9\xf0-\xf0\xac+1\xeaX\xe9V\x00I\xf9\xd6aq\xc3\xe0_i\x95\xc7\x85XXu\x1av+\n\xdf/\x16\'AO\x9dZY\xbb\xba\x84A\xa7\xebV\xd4\x9f\xb9\xab$p\x8e,\xda\xd6\xf3\x12\xf27\x14\x16\xfb\x9e\xa0\x95\xc4\\\xbb\xcc?\x90\xa8f\xc44\xa5;\x1e\x1fY\xf1\xf4\xa0\xa2\xca,:\xbb\x83\xd9\x1e\xe8\xff\x00\xf5\xeb\xfb\xc1\xe9\xd4\xbb|l\xa2\xc3\xae\xd1\x1e\xc9\xfbRI\xe4|:\xd7\xad6\x16kV\xee1\xe3\xd4\x12\x06wn\xc8\xd0\x01\xce\xa0\x00{\x88\xff\x00\xe5\xafg\\\xe0\x93\x1f5\'\x87\xa5\x0fca\x11\x06\xe2\xe2\xb7\x92$\x92\xb0\xec\x9f\x1e4}\x84HG\xe2\x9c\xdfn[B)\'\xec<h\x85\xdd\xe7\x02W\xed1\xe7o\xff\x00\xb4\xa08\x0b\x01\xcbn\xa0s\xd9\x96\xc3\xbc\xc7\x82\x8aiC\t\xdc\xe5?*\xe9[\xa9r\\\xb0\xb5\xd4\x9e\xb7\xbd\x1e\x9dK|\r:\xb9V\xaeo\xf0-DYe\xe1\xe3A\xd6\xeb\xc2\xb4\xdb\xcfn\xb9\x88\xeaY\xb70\x91\xbf \x9d~[x\xd4\xcb\x86\xc3\x98\x8eE-\x97w\x1e\x9f\xadcs\r\xc9T_\t\x1b=b$7\x98F\xf6\xf0\xd2\x99\x95"c\xba\xb3\xdc\xb5\xb3(\x14\x80\x17_{!\x16\xcc|\xfc<(G\x1a\xa2\xf0Qm\xb1\xbc\xacKva:\x8f?\x1a6,\xfd\xf6\xd4\xf9ym\n\xa4\xb7\x01\xado\xf19\xaf\xa5\xb4\xae\xd6U\xd5\xcf\xe9Y/mI\xe2O=\x99^\x1f\x1b\x1a\xbfW\xde\x8fO\x89\xa7W[\x0f\x86\xf0\xb5\xd0\xfd\xa9%\x16=\x96\xd9}\xa6Y\x00\xa0\x8a\x15xm\xb4D\x86\xcb\xe7\xe1QaB^\xe0E9RI\xbe`|jIUTF\x16\x14\x91\x99X\xf1?n\xa6GV\x8fB\x08kr$x\xd4x\xb4\xd3\xb3*\xf7\x93\xfdG\x96\xc2\x00U\xfcG\xd1|\xbc\xea=\xf6D]\x14\x03\'\xef\x1e_\xd7\xa9\x96 \x9fW\x1a(cT\xb1\x90\xdd@>F\xb2\x03\xad\xc9\xe2|k]\x9b\xf9K\xf2\xe0\xbe\x94GW4\x80\xdf\x96\xcb\x9e\xb9\xeb\xe5\x1f\x0b]\xbe\x14\xe5\xc4m\xda\x07\x85i\xb31\xb0\xe3B(\xc6\x9d\xa3\xd4\xcc\xeb\x17\xcb\xc4\xd2\xbc\x93\xe2\x18\x03,\x9c<\xbd)\xa2:\xf3\xea\xb22\xba6W]A\x1c\xa8b\xb0\xcb(\xb0<\x18}&\x86Y1L>[(\xf2\xff\x00\xad\x15A\x9bV:\xb7\x99\xeag\x94\xdb\x80\xa5\\\\\x84[\xbfZ\xd1\x8c\xa9\x1c)\xa5\x1b\x95\xb2\xe6\x1a\x9f*\xb0\xdbm\xbd\xb1\xe9\xb3)\xa0x|\x1d6\xe5\x175\x99\xbe-\xcd\x04\x8fx\xe3\xb4xm\xcc\xd9\xc8\xd3\xa9z\xdeJ\xec9\x9f\xd2\x9d\x08\xb1\xe1J\xf3\x86\x94\xe9K<\xacH\xb2\x0f\nd\xef\x0bV\xbb\x00\xe3D;$lTIk\x9f\xe7R4\x8a\x82\xcd\x14z\x9f\xf4\x14\x0f\x14\xac\xcb{\x11\xeb\xb3t\x99Gx\xd6\x9egJ\xee\xc8\x1a\xdal\x12&V\xa5\xdf\xd9/d\xd2\xe7\x99\xea\xdbglk\xcbi\x07J\xbf{\xe1\xdb\xb2+^\xbe\xbdc\x88\x9a\xe4v\x05X\x006o\x18\n\xc8\xa1F\xd0\xabv \x0ed\x9bR<N\x98S\x9d\xce\x9b\xcf\x95k"\x81\xc7\xcffM\xd3p\x02U\xd6\x8cK\x94\x0b\x1b\xebQ\xcbu\x16j\x8e\x18\xcf\xcc\xed\xc3\xca\xb3Nc\xbf\x01\xc6\xbd\x92X7oi\x01\xef\xf2\x15\xd2\x85\xd33a\xe4_\x15\x92\xd7\xa48U\x92K\x86\x90\x96e\x1c\xb5\xa8\xd3\xba\xb4\x15n\xc4\x01\xe7P\xc7\x19b\xea~\xf5\xbd\x98\xb5\xf8\xf8\xd0g\xbeV+\xf2\x90/\xadA\x94]\xb2\xdb\xc6\xb7\x97`\xac\xab\xca\xfc\xe8E\x139\x17\xa3\x97\xb5\xc7\xadj\xf7\x83\xd3\xaa\xcb\xe9A\xba\xb6\xadvn\xd3\xce\xb5\xbf\xc52H\x15F\xa6\x97\r\x00[v\xb9\x9d\x97\xe1YW1\x1b-\xc4\x81\xeak\x9f/\x1a|d\xc6\xc6\xd0\x8d\x11k\xf6x\xad\xf4\x8a\'\x87\x1a\xcc\xb7\x15\xbd\xc3H\x9e"\xb7\xf8Tc\xdf\x1d\x96\xf5\xa3\xda(H\xb1+E\xb8\x9b\xd1\x8d\x89\xb7\x1e4\xd8\x87\x8f"\xe7b\xfa\'\x8f\x95B2\xfb\x8cV\x19\xdfL\xa0\xf6sz\x1a\x92\x14T\x8aw\n\xa2\xd6`\rb\x0f\xf8\xb1\x9f\xfe:\xc5\x19\x1aM\xfcE\x8f\x00c\xd0R\xcd\x19\x0c\x91\x89\xe3\xef\xd9\x7fZ\x0e\x9f\xbe\xba\xa9\xf0\xa8\xe5\x01\xad\x95\xbcWB*\xd22\xb8R\xeb\xae{q\x15\xado&\xcb~\xc2i\xf7\xdb\xc7f\x87m\xa4\x1e\x9dcEtmh0\xd0\xd6\x9bnk(\xb9\xa2\xed\xd45\x88\xc4\xb5\xa0\x82IO\xee-\xeb\xa5e\xb1\x18\'Q\xfb\xc4\n\xe9#\xc4B\xbe\xb2WHe\xba\xcb\x86\'\xc31\xae\x98\x8f\x86\x1dd\xfe\x07\x06\xb1\xb8F\xb6\'\x0b4~\xabR\xa2\xe6x\x98/\x89\x1aV\xbb,\xbb\xf7\x1f\xc3\xb7x\xd9\x8f\x01^\x14Z"\xc2\xeb\x19\xd0r-\xfd\x05B\xb7\x021!\xe7!\x1cO\x97\x95!\xbe[\xc6m\xc5k\xd8\xbaB\\$\xdcP\xd9_\x93P\xca"$\\p\xd8\xda\xb4\x16\xcd\xcc\x1e\x06\xa3=\x99n\x8f\xcc\x11^\xc9\xd2$\xa9\x06\x195\xa0\xd3\xe2P\x1b\x82\xf9\xd7\xd0\xec\x11\xee\xef\xf3\xbeZ\x06\x02\x19nO\x0fZ\x92\x03\xefe\x12-\xbf*\x89\xf80\xfb\xd0<\r\xf6n\xfa`[\xe6\xec\x9bzV\xb4w\x93\x01\xc9\xbf\x98\xbdf*ob\xa7\xf4\xad\xca\x00\x9f\x88\xdc\x0f\x87\x9d\x004\xdb\xc7\xab\xef\x07\xa5i\xd7*t\xab\xe8\xd5aY\x8e\xcb\x0c\x82\xaf\xb7\x15\xd2R\xe4\xc3D[\xc5\xb9\n\xc1\xe1l\xf8\xc3\xed2}$v\x05$J\x164DQ\xc9E\xa8\xef\x959\x15\'\xf2\xeai\xae\xa3\xce\xb0\xee{\x99\x0f\x8aiXW\xccw\x11O)\xe5\x17b_\xd3J%\xc3a\xe6W\xb1\xed\xc4\xe3+\x8a\xdc\x81\x19R\xb9yZ\xdb3\xb8\x02\x84h\x00\xa0\xcd\x95\xbb\x83V\xb7\x16\xf0Q[\xd7I\'\x00\x95\xee\xc7\xc96\xfe\xd5\x14\xebk\xb0\xfdE\x1d\xd2b0\xd7\xca\xcb\x9b/\x87\xa5\x02\x00\x9b\xfejY\x05\xe37\x14\x98\x84\xcb \xd7\x91\xa9"B{\xe9\xe28\xd6\xe6d~cOQA\xd40\xe0k(\xc3\xbf\xd3(?\xa5G\x84\xc4\xac\x8d\x13>\x194\xce<|\xab\t\x8e\x8f>\x1d\xe3\x94\x1d{\'\xb4=h\xfc\x92\x11\xe4u\xacB|\x84\xff\x00\x03S\\\x8d\xe4\x97\x1c\x8d\xeb6(H\x1b1]I\xa6\xcd\x98\xb1\xbf\x8dK\x99\xe5\xce\xd7s\xfaS\x83w\xee\rMgwu\x0c\x0bi\xf6\x15\xf2\xbd,\x8bu=\x7fx=+O\x85c\xad\x04\x8fN5ss\xb2\xf5&?,\xf8\x9b\xc7\x85\xe5\xe2\xfe\x95\x16\x1a%\x8b\x0f\x1a\xc7\x18\xe46\x9c\xe8\xcbk\xad\xf4<\xc1\xabw\xa3\x94}\xafQ\x8e9\x87\xaa\x1a\x87\xfc\xc5\x1e\xbaP:B\x0c\xa7\xf7x~t\xf2\x0fx\xd9G\xd2\x9f\xd6\x96%\xb4j\x14Ts\x18\xd9\xb4\x90pq\xc6\x8aF}\xb97\xf0\x8f\x9c\x0e\xd0\xa3;3`\xbd\xe2\xfd$\xea>\xf4\x81\x8e\xa3z4+\xcdhF\x85\x9f@)\xc0\xde\xe2?\x15\xb5\xcb\xf4T0\xfe,\xd1\xa7\xf10\xae\x8fN8\x90\x7f\x85I\xac\x00\xf9\xa6>\x91\xd6\x1b\x19\x84\x8d!I\xb7\x8a\xf7\x19\x80\x15\x86^\x8eH10K\xbc\x8f\x83\x0bp\xac3\\\x8c<\xf7\xf1R\xb4\xa8\xff\x00:y\x9a\x91\x85\xd5\xd5\x85}I\xf9TR\x9d\xec\x0b\x92O\x99y\x1a\xc9\xd8br\xf8xP\\\x0e{\xe8\x085."\r\xd1\xcb\x941oZ\xc4`\xa5\x0f\x0b\xbcr\x0f\x99jh\xfb8\xf8\xb7\xa3\xeaM\r`\xfaA\x7fe\x983}\x07B)\xf3\x16\x8c\x80O\x1b\xf3\xa9\x10\x03\x96+\x93\xc0_\x8dK \nm\x18\xe6A\xbd0\xff\x00\x17\xff\x00\xad,q\x92\xf2;\xfe\xe9\xd0Qv9\xab[\x8a\x92\x06\xe3\xa5$\x9cx\xd5\xfa\xbe\xf0z|Bv\xfbc\x8cV)\x7ffS\xa0\xfa\xff\x00\xe9@\x00\x00\x00\x0e\x00u\x8fP"\x12\xdc\x05o\xa4\xcd\xcb\x90\xa7~\xea1\xa9\x1fX\x15\xa1<\xf2\xe8\rI\x14A1\xf8Ow\xfebr\xfb\x8a\x97p\x1f\xa3\xc6\x1e\\\xba\x8b\xf7\xff\x00\xa5t\xcfH\xfe$\x8e\x17\x9e\xf1\xedo\xb5{\xcbb1k\x7f\x04_\xebX\x15\xef\x99\x9f\xd5\xad]\x1c\xbf\xee\xd9\xbf\x89\x89\xac\x13`\xa7\x11\xe1!\x0f\x90\xe5:\xf1\xa8%LJ\xcb\x0cR\x11\x94\xdd\xd6\xf5\x82<p\x90\x7f\xc9]\x18\xe7\xb5\x81\x83\xfeZ\xe8\x96\xff\x00sU\xfe\x16"\xb0\xf9?f\x96H\xcf\x83\x1c\xc2\xa5\xc2M\xbb\x9dr\xb7\xe8k+\x87\x1ax\xd0n\x88x\xdb\x8e\xc0E_\x85<.\x1dK#\x0e\x05M\xab\x1e\xd3\xc7\x85\x90{Nv\x01sw\xbf:|\xf9\xa4\xcb\xa7\x006e\x04\xd1\x95\xfc\xb6\xde\x98\x1e\xcd\xe9\xd2\xc1\xe9d\xe1\xd4\xf7\xa3\xd3\xe1yU\xb6\xb7Jcr1\xcb\nk#_\x80\xa8 E\x8d\x06TQ`\x07*[\xe8\xa4\x8a\x8d\xbb\xc2\xd5p\x08\xd4u\xf4\xad\xf7\xe2\x9e\xcf%\x15\x12\x0e\xca\r\xaa\x9d\x9e\xf3\x1f\x94q\xa8\xe5\x90\xca/\x86\x93\x91\x84\xff\x001\xc2\xb10\xdd\xc2\xac\x84\x7f\x8c\x82\xc5}W\x9d;\xc6\xb2\xb2\x91\x97M\xea\x8b\x03\xf6\xe5K%\x96N\xcb\xff\x00:\xd6\xae\x08\xf1\x14S\x1b\x8cN\x1e\xef\x87\xfe\xee\xa2\xa2\xdd\xcd\x85\x1c|;\xa7\x85P|\xae\xc7U\xf3\xa6\x8by\x1b\x8b2\x9b\x11Yp\xe19\xb6\xdd\rfkxS\xcb\xd2\xdb\xf0\xbe\xee\x10K\x1fQa\xb3\xd8\x02\xc7\x16\xb37\xe9X\xbcB\xe6\x92v\xd7\x904\xf1Hs\x1b\x8f:W9H\xb1;U{O\xc2\xa2\x9bN\x06\xa4\x80\xdcp\xa0\xdd\x96\xab\xec\xf7\x83\xd3\xe1e\x15s\xb3Z\xf6<\x08V\x16\x91\xfbO\xfd:\x9b\xb6\xb3wO\xc3v|\x91\xf6@\xe2\xdf\xd2\x96>\xef>\'\x99\xdb\x1c\xd7a\xd8\x90\x8bf\x1c\xfdG:l3]\x05\xaf\xc1~S\xe8y\x1f*\xc4*\x8fvY?Z\xbd\xb4\xad\xdf\xf6\x8f\x16\x83\x85\x9c~\xbb\x02D\xcex(\xbdg.\xf6\xbd\xec\xa8\x9e&\xbby\xe49\xa4\xfd\x07\xa6\xc1\x0fH3 \xfcD\xceG\xfa\xd6\xfa@\xcf\xa14\x1b\x81\xbe\xcc\xaaI\xab\xb5n\xba\x18\xc8F\xb3I\x9b\xec4\xa5\xc3\xc0\xf2\xc9\xddQzln1\xe6\x90\xfa\x0f\x01EE\xeb9\xa2\xb6\xad\xea~\xf0\xe3W5a\x94Q\xbd^\x1b\xb5ZRSJ(l\xdc)d\x1aW\xbc\x1e\x9f\n\xe6\xc3o\xb5t\x8cjE\xd1{G\xedW=\\\xf1\xe4n\xf0\xea4\xacR\x16\x00.\x8e\xfe~\x02\x95\x05\x93\x87W.!|\x19\x7f\x97UdB\xae\xa1\x94\xe8A\xa6\xe8\xf6\xde\xa1f\xc2\xfc\xfc\xca\xf9\xd0$\x10o_\xf7\xa7\x15\xff\x00\xc9\xb0E\x82e&\xd9\xec\x0f\xa5{\xb3<\x83\xb6\xe7O\xdd\x1bVN\x90\x9e$m@\xdd\xde\xaf\xc1\xbd)\x97CoQ\xb3;Xp\x14K\x008\x9d*\x0e\x8a\xc1\xe1\xf0\xc2&l\x83-\xf9V/\xa5p\xdb\xcc1\x07\x0f\xf4\xadM\xedi\xbe\x89\x82\x0e \x8e5\x8a\xc5 \x87\x0b\x85T\x8f\xc6\xd5\x89\xc36Yap}+0\xb1\x14\r\xfcku\x1f\x9d\x165\x99\xb5\xac\xab\x94U\xea\xf4\xd1\x9d\r\x12W\xd3\xe0\xe5\x16\x1d@"\x9ec\xde\' \xeb2=\xd4\xd8\xd4r/l\x85j\x8b\xfc\xc4\xfc\xe8K*a\xf0\xf7\x0c\xe7\xb4\xff\x00J\xd2\xa2\x85Qe\x1c\x07X\xb4}\x9d\x1cj\xa7\xce\x84\x91+\x0e}PE\x8f\nL$\xf1\xa2~\x13p_\xa4\xff\x00J\xbf\xf6\xa3\x14lx\xc9\xb0I\x8aT\xd1\x86kVL4c\xcbb\xe0\xb0R\xce\xe6\xd9F\x9e\xbc\xab{39\xef1\xb9\xdbhZ\xb5\xa3\x8a\xc5o\x9c{\x98\xb5\xbf\x9d\tp\xefmYu\x15&\x1c>\x17\x8co\xae\xbc\xa9dp\xed\xc1h*\xe8\x05LfRSL\xc5\\0\xd3\xd4T2craPi\xc4\x8ef\xb7)v\xe2k3iE\x9a\x84I\xe7W=Cq\xa5X|\x0c\xda\x8a \xed\xcb\xd1Q~\xf1\'\xf5\xf8\x16\x17<\x05e\x95$af&\xe7\xab\xa6\xd7Wf\x82L\xb77*\xc2\xe2\xa5A\xef\xa2\xd3\xea\x8c\xde\xa3\x97\xb8\xc0\x9f\x0e{\x02\x82\xccl\x07:\x97\x10=\xd5\xe3\x8f\xeb#S\xe8*-\xd3%\xb4n\xf1\xe6~\xf4\xf8.\x9c\xc6\xc7+\\\x04\xec\xbf\x88c\xa1\xa3\x14x\x88\xa4\xbe\xf23`|i\xa7f\x96\xd7\xd6\xac\xaa<\x06\xcd\xe4\xeb\x84\x8d\xbb\x11\x1b\xb7\x9bU\xf6\xdc\xe4\x14\xf8\x89\x92(\x973\xb9\xca\x05&\x0b\x08\x90\xa0\x00\x81\xda>&\xb3+\x13\xe3jx:G$d\xdc\x1d*(\xf0^\xf9\xc0q\xf2\xf8\xd6\x19\x97\xb6YM<\xf2\x1dl\x9e\x15v\xe1YT(\xe3\xb3\x99\xe1W6\xeagz\x03(\xf2\xad>\x05\xe85\x14\xab\x1a\xb7Ea\x7f\x83\xe0f*\x9fV\xa7\xd0V\xb4\x15rM\x7f#W\x17\x1a\x8f\x80\x92\x8fx\x8a\xde\xb4G\xe1\xcc\xea<\x0fh~\xb5\x99\xb3L\xdb\xc28\\h>\xdb@D\x9f\xe86o\xe15|k\xb0\xd4\xcb\xa2\xd6\xee\x0b\xf8\xec\x18\x1c+\xb2\xd8\xcd\x96\xea<<\xcd4\xaeY\xc9$\xed\xc8\x97\xab\x92MnS\xda\xe5\x1e\xf1\x85\x90}"\xbd\xf1\x89x\x8d+\xb1j\xb7H\xab\xdb\x88\xea\x08\xd2\xf5v5\x99\xab"\x80*\xe7\xa9\xf3\x1a\xed\x8fO\x86\x1ckD\x0b\xae\xb4W\xa30\xaax\xe4\xf8\x17\xc49\xfa@_\xf5\xda\xf1Z\xc6\x81\xd2E\xfb\x8a\x85\xfb\xae>\x18\x8b\xa1\xb1\x8e\x7f\xcb"\x86&Hd\x07P\xba\xf91\xad\xdcH\xbe\x02\xa6\xee\xe1\xd7\xb5\xf5\x1e\x02\x9a\'\xf6]\xe6y/\x9aR\r\xfe\xddN\xe8\xaf\xda\x14\xb0\xb8\x1a\xebJ\xea\xc2c\x96\xdc)\xa4\xc4\xbbB\xa33\x1e|\xa8\xe5\x17\xd4\xd0\x13\x01\xcf\x8e\xdb\x9b\x9e\x15sj\xcc\xd4\x11oY\x8e\xdd+;\xd6Qj\xed\x8fJ\xd3\xe1\x99\xe5X\x94\\\xb1\xb5\x18\x11V\xda\r>\x07j_\xe2\xff\x00N\xb4\x91\xf0?\x9d\x03a \xa4\x90v\x1a\xff\x00\x03u\x83\x8b\n\xa7\xb5)\xce\xde\x82\xb7\x81\xaf\xc9\xef\xb3,N\xc5\xb2\x00\t-\xe0(I\x89\x95\xd6\xf9Y\x89\x17\xd9\xa6\xcc\xecI\xa6\xfe\xec\x18\x86\xef\xc8t\x1eU"\x13\x99H\x14`\x982\xfd\xc5#\xda\xdaPisl\xcc\xd6\xa1\x1cv\x1cj\xe6\xb9\x9a\xf9z\x99\x8d\xab \xd9\xdb\x1e\x9d}z\xb7\x91\xe7?.\x8bY\xd4\x83YX\x8e\xbfna\xfb\xd7\xfc\xc7\xc0d7ScJ\xc0,\xba7\x8dxul\t&\xc0\x0b\x93_\xde=+,\xa9|\x84\xe4\x8f\xd3\x95.\r\x16/\x99bL\xde\xba\xdfg\xb2\xf4cD\xa7\xdeO\xd9\x1e\x9c\xfa\x99FPi\xb1\xf8\xd8\xe0K\xf6\x8e\xa7\xc0s\xa4\xdd*(\xb2&\x80To\x1eW\x1a\x1a^\x8f\x95B>b\xda\xdb\xc2\x95\xc0W\xec\x9a2\xa8\'\xd3f\xed3\x1a\xce\xd4X\xd0\x8e;U\xcfR\xe71\xdb\xdb\x1e\x9f\x13u\x82A\xcd\xbbGfaq\xc7\xaflO\x93\xad\xbe\xe3\xe1d\xecI\xdd\xe4j\xe2\xfdOe\xe8\xed\xc4m\xef\xa7\xd3\xcc/:\xf6\x9e\x91Vax\xe2\x19\xcf\xfaQ3NO\x8d\xbf*\x00\x12M\x80\xd4\xd1\xc7\xf4\x83\xc9\x7fv;(<\xb6Z\xb2!4\\\xdc\xd2`\xb0\xad$\x83\xdf\xcb\xa8\xf2Z31\xf0\x14\xb0\xc4\xd29\x01T\\\xd7\xb7\xe3\xe4\x9f\x80:\x01\xe5\xb1\xf0\xe7+\xf6\xe3\xf0\xa8\xb1:\xc6\xd7\xf1\x1e\x15n\xc8\xab\x9a\xca\xb75\x99\x8f\x87S;U\x86\x9b{c\xd3\xe1\xdc\xdb\xc6\xb2\xa2\xaf\xd2\x00\xdbn\xd0\xe1\xb0\xae\xb1\x9b\x1f\x03\xc0\xd3\'\xe2\xc4}SQP\x9f\xf1\x00\xf5\xd2\xa1\xff\x005?:\x8f\xb2c9\x99\x18\x1d\x05\\\\p:\x8f\x85\xfe\x1b}\xb6\xdc\xd7\xb6\xf4\xb4\xd2\x0e\xe2\x9c\x89\xe8(az7z\xc2\xcf(\xce}9W\xbb\xb9\xe2u4b\xe8\xd9c\x8c\xf6\x9b\xbd\xe9\xb6\xc2\xe6\xb3\x9f*8\xecOh{\xb5\xd4\xd4xx\x18\xfc\xd6\xab!\xa2\xef\xecp\xb7dw\xed\xfc\xba\x92B\xe1\xa2r\xac9\x8a\xcf\xa6#C\xf5\n\x12\x00\xcb\xa8\xabvGR\xe6\xb2\xad\xfa\x838\xf4\xad>\x15\xf1Q\x0f\xde\x1dK\x8a\xe6\x9f\x95\x11\xc4lS\xc4P\xbe\x80~T#\x06\xf6\xb0\xa2c\xdd\xbf\x1e\xf2\xff\x00\x0e\xdb\xd2\xc3\x0crO>\x0f\x0e%R\xf1\x89\xe5!\x9dG;\x056\x1e\xb5\x1c\xf8d\x9dX\x04e\r\xab\x0e\xcf\xad( \x16PH\xb8\xb9\xe3Hcv\x89\xd2B\xbc\x83T\x91b:J2\xb1\x91\x81\xc4E\x87b/\xdb\xde\x1b\\xRowbD\xde}\x19\xb5\xfc\xa9\x07\xbc\x12&E=\xec\xc2\xc2\x92B\x06e\xceE\xf2\xdfZ\xc3\x8e\x91\xf67+\xbefeDG\xcd%\xc1\x02\xc5y^\xfaTG\xa1\'\xc6\xe1\x9b@\nk\xc4=\xedb(O\x88TR\xadk\xb1\x00\xf2\x02\xe6\x9e\x1fo\x87s\x15\xb0xX\xf1-b{J\xd6\xec\x8a\xb5\xe9J\x84\xbf\xbc\x90\xe6\xb7\xee\x8a\xb7:U\x14\xcf\xc6\x8c\x92*/\x12mC\x0b\x85\x08=\t\xf1\xa0\xd3d\xe0\xa2\xa1\xc1tt\x8e\xae3\xda\xcb\xebE\x98\x96\xd4\x9e\xb4\xd8S\xd8n\xcf0i1\'\xb5\xd9\x7f\x0e\xa6v\xf2\x15a\xd4\xed\x8fO\x87|`?J\x93\xd6\x04v\xb5\xa8\x94]\x94P,l,<(F\x99\x98\xe9N\xf1\xb3\xb8\xca-p\xb4V\xd9t+\xc0\xf8V\xf1|\x18w\x87\x86\xcb0"\x97\x19\x8a\xc3`\xd9K\x02\x0cpb"\xb8\x96\x15\xd4\xd9\xb4\xb3\xc7K\xfd\xd7\x85\xe9\x99\x123\x17G,\xe2d\xe5&\xb9\xa1\xfdM4s\xe1:?\n\x17?Hc\xce"\x17kv`\x02\xe9\xf6\xcc\xff\x00\xa5\xa8\xcd\xd0;\xd6\x9f\x13\x89\x9e\x0e\x90L?\xb4M\x86Xs\x06\xd1\x82\x81\xf2\xfa\xd5\x9f\xfb`s\x94\xfd\xbf\t\xda\x1f.\xbch\xbfL\xe3\xf0\x18\x80#\xe8\xc8\x91\xf2\xc4\xb1\x80#\x8cF\n\xcc\x1f\x8d\xcbs\xbdG\x07F\xf4oN\xe3aS\x14Xe\xc3M\x1b\x0bf\x978U6\xff\x00\xd3v4\xd8>\x94\xe8\xec\x0c\x8c\x19\xb0\xed61\x9c}\x17\xdd\xc2?-h\xc5\xd3\x9d\x00\xf1Y\x19\xb1X\xa5b\x00\xed\x03"\x82*LN\x02v\x96c&?\x1b\x8a\xdcI\x1bY\x04a]\x82\x0b\x01\xa6\x84jjH\xbf\xb3\xfd:\x1f\x11>\'\x19\xd1\xa5-3a\x92$F\xbeR\x12\xdc\xacj\xd8\xcf\xed\'\x87\xf7L\x1f\xe9J\xcc\xea\x99\x83\x94\x12\x00\xcaE\xd5\xb4\x0c<E4\x9d#\x88v:\xe7"\x89\xda\xc0\xef\x9cj\xda\x0f!\xe3K\x82\xc2\xe9\xde:-.\x7f\xda\xd72Ts\xe2\x88\xc3\xfe\x02\xf7~\x0bG\xd9\x92\xec\xb4\x92\xad\xd0\xd6f\xac\x88\x07W\xb6=>\x1f\xbd\x90\xfe\xed\xaa\xdd[\rh\xc8\xdap\xd8\x0b\x86:\x91\xc2\x81\x8e\xc7\x99\x03\xf5\xab\x9a9\xb3Fr\xb8\xe7\xfdj\xfd\x99\x06\xeeO\x03\xcf\xd3d\x8d\x01\xc3\xfbn8a\x8e\x9b\x85\x9c\x84\xb7\x87\xa7\x95#" .\x90\xae_t\x8fdl\xba\xad\xc7;Ta\xf3\xb3\xcc\xc7.E\xcd!;\xb5\x06\xe0/\x86\xb4\xd8\xaf\xfcV7\x1d8\xb8kI9"\xe3\x86\x9eU\x1egf\x97\x12\xe6G\x12K\x9ebw\xac8f\xf1\xb5\x19\xe2\x10\xcb\x88\xc5\xb6\x17\xff\x00,f;\xbfKxyp\xa8\xe7u2\x192+\x07\xddg\xf7e\x80\xb5\xf2\xf0\xbd\xa8C\x88\x95\xf7\x93H\xec\xaa\x0bJ\xf9\xc8\x03\x80\x1eU\x87\xf6\x97\x9d\xdaRHk)\x90\xe5L\xd6$\xa8\xe4n)Ru\xb4\xf8\x89\xcc\xdd\xf7\x9eL\xed\xa6\x80T\xbd\'\xd1\xb37Icq\xb3\xc7\xdc\xdd\xbe \xe5*5\xb1\x1c\xff\x00\x9dG,X\x8c\xd8\x8c^\xf6x\xf7n\xe6bn9)\xf2\xf2\xa90\x91\xcb4\xdb\xbfi\x9b*\xaa\xc5|\xa8\xaa\xb9UE\xfe\xe6\x88c}|\xf6\xac\x98\xa8\x91\xfb\xa5\xb5\xa8\xe1\xb8{*\xd1\xc5b\x89\xbfet\x14\x12\x1c\xa3\xbc\xdf\x0c\xa1\xba\x9b\x1aP\xe0O\xa7\xefPe\xba\x90W\xcb\xab\xdb\x1e\x9d]z\xda\xcb\xf6\xeb_\xb2)\x9b\x80\xa0\x8bw:\xf2\x1b;p\xa8\xd6\xee\t\xd9\x9a"\xc3[\x1dh0\xb3\x0b\x8f\nu\x1d\x96\xcd\xe4\xfc\x7f:Q\xa4\x80\xa1\xf3\x1au\xf7Oz.56Z>\xd1\x16\xbf%\xff\x00Z+\xd1\x98H\xef\xf8\x8c\xe7\xed}\x9e\xd3\x8ckwWAY\xc7\x9d\x1f\x1a\xb3Z\xb7\xc7\x11\x8cat\xc3\x8e\x17\xe6ie\x904)\x919\x8a\xb2\xe64\\\xdc\xec6\'\x90\xf8sa\xcfa\xbb?I\xe1Q\xe2,/g\xf0=N\xd8\xf4\xad>\x16\xb2}\xba\xa6\x87\x13\xad,kzgk\x9d\x9d\xd6\xfa\xdc\x01\xf6\xa3n\x15k\xaf\x8dku\xa3\xe1Zp\xa5\x07E\xb7\xa6\x9d_*\xf5\xac\xee\x01\xd1\x06\xa7\xce\x84\x98\xb5\xb7\x00\xb6\x1et=\x8b\x04\xde\x08\xff\x00\xfe\xa8a02?\xce\xdd\x95\xf5\xab\xf1\xdbsz=\x1d\xfd\x9b\xc5\x10}\xe4\xf3\xd8\x0f \xb5\x0e!r\xb8\x1a\xd2\xc7&\xee\'\xcc\xbb/J\xb8@\xa3\x8d\xeeO\xc4\xb1\xa7\x8fG\xed-$\xabt \xec\xed\x0f\x87\xa4\x9dm+\xb1\xb3\xb2k\xb7\x87\xf5\xd9\xefO\xa5k\xf6\xae\xd7\xc1\xec7\xa5{\xd1\xfc"\xbf`\xc2\xff\x00\x0b\xff\x00\xfa\xaf\xc0\xfb\xed\xe3\xb3\xfe\xce\x8f\xd6\xb5\x15\xdb;=\xea\xd7\xba\xf8\xde\xf3f\xa3\xd2\xbf\xff\xc4\x00(\x10\x01\x00\x02\x02\x02\x01\x04\x02\x03\x00\x03\x01\x00\x00\x00\x00\x01\x00\x11!1AQa\x10q\x81\x91\xa1\xb1\xc1\xd1\xf0 0\xe1\xf1\xff\xda\x00\x08\x01\x01\x00\x01?\x10t\xd9\xceT\\\xbd\x8ebm#\xa3\xff\x00\x03\xd0\xabR\x97\x98<\x0f\xbeaW\x83\xe9/\xc1\xf5<\x83\xea|\x10<\x1fQ\xf2\x11\x1d>\xa0\x0e\x11\xf8#\xee\'\xbc\xccF!\xe0K/\x07\xd4+\x9a!n\x0f\xa8.\x8f\xa9ub\x0e\xccK\x9a=\x12\xf5\xa8\x0e\x8f\x92g\xc7\xd2\x08\x7f\x02\x16\x01\xf4\x10v\x1fP&\xd3\xe0\x98@\xce\x80\x83\x8b\xc38\x94\xb0\x1bk\xf5\x11\x07Q\xf4@?\xc0\x86\xca\x0bZL\x87\\@BAsxD?\xa1\x17J\xbb\x05\x97\xccCR\xc9m$\x13\xbd\xcb\xa1ih\xa6\xd24\xf1\tWES\x91\xa7\xd47\x85&\xd3\xc0\xf5+\xc4R\xe0Hl\x80\x1cD\x1a\xe9F\x8f2\xbc\x0f\xc1\x11z}N\x97\xe0\x895\xfa J+\xe1\xe5\xff\x00\xa7\x18\xc6\xcc:T\xa8\x19\xd4\xa9^\xb4\x12W8\x88\xc9\xe8\xf1N\x89\x83P\xa4.\xea`\x87\xea#\xc9\x03\xd7\xa2c\xa8\xc09&k\xe3\xd1\x14\xd0\x01\xd0\x93\xc3\x06\xc1`\xa8c\x07\xcc\xa9\xcc\x02#\x85\xf51\x15\x1f\xb9`\xad\x88\x94\xe2 /\x89M\x1c\x84\xfb\xe6"\x90V.^\x7f\x04\xae\x14T\xb9\xe1\x1c\xf9\x86\x0b\x04\x97`rr\x1dg\xb8\xc1Z\x15\xc4c\x88\x98\x82\xdf\xb0\xe0\x8e<\xc6\x99\x96AS\x1f\xf1\xdb\xff\x00E\xb5\xeaP\x10\x86\x08Rj\x10G\xba&f\x06=;\xc6\xcc\xc9<0\x03Y\x85\xa0\xb5\xb8i\x89\x93P\xeb\x13\xfcz\r+\x11\x1e!S\xd0,\x961\x99Xbb\xea\x10\xd1\xcf\x88$P\x15;"\xc2S\xa9\xb6\xa3S\x93\x03\xb6:\x1b{{\tQ\xde\\\xfdCo\xe1\x11\xd0f\xad\x8a7\x8cdW\xd6e\xb9\xc0\x07\t\xa4_\x88u\xa4\xa9\x1e\xe1\xfd\xa5\x05\xa2:\xb5\xdc\xc4\'\x9cf\xf7\xe5\x8fN\xed9\x1c\xbe\x08\xf9\x00\xab\x8dt`^?\x11\x081\x021\x18\x7f\xcf\xb7\xfe\\\xc4\x8a\xc9\x83*T\x0e#@D \xdcf\t\x94"\xca\xc8\\\xea\x02\xec\x85\xa5\xac\n.\r\xc0\x1e \x17R\x88[\x88c(\xea\x1a\x9b\x85\xba\xcc\xd1r\xb4\x0f\xa8Y\x01\x03\x1dO\x04 \xc3Pj\x013G\xbcb\x87\xd8\xb8\xf7\xaf1\xfa\xc6`L~ \xe3\x9b\xd4\x1c}\xca\xafj\xa0W\xce+\xcc\xc6R\x8d:\xc5\xeb\xcb\x1b\x80\xcd\x8b\xd2\x95\\\xff\x000\x1b@\xbd4\xf0\xf5\x1a\x03\xb5\xb5?q\xe2\xc1X\n}D\xbe\x88B\xe4n\xa5\xe1\x1b\x0b>\xcf\x98\x8e\'L\xa9\x9b!\x8c\xff\x00\x0f\xb7\xfeF\xe1\xa5\xc0\x87\x10L3g\x170\x01(\x94\x9a1E\x98\x8b(\xa5\x97f\x0f\xc4 \xb4\x15\xea)\xaag\xb5\t\xb6\x1e\x94\xc6 \x872\xe5\xf5\x99I\x88g\t\xbcg\x98=\x1fP9\x87Bw\xc2\x9a1\x0b\xf1.^\xbc\x89\xa7\x01\xe5\x8b\x1bi2\xb9o\x95\xc8K\xde}\roR\x82\xfaV\xaa\x160(\xd4+i\xe2\x0c\x04h\xac\xd1\x9fy\xd1*\x0c\x16\xe3D\xc1\x17\x02\xc4\xc0\xe7\xef\xe2Z(\x13\xfd\x14n\x89\x1en\xf2\xdf+P\xdc\xd6\n3,\x94\\\x18\x82\xa0?\xcf\x97\xfe\x07\xa5\xabx\x84\n\x85\x0b\xa8\x0bTLY\x82\xb5\x01\xba\xcf\xab\xe6k\x88\xd2\xe0[.\xae\xa3\x02\x81+~\xccbX\xd8\xf3\x01\xf3\x065\x11\x8d\x8b\xf5\x11\xf4,EA\xb8\xabP\xcc\xa1\xd6\x00V\xaea\xa4\x07\\\xc4\xb9\x9f3\xe8\xf4{a\x8f{Ato.\x1f\x99\x86\xae\xce\xced\xc7\x08Z\xe7\x16l\xee\xf8x#J\x84j" \x14\xac\xde\xa9[\xfc\\u-\x18\xc1L$2\x9es\x07*i\x10\xa7-\xe5\xf6\x8dB\xee}9?\xc4^I\xb6\xee\x12\x88\x96U\xe5\x94\xbe V\xb3\x19\xd4h\xb0a\xeeR\x0cKi\xff\x00W\xfe\x04\xba)/01\x02\xf1(\xaf\x12\xa5W\xfc\x05\xcd\xa6n\xa5\x8e\xa3,\xe6\xb1\x12\xcb\xf4\xc2\xb3\xc8\x86\xda\xa7\x91\x86\xc8a\x81\x86\xbc\xfa\x05\xdb\x04\xca\x08\xe5.\xdf\xe6\x19\x15<\x19\x94c\xba\x8f\x13\x99*\xe2[2Q\x98\xa9\xd2\xb5\xadBkh+\x8f\'S\xc4\xa4\xa0c\x18:\x02Q=\x05\xe4Z\xfc\x17(\x18\xc7\xd0(?\x10 \xb12p_\x83\x95\x80\xa1(\rF\x14:\xe7q\x15\x8c%w.\x87\xbce\xfa\x8a\x06\x8a\xb4\x1c\xed\x984\xae\xd1\xaf\xa8#R\xf0\xd1\xfdEU>\xa1O\x95u\rNiU\xe8l\x82\x96\x19\xfe\xbf,\xaf\xf8*\x8b\x02\xa5\xb0\x9c!\x98\x18\x94\xcas)\x181\xe68\x19\xa9h\xae\xa6$\xd1*\x07~\x88\nD\xd4\xe3\x11\xc20\x14VlnY\xbdA\xdc%\xe2\x06`\x13P\xa6\xe6A\x11[\xa9Y\x88Ss\x034\xdc!\x06\x8c\x11&^b\xba \xccJ\xaa\x1b\xa6\xb3~\t\xce\x83\x01\x0fke\x94>RGI\x86\xfb\x0c\xc5\xa0S#\xfe4~f\x08\xcbh\x81lU-\x96Y\xee\xe7\xd8\x8d\x17&\xb6\x0eE\xe1@\x1d\x8b\x12\x00\x18\x00\xaa\x84\x8d\x0e`\xc5<\xcc\xca,\x05\xe5O\x1e\xdea\xd9\xe8;\x94L\xd3H/\xfc\xf6\xfa\xd4\xae*\x00\x011\x0c\n\xd7\xa5\xd3\xb8\x80AF%\x11w\xe9#\xef\x15\xa5\xcc\xa0\xdc\x99\x81l\xa6\x1e\xa6u.\x18\xaf<\x19fY\xde\xe7\xdaf\x97\x82\x12\xd8m\x80\xe2h\xb8+\x04\xa6\x95\x05\x01\x037\x00!\xa6f9\x9bR\xd4\x03+DM\xcbi\xf0\xe5z\x83\xc0\x83g/{\x9aR\xbb\x8aw\xcb\xe2)\nH<\\\x11P\xceij0w\xed\x15NP\x89O\x0b|\x11=D\xd3\r\x8bu\xd8p\x1fq)a\x97\x8d\xb2\x9f@\xfb\x94\x00\xc5@\xd0u\x0c\xc7\x82:F\xda&\xfc\xea\x1a\x10\xcaFk\xb7\xa2;\xc1\xa2\xf5\x0e\xaflt\xb2\xf2$\xd5=\xa7|\xca\xcf\x18\xbf\x88ns\x8d\x00x\xfe\xdfJ\x97$\xa8\xd1W3\xdb\x0c\tX\x86x\xf4\x03\x1e\xa78\xd4\xbf@[\x1eF3\xae\xe5T=\x15\xe2\x06&\xb2\xae\x16\xacQ&\xc4j\x1d\x9e\xf0cZ\x81D\x95\xa8\x8dL\xd8C&@\xa9r\xc65sGP\xab\x1e\x9e\x92\xa1d\x06J\x81\xe2\xf1\xed.\xf4\xe9\x93b\x8d\xbc\xab\xb8\x00\xe7\xaa\xbf\xb3B}\xce<\x806\xc7\xd4\xc5\x85\x13Al>\xf1\x13\x05\x00\x96\x8e\x18kn \\\x01\x07\xb1\x13\x17sCh\x19\xd3\xf24y\xb9V\x8bh\n\xa7\x1f\x03\xf2\xb3\xc13\xc6\xcd@\xa7\xc10<+{*8\x0e\x95\x87\x03\xb7\xc4\x14\x13\x94\xec\xaf\xf7\x1a\x84HK\x01\xc9\xf6\xc4wb4\xf3\x0f>\x8d\xa7\xe1eC\t\x90Yg\x88\x18\x80\xc3\x05\xca%\x071\xa7P\xb4\xc6\x16\xe7\xe0\x88\xd4\xd4\xb2\xde\x11+\x9b\x84\xf9\xf5&0*\x13\xc4\t\xa1\x0b\xca\xd3\x01 \x1c3&\xa5\xdfiYA\x02\x1a\x80\xd3\x17\x96\x17\x14\x0ee\xf8\xe2p\xd4G\x8c\xcb-"\xea\xc7\xb8\x98\xac\xfa2\xd7\x96\xb3~!tJ(Z\xaa\xa6\x0c]\xfa\xa0\xec\x81\xa9Hy\x02\x9c\xc7a\xa5h\xde?\'\xe9\x1bK\xf3\xd8U\x9d\x97\x82\x14\x18r\xac\x8d\xd5y\xe5M\xb5,\xb7\xd0\xe9\x04\x9e\xcf\xf3\x08`\x17c \xaf\x82\xa1\x01N\xb7\xda\xfe\xba&\x08\x9c\xf3Gp\x87\x1a\x87\xb4\xe7\xe5\xb6>$T/\xf3\x1b\x1f\x11E\x9b\x98@bk\xde\x05\xea Qr\xba&\x10\xcb\x0e\x08X\x15\xc4 N\xe6\x02,5\xa8\xb7,\xb2\xd7\xc4\xab.\x98\xe5\xbf\xb9G\x10.\x01\xd4\x1b\x81\x05\xb5/\xd4\xb9\xb2\x05\x8e\x17\x00\x8a\x91\xb0\x9c\xc3\xb5\xa8.IQj\x97\x88R8d\\G\xcd\x0bVp\x812L\xb0\x1e\xd0\xc7\xcb\xc7\xf7\x17\x90\xa2J1\x06\x9ej\x05/v\xa8\xbb\xcc\xc60\x18\x89\xd9\x1c\xb2\x97\xdc\xb6\xb0; \x18\xa1\xe4\xb8\xfd\xbf\x15\x0c\x9e\xd7\xd9\xbf\xeb\xe3\xd2B\xe14JwD\xf3\xe6X)K{i\x06\xbd\xadf\xeb\x9c\xb7\x91;\x8f\x04\x19\xda\xd3a\xee\xa4@\x86\xaa_\x14\xb8\xa5\x98\xd8\xdcg\x0c\xb7\xf8r\xc1\x03)6"\x13hm&\xd0\xdc2\xbe&"\xd5G\n\xda\x96AP\xae\xaeZ0\xc2u\x85M\xcf\xc2P\xd1\x02\rD\xa1*v\xa9R\x8a\xf3\x1c\x00\xb6T\xf7\xdc\tb\xc0X\xe1\x84\xd5\xcc\x93\xa6\x14\xe2^/kS\x83W\x98\xac\n#\xba\x00\xaa\x95Gg#\x9b\xf0E\xf5a\xac3\xc1\x03\x1aN\xb9\x94E^\xa5@\x8btr\xfcA\x814t\x05\xe9\xe4\x98}\xa2\x1b\xb4*\xef\x1b\x9b\x88\xce\xc6PXu\xb4)\rl\xa3\x87Q\x8c\x1c\xf4\xbe\xe3\xa0N\x98\xad\xd3\xb6U\x87a\x13\x03K\xb3d\xb3\x01{\xd8\x99~\x0cAr\xed\xcc\xecx_d\xcb\x889\x07\xff\x00L4F\x1aR0\xf0\xa0\xfe\xe2\x1c\x8f\xa0\x9b\xce#\x828\xb3\x1c\xb17\x0cl\xed\x86l\xfaT!\x02\xb8\x86Z\x8a4f\x10 ^&\x13\x98S\x90\xaaB1@\x04\xcb\x88\xe2\x9ba\x0c\xa0%<D\x89\x08\xf4\xc0\xf7YT\xfdpm\xdb|\xbe\xd8\x84\n\xa3k\x99R\xa3%\x91h\x16\xbf\x98\xc0\x08T\xe7X\xa9f\x87\xaf\x12\xbc,\xb4\xe9p\x8f#s\xd3\xc4{\x86&\xf9]]f.<\xc24\x8d\x00\x9b\xfcF\x08\xbc\x80V\xadx\x8c\x88\x95\xcb\x98\xd0\xbb\x94\x044\xf0\xd0\x05\xfc\x10\x92\xa5\xec\xa5c\xc5\xcbz\x9e\xa8\xcd\xbf^j\x18\x8cp\r\xfdL\xf1\x1bb\xf9WR\x90@\xc1\xabx.\x00\xa9^U\xe5\x89\xb9\xbb\x05\xac7\xd3\x19F\xff\x00\x1eX\x11=\x15Q\x8d\xdfFVd\x1eF)\x9c\xa8\xc0\x941/\xa4E\xd4.\x95\xa8\x95,\xcaf\xaei\x02\xfd\x03\x12*\xe0\xc6ai\xec\x81P\xd9\x08\x8a\x14\xa0 \xa7&{!\x89\x1f\r\x99E\x91\x12\xa6\x1f\xb6\x00\xc0\xa1!\xb7\xb0\xcb\rlo\x02\xbb{Y\\C: u\x89l\xbe\xfa\x85\xc3]=\x8f#\r\x02\xdc\x1e\xe6Ih\x14r\xec\x18e\xa1\x85xl\xc3*\x16Gr\x94\x15\x96wPo3\xe0B\x0bk\xa1\xc5\xc1*\x1a\xaa_\nF\xaf\xc3\xa8R&@\xe0\xf6\xee-A<\xd3\xf4\xca\x14\x0c\xa6\r\x1bq\x11\xbaU s\x81\xe1\x87\xaf\t\x87\x95\xd7\xb3\xcc\x03cU\xd6\r\x96Jg\x00lo\xe4\xe6\x17m\xb1i\xda\xcf\x07\x9f\xd4\xd1\xf4o\x1c\xfd\x00\xc48I\xf0\x8f\xed\x81\x89R\x98\x9a\x84(\xe1\x86\x18\x1d\xcb\x012\xdf\xda-\xed\xb9\x8f\x11\x11\x82\xba\x820t^\x08-\xa7P\n\xd4\x08\xa7\x04!~U$\x1e\x84\xe7\xf1+r\x8f4p5\xf5\x06\x13+R\xbej\xa3\xb8\xb3\xff\x00"\xea^!\xac\xf4\xfc\xeay\x0c\xf4\xfbJ|<K0L\x03\xcb\xb7\xe6c\'\x87\x11\xe8+\xc7\xb9F4>\x82p\xe5\x1eK\x8d\xbfn\xea\x1c\x9aq\xe9\xcd\x96i\xc4"\xd4"\xda\xacV\xb5\rXQ\x1aj\xccp\xc6\x92Y\xbe\xfcM\xb7(\xb8:\xfd\x87\xa7\xccZ\x83cI\xff\x00\x919\xe0T\xd8y\x89\x05\x06p\xbf\xfbF\xeeV6\x03~e\xda\x00T\xc9\xc1 \x1e>\x05\xb5\xc3\x9d5x\xf3\x04\x11xU\x16X\x0f\r\xcc\xde\x7fPK`\x08.T\xe7\xe4\x87\x0fxi\x8d\x03]dB?!\xbe\xd1I\xfa\x8fP\xd3\xd1\xbc\xff\x00\x9c\xc4\xa0\xb1v\\X};\xc7/_\xf3\x97\xdf\xc7\xf6\xc0\x92\xc1\x0c"bf\x10@\x8aG\xc4,p{\xe2\x1d\xc6}\xa6\x83.a\x97\xba\xcb\xb4)\x02y>\xc2\xbc\xeb\xc4\xe3\x07Z\x89\xed\xb6\x01\xb4\x00\xe0>!v\xe5\xfc\xdd?\xbfB\xe9\x93\x18\x85\xd9\xec2>\x98\xb1\xba\xf3[\xe4\xc8\xcb\'W%\x9e\x1a\x16\xf9\x0cM\xd9\xd9\x13\xd5;\xad\\\xbc\x14U\xec> \xe0\x88As\xd4\xb1\xbf1\xdd\xd2\xb1\x16\x9c\x0eWo\x82\'!\x8d_\xfd\x9f\xd7\xc40\x80a\x07\x01\xd2\x98\xbe\xf3\xeeB\rT\x98\xda\xe7,\xbf\xb9\x86&\xb4\x17\xec\x94\xd9\xdcq\x16\xe04\xec\xff\x00\xc8)+\xde\xa7\xb9\x18\xda\xb2\xd0SD,\xa9Os\x8b\xc6_\xd4\xce\x14MB\xfa8k>\xf7\xe2\x0b(\x18\xe7\xb22<#\x0es\xd6\x08>\xf7\x02\xd8>\xec~\xb0\xcc\xe4\x1e\x92\x08\xc6f\xb3\x91\xb4\xa3\xf7=\xe2\xb6\x95\xd6\xc1n\xc6\to\x83!\\@ 0\x15]\x17\xef\xb8WN\xe3\xcbD\xe57`\xc4>\x8d\x99o\x8f\xfbeF\x95\x06`>cs\x13\xca0\x86\xbfR\xe6X\xaa\x83Q\x81\xb4\xb7\xac\xb4Du\xb5\xceg\x84e\x8b\x9b\xbf\xed\x06\xb7\xf0\xf3\n\x90\xd0x\xf9\xed\xf3(o\xd0}\xb1\x03\x82\x81y\xe3W\x10})?c\x04\xf9Tk\xf1\x1e\xdb\xef\xaf\xecC\xd9\x8a\x7f%\x82cMyQ\xf9y\xfa\xafy\x8eGT\x7f.\xd8\x1f\xa6t\xcf^\xe7\x88,\xbcMes\xc9\xef\xa8\xf0\xa6\xe0\xc1\xf9\xd1|\x04\x01Y\x1eHlI\x98B\xb7\x1f\xec\xc7`\xaa\x81\xa0\xf1\xefU\x9e&_\x17xO\xd5\xdc\xb8\xb0\xeb\xf8\x08e\x9e\xe5\xfeX\xdcCa*\x91.\xfd\xa3\xad:%\x8aT2\xf9\x80\x0f\x06\x08\xbfr\xf31\xf3>8\xbe\xa0\xb5galQ\xfd\xc8\x05h\xad%U\xbfv\x05\xcc\xd6\xd9W\x98\xe5po&L}\xc3\t@b\xb2\x9a\xc7\xb2#1\x07\x80\xcdUi\xaf\xa89\xd8\x10~\x13\x1c\x0c(\x9b)\xa7\x1c\xc0\xa6\x15\x81k\xcc\xf2\x962\xf8\tK\x18\xe8\x02Oa\x00}\x04`Wm\xc4,\xe6*\xa4\xf4\x94#\x05\x1al\x8e\xe6#2g)\xdb\xe3\xfb`5\x0cC:\x95\x0fp\xb6\xbd>\xd8\xdf\x89Rb\x05\x11\x0c\xb6z2\xd0f2y\x99\xe2\xe7\x1f\xca\x12 \xa0P\x07\x015\x01\x1b\x98j\xa1\x0e\xa1X\xb6\x17E\xe6\xbb\x81M\xd7\x88.4@\x17\x11S\xd08:\x9f,\x14L\x9e\xed\x85W\x91\x07\x1f\x12\xb5\x07\x00\x08\xfb\xb2\xcf\x99\x96\x8fpQZF\xec\x9cs\x05\xa0\xea$\xb2\xeb\\\xfd\xc3\xc07l/\xcc \xa9\xbdc\xe8\'\x06_\xe6\xcc)M\xc0\x08\x05)\xbd\xca$^\x15\x9b\x1a\xbf0\x94x\xe3\x00\x88\x155\\?LB\x8f=/\xdc\x08\xae\x8dg?\xb3\xe3\xea0\xa0\x96#a\xd8\xf2M\x8b(\x1d\\x\x1a\xe4\x97\n\x870\xac\xe2\xf5\x06l\x95\xa0\xf6H\x7fZ\xa7@\xe4\xcb\xae\xe2\x82Tm\xb4\xf7n\xe1\xb7\xda\x03\x9cD \xe3\x80\x08a\t\xb2\x0f\x1f\x98^d\xe1\'^\xf1\x9e`\xd6\xc1\xea!\x18\xeaes\xf0\x7f\xb6\x08a\x02\xa0f\x04\x19\x8303\x88kdBA\x1d\x12\xf7p\\\x00\x8a\xd5\xc7\x80\xf2\xeaRI\x8f\xb0J\xf1\xc67\x1d\xa5}\xae%3\x13\x92h\x98\xb4\xcdpQ2C(]\xcbM\xb4\xe8W\xbb\xcc1\x90r\x96\xc4\xaa\x82=a\x16\xbbG\x93\xafx\r\xd3\xaa\x0f\xe6}C\tL(X\xd4\xb4\xae\xa5\xe3u|g\xdb\xd8\xcc(\xd0</\xe2\x05\xda\xfe\xa0\xb3\xa4\x1f\x91%\t\x80/\xc8\xa7\xe2\x19\x89\xccp\xf9&\xe5\x8a;^\x83\x96Y\xd2\xcen\xf0/\xe9\x86\xe6\xda\x1aF\xa6\x98\xde\xfbG~\xa0\x04:C\xb7\x97&-\x00\xf3\x9f\xc4P\xb2\x95cX\x1f\xfd\x8c\xe8C\xa9,\xd1\xb8W\x01\xb3\x10o\x0c4\xd32\x86:\x06\xa1t\xf8*e\xeay\x96\xab\x92$\xd8\xe2+\x99\xf8\x7f\xdb;\x10c\xd5\xe2\x0fC\xf5\r\xc1\xb5~#\xdf\xe86(\xb5u.&\xbd\x9b\xba\xc6\x9c\x1cL\xa6\xd3x\xc8\xd6\x81\x9e<\xcc\xd8\x86\xa6\x15\x05\xe2\n\xc4\xcdN\x19]z5\x83\x88\xbe\xa0\x0b\x96\x97\xa0w\xbc\xb0T\r\xabF\xd3\xcb\xe9]bS\xe2\xd0X\x1dh\x1e\xf16K\x87)\xcf7%\xb1\xd3\x04\xb3yx<\x91\x93Qt\xd3\xc4K\x0e{\xc8\x14\x9a\xb3z\x81|JIX\x13J\x1f\xfdW\xc4B\x9b@\x85\x0f^\x1ew\x1a\xa8c\x04M\xcaX\xa3\xe2V\x17\x12\x8d\x07D1\xab\xd9\x08\x0c\x8dG2\xf2\xc2\xaa\x1a\x1e\xc2\x9f\x9b\x8b\x05#\xdd\x18\x82\xad6\xac\x9b\x02\x1f\x88\x9eyr~!\r\xb86\xe67\x8f\x99D\xd5\xed\x04io\xf5\t\xe8\xael\x80\xb2\x0b\xe2\x04\xb5\xf7K\n\x08\xaf\xda\xfe\xd9\xac\xc1\x8ej\x00A\x0cq\x06`\\\xd3\x9dN\x849\x9eY\x81\xcc\x0c\xb6:\xea/\x93o\xa0\x1f0Lu3\x0e\x1a\x17\x92\x08 n^\x83rk\xf2^\xdd\x17\xdc&T2\xdbj\xf6\xbd\xc3R\xb8\x84\xe5\x0e\x89G\xca\xb3\xf0\xbfP\xd4=\x1dC\x184\x16$\xb1D\x80\xc84#\x90\xef}\xf7\x1d\x004\x89\x1d\x11\xbb8\xf7\x9a\xc3j\x12\xbaNe\x8e.\x05\xe1\xd0{\x95q\xd4\xae\xb7\r\x986vQ\x9f\xcb+g+D\xd4\xa1&UQQq\x96-\xf5b\xf7\x84\x9a\xa0\x03\x95\xd4Q\xf8\xbb\xb6G)\x0b<\xe4J\\s\x14O\x96\x90\x0e\xa1\xd4\xb9\x00\x17\xe6\x03\xe0=\x87\xe6%4Gn\xe2,\xa84M\xa2\x95\x95\x14R\x19\xbe\xa0\xa3\x07#s/\x08\xe0\x82\xd7\xf6\xc2$\x02\xe6\xaa\x0b`\xc43\x04\xc3l\xb0L\xbb\x8d\xdc\xc4V\xf38T1\x9a\x1e\xc1\x97\xf8\x87\x8fKn&\t\x01V4\x90\x05\x07w\x81\x94n\xafla\xe8\xdf`\x9e\\\x87\xdc\x10\xf8\xa1\xc4\xd0\x80W\xa4\x84u\x7f\x87\xb8\x7fS\x8b6\xbay>\x1cA\xeb\xfe\x0c\x84QH\xe9%y\x8bD\xdb\xd5\xdd\xb8\xf3\x12\x88\x05o\x8c\xd4\xcc\xc4\xa4I\x14\xacb\xf3>KE\x0eg.\xed\xe0}\xfe\xa2\xb7\x147\x97?\xb8\xbf^\x82\xc7\xaa"\xdf\xbao\xc4\x17\x07\x89\xef\xccDm\x9f\xe4\x80\x84%;N\x8f0\x99\xbd\x17\xdch\xa0\xfdTI\xb6\x83\x10p\x92\xa7\xe1\xeb\xc2\xdf\xcdtK\x01\xd0B\x07r\xd2\x95\x16k\xcb\x1c\xb0\x86\xa0;\x88M+\x1e\x81\x97\xa1!\x03\xd0\x02EWfR\x92\x0c_1\x16\x94\x86x\xc2\xff\x00\x11K\xda\x8e.\xa5\x953T\xf0\xc1j\xc0U\xf1\x1cHj\x1b\xa3\x83\xd8 \xdd=\x97\x1c\xd3\xd2w\x94\x12d\xc1A\xb4U\xec\xaaK\x99B\x82\xda\x1f\xac\'\xe6(\x877j\x1e\xe3\x99p\xc8\n\xd4\xd0Gu~\'\xe6\xd7\xbb\xf5\x02\xcd\x9d#~Eebj\xcduw\x1e\xe5\r\xf9%\x99\xb9\xabTm\x1f\x1cB\xe3`m\xea\xeb\xf9\x96n\xc0~\xa2]E\xc9R\x96\xca?\x83\x1fr\xc5\xd5z\xf4\x00\xda\xc58\x08\xb9X\x1f\xc0\x96m\xdb|\xff\x00P\xc6b\xcb\xc9\x11\xe5\x1a\xf1\x06/\xd4\xe5pY\xa2\xe0/\x12\x85V\xe0s\xd5\xcc\x90>\xa08\xf2\x80\xb1q\xa9\xdc\xc44n8\xe8YdP\x80\xbcK\x98.\xbc\xf9`\xd2\x0c\xc0\xd1+\x88\x17*\xcc\x05D\xb8\x11\x99H\x9b"\x8fW\x1bg\x10\xfb\x80\xfeX\xc6>\xa3\xafF\xea\x8a9Ak,\x9e\xf3\xf6\xd16\xf9\xb8%\x1aco\xdc\x03Q9%$\xc2L\x10\x90\xcbf:j\x04:\x84d\xf9\xdc\xaeU\xb90~_\x98\x03\xc7\xda<\xc7o/\xa2\xb5\xb8\xd9\xc1u\xde\x07\xe9\xa6]\xca\x05\xc6\xc2\x8f\xd5\xc1Q\xca\x8fb.2\xb2\xad\x92N\xbf\x80u\xb6/vUy^f\xf3\xe8\xae\x0c\xc5\xdc7\x11\xb3\xfa99\xf7O\xc31\xb5\xa6U)|\xab\xf3\x13D\xa7\x1f\xccW\x16uY\x81J\xefw\x19\xd7\x95\x85\x98XxQ\xd4y"\xc2\xaag\x011\xd3\xed*\xff\x00M\xb0\xd4\x19\xbe \xc9\x02o\x04\xd3s\x8c\xd9\xa8\x06QA\xefQ\x90\xc5\xfc\x80X\xfc\xb1V\xd9\x98\x96Ve[\xcf\xa1\x8aR\xee?\xfd\x14r\xfe%5Pb\xc9\xe8\xe3\x86\x11h\x85\to\xa5\xa6\x03\x87\xcc0\xf4a3\x0bn{\xe6\xbb\x86\x1b\x95\x89\xacE\xd4\xa0\xc2\xd5\xa9A\xf3r\xf4\x97\xcdQ\x81_\x07\xeeR<\x17\xef\x1a&)\x93\xfa\xafl0Oe\xae\x17\xdd\xfdK\x8c\xc2jk_,\x001"\x05\x9f0\x8a\x9c\xc0a\xe8"\xc4%\xbc\xbd\xd2\xa0}\x8flb\x95L\xa2\xf6\xe6^{\x9d\x02\x97\xc1\xc1\xe6\x06\x8b\x89\xd7]Eu\xf8\x9e\x13YW\x94r\xb2\xc8B+\x13\xfc\x9eY\x90\x9a\x9e\x82m\xf3\rBp\xa9\xad\xfa\x0c\x84KG\x03\xde\x12\x00`\xac\xd5\x11\xa4\xe0\x9a"YOS\x92\\\xe6f}\xbf\x84\x069j\x8cb\x95\xbcy\x8b\x0b\xbe\x14\xc7\x0b\xcaK\x90|\xa0\xf3\xeb\x99\xef\xd1\x7f\xf35\x98\x0b\xaa\x0f\xb5~\xef\xeaae/}\x15\xfb\x81\xef\x05\xac\xf1\xe22\xc4\xcb"\xb6\xa2\xdd\xbeb\xb3\x05Qcn\x88\xfc\xa9\x82\xa53sGM\xf9\x83\xbc\xa1b\xa4t\x9c\x91\xba\xcblv@\x18]o\xc4\xbc\xee0\x8e\xe27\xf7D~\xe2\xaaX%68\x97J3\xe9\x84G1\xf2\x99\x8c\x9f\xe8\xf2\xcd\xe1\xaa\x8436\xa8\xf1\x04\n&\xa7\xa4\xc1\x99Ap\x0fy\xdf\xe2W\x91\x18\x8c\x80\xe1\xe6(\x18\x96\x13\x92q\xcdM\xca\x98\xe6\x95\xf0\x1f\xd7\xa3\x8e\x06\x1c\x89\xa2\x12(a=\x84\xbf\xa0\xf8\xb2\xa8(G\x91\x85wr\x9dC\xc6{a\x898\x8d\x01\xb6g\xfc\xa0\xee\x98\xf6^\xfeeH\xa2<\xdd\xbf,|G<A\xa6uM\'?\xf1\xf32g0g\x17\xc4\xa9\xc8\\\xd7P\'\r\x95i\xdb\xea\x06\xa1\x01h*\xa2\xf8\\\x17\xa4\x85<\xc8\xaeG\x99\x8a\x17\x91\xe64v\x18y!\xb9\xc6jL%\xc3`\\\xeeJ\xa2\xa2\xaa\xfa\x86\t\xd4\x117(e?\xe1\xb6h_SX\x18\x82\x10\xa8&\xfe\x9e1\xcc7P\x1e\xb1_\x9b_\x8a\x97E\x0c\xc3~\xd0jd\x96\x92\x99\xc8L2\x89\xa1\xc9s\xb3\xf4\xfe!#\t\xb7P\x9c\x10}\x10\xd1\x9aa\x9bN\xa1\xa6\x00\x02#\x92\xa3Sp\xb6\x98#\xb8\xb5\xb1\xb1\x1f%\xf3\xa8\x18\x08\x8f\'\xf6\xfdA\xb7j~\x8a\x94.Jt\x1c\xc3\xfa\xde\xb8<\xfc\xee,\x92\xf9@\xb0\xf6.c\x1d\xb9\x8a]\xa0q\xaa\xcf\xbd\xbf\x10\xfe\x81\xbb\xdb\x14[\x99\xe0#\xd0Z\xf0\x86\xa2\x10%\xaa\xe59<\x90:\xf5\xd8g\xdc@\x16\x8dT\xa6\xf33\x82(\xbb\x987\x81\x14\xc1\xe9U\x85\xd0\xdc\x12\x05Tl\xe6;\x97\xc7\xd7\xf6\xcdOio\x88L\x9a\xf4\x0e=6\x9b\x1e\x82\x80\xda\x0f\xb8\x7f\xf9\x02\x04\xd5\xe8\xe7Sm\x9dC\x0e"\xc4m\xbb\x1f\xe8\xf8\x8eiK\xaf\xf01*\xf8\x1f\xe5\x01\xdf\xc4e5h\x14Z\xd2}@\x07\x12\xb3\xb1\x9c\x9e\x88\xf1\x0f)L$\xf3\x862\xa3\x11\xd2\xfb\xad\xd7\xf1-\xd4\x17r\x80(\xb6\xa6\xf2\xe2M\xde\x0b\xf9m\x94\xb1`\xae@4\xf1\xcf\xdc\xa8[\xcev\xca\x00\x01a\xd5\xc2\xbeo\xe8\x96f"\xc3\xe1\x0f1_\xa6\x88V\xd7;h/\x05\xc7\xcbn\x82\xf1\xed\x1eIv\xec\x9b\x80m\xad\xbf\xe6e\xbe\x86&\xa0\x98\xb5\r\x04i\x07\x0f\xb9\x16\x81r&\xa1\x91}\xe7"\xce\xe7\xd2l\x0e#\x1b2\xc7\x03\x16g\xba\n\xee\x9f\xb6j\xf6\x8b\x88L\x1b\x8e\xea\x1b\xa8rN\x10\xdd\xc0\xc4\x17\xcb\x1b\x87\xc3s6\xef+4\xcc\xb9\x88\x85\xb7\xb2\x1b\xa6&\x04\x82\xe0o\x94\x98\xcd\x18l\xa8\xedtT\x01\x88\x89\xf6\x9c\x1e\xe5\xc3\xe9\x0fluF\xd8\x93Hv\x08\x9bA(Q}E\xa5\x14"\x12\xeb*\x1fx\xd6\xf9\xa1\x11\xd9\x9dy\x85qE\x12\n\xd1u\xa28\xb1\xd88\x02]/#w\xdc3b\xf5\x83\xfb\xa1\xb8\xb0&\xc3\xa5\xba\x95\x03\xc9\xce\x18\xcd]\xd7\xc4\xae\xa5\x1b\xd5\xc1\x85\xeasl\xb5\xa8\xe8\x12@+\'\xc4D\x7fr\xa6(m\xce\xd1\xac\x0c\x19C\x15\x1e@\xd2[\x96\xc7\xa8\x8d\xda\xfb\xaa\x94/\x90<`\x17\xdd\x87k\x07Y\x8eAT\xf3\x18\xc9\x0e\xa1\xf3f\x04<\xf2]\x0c\xad\xaf\xdc\xbc[t\xa3\x8b\x86\x1f\x8c2\xabQ\x9aUj\xf2\xfa\\\xbfV9\x93\xd2eF\x8f\xcbO\xb3\x10\xdex\x8a\x9c\xfa\x03r\xf6L\x00\x18%k2z\x1f\xe2\xf6\xcdOi\xb4 \x98\xc3r\x93Hn\xa6\x89\xd2,\xfdQ\xfb\x99*P\xdf\xad\x04\xba@\x1eI\x8f\xd4@+\xb08\x89)\x0e\xb6\xf8&\xe9\x823\xc6\xdf>#m\xe1<\xd8B|\x0b\xae\xd7\xf4\xc2\xddG\xa8X\xe3\x17\x04\x95$\xe7\x08\xe5M\xba\xf3\xb8Q\x10p1\x02\xab#\x8f\xf7\x88\xa1\x16\x04\nv\xc7a\xaa\xce\x8c\xc7\x8c-h\xdc\xb2\x9c\xd6B\x1d\x10\x9e\xa3n\xe1\\=\xb7\x03f4\x07\xd0\xa3\x1d\xd6\xd9\xc4\'TT\x12Jm\xb1\xae\t^\x07\x11]\xb7i\x9d?\xf6\x086\x86\x95R\xc7\xb3;8e%\x04\x86\x16\x03$6(\xf2CW\x1b\x0f\xa3\xe6\xb6\x1b\x01)7\r:\xa0Y\xe3\x12\xd9,\xb5v@\xc9\xc2G\xca\xd0#\xa0P?\x11\xdbU}\xee\\K\x8e*\x00)\xb3\xf9D\xd8P\x85m\xeeYs\x16\x87\xee9\x8e\x83\x9er\xb9\xf3\xe8\xfaW\xfc\x04j\x12p\x01\xbc\x92\xa0_\x0e\x129\x04!0n\x1f\x0cr\x8a\xa3\xe6\x7f\xb3\xcb0\x0foB\x86\xa2;\xcc<A\xa7\x11\x15\x1fS,\xb0C\x1f\xb1\xff\x00\xc9j\x9fB\xfd\xfa\xe8lTE"\xa3\xa2t9\x89-\x05Y\xc1\xf1\x08h\xd7v#2\xe6\xe5#3\x81\xa7\xc0\xe4\x80\xc6\xa68\x97\x970\xca\xfa\xf1\x17\xc1\xd5\xecc\xb2\x98\xa3R\xdd\x93Y{\xd1\xd9\xa8\xe4(\xf7\xf0\x1d\x92\x89N\x10\x89V-\xa9\xb6\xe6\x05\xa6\xc7w\x96\xe2\x1b\xdf\x02\x9bgX1.*m\xc1o\x1c\xb4\xf2\xf6G\xbc\x00\x16\x03|\n\x17\xd1\x03\xe9\xcaX\xc6:\x16\xe2,\x856)rD\r\x8e\xf2@\xc6!\xba\x02\x81\xa2\x80\\\xef\xcc\xbe\xbd(4\xe8\x1a]g\xa6\xe5\\m\x0e2\xbb\xa7\x1f\r\xc6V\xb1.\xde\xc2\x05\x97\xcb\x01]\xae\xfc\xbd1+r\xb1\xe5\xe2_\xb0b\xf5U\xc41\x07R\xde \xd4\x1d\x95\xc1\x172\xff\x00\xe9\n\x90\xe4cg\xe0\x0f\xdc\x1e\xf5\xa5Y\xe8d\x96z_\xeb\xf2\xcd\'(=0\x91\xa8338\xa6\tCU\x95\xfc\xe1\x88\xf30\xc2\xe9\xe9\xe4\x96\xafP\xdd8\x8d\x1ftw\x9a\xd1\xdc3\xce\xa2Q\xd3\xc0\x03?\xb8\x8a\xe6e\xd2\xa0E\xe7}\xaf\xf6!OT\xe4\xbf\x87\xf6\x8ft6\xe7\xce\xa6\xa5R<\x91\x10\x93\x18\x93-\xd4\xe5\xa9H\x9d\xc6X"\xe8\xe6)\x95j\xcb\x8bX>\x02\x1c\x08\xa2\x07\x00\xe6ZZ\xf9\xb8\x97\xd6\xeeM\xbc\xb0\xb0\x81\xda\x1b\x91.\xafu\x10\xc0B\xd4\xb0~\xf0~c\x80\x06\x93\x97\xb8\t\xa2\xae9[\xeb\xc7\xa0\x85\x1eG\xaf\xfa\xc5d\xe5\x91L2}\xe2\xfae\xcb\x17\x11\xc7\xd3\xfe,\xd9(\x82\x93\x8d\x9fp\x8cn\x11B\xee^a\xc4\xff\x00\xd9{\xca*Q\xbfEoq+\xa4\xbe\xd8\xfb[o7\x140\xa3\x83\x98\xaa\x18n\x1a\xd8X\xb7\x82\xca\xc5[\x1f5\x11\xb0\x94\xbdD\xb1\xb9\xcaT\xa3\n\xbe\xaa+aT\xecK\x18\x01\xc5\xd1\x80\xf8 \xba\xfcE\xf4\xc5\xac\\\xb7P}\xa5\xba\xfaD\x92Cc\xf8{w8\x01\xd3\x8c\x9bO\x17\x11\x8c\xb4\xfeE\xfe\'\x85\x8f\xda\x1c\xfc\x19\x8c\x97%\xdc\xf9 \x83\xc6"\x17\xb3\x00\x90\';E\xbf\x9d\xcd\x17\x94\x8e"\xfeC\xed\xe3\xd0\x14\x01k\x01\xbd^G\xfd\x88\x08\xd2J;\xf5\x9d\x930\xe1\xaeH\xd1\xbe\x0e\xfc\xb0\xd1\x1dz\x08q\xe9\xb4\xdaq\x86\xe7\xeaO\xe34}^f\xd9\xbb\xdc\x9b\xcf\xc6}\x0b\x9f\xbf\xab\r\xd1\xe3\xd3x\xeei\x18F\x7f\xb7\xda\x7f\x83\xd7\xa1\x1f\xe1\xf17\x9b>\xd3_d5\xea{\xf3\xfd?*l\xf7?\xed&\xdf\x7fG\xf9<\xb3\xff\xc4\x00\'\x11\x00\x02\x02\x01\x04\x02\x02\x02\x02\x03\x00\x00\x00\x00\x00\x00\x00\x01\x02\x11\x03\x04\x10\x12! 1\x13A"0Qa\x142@\xff\xda\x00\x08\x01\x02\x01\x01?\x00\xf0}\xf9_\xe9\xbd\x9f\xf2Y\xa8\xcd\xc5\xd4HK\x92\xb1\xba\x16A;\x17G\xd1\xd7\x8b\x17\xed\xb1\x8d\x97\xb4\xed.\x88\xe9\xe5NR]\x98\xa3\xf8\xf6d\xfe\xb6\xc7\x16%\xff\x003\x90\xdd\xb1\xfb(\x8ci\x145H\xe2\xe5!bHJ\xbc;\xdd\xbf\n\xf1\xba\x14\xbc[\xa2N\xc4p\x14hEV\xfc\xbcof\xff\x00S,\x8c\x8b\xdd\xcb\xe8\xb3\x9cb\x7f\x91\x0b\x16E\'\xd0\x8fc\xa5\xbbktP\xff\x00C,l\xbd\xacS~\xb6n\xb6\x94\x92FL\xb6r\x14\xda0f\xe6\xa9\xedw\xe1\xcb\xe8\xb1l\xc6\xab\xc9\xb1\xc8\xb2\xc6=\xa3\x0b="N\xcb5\x13]$$%\xb6\x9eT\xc4\xedX\x8f\xbd\xa4\xe9Yb\x95\t\xd9E\x964^\xed\x8d\x8d\x96YC\x8b\x14Y\x1fD\x9f\xd1\x8fM)+3\xe0x\xfb2\xda\x93\xb2#\x88\xdd:1\xa6\xbbG\xcf$`\xcc\xe7*g\xa5\xb4\xa5{\xc5\xd1ll\xb3\x91vY\xc9\r\x8d\xee\xb6\x84\x92\xf6C\x84\x87\x06\x97F,}\xdc\x85(\xa3+S\x8d\x19\xf4\xb0\xcb\x1b\x88\xf4\xb3^\x90\x93}\x0b\x15\xc8\x86\x15\x18\xfa%\x86/\xe8X\x14\x1d\xa1\xcd\x1a\x8dW\x0e\x91\x87Q}1IItQ\x1f{61\xb3\x91\xf2\x11\xef\xb1\xf9\xddvc\xca\xd2\xa23\x8bTc\xc5\t+%\x8a)\x18\xa2\x9cG\x08\xd1\x9bK\t+\x8f\xb2\x18\xff\x00:#\x1e\x89A\x19\x1dz)\xb3Q\xa7\x9d\xdd\x10N\xcc\x18\'\xc7\x90\x9b\xf4\xcb\xfb9\xa2[66B<\x99\xeb\xa1\x8cO\xcd\x18\xb3\xbcd2)\xabF\x1f\xf5=\xec\xb1\xa57-\xa7*2+v<\x89t&\xa4\x88i\xb9eu\xe8\xe0\xa3\x13Q\x99r\xa4c\xc9g1\x8cc1Ut5\xe0\x99i\xf9\xe3\xc8\xe0\xcc.\xe3\xb4\x9fE\x1fD\x8c\x89pc\xc8\x88\xea-\xf1\x89\xa7\xc5\xd5\xb3U\x9b\xe3\x8d/cm\xbb \xad\x94\xc6661M\xafF<\xca]=\x98\xc7\xb7"\xc6\xff\x00\x8d\xb94\xcb,\xd1J\xd51\x93w\xb4\xe5\xc4y\x14\x8dKk\x1b\x13l\xd0i\xaf\xf3d\xe6\xa3\x136_\x92m\x89va\x85\x9cF\xc61\x96cV\xce#\xdd\xaa,M\x97G!/\xbd\xa8\xd2\xe4\xac\xaa#u\xd0\xf6\xc8\xd4\xba%\x07\x17\xd1\xab\x9b\xf8\xdaf\x9f\x0b\xc9*1cX\xe1F\xb7=~(F8[!\x1e(\xa6Hc\x18\xcc\x0b\xad\xda\xd9\xab(\xf5\xb2\x13\xd9\xba4\x1f\x9eg/\xe0lm!\xb1\x8c\x94#5R0a\x8e\'\xd1\xa9\xcc\xa1\x16M\xb9\xbbdc\xf4a\x82J\xf7c\x18\xaf\xecf%\xd6\xd45\xb3\xfe\x8a!\x05\'\xd9\xf0\x0b\x0cQ\xf0\xa28\xab\xa6<W\xd1\xa7\xc7\x1c}D\xb2D\x9fE\xb7\xe1\x97\x12\xc8\xa9\x93\xd3\xca\x0f\xfa1c\xb7\xd8\xa3Ky\x0c{>\xccK\xf1\xda\xf6b\xf7\xb7&\x9fG6|\x8csb\x9b\xfb\x1f)R\x8b\xf6F\x1c\x10\xdfd\x9fE\xd8\x97\x97\x04\xbbGc\xebf4=\x99\x0f[\xd7G\xd0\x91C[It"]#\x0b\xb6\x8f\xa2\xc9\tw\xb4}yU\xef\xff\xc4\x00&\x11\x00\x02\x02\x02\x01\x04\x02\x03\x01\x01\x01\x00\x00\x00\x00\x00\x00\x01\x02\x11\x03\x10!\x04\x12 10Q\x132Aq"a\xff\xda\x00\x08\x01\x03\x01\x01?\x00\xf9ou\xaa\x12\xd2\x17\'O\xd3\xafr2G\xb5\xd1\x89\x0e$\x95\x0f\xe1\xaf\x8d\x14\xf4\xb7\x8d\'.I\xf5\x11\xb4\xa2e\x95\xc8\xc3\x17\xec\xa4e|\x17\xba\xf2\xbd\xb1\x14QzKvV\xd9\xeb\x93\xfbdy|\x8aj*\x87\x99\xafD\xa7e\xee\xfc+\xcd+\x1cJ\xadV\xd1B\xd5\x8c\xa1:;\x99^5\xb5\xe4\x84\x84\xd6\x9a\xb1\xc2\xb9\x1f;KQ\xc5)z\x1fM2X\xda\xda\xf8x9^)X\xa3\xaaHHH\xab%\x1f\xa1\xadQ\x8e-\xb21\xa5\xa9A3\xa8\xc1\xda\xedx\xb1*+tP\x8a\xa3\xd9Z\x8a\xa2\xc4%\xaa\x12$\xe9\r\xd8\xb8\x12\xb3\xa7\x83\xbb{Fe\xdc\xa8\x9ci\x95\xb4QEj\x8e\xd1Dp\xa2\xb5\x15b\xd5\xd0\xa6\'bc\xe7\xd9/b\x8bdbb\x82\x8b\x12\xe0\xadU\x0e\xbd\x0f\nfl\tF\xd0\xc4\xac\xaa\xf7\xe1HHUZj\xce\xc1\xc5\x8a)\x14J_E\x96)P\xa4\xef\x92\xef\xd0\xd7\xd1\x15\xaeQ\x0c\xbf\xc1Ij\\+fL\xd2r!\xd4O\xec\x97Q)F\x8e\xd6\xcc\x18/\x96d\xc0\x9a\xe0\x9e6\x9d\x0f\x8dP\xbdi!rQ-1\xae|,RhS\x7f\xd23Bi\xedI\x90\xc8\xd32\xce\xa0\xd9)\xf2FL\\\x91\xf6c\xc9\x1aKYf\x93\xa6J\x17\xca+I\xd6\x92(\xba\x1e\x99Z\xa2\xbc\x1b!\x91\xc4\x8c\x94\x95\xa1\xfa\x12\xd7S\x95J*(\x97\x04\x11\x08wz?\x0bK\x92)\xa6d\xcb\xd9\x0b\x1c\x9c\x9d\x98`\xd4y2b^\xce\xc1i*\xd4\xefM\xd6\xaf\xc2\xbca.\xd7bjK\x8dN]\xa8\x9c\xdbe\xd8\xb807\xde\x89\xc6M\x8f\x1a\\\x99\xf2\xf7p\x8c8\xed\xd8\xfe\x917\xc1h[C\x85\x92\xc7\xc1"\xeb\xc6\x87\xaa;J0\xfa\xd7S\x93\x9aC\xf6c\x87s\x1c\x1aVt\xff\x00\xba8:\x9c\xb4\xa9\x10\x8ft\xa8\x84\x14P\xcc\x92\xa4Z\x10\xb5\x11z&\xea#v\xfck\x8b\x15W#\xa2#\xfa*\x84\xac\x84i\x13\x95"o\xb9\xd8\xa2A\xf6\xb1d\x8c\x953\xa7\xc6\xbb\xbb\x91\x92}\x89\xb6J]\xee\xce\x9b\x15r\xc6\xc9J\x91\x92]\xcc\xb1\x16!",\xcf*^1[i\r*=\x12!\x11p\xa8\xea\'\\\rX\x90\x84\xe8\x8eG\x1fFL\xae|\x18q\xb6\xc4\xa9P\xdd\x19\xa7\xc8\xcb\x10\xb5\x16/gQ\xfbm\x14\x8f\xf3R\xbf\xe0\xa6~G\xfc? \xe7dr\xd2!\x99\xbf\xd8\xca\xeeZHj\xbc1\xe5x\xc8fR\\\x19\'\xda\x87+w\xe0\xb5\x11{3\xbf\xfa\xdf\xfa/\xfc\xd7\xb1\xaeh\xecB\x82;P\x92#\x8d3,\x14yC\xe4\x8a\xb1A.I\xbb\xf1N\x876\xf8zE\x0c\xbe\x04-d\xf7\xba"\xa8j\x87\xca*\xbc\x17\xec3\xa8\xf4rD\x97\xadK\xe1\xff\xd9'
-dict_keys(['7230083-t6-enh.jpg'])
->>> predict: : 1
-[[[[281 500   3]
-   [281 500   3]
-   [281 500   3]
-   ...
-   [281 500   3]
-   [281 500   3]
-   [281 500   3]]
-
-  [[281 500   3]
-   [281 500   3]
-   [281 500   3]
-   ...
-   [281 500   3]
-   [281 500   3]
-   [281 500   3]]
-
-  [[281 500   3]
-   [281 500   3]
-   [281 500   3]
-   ...
-   [281 500   3]
-   [281 500   3]
-   [281 500   3]]
-
-  ...
-
-  [[281 500   3]
-   [281 500   3]
-   [281 500   3]
-   ...
-   [281 500   3]
-   [281 500   3]
-   [281 500   3]]
-
-  [[281 500   3]
-   [281 500   3]
-   [281 500   3]
-   ...
-   [281 500   3]
-   [281 500   3]
-   [281 500   3]]
-
-  [[281 500   3]
-   [281 500   3]
-   [281 500   3]
-   ...
-   [281 500   3]
-   [281 500   3]
-   [281 500   3]]]]
-========================================
->>> predict_y: [[1.1928436e-02 3.3210639e-05 1.4007508e-04 1.1540264e-04 1.1072539e-01
-  5.4837376e-02 1.5225537e-06 2.8038671e-04 2.2151095e-03 8.1972313e-01]]
->>> successful model: res with : program_1
-xxx deleted, model res
-<><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><>
->>> starting model: lstm with : program_0
->>> lstm model intiated ...
->>> bulding lstm model ...
->>> showing lstm summery ...
-Model: "sequential_7"
-_________________________________________________________________
- Layer (type)                Output Shape              Param #   
-=================================================================
- lstm_4 (LSTM)               (None, 5, 10)             840       
-                                                                 
- dense_14 (Dense)            (None, 5, 5)              55        
-                                                                 
- activation_2 (Activation)   (None, 5, 5)              0         
-                                                                 
-=================================================================
-Total params: 895
-Trainable params: 895
-Non-trainable params: 0
-_________________________________________________________________
->>> plotting model: lstm
->>> training lstm model ...
-XXX Error in model: lstm with : program_0 in user code:
-
-    File "/usr/local/lib/python3.7/dist-packages/keras/engine/training.py", line 878, in train_function  *
-        return step_function(self, iterator)
-    File "/usr/local/lib/python3.7/dist-packages/keras/engine/training.py", line 867, in step_function  **
-        outputs = model.distribute_strategy.run(run_step, args=(data,))
-    File "/usr/local/lib/python3.7/dist-packages/keras/engine/training.py", line 860, in run_step  **
-        outputs = model.train_step(data)
-    File "/usr/local/lib/python3.7/dist-packages/keras/engine/training.py", line 808, in train_step
-        y_pred = self(x, training=True)
-    File "/usr/local/lib/python3.7/dist-packages/keras/utils/traceback_utils.py", line 67, in error_handler
-        raise e.with_traceback(filtered_tb) from None
-    File "/usr/local/lib/python3.7/dist-packages/keras/engine/input_spec.py", line 263, in assert_input_compatibility
-        raise ValueError(f'Input {input_index} of layer "{layer_name}" is '
-
-    ValueError: Input 0 of layer "sequential_7" is incompatible with the layer: expected shape=(None, 5, 10), found shape=(5, 512, 512, 3)
-
-<><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><>
->>> starting model: lstmBi with : program_0
->>> lstmBi model intiated ...
-xxx deleted, model lstm
->>> bulding lstmBi model ...
->>> showing lstmBi summery ...
-Model: "sequential_8"
-_________________________________________________________________
- Layer (type)                Output Shape              Param #   
-=================================================================
- bidirectional_2 (Bidirectio  (None, 5, 20)            1680      
- nal)                                                            
-                                                                 
- bidirectional_3 (Bidirectio  (None, 20)               2480      
- nal)                                                            
-                                                                 
- dense_15 (Dense)            (None, 5)                 105       
-                                                                 
- activation_3 (Activation)   (None, 5)                 0         
-                                                                 
-=================================================================
-Total params: 4,265
-Trainable params: 4,265
-Non-trainable params: 0
-_________________________________________________________________
->>> plotting model: lstmBi
->>> training lstmBi model ...
-XXX Error in model: lstmBi with : program_0 in user code:
-
-    File "/usr/local/lib/python3.7/dist-packages/keras/engine/training.py", line 878, in train_function  *
-        return step_function(self, iterator)
-    File "/usr/local/lib/python3.7/dist-packages/keras/engine/training.py", line 867, in step_function  **
-        outputs = model.distribute_strategy.run(run_step, args=(data,))
-    File "/usr/local/lib/python3.7/dist-packages/keras/engine/training.py", line 860, in run_step  **
-        outputs = model.train_step(data)
-    File "/usr/local/lib/python3.7/dist-packages/keras/engine/training.py", line 808, in train_step
-        y_pred = self(x, training=True)
-    File "/usr/local/lib/python3.7/dist-packages/keras/utils/traceback_utils.py", line 67, in error_handler
-        raise e.with_traceback(filtered_tb) from None
-    File "/usr/local/lib/python3.7/dist-packages/keras/engine/input_spec.py", line 263, in assert_input_compatibility
-        raise ValueError(f'Input {input_index} of layer "{layer_name}" is '
-
-    ValueError: Input 0 of layer "sequential_8" is incompatible with the layer: expected shape=(None, 5, 10), found shape=(5, 512, 512, 3)
-
-<><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><>
+<><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><>
 >>> starting model: vgg16 with : program_0
 >>> vgg16 model intiated ...
-xxx deleted, model lstmBi
 >>> bulding vgg16 model ...
+Downloading data from https://storage.googleapis.com/tensorflow/keras-applications/vgg16/vgg16_weights_tf_dim_ordering_tf_kernels_notop.h5
+58892288/58889256 [==============================] - 1s 0us/step
+58900480/58889256 [==============================] - 1s 0us/step
 >>> showing vgg16 summery ...
-Model: "model_7"
+Model: "model_2"
 _________________________________________________________________
  Layer (type)                Output Shape              Param #   
 =================================================================
- input_10 (InputLayer)       [(None, 512, 512, 3)]     0         
+ input_3 (InputLayer)        [(None, 512, 512, 3)]     0         
                                                                  
  block1_conv1 (Conv2D)       (None, 512, 512, 64)      1792      
                                                                  
@@ -464,8 +228,8 @@ _________________________________________________________________
                                                                  
  block5_pool (MaxPooling2D)  (None, 16, 16, 512)       0         
                                                                  
- global_average_pooling2d_2   (None, 512)              0         
- (GlobalAveragePooling2D)                                        
+ global_average_pooling2d (G  (None, 512)              0         
+ lobalAveragePooling2D)                                          
                                                                  
 =================================================================
 Total params: 14,714,688
@@ -474,58 +238,63 @@ Non-trainable params: 0
 _________________________________________________________________
 >>> plotting model: vgg16
 >>> training vgg16 model ...
-8/8 [==============================] - 10s 1s/step - loss: 9.1733 - accuracy: 0.4500
+8/8 [==============================] - 22s 1s/step - loss: 12.1129 - accuracy: 0.2250
 >>> testing vgg16 model ...
-2/2 - 2s - loss: 8.0591 - accuracy: 0.5000 - 2s/epoch - 998ms/step
+2/2 - 42s - loss: 10.2563 - accuracy: 0.5000 - 42s/epoch - 21s/step
 >>> Restored model, accuracy: 50.00%
 >>> successful model: vgg16 with : program_0
 xxx deleted, model vgg16
-<><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><>
+<><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><>
+>>> starting model: vgg16seq with : program_0
+XXX Error in model: vgg16seq with : program_0 'vgg16seq'
+<><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><>
 >>> starting model: vgg16Seq with : program_0
 >>> vgg16Seq model intiated ...
 >>> bulding vgg16Seq model ...
+/usr/local/lib/python3.7/dist-packages/keras/optimizer_v2/gradient_descent.py:102: UserWarning: The `lr` argument is deprecated, use `learning_rate` instead.
+  super(SGD, self).__init__(name, **kwargs)
 >>> showing vgg16Seq summery ...
-Model: "sequential_9"
+Model: "sequential_2"
 _________________________________________________________________
  Layer (type)                Output Shape              Param #   
 =================================================================
- conv2d_49 (Conv2D)          (None, 512, 512, 64)      1792      
+ conv2d_9 (Conv2D)           (None, 512, 512, 64)      1792      
                                                                  
- conv2d_50 (Conv2D)          (None, 512, 512, 64)      36928     
+ conv2d_10 (Conv2D)          (None, 512, 512, 64)      36928     
                                                                  
- max_pooling2d_4 (MaxPooling  (None, 256, 256, 64)     0         
+ max_pooling2d (MaxPooling2D  (None, 256, 256, 64)     0         
+ )                                                               
+                                                                 
+ conv2d_11 (Conv2D)          (None, 256, 256, 128)     73856     
+                                                                 
+ conv2d_12 (Conv2D)          (None, 256, 256, 128)     147584    
+                                                                 
+ max_pooling2d_1 (MaxPooling  (None, 128, 128, 128)    0         
  2D)                                                             
                                                                  
- conv2d_51 (Conv2D)          (None, 256, 256, 128)     73856     
+ conv2d_13 (Conv2D)          (None, 128, 128, 256)     295168    
                                                                  
- conv2d_52 (Conv2D)          (None, 256, 256, 128)     147584    
+ conv2d_14 (Conv2D)          (None, 128, 128, 256)     590080    
                                                                  
- max_pooling2d_5 (MaxPooling  (None, 128, 128, 128)    0         
+ conv2d_15 (Conv2D)          (None, 128, 128, 256)     590080    
+                                                                 
+ max_pooling2d_2 (MaxPooling  (None, 64, 64, 256)      0         
  2D)                                                             
                                                                  
- conv2d_53 (Conv2D)          (None, 128, 128, 256)     295168    
+ conv2d_16 (Conv2D)          (None, 64, 64, 512)       1180160   
                                                                  
- conv2d_54 (Conv2D)          (None, 128, 128, 256)     590080    
+ conv2d_17 (Conv2D)          (None, 64, 64, 512)       2359808   
                                                                  
- conv2d_55 (Conv2D)          (None, 128, 128, 256)     590080    
+ conv2d_18 (Conv2D)          (None, 64, 64, 512)       2359808   
                                                                  
- max_pooling2d_6 (MaxPooling  (None, 64, 64, 256)      0         
+ max_pooling2d_3 (MaxPooling  (None, 32, 32, 512)      0         
  2D)                                                             
                                                                  
- conv2d_56 (Conv2D)          (None, 64, 64, 512)       1180160   
+ conv2d_19 (Conv2D)          (None, 32, 32, 512)       2359808   
                                                                  
- conv2d_57 (Conv2D)          (None, 64, 64, 512)       2359808   
+ conv2d_20 (Conv2D)          (None, 32, 32, 512)       2359808   
                                                                  
- conv2d_58 (Conv2D)          (None, 64, 64, 512)       2359808   
-                                                                 
- max_pooling2d_7 (MaxPooling  (None, 32, 32, 512)      0         
- 2D)                                                             
-                                                                 
- conv2d_59 (Conv2D)          (None, 32, 32, 512)       2359808   
-                                                                 
- conv2d_60 (Conv2D)          (None, 32, 32, 512)       2359808   
-                                                                 
- conv2d_61 (Conv2D)          (None, 32, 32, 512)       2359808   
+ conv2d_21 (Conv2D)          (None, 32, 32, 512)       2359808   
                                                                  
  vgg16 (MaxPooling2D)        (None, 16, 16, 512)       0         
                                                                  
@@ -543,75 +312,776 @@ Trainable params: 48,302,401
 Non-trainable params: 0
 _________________________________________________________________
 >>> plotting model: vgg16Seq
-/usr/local/lib/python3.7/dist-packages/keras/optimizer_v2/gradient_descent.py:102: UserWarning: The `lr` argument is deprecated, use `learning_rate` instead.
-  super(SGD, self).__init__(name, **kwargs)
 >>> training vgg16Seq model ...
-8/8 [==============================] - 10s 1s/step - loss: 0.6926 - accuracy: 0.5000
+8/8 [==============================] - 10s 1s/step - loss: 0.6935 - accuracy: 0.5000
 >>> testing vgg16Seq model ...
-2/2 - 2s - loss: 0.6913 - accuracy: 0.5000 - 2s/epoch - 1s/step
+2/2 - 2s - loss: 0.6937 - accuracy: 0.5000 - 2s/epoch - 1s/step
 >>> Restored model, accuracy: 50.00%
 >>> successful model: vgg16Seq with : program_0
 xxx deleted, model vgg16Seq
-<><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><>
->>> starting model: vggLstm with : program_0
->>> vggLstm model intiated ...
->>> bulding vggLstm model ...
-ch 1
-ch 2
-ch 3
-ch 4
-ch 5
-ch 6
->>> showing vggLstm summery ...
-Model: "model_9"
+<><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><>
+>>> starting model: LstmConv2d with : program_0
+>>> LstmConv2d model intiated ...
+>>> bulding LstmConv2d model ...
+(None, 2, 59, 59, 320)
+tf.Tensor(
+[[[[[2.4196079  2.745098   0.01176471]
+    [2.4196079  2.745098   0.01176471]
+    [2.4196079  2.745098   0.01176471]
+    ...
+    [2.4196079  2.745098   0.01176471]
+    [2.4196079  2.745098   0.01176471]
+    [2.4196079  2.745098   0.01176471]]
+
+   [[2.4196079  2.745098   0.01176471]
+    [2.4196079  2.745098   0.01176471]
+    [2.4196079  2.745098   0.01176471]
+    ...
+    [2.4196079  2.745098   0.01176471]
+    [2.4196079  2.745098   0.01176471]
+    [2.4196079  2.745098   0.01176471]]
+
+   [[2.4196079  2.745098   0.01176471]
+    [2.4196079  2.745098   0.01176471]
+    [2.4196079  2.745098   0.01176471]
+    ...
+    [2.4196079  2.745098   0.01176471]
+    [2.4196079  2.745098   0.01176471]
+    [2.4196079  2.745098   0.01176471]]
+
+   ...
+
+   [[2.4196079  2.745098   0.01176471]
+    [2.4196079  2.745098   0.01176471]
+    [2.4196079  2.745098   0.01176471]
+    ...
+    [2.4196079  2.745098   0.01176471]
+    [2.4196079  2.745098   0.01176471]
+    [2.4196079  2.745098   0.01176471]]
+
+   [[2.4196079  2.745098   0.01176471]
+    [2.4196079  2.745098   0.01176471]
+    [2.4196079  2.745098   0.01176471]
+    ...
+    [2.4196079  2.745098   0.01176471]
+    [2.4196079  2.745098   0.01176471]
+    [2.4196079  2.745098   0.01176471]]
+
+   [[2.4196079  2.745098   0.01176471]
+    [2.4196079  2.745098   0.01176471]
+    [2.4196079  2.745098   0.01176471]
+    ...
+    [2.4196079  2.745098   0.01176471]
+    [2.4196079  2.745098   0.01176471]
+    [2.4196079  2.745098   0.01176471]]]
+
+
+  [[[1.5686275  1.5686275  0.01176471]
+    [1.5686275  1.5686275  0.01176471]
+    [1.5686275  1.5686275  0.01176471]
+    ...
+    [1.5686275  1.5686275  0.01176471]
+    [1.5686275  1.5686275  0.01176471]
+    [1.5686275  1.5686275  0.01176471]]
+
+   [[1.5686275  1.5686275  0.01176471]
+    [1.5686275  1.5686275  0.01176471]
+    [1.5686275  1.5686275  0.01176471]
+    ...
+    [1.5686275  1.5686275  0.01176471]
+    [1.5686275  1.5686275  0.01176471]
+    [1.5686275  1.5686275  0.01176471]]
+
+   [[1.5686275  1.5686275  0.01176471]
+    [1.5686275  1.5686275  0.01176471]
+    [1.5686275  1.5686275  0.01176471]
+    ...
+    [1.5686275  1.5686275  0.01176471]
+    [1.5686275  1.5686275  0.01176471]
+    [1.5686275  1.5686275  0.01176471]]
+
+   ...
+
+   [[1.5686275  1.5686275  0.01176471]
+    [1.5686275  1.5686275  0.01176471]
+    [1.5686275  1.5686275  0.01176471]
+    ...
+    [1.5686275  1.5686275  0.01176471]
+    [1.5686275  1.5686275  0.01176471]
+    [1.5686275  1.5686275  0.01176471]]
+
+   [[1.5686275  1.5686275  0.01176471]
+    [1.5686275  1.5686275  0.01176471]
+    [1.5686275  1.5686275  0.01176471]
+    ...
+    [1.5686275  1.5686275  0.01176471]
+    [1.5686275  1.5686275  0.01176471]
+    [1.5686275  1.5686275  0.01176471]]
+
+   [[1.5686275  1.5686275  0.01176471]
+    [1.5686275  1.5686275  0.01176471]
+    [1.5686275  1.5686275  0.01176471]
+    ...
+    [1.5686275  1.5686275  0.01176471]
+    [1.5686275  1.5686275  0.01176471]
+    [1.5686275  1.5686275  0.01176471]]]]
+
+
+
+ [[[[4.7058825  3.137255   0.01176471]
+    [4.7058825  3.137255   0.01176471]
+    [4.7058825  3.137255   0.01176471]
+    ...
+    [4.7058825  3.137255   0.01176471]
+    [4.7058825  3.137255   0.01176471]
+    [4.7058825  3.137255   0.01176471]]
+
+   [[4.7058825  3.137255   0.01176471]
+    [4.7058825  3.137255   0.01176471]
+    [4.7058825  3.137255   0.01176471]
+    ...
+    [4.7058825  3.137255   0.01176471]
+    [4.7058825  3.137255   0.01176471]
+    [4.7058825  3.137255   0.01176471]]
+
+   [[4.7058825  3.137255   0.01176471]
+    [4.7058825  3.137255   0.01176471]
+    [4.7058825  3.137255   0.01176471]
+    ...
+    [4.7058825  3.137255   0.01176471]
+    [4.7058825  3.137255   0.01176471]
+    [4.7058825  3.137255   0.01176471]]
+
+   ...
+
+   [[4.7058825  3.137255   0.01176471]
+    [4.7058825  3.137255   0.01176471]
+    [4.7058825  3.137255   0.01176471]
+    ...
+    [4.7058825  3.137255   0.01176471]
+    [4.7058825  3.137255   0.01176471]
+    [4.7058825  3.137255   0.01176471]]
+
+   [[4.7058825  3.137255   0.01176471]
+    [4.7058825  3.137255   0.01176471]
+    [4.7058825  3.137255   0.01176471]
+    ...
+    [4.7058825  3.137255   0.01176471]
+    [4.7058825  3.137255   0.01176471]
+    [4.7058825  3.137255   0.01176471]]
+
+   [[4.7058825  3.137255   0.01176471]
+    [4.7058825  3.137255   0.01176471]
+    [4.7058825  3.137255   0.01176471]
+    ...
+    [4.7058825  3.137255   0.01176471]
+    [4.7058825  3.137255   0.01176471]
+    [4.7058825  3.137255   0.01176471]]]
+
+
+  [[[5.2313724  3.9215686  0.01176471]
+    [5.2313724  3.9215686  0.01176471]
+    [5.2313724  3.9215686  0.01176471]
+    ...
+    [5.2313724  3.9215686  0.01176471]
+    [5.2313724  3.9215686  0.01176471]
+    [5.2313724  3.9215686  0.01176471]]
+
+   [[5.2313724  3.9215686  0.01176471]
+    [5.2313724  3.9215686  0.01176471]
+    [5.2313724  3.9215686  0.01176471]
+    ...
+    [5.2313724  3.9215686  0.01176471]
+    [5.2313724  3.9215686  0.01176471]
+    [5.2313724  3.9215686  0.01176471]]
+
+   [[5.2313724  3.9215686  0.01176471]
+    [5.2313724  3.9215686  0.01176471]
+    [5.2313724  3.9215686  0.01176471]
+    ...
+    [5.2313724  3.9215686  0.01176471]
+    [5.2313724  3.9215686  0.01176471]
+    [5.2313724  3.9215686  0.01176471]]
+
+   ...
+
+   [[5.2313724  3.9215686  0.01176471]
+    [5.2313724  3.9215686  0.01176471]
+    [5.2313724  3.9215686  0.01176471]
+    ...
+    [5.2313724  3.9215686  0.01176471]
+    [5.2313724  3.9215686  0.01176471]
+    [5.2313724  3.9215686  0.01176471]]
+
+   [[5.2313724  3.9215686  0.01176471]
+    [5.2313724  3.9215686  0.01176471]
+    [5.2313724  3.9215686  0.01176471]
+    ...
+    [5.2313724  3.9215686  0.01176471]
+    [5.2313724  3.9215686  0.01176471]
+    [5.2313724  3.9215686  0.01176471]]
+
+   [[5.2313724  3.9215686  0.01176471]
+    [5.2313724  3.9215686  0.01176471]
+    [5.2313724  3.9215686  0.01176471]
+    ...
+    [5.2313724  3.9215686  0.01176471]
+    [5.2313724  3.9215686  0.01176471]
+    [5.2313724  3.9215686  0.01176471]]]]
+
+
+
+ [[[[2.1764705  2.8235295  0.01176471]
+    [2.1764705  2.8235295  0.01176471]
+    [2.1764705  2.8235295  0.01176471]
+    ...
+    [2.1764705  2.8235295  0.01176471]
+    [2.1764705  2.8235295  0.01176471]
+    [2.1764705  2.8235295  0.01176471]]
+
+   [[2.1764705  2.8235295  0.01176471]
+    [2.1764705  2.8235295  0.01176471]
+    [2.1764705  2.8235295  0.01176471]
+    ...
+    [2.1764705  2.8235295  0.01176471]
+    [2.1764705  2.8235295  0.01176471]
+    [2.1764705  2.8235295  0.01176471]]
+
+   [[2.1764705  2.8235295  0.01176471]
+    [2.1764705  2.8235295  0.01176471]
+    [2.1764705  2.8235295  0.01176471]
+    ...
+    [2.1764705  2.8235295  0.01176471]
+    [2.1764705  2.8235295  0.01176471]
+    [2.1764705  2.8235295  0.01176471]]
+
+   ...
+
+   [[2.1764705  2.8235295  0.01176471]
+    [2.1764705  2.8235295  0.01176471]
+    [2.1764705  2.8235295  0.01176471]
+    ...
+    [2.1764705  2.8235295  0.01176471]
+    [2.1764705  2.8235295  0.01176471]
+    [2.1764705  2.8235295  0.01176471]]
+
+   [[2.1764705  2.8235295  0.01176471]
+    [2.1764705  2.8235295  0.01176471]
+    [2.1764705  2.8235295  0.01176471]
+    ...
+    [2.1764705  2.8235295  0.01176471]
+    [2.1764705  2.8235295  0.01176471]
+    [2.1764705  2.8235295  0.01176471]]
+
+   [[2.1764705  2.8235295  0.01176471]
+    [2.1764705  2.8235295  0.01176471]
+    [2.1764705  2.8235295  0.01176471]
+    ...
+    [2.1764705  2.8235295  0.01176471]
+    [2.1764705  2.8235295  0.01176471]
+    [2.1764705  2.8235295  0.01176471]]]
+
+
+  [[[1.5294118  2.1568627  0.01176471]
+    [1.5294118  2.1568627  0.01176471]
+    [1.5294118  2.1568627  0.01176471]
+    ...
+    [1.5294118  2.1568627  0.01176471]
+    [1.5294118  2.1568627  0.01176471]
+    [1.5294118  2.1568627  0.01176471]]
+
+   [[1.5294118  2.1568627  0.01176471]
+    [1.5294118  2.1568627  0.01176471]
+    [1.5294118  2.1568627  0.01176471]
+    ...
+    [1.5294118  2.1568627  0.01176471]
+    [1.5294118  2.1568627  0.01176471]
+    [1.5294118  2.1568627  0.01176471]]
+
+   [[1.5294118  2.1568627  0.01176471]
+    [1.5294118  2.1568627  0.01176471]
+    [1.5294118  2.1568627  0.01176471]
+    ...
+    [1.5294118  2.1568627  0.01176471]
+    [1.5294118  2.1568627  0.01176471]
+    [1.5294118  2.1568627  0.01176471]]
+
+   ...
+
+   [[1.5294118  2.1568627  0.01176471]
+    [1.5294118  2.1568627  0.01176471]
+    [1.5294118  2.1568627  0.01176471]
+    ...
+    [1.5294118  2.1568627  0.01176471]
+    [1.5294118  2.1568627  0.01176471]
+    [1.5294118  2.1568627  0.01176471]]
+
+   [[1.5294118  2.1568627  0.01176471]
+    [1.5294118  2.1568627  0.01176471]
+    [1.5294118  2.1568627  0.01176471]
+    ...
+    [1.5294118  2.1568627  0.01176471]
+    [1.5294118  2.1568627  0.01176471]
+    [1.5294118  2.1568627  0.01176471]]
+
+   [[1.5294118  2.1568627  0.01176471]
+    [1.5294118  2.1568627  0.01176471]
+    [1.5294118  2.1568627  0.01176471]
+    ...
+    [1.5294118  2.1568627  0.01176471]
+    [1.5294118  2.1568627  0.01176471]
+    [1.5294118  2.1568627  0.01176471]]]]
+
+
+
+ ...
+
+
+
+ [[[[2.0078433  2.0078433  0.01176471]
+    [2.0078433  2.0078433  0.01176471]
+    [2.0078433  2.0078433  0.01176471]
+    ...
+    [2.0078433  2.0078433  0.01176471]
+    [2.0078433  2.0078433  0.01176471]
+    [2.0078433  2.0078433  0.01176471]]
+
+   [[2.0078433  2.0078433  0.01176471]
+    [2.0078433  2.0078433  0.01176471]
+    [2.0078433  2.0078433  0.01176471]
+    ...
+    [2.0078433  2.0078433  0.01176471]
+    [2.0078433  2.0078433  0.01176471]
+    [2.0078433  2.0078433  0.01176471]]
+
+   [[2.0078433  2.0078433  0.01176471]
+    [2.0078433  2.0078433  0.01176471]
+    [2.0078433  2.0078433  0.01176471]
+    ...
+    [2.0078433  2.0078433  0.01176471]
+    [2.0078433  2.0078433  0.01176471]
+    [2.0078433  2.0078433  0.01176471]]
+
+   ...
+
+   [[2.0078433  2.0078433  0.01176471]
+    [2.0078433  2.0078433  0.01176471]
+    [2.0078433  2.0078433  0.01176471]
+    ...
+    [2.0078433  2.0078433  0.01176471]
+    [2.0078433  2.0078433  0.01176471]
+    [2.0078433  2.0078433  0.01176471]]
+
+   [[2.0078433  2.0078433  0.01176471]
+    [2.0078433  2.0078433  0.01176471]
+    [2.0078433  2.0078433  0.01176471]
+    ...
+    [2.0078433  2.0078433  0.01176471]
+    [2.0078433  2.0078433  0.01176471]
+    [2.0078433  2.0078433  0.01176471]]
+
+   [[2.0078433  2.0078433  0.01176471]
+    [2.0078433  2.0078433  0.01176471]
+    [2.0078433  2.0078433  0.01176471]
+    ...
+    [2.0078433  2.0078433  0.01176471]
+    [2.0078433  2.0078433  0.01176471]
+    [2.0078433  2.0078433  0.01176471]]]
+
+
+  [[[2.0078433  2.0078433  0.01176471]
+    [2.0078433  2.0078433  0.01176471]
+    [2.0078433  2.0078433  0.01176471]
+    ...
+    [2.0078433  2.0078433  0.01176471]
+    [2.0078433  2.0078433  0.01176471]
+    [2.0078433  2.0078433  0.01176471]]
+
+   [[2.0078433  2.0078433  0.01176471]
+    [2.0078433  2.0078433  0.01176471]
+    [2.0078433  2.0078433  0.01176471]
+    ...
+    [2.0078433  2.0078433  0.01176471]
+    [2.0078433  2.0078433  0.01176471]
+    [2.0078433  2.0078433  0.01176471]]
+
+   [[2.0078433  2.0078433  0.01176471]
+    [2.0078433  2.0078433  0.01176471]
+    [2.0078433  2.0078433  0.01176471]
+    ...
+    [2.0078433  2.0078433  0.01176471]
+    [2.0078433  2.0078433  0.01176471]
+    [2.0078433  2.0078433  0.01176471]]
+
+   ...
+
+   [[2.0078433  2.0078433  0.01176471]
+    [2.0078433  2.0078433  0.01176471]
+    [2.0078433  2.0078433  0.01176471]
+    ...
+    [2.0078433  2.0078433  0.01176471]
+    [2.0078433  2.0078433  0.01176471]
+    [2.0078433  2.0078433  0.01176471]]
+
+   [[2.0078433  2.0078433  0.01176471]
+    [2.0078433  2.0078433  0.01176471]
+    [2.0078433  2.0078433  0.01176471]
+    ...
+    [2.0078433  2.0078433  0.01176471]
+    [2.0078433  2.0078433  0.01176471]
+    [2.0078433  2.0078433  0.01176471]]
+
+   [[2.0078433  2.0078433  0.01176471]
+    [2.0078433  2.0078433  0.01176471]
+    [2.0078433  2.0078433  0.01176471]
+    ...
+    [2.0078433  2.0078433  0.01176471]
+    [2.0078433  2.0078433  0.01176471]
+    [2.0078433  2.0078433  0.01176471]]]]
+
+
+
+ [[[[2.0078433  2.0078433  0.01176471]
+    [2.0078433  2.0078433  0.01176471]
+    [2.0078433  2.0078433  0.01176471]
+    ...
+    [2.0078433  2.0078433  0.01176471]
+    [2.0078433  2.0078433  0.01176471]
+    [2.0078433  2.0078433  0.01176471]]
+
+   [[2.0078433  2.0078433  0.01176471]
+    [2.0078433  2.0078433  0.01176471]
+    [2.0078433  2.0078433  0.01176471]
+    ...
+    [2.0078433  2.0078433  0.01176471]
+    [2.0078433  2.0078433  0.01176471]
+    [2.0078433  2.0078433  0.01176471]]
+
+   [[2.0078433  2.0078433  0.01176471]
+    [2.0078433  2.0078433  0.01176471]
+    [2.0078433  2.0078433  0.01176471]
+    ...
+    [2.0078433  2.0078433  0.01176471]
+    [2.0078433  2.0078433  0.01176471]
+    [2.0078433  2.0078433  0.01176471]]
+
+   ...
+
+   [[2.0078433  2.0078433  0.01176471]
+    [2.0078433  2.0078433  0.01176471]
+    [2.0078433  2.0078433  0.01176471]
+    ...
+    [2.0078433  2.0078433  0.01176471]
+    [2.0078433  2.0078433  0.01176471]
+    [2.0078433  2.0078433  0.01176471]]
+
+   [[2.0078433  2.0078433  0.01176471]
+    [2.0078433  2.0078433  0.01176471]
+    [2.0078433  2.0078433  0.01176471]
+    ...
+    [2.0078433  2.0078433  0.01176471]
+    [2.0078433  2.0078433  0.01176471]
+    [2.0078433  2.0078433  0.01176471]]
+
+   [[2.0078433  2.0078433  0.01176471]
+    [2.0078433  2.0078433  0.01176471]
+    [2.0078433  2.0078433  0.01176471]
+    ...
+    [2.0078433  2.0078433  0.01176471]
+    [2.0078433  2.0078433  0.01176471]
+    [2.0078433  2.0078433  0.01176471]]]
+
+
+  [[[2.0078433  2.0078433  0.01176471]
+    [2.0078433  2.0078433  0.01176471]
+    [2.0078433  2.0078433  0.01176471]
+    ...
+    [2.0078433  2.0078433  0.01176471]
+    [2.0078433  2.0078433  0.01176471]
+    [2.0078433  2.0078433  0.01176471]]
+
+   [[2.0078433  2.0078433  0.01176471]
+    [2.0078433  2.0078433  0.01176471]
+    [2.0078433  2.0078433  0.01176471]
+    ...
+    [2.0078433  2.0078433  0.01176471]
+    [2.0078433  2.0078433  0.01176471]
+    [2.0078433  2.0078433  0.01176471]]
+
+   [[2.0078433  2.0078433  0.01176471]
+    [2.0078433  2.0078433  0.01176471]
+    [2.0078433  2.0078433  0.01176471]
+    ...
+    [2.0078433  2.0078433  0.01176471]
+    [2.0078433  2.0078433  0.01176471]
+    [2.0078433  2.0078433  0.01176471]]
+
+   ...
+
+   [[2.0078433  2.0078433  0.01176471]
+    [2.0078433  2.0078433  0.01176471]
+    [2.0078433  2.0078433  0.01176471]
+    ...
+    [2.0078433  2.0078433  0.01176471]
+    [2.0078433  2.0078433  0.01176471]
+    [2.0078433  2.0078433  0.01176471]]
+
+   [[2.0078433  2.0078433  0.01176471]
+    [2.0078433  2.0078433  0.01176471]
+    [2.0078433  2.0078433  0.01176471]
+    ...
+    [2.0078433  2.0078433  0.01176471]
+    [2.0078433  2.0078433  0.01176471]
+    [2.0078433  2.0078433  0.01176471]]
+
+   [[2.0078433  2.0078433  0.01176471]
+    [2.0078433  2.0078433  0.01176471]
+    [2.0078433  2.0078433  0.01176471]
+    ...
+    [2.0078433  2.0078433  0.01176471]
+    [2.0078433  2.0078433  0.01176471]
+    [2.0078433  2.0078433  0.01176471]]]]
+
+
+
+ [[[[2.0078433  2.0078433  0.01176471]
+    [2.0078433  2.0078433  0.01176471]
+    [2.0078433  2.0078433  0.01176471]
+    ...
+    [2.0078433  2.0078433  0.01176471]
+    [2.0078433  2.0078433  0.01176471]
+    [2.0078433  2.0078433  0.01176471]]
+
+   [[2.0078433  2.0078433  0.01176471]
+    [2.0078433  2.0078433  0.01176471]
+    [2.0078433  2.0078433  0.01176471]
+    ...
+    [2.0078433  2.0078433  0.01176471]
+    [2.0078433  2.0078433  0.01176471]
+    [2.0078433  2.0078433  0.01176471]]
+
+   [[2.0078433  2.0078433  0.01176471]
+    [2.0078433  2.0078433  0.01176471]
+    [2.0078433  2.0078433  0.01176471]
+    ...
+    [2.0078433  2.0078433  0.01176471]
+    [2.0078433  2.0078433  0.01176471]
+    [2.0078433  2.0078433  0.01176471]]
+
+   ...
+
+   [[2.0078433  2.0078433  0.01176471]
+    [2.0078433  2.0078433  0.01176471]
+    [2.0078433  2.0078433  0.01176471]
+    ...
+    [2.0078433  2.0078433  0.01176471]
+    [2.0078433  2.0078433  0.01176471]
+    [2.0078433  2.0078433  0.01176471]]
+
+   [[2.0078433  2.0078433  0.01176471]
+    [2.0078433  2.0078433  0.01176471]
+    [2.0078433  2.0078433  0.01176471]
+    ...
+    [2.0078433  2.0078433  0.01176471]
+    [2.0078433  2.0078433  0.01176471]
+    [2.0078433  2.0078433  0.01176471]]
+
+   [[2.0078433  2.0078433  0.01176471]
+    [2.0078433  2.0078433  0.01176471]
+    [2.0078433  2.0078433  0.01176471]
+    ...
+    [2.0078433  2.0078433  0.01176471]
+    [2.0078433  2.0078433  0.01176471]
+    [2.0078433  2.0078433  0.01176471]]]
+
+
+  [[[2.0078433  2.0078433  0.01176471]
+    [2.0078433  2.0078433  0.01176471]
+    [2.0078433  2.0078433  0.01176471]
+    ...
+    [2.0078433  2.0078433  0.01176471]
+    [2.0078433  2.0078433  0.01176471]
+    [2.0078433  2.0078433  0.01176471]]
+
+   [[2.0078433  2.0078433  0.01176471]
+    [2.0078433  2.0078433  0.01176471]
+    [2.0078433  2.0078433  0.01176471]
+    ...
+    [2.0078433  2.0078433  0.01176471]
+    [2.0078433  2.0078433  0.01176471]
+    [2.0078433  2.0078433  0.01176471]]
+
+   [[2.0078433  2.0078433  0.01176471]
+    [2.0078433  2.0078433  0.01176471]
+    [2.0078433  2.0078433  0.01176471]
+    ...
+    [2.0078433  2.0078433  0.01176471]
+    [2.0078433  2.0078433  0.01176471]
+    [2.0078433  2.0078433  0.01176471]]
+
+   ...
+
+   [[2.0078433  2.0078433  0.01176471]
+    [2.0078433  2.0078433  0.01176471]
+    [2.0078433  2.0078433  0.01176471]
+    ...
+    [2.0078433  2.0078433  0.01176471]
+    [2.0078433  2.0078433  0.01176471]
+    [2.0078433  2.0078433  0.01176471]]
+
+   [[2.0078433  2.0078433  0.01176471]
+    [2.0078433  2.0078433  0.01176471]
+    [2.0078433  2.0078433  0.01176471]
+    ...
+    [2.0078433  2.0078433  0.01176471]
+    [2.0078433  2.0078433  0.01176471]
+    [2.0078433  2.0078433  0.01176471]]
+
+   [[2.0078433  2.0078433  0.01176471]
+    [2.0078433  2.0078433  0.01176471]
+    [2.0078433  2.0078433  0.01176471]
+    ...
+    [2.0078433  2.0078433  0.01176471]
+    [2.0078433  2.0078433  0.01176471]
+    [2.0078433  2.0078433  0.01176471]]]]], shape=(20, 2, 512, 512, 3), dtype=float32)
+(20, 2, 512, 512, 3)
+>>> showing LstmConv2d summery ...
+Model: "sequential_3"
 _________________________________________________________________
  Layer (type)                Output Shape              Param #   
 =================================================================
- input_11 (InputLayer)       [(None, 5, 512, 512, 3)]  0         
+ conv_lstm2d (ConvLSTM2D)    (None, 2, 506, 506, 32)   219648    
                                                                  
- time_distributed_1 (TimeDis  (None, 5, 512)           14714688  
- tributed)                                                       
+ activation (Activation)     (None, 2, 506, 506, 32)   0         
                                                                  
- lstm_7 (LSTM)               (None, 256)               787456    
+ max_pooling3d (MaxPooling3D  (None, 2, 253, 253, 32)  0         
+ )                                                               
                                                                  
- dense_16 (Dense)            (None, 1024)              263168    
+ conv_lstm2d_1 (ConvLSTM2D)  (None, 2, 249, 249, 64)   614656    
                                                                  
- dense_17 (Dense)            (None, 10)                10250     
+ max_pooling3d_1 (MaxPooling  (None, 2, 124, 124, 64)  0         
+ 3D)                                                             
+                                                                 
+ conv_lstm2d_2 (ConvLSTM2D)  (None, 2, 122, 122, 96)   553344    
+                                                                 
+ activation_1 (Activation)   (None, 2, 122, 122, 96)   0         
+                                                                 
+ conv_lstm2d_3 (ConvLSTM2D)  (None, 2, 120, 120, 96)   663936    
+                                                                 
+ activation_2 (Activation)   (None, 2, 120, 120, 96)   0         
+                                                                 
+ conv_lstm2d_4 (ConvLSTM2D)  (None, 2, 118, 118, 96)   663936    
+                                                                 
+ max_pooling3d_2 (MaxPooling  (None, 2, 59, 59, 96)    0         
+ 3D)                                                             
+                                                                 
+ dense_4 (Dense)             (None, 2, 59, 59, 320)    31040     
+                                                                 
+ activation_3 (Activation)   (None, 2, 59, 59, 320)    0         
+                                                                 
+ dropout_1 (Dropout)         (None, 2, 59, 59, 320)    0         
+                                                                 
+ reshape (Reshape)           (None, 2, 1113920)        0         
+                                                                 
+ lstm (LSTM)                 (None, 2)                 8911384   
+                                                                 
+ dropout_2 (Dropout)         (None, 2)                 0         
+                                                                 
+ dense_5 (Dense)             (None, 2)                 6         
                                                                  
 =================================================================
-Total params: 15,775,562
-Trainable params: 15,775,562
+Total params: 11,657,950
+Trainable params: 11,657,950
 Non-trainable params: 0
 _________________________________________________________________
->>> plotting model: vggLstm
->>> training vggLstm model ...
-XXX Error in model: vggLstm with : program_0 in user code:
-
-    File "/usr/local/lib/python3.7/dist-packages/keras/engine/training.py", line 878, in train_function  *
-        return step_function(self, iterator)
-    File "/usr/local/lib/python3.7/dist-packages/keras/engine/training.py", line 867, in step_function  **
-        outputs = model.distribute_strategy.run(run_step, args=(data,))
-    File "/usr/local/lib/python3.7/dist-packages/keras/engine/training.py", line 860, in run_step  **
-        outputs = model.train_step(data)
-    File "/usr/local/lib/python3.7/dist-packages/keras/engine/training.py", line 808, in train_step
-        y_pred = self(x, training=True)
-    File "/usr/local/lib/python3.7/dist-packages/keras/utils/traceback_utils.py", line 67, in error_handler
-        raise e.with_traceback(filtered_tb) from None
-    File "/usr/local/lib/python3.7/dist-packages/keras/engine/input_spec.py", line 199, in assert_input_compatibility
-        raise ValueError(f'Layer "{layer_name}" expects {len(input_spec)} input(s),'
-
-    ValueError: Layer "model_9" expects 1 input(s), but it received 7 input tensors. Inputs received: [<tf.Tensor 'IteratorGetNext:0' shape=(5, 512, 512, 3) dtype=float32>, <tf.Tensor 'IteratorGetNext:1' shape=(5, 512, 512, 3) dtype=float32>, <tf.Tensor 'IteratorGetNext:2' shape=(5, 512, 512, 3) dtype=float32>, <tf.Tensor 'IteratorGetNext:3' shape=(5, 512, 512, 3) dtype=float32>, <tf.Tensor 'IteratorGetNext:4' shape=(5, 512, 512, 3) dtype=float32>, <tf.Tensor 'IteratorGetNext:5' shape=(5, 512, 512, 3) dtype=float32>, <tf.Tensor 'IteratorGetNext:6' shape=(5, 512, 512, 3) dtype=float32>]
-
+>>> plotting model: LstmConv2d
+>>> training LstmConv2d model ...
+4/4 [==============================] - 52s 7s/step - loss: 0.6931 - accuracy: 0.6000
+>>> testing LstmConv2d model ...
+WARNING:tensorflow:5 out of the last 9 calls to <function Model.make_test_function.<locals>.test_function at 0x7f05c136b830> triggered tf.function retracing. Tracing is expensive and the excessive number of tracings could be due to (1) creating @tf.function repeatedly in a loop, (2) passing tensors with different shapes, (3) passing Python objects instead of tensors. For (1), please define your @tf.function outside of the loop. For (2), @tf.function has experimental_relax_shapes=True option that relaxes argument shapes that can avoid unnecessary retracing. For (3), please refer to https://www.tensorflow.org/guide/function#controlling_retracing and https://www.tensorflow.org/api_docs/python/tf/function for  more details.
+1/1 - 21s - loss: 0.6931 - accuracy: 1.0000 - 21s/epoch - 21s/step
+>>> Restored model, accuracy: 100.00%
+>>> successful model: LstmConv2d with : program_0
+xxx deleted, model LstmConv2d
+<><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><>
+>>> starting model: lstm with : program_0
+>>> lstm model intiated ...
+>>> bulding lstm model ...
+tf.Tensor(
+[[ 11.   52.   66.   88.   91. ]
+ [100.    1.1  11.   52.   66. ]], shape=(2, 5), dtype=float32)
+(2, 5)
+>>> showing lstm summery ...
+Model: "sequential_4"
+_________________________________________________________________
+ Layer (type)                Output Shape              Param #   
+=================================================================
+ lstm_1 (LSTM)               (None, 5, 1)              12        
+                                                                 
+ dense_6 (Dense)             (None, 5, 1)              2         
+                                                                 
+ activation_4 (Activation)   (None, 5, 1)              0         
+                                                                 
+=================================================================
+Total params: 14
+Trainable params: 14
+Non-trainable params: 0
+_________________________________________________________________
+>>> plotting model: lstm
+>>> training lstm model ...
+1/1 [==============================] - 3s 3s/step - loss: 11.2661 - accuracy: 0.6000
+>>> testing lstm model ...
+WARNING:tensorflow:6 out of the last 10 calls to <function Model.make_test_function.<locals>.test_function at 0x7f05c1aef170> triggered tf.function retracing. Tracing is expensive and the excessive number of tracings could be due to (1) creating @tf.function repeatedly in a loop, (2) passing tensors with different shapes, (3) passing Python objects instead of tensors. For (1), please define your @tf.function outside of the loop. For (2), @tf.function has experimental_relax_shapes=True option that relaxes argument shapes that can avoid unnecessary retracing. For (3), please refer to https://www.tensorflow.org/guide/function#controlling_retracing and https://www.tensorflow.org/api_docs/python/tf/function for  more details.
+1/1 - 1s - loss: 11.2661 - accuracy: 0.6000 - 595ms/epoch - 595ms/step
+>>> Restored model, accuracy: 60.00%
+>>> successful model: lstm with : program_0
+xxx deleted, model lstm
+<><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><>
+>>> starting model: LstmBi with : program_0
+>>> LstmBi model intiated ...
+>>> bulding LstmBi model ...
+tf.Tensor(
+[[ 11.   52.   66.   88.   91. ]
+ [100.    1.1  11.   52.   66. ]], shape=(2, 5), dtype=float32)
+(2, 5)
+>>> showing LstmBi summery ...
+Model: "sequential_5"
+_________________________________________________________________
+ Layer (type)                Output Shape              Param #   
+=================================================================
+ bidirectional (Bidirectiona  (None, 5, 2)             24        
+ l)                                                              
+                                                                 
+ bidirectional_1 (Bidirectio  (None, 5, 2)             32        
+ nal)                                                            
+                                                                 
+ dense_7 (Dense)             (None, 5, 1)              3         
+                                                                 
+ activation_5 (Activation)   (None, 5, 1)              0         
+                                                                 
+=================================================================
+Total params: 59
+Trainable params: 59
+Non-trainable params: 0
+_________________________________________________________________
+>>> plotting model: LstmBi
+>>> training LstmBi model ...
+1/1 [==============================] - 8s 8s/step - loss: 11.2661 - accuracy: 0.6000
+>>> testing LstmBi model ...
+1/1 - 2s - loss: 11.2661 - accuracy: 0.6000 - 2s/epoch - 2s/step
+>>> Restored model, accuracy: 60.00%
+>>> successful model: LstmBi with : program_0
+xxx deleted, model LstmBi
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 >>> final results: 
- cnnSeq with : program_0 ==> successful 
-cnnFunctional with : program_0 ==> failed 
+ CnnFunctional with : program_0 ==> successful 
+CnnSeq with : program_0 ==> failed 
 res with : program_0 ==> successful 
-res with : program_1 ==> successful 
-lstm with : program_0 ==> failed 
-lstmBi with : program_0 ==> failed 
 vgg16 with : program_0 ==> successful 
+vgg16seq with : program_0 ==> failed 
 vgg16Seq with : program_0 ==> successful 
-vggLstm with : program_0 ==> failed 
---- execution time: 18 minutes , 55.581 seconds ---
+LstmConv2d with : program_0 ==> successful 
+lstm with : program_0 ==> successful 
+LstmBi with : program_0 ==> successful 
+--- execution time: 5 minutes , 24.845 seconds ---

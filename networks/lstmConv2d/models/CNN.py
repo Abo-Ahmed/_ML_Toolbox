@@ -14,7 +14,7 @@ from keras import regularizers
 
 N_CLASSES = 101
 IMSIZE = (216, 216)
-SequenceLength = 10
+sequenceLength = 10
 BatchSize = 30
 
 

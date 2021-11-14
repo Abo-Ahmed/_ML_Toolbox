@@ -20,7 +20,7 @@ from inception_v3 import InceptionV3
 
 N_CLASSES = 101
 IMSIZE = (216, 216, 3)
-SequenceLength = 10
+sequenceLength = 10
 BatchSize = 30
 
 
@@ -78,9 +78,9 @@ def fit_model(model, train_data, test_data):
     if os.path.exists(weights_dir):
         model.load_weights(weights_dir)
     try:
-        train_generator = video_image_generator(train_data, BatchSize, seq_len=SequenceLength, img_size=IMSIZE,
+        train_generator = video_image_generator(train_data, BatchSize, seq_len=sequenceLength, img_size=IMSIZE,
                                                 num_classes=101)
-        test_generator = video_image_generator(test_data, BatchSize, seq_len=SequenceLength, img_size=IMSIZE,
+        test_generator = video_image_generator(test_data, BatchSize, seq_len=sequenceLength, img_size=IMSIZE,
                                                num_classes=101)
         print('Start fitting model')
         checkpointer = keras.callbacks.ModelCheckpoint(weights_dir, save_best_only=True, save_weights_only=True)

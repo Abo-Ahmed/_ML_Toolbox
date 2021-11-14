@@ -1,6 +1,6 @@
 
 
-class res(basic_model): 
+class ResNet(BasicModel): 
 
     def relu_bn(self,inputs: Tensor) -> Tensor:
         relu = ReLU()(inputs)
@@ -10,26 +10,26 @@ class res(basic_model):
     def create_plain_net(self):
         
         inputs = Input(shape=(512, 512, 3))
-        num_filters = 32
+        nFilters = 32
         
         t = BatchNormalization()(inputs)
         t = Conv2D(kernel_size=3,
                 strides=1,
-                filters=num_filters,
+                filters=nFilters,
                 padding="same")(t)
         t = self.relu_bn(t)
         
-        num_blocks_list = [4, 4]
-        for i in range(len(num_blocks_list)):
-            num_blocks = num_blocks_list[i]
-            for j in range(num_blocks):
+        nBlocksList = [4, 4]
+        for i in range(len(nBlocksList)):
+            nBlocks = nBlocksList[i]
+            for j in range(nBlocks):
                 downsample = (j==0 and i!=0)
                 t = Conv2D(kernel_size=3,
                         strides= (1 if not downsample else 2),
-                        filters=num_filters,
+                        filters=nFilters,
                         padding="same")(t)
                 t = self.relu_bn(t)
-            num_filters *= 2
+            nFilters *= 2
         
         t = AveragePooling2D(4)(t)
         t = Flatten()(t)
@@ -74,11 +74,11 @@ class res(basic_model):
 
     def load_metadata():
         with open('/content/drive/My Drive/dataSet/danbooru2019/metadata.pickle', 'rb') as handle:
-            json_metadata_r = pickle.load(handle)
-            return json_metadata_r
+            jsonMetadata = pickle.load(handle)
+            return jsonMetadata
 
-    def get_rating(id , json_metadata):
-        for item in json_metadata :
+    def get_rating(id , jsonMetadata):
+        for item in jsonMetadata :
             if item['id'] == id :
                 return item['rating']
         return -1

@@ -8,7 +8,7 @@ import os
 
 N_CLASSES = 101
 batch_size = 30
-SequenceLength = 10
+sequenceLength = 10
 IMSIZE = (216, 216, 3)
 
 
@@ -45,9 +45,9 @@ def inception_finetune_UCF():
     print('Train data size: ', len(train_data))
     print('Test data size: ', len(test_data))
 
-    train_generator = video_image_generator(train_data, batch_size, seq_len=SequenceLength, img_size=IMSIZE,
+    train_generator = video_image_generator(train_data, batch_size, seq_len=sequenceLength, img_size=IMSIZE,
                                             num_classes=101)
-    test_generator = video_image_generator(test_data, batch_size, seq_len=SequenceLength, img_size=IMSIZE,
+    test_generator = video_image_generator(test_data, batch_size, seq_len=sequenceLength, img_size=IMSIZE,
                                            num_classes=101)
     weights_dir = 'inception_finetune.h5'
     if os.path.exists(weights_dir):

@@ -14,18 +14,18 @@ class configure:
     configure.print_line(symbol)
 
   @staticmethod
-  def checkTools(*tools):
+  def check_tools(*tools):
       for tool in tools:
           print(os.popen('pip list -v | grep ' + tool).readlines())
           configure.print_line()
 
   @staticmethod
   def show_version (mount , details) :
-    device_name = tf.test.gpu_device_name()
-    if device_name != '/device:GPU:0':
+    deviceName = tf.test.gpu_device_name()
+    if deviceName != '/device:GPU:0':
       print('xxx GPU device not found')
-      device_name = "GPU not found"
-    print('>>> Tenserflow version: ' + tf.__version__ + ' - with ' + device_name )
+      deviceName = "GPU not found"
+    print('>>> Tenserflow version: ' + tf.__version__ + ' - with ' + deviceName )
     print('>>> Keras version: ' + tf.keras.__version__)
     
     if(mount):
@@ -35,8 +35,8 @@ class configure:
     
     if(details):
       print('>>> List of all local devices:')
-      local_device_protos = device_lib.list_local_devices()
-      print( [ x.name for x in local_device_protos ])
+      localDeviceProtos = device_lib.list_local_devices()
+      print( [ x.name for x in localDeviceProtos ])
     configure.print_line()
 
   @staticmethod
@@ -53,10 +53,10 @@ class configure:
       return -1
 
   @staticmethod
-  def readTags(filePath):
-      text_file = open(os.path.abspath(os.getcwd()) + "/" + filePath, "r")
-      lines = text_file.readlines()
-      text_file.close()
+  def read_tags(filePath):
+      textFile = open(os.path.abspath(os.getcwd()) + "/" + filePath, "r")
+      lines = textFile.readlines()
+      textFile.close()
       print (len(lines))
       print (lines)
       return lines

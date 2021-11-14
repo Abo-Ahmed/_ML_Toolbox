@@ -17,14 +17,14 @@ import UCF_utils as util
 
 N_CLASSES = 101
 IMSIZE = (216, 216)
-SequenceLength = 10
+sequenceLength = 10
 BatchSize = 30
 CNN_output = 154880
 
 
 def RNN():
     model = Sequential()
-    model.add(LSTM(128, return_sequences=False, input_shape=(SequenceLength, CNN_output)))
+    model.add(LSTM(128, return_sequences=False, input_shape=(sequenceLength, CNN_output)))
     model.add(Dropout(0.5))
     model.add(Dense(N_CLASSES, activation='softmax'))
     sgd = SGD(lr=0.001, decay=1e-5, momentum=0.5, nesterov=True, clipnorm=1.)
@@ -42,8 +42,8 @@ def fit_model(model, train_data, test_data):
         if os.path.exists(weights_dir):
             model.load_weights(weights_dir)
             print('Load weights')
-        train_generator = util.video_generator(train_data, BatchSize, SequenceLength, CNN_output, N_CLASSES)
-        test_generator = util.video_generator(test_data, BatchSize, SequenceLength, CNN_output, N_CLASSES)
+        train_generator = util.video_generator(train_data, BatchSize, sequenceLength, CNN_output, N_CLASSES)
+        test_generator = util.video_generator(test_data, BatchSize, sequenceLength, CNN_output, N_CLASSES)
         print('Start fitting model')
         checkpointer = keras.callbacks.ModelCheckpoint(weights_dir, save_weights_only=True)
         model.fit_generator(

@@ -1,7 +1,7 @@
 
 Number of files: 16
-Number of functions: 71
-Number of line: 707
+Number of functions: 70
+Number of line: 695
 ==================================
 File tree:
 
@@ -10,7 +10,7 @@ File tree:
 -----------------------------
 
 >>> handler
-	class_basic_model.py
+	class_BasicModel.py
 	handler.py
 -----------------------------
 
@@ -44,9 +44,10 @@ Function tree:
 	 read_special_image
 	 read_random
 	 upload_images
+	 batchize_data
 -----------------------------
 
->>> class_basic_model.py
+>>> class_BasicModel.py
 	 __init__
 	 __del__
 	 build 
@@ -71,7 +72,8 @@ Function tree:
 	 load_modules
 	 intial_configurations
 	 read_data
-	 runModel
+	 run_models
+	 run_model
 	 special_run
 	 final_configurations
 -----------------------------
@@ -86,7 +88,6 @@ Function tree:
 	 build 
 >>> class_lstmConv2d.py
 	 build 
-	 batchizeData
 >>> class_res.py
 	 relu_bn
 	 create_plain_net
@@ -101,14 +102,12 @@ Function tree:
 	 build 
 >>> class_vgg_lstm.py
 	 build 
-	 program_2
-	 train
 -----------------------------
 
 >>> configure.py
 	 print_line 
 	 printer
-	 checkTools
+	 check_tools
 	 show_version 
 	 configure_tensor
 	 readTags
