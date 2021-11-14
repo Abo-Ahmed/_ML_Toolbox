@@ -70,11 +70,9 @@ class BasicModel (object):
             self.name = dir["name"]
             self.loadPath = dir["loadPath"]
             self.savePath = dir["savePath"]
-            self.loopEpochs = dir["loopEpochs"]
-            self.loopIndex = dir["loopIndex"] 
-            self.loopLimit = dir["loopLimit"]
-            self.acc = dir["acc"] 
-            self.loss = dir["loss"]
+            self.loopEpochs = int(dir["loopEpochs"])
+            self.loopIndex = int(dir["loopIndex"]) 
+            self.loopLimit = int(dir["loopLimit"])
         except:
             print('>>> failed to load parameters for: ' + self.name )
 
@@ -144,7 +142,7 @@ class BasicModel (object):
                     "acc": self.acc,
                     "loss": self.loss 
                 }
-        file = open(self.loadPath + "parmas-" + self.name + ".pkl", "rb", "wb")
+        file = open(self.loadPath + "parmas-" + self.name + ".pkl" , "wb")
         pickle.dump(dic, file)
         file.close()        
         
