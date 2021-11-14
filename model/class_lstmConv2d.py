@@ -5,18 +5,19 @@ class lstmConv2d(basic_model):
         channels, rows, columns = 3,512,512
         SequenceLength = 2 
         nClasses = 1
+        nNodes = 32 # originally it was 32
         in_shape = (SequenceLength, rows, columns, channels)
         self.model = Sequential()
-        self.model.add(ConvLSTM2D(32, kernel_size=(7, 7), padding='valid', return_sequences=True, input_shape=in_shape))
+        self.model.add(ConvLSTM2D(nNodes, kernel_size=(7, 7), padding='valid', return_sequences=True, input_shape=in_shape))
         self.model.add(Activation('relu'))
         self.model.add(MaxPooling3D(pool_size=(1, 2, 2)))
-        self.model.add(ConvLSTM2D(64, kernel_size=(5, 5), padding='valid', return_sequences=True))
+        self.model.add(ConvLSTM2D(nNodes * 2, kernel_size=(5, 5), padding='valid', return_sequences=True))
         self.model.add(MaxPooling3D(pool_size=(1, 2, 2)))
-        self.model.add(ConvLSTM2D(96, kernel_size=(3, 3), padding='valid', return_sequences=True))
+        self.model.add(ConvLSTM2D(nNodes * 3, kernel_size=(3, 3), padding='valid', return_sequences=True))
         self.model.add(Activation('relu'))
-        self.model.add(ConvLSTM2D(96, kernel_size=(3, 3), padding='valid', return_sequences=True))
+        self.model.add(ConvLSTM2D(nNodes * 3, kernel_size=(3, 3), padding='valid', return_sequences=True))
         self.model.add(Activation('relu'))
-        self.model.add(ConvLSTM2D(96, kernel_size=(3, 3), padding='valid', return_sequences=True))
+        self.model.add(ConvLSTM2D(nNodes * 3, kernel_size=(3, 3), padding='valid', return_sequences=True))
         self.model.add(MaxPooling3D(pool_size=(1, 2, 2)))
         self.model.add(Dense(320))
         self.model.add(Activation('relu'))
