@@ -40,7 +40,10 @@ class lstm(basic_model):
         handler.train_y = self.batchizeData(handler.train_y , SequenceLength )
         handler.test_x = self.batchizeData(handler.test_x , SequenceLength )
         handler.test_y = self.batchizeData(handler.test_y , SequenceLength )
-        
+
+        handler.train_x = handler.train_x.reshape((len(handler.train_x), 5, 512))
+        handler.train_y = handler.train_y.reshape((len(handler.train_y), 5, 512))
+
     def batchizeData(self , dataList ,  batchSize ):
         batches = []
         for i in range(len(dataList) // batchSize ):
