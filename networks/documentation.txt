@@ -1,7 +1,7 @@
 
-Number of files: 16
+Number of files: 15
 Number of functions: 72
-Number of line: 696
+Number of line: 692
 ==================================
 File tree:
 
@@ -28,7 +28,6 @@ File tree:
 
 >>> tools
 	configure.py
-	graphs.py
 	results.py
 -----------------------------
 
@@ -54,6 +53,7 @@ Function tree:
 	 build 
 	 load_model
 	 load_weights
+	 load_parameters
 	 program_0
 	 program_1
 	 loop_train
@@ -62,14 +62,11 @@ Function tree:
 	 predict 
 	 inf_predict 
 	 random_predict 
+	 save_parameters
 	 save_model
 	 summery_plot
 	 plot
 	 summery
-	 calculate_cm
-	 calculate_results
-	 show_results
-	 show_graphs
 >>> handler.py
 	 load_modules
 	 intial_configurations
@@ -117,15 +114,16 @@ Function tree:
 	 use_gpu 
 	 use_device 
 	 show_period
->>> graphs.py
-	 plot_array
 >>> results.py
+	 __init__
+	 print_results
+	 calculate_results
 	 format_percentage
-	 CM_accuracy
 	 accuracy
 	 recall
 	 precision
 	 f1
-	 print_results
-	 get_results
+	 cm_accuracy
+	 plot_array
+	 show_graphs
 -----------------------------
