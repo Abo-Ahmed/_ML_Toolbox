@@ -91,7 +91,7 @@ class BasicModel (object):
     def loop_train(self):
         self.load_parameters() 
         self.load_weights()
-        for i in self.loopLimit - self.loopIndex:
+        for i in range(self.loopLimit - self.loopIndex):
             dataset.load_new_batch(i + self.loopIndex) # todo: implement
             self.train(self.loopEpochs)
             self.test()
