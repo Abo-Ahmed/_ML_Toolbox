@@ -1,0 +1,385 @@
+Cloning into '_master'...
+remote: Enumerating objects: 1701, done.
+remote: Counting objects: 100% (1701/1701), done.
+remote: Compressing objects: 100% (1486/1486), done.
+remote: Total 1701 (delta 277), reused 1607 (delta 183), pack-reused 0
+Receiving objects: 100% (1701/1701), 291.34 MiB | 33.43 MiB/s, done.
+Resolving deltas: 100% (277/277), done.
+Checking out files: 100% (1250/1250), done.
+>>> main module loaded ...
+>>> handler module loadded ...
+>>> class_basic_model.py loadded ...
+>>> configure.py loadded ...
+>>> results.py loadded ...
+>>> graphs.py loadded ...
+>>> dataset.py loadded ...
+>>> class_vgg16Seq.py loadded ...
+>>> class_cnnFunctional.py loadded ...
+>>> class_lstmConv2d.py loadded ...
+>>> class_vgg16.py loadded ...
+>>> class_cnnSeq.py loadded ...
+>>> class_res.py loadded ...
+>>> class_lstmBi.py loadded ...
+>>> class_lstm.py loadded ...
+>>> class_vgg_lstm.py loadded ...
+>>> all modules loaded ...
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+>>> Tenserflow version: 2.7.0 - with /device:GPU:0
+>>> Keras version: 2.7.0
+Mounted at /content/drive
+>>> List of all local devices:
+['/device:CPU:0', '/device:GPU:0']
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+>>> tensor configuration ...
+>>> cannot configure tensorflow
+>>> intial configurations done...
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+>>> reading TEST dataset ...
+>>> TEST dimensions: (40, 512, 512, 3) , (40,)
+========================================
+>>> reading TRAIN dataset ...
+>>> TRAIN dimensions: (40, 512, 512, 3) , (40,)
+========================================
+<><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><>
+>>> starting model: cnnFunctional with : program_0
+>>> cnnFunctional model intiated ...
+>>> bulding cnnFunctional model ...
+>>> showing cnnFunctional summery ...
+Model: "model"
+_________________________________________________________________
+ Layer (type)                Output Shape              Param #   
+=================================================================
+ input_1 (InputLayer)        [(None, 512, 512, 3)]     0         
+                                                                 
+ flatten (Flatten)           (None, 786432)            0         
+                                                                 
+ dense (Dense)               (None, 512)               402653696 
+                                                                 
+ dropout (Dropout)           (None, 512)               0         
+                                                                 
+ dense_1 (Dense)             (None, 10)                5130      
+                                                                 
+=================================================================
+Total params: 402,658,826
+Trainable params: 402,658,826
+Non-trainable params: 0
+_________________________________________________________________
+>>> plotting model: cnnFunctional
+>>> training cnnFunctional model ...
+8/8 [==============================] - 4s 161ms/step - loss: 548.2567 - accuracy: 0.5000
+>>> testing cnnFunctional model ...
+2/2 - 0s - loss: 1869.6230 - accuracy: 0.5000 - 243ms/epoch - 121ms/step
+>>> Restored model, accuracy: 50.00%
+>>> successful model: cnnFunctional with : program_0
+xxx deleted, model cnnFunctional
+<><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><>
+>>> starting model: cnnSeq with : program_0
+>>> cnnSeq model intiated ...
+>>> bulding cnnSeq model ...
+XXX Error in model: cnnSeq with : program_0 failed to allocate memory [Op:AddV2]
+<><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><>
+>>> starting model: res with : program_0
+>>> res model intiated ...
+xxx deleted, model cnnSeq
+>>> bulding res model ...
+>>> showing res summery ...
+Model: "model_1"
+_________________________________________________________________
+ Layer (type)                Output Shape              Param #   
+=================================================================
+ input_2 (InputLayer)        [(None, 512, 512, 3)]     0         
+                                                                 
+ batch_normalization (BatchN  (None, 512, 512, 3)      12        
+ ormalization)                                                   
+                                                                 
+ conv2d (Conv2D)             (None, 512, 512, 32)      896       
+                                                                 
+ re_lu (ReLU)                (None, 512, 512, 32)      0         
+                                                                 
+ batch_normalization_1 (Batc  (None, 512, 512, 32)     128       
+ hNormalization)                                                 
+                                                                 
+ conv2d_1 (Conv2D)           (None, 512, 512, 32)      9248      
+                                                                 
+ re_lu_1 (ReLU)              (None, 512, 512, 32)      0         
+                                                                 
+ batch_normalization_2 (Batc  (None, 512, 512, 32)     128       
+ hNormalization)                                                 
+                                                                 
+ conv2d_2 (Conv2D)           (None, 512, 512, 32)      9248      
+                                                                 
+ re_lu_2 (ReLU)              (None, 512, 512, 32)      0         
+                                                                 
+ batch_normalization_3 (Batc  (None, 512, 512, 32)     128       
+ hNormalization)                                                 
+                                                                 
+ conv2d_3 (Conv2D)           (None, 512, 512, 32)      9248      
+                                                                 
+ re_lu_3 (ReLU)              (None, 512, 512, 32)      0         
+                                                                 
+ batch_normalization_4 (Batc  (None, 512, 512, 32)     128       
+ hNormalization)                                                 
+                                                                 
+ conv2d_4 (Conv2D)           (None, 512, 512, 32)      9248      
+                                                                 
+ re_lu_4 (ReLU)              (None, 512, 512, 32)      0         
+                                                                 
+ batch_normalization_5 (Batc  (None, 512, 512, 32)     128       
+ hNormalization)                                                 
+                                                                 
+ conv2d_5 (Conv2D)           (None, 256, 256, 64)      18496     
+                                                                 
+ re_lu_5 (ReLU)              (None, 256, 256, 64)      0         
+                                                                 
+ batch_normalization_6 (Batc  (None, 256, 256, 64)     256       
+ hNormalization)                                                 
+                                                                 
+ conv2d_6 (Conv2D)           (None, 256, 256, 64)      36928     
+                                                                 
+ re_lu_6 (ReLU)              (None, 256, 256, 64)      0         
+                                                                 
+ batch_normalization_7 (Batc  (None, 256, 256, 64)     256       
+ hNormalization)                                                 
+                                                                 
+ conv2d_7 (Conv2D)           (None, 256, 256, 64)      36928     
+                                                                 
+ re_lu_7 (ReLU)              (None, 256, 256, 64)      0         
+                                                                 
+ batch_normalization_8 (Batc  (None, 256, 256, 64)     256       
+ hNormalization)                                                 
+                                                                 
+ conv2d_8 (Conv2D)           (None, 256, 256, 64)      36928     
+                                                                 
+ re_lu_8 (ReLU)              (None, 256, 256, 64)      0         
+                                                                 
+ batch_normalization_9 (Batc  (None, 256, 256, 64)     256       
+ hNormalization)                                                 
+                                                                 
+ average_pooling2d (AverageP  (None, 64, 64, 64)       0         
+ ooling2D)                                                       
+                                                                 
+ flatten_2 (Flatten)         (None, 262144)            0         
+                                                                 
+ dense_3 (Dense)             (None, 10)                2621450   
+                                                                 
+=================================================================
+Total params: 2,790,294
+Trainable params: 2,789,456
+Non-trainable params: 838
+_________________________________________________________________
+>>> plotting model: res
+>>> training res model ...
+8/8 [==============================] - 38s 742ms/step - loss: 27.1640 - accuracy: 0.6250
+>>> testing res model ...
+2/2 - 10s - loss: 15.0067 - accuracy: 0.5000 - 10s/epoch - 5s/step
+>>> Restored model, accuracy: 50.00%
+>>> successful model: res with : program_0
+xxx deleted, model res
+<><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><>
+>>> starting model: vgg16 with : program_0
+>>> vgg16 model intiated ...
+>>> bulding vgg16 model ...
+Downloading data from https://storage.googleapis.com/tensorflow/keras-applications/vgg16/vgg16_weights_tf_dim_ordering_tf_kernels_notop.h5
+58892288/58889256 [==============================] - 1s 0us/step
+58900480/58889256 [==============================] - 1s 0us/step
+>>> showing vgg16 summery ...
+Model: "model_2"
+_________________________________________________________________
+ Layer (type)                Output Shape              Param #   
+=================================================================
+ input_3 (InputLayer)        [(None, 512, 512, 3)]     0         
+                                                                 
+ block1_conv1 (Conv2D)       (None, 512, 512, 64)      1792      
+                                                                 
+ block1_conv2 (Conv2D)       (None, 512, 512, 64)      36928     
+                                                                 
+ block1_pool (MaxPooling2D)  (None, 256, 256, 64)      0         
+                                                                 
+ block2_conv1 (Conv2D)       (None, 256, 256, 128)     73856     
+                                                                 
+ block2_conv2 (Conv2D)       (None, 256, 256, 128)     147584    
+                                                                 
+ block2_pool (MaxPooling2D)  (None, 128, 128, 128)     0         
+                                                                 
+ block3_conv1 (Conv2D)       (None, 128, 128, 256)     295168    
+                                                                 
+ block3_conv2 (Conv2D)       (None, 128, 128, 256)     590080    
+                                                                 
+ block3_conv3 (Conv2D)       (None, 128, 128, 256)     590080    
+                                                                 
+ block3_pool (MaxPooling2D)  (None, 64, 64, 256)       0         
+                                                                 
+ block4_conv1 (Conv2D)       (None, 64, 64, 512)       1180160   
+                                                                 
+ block4_conv2 (Conv2D)       (None, 64, 64, 512)       2359808   
+                                                                 
+ block4_conv3 (Conv2D)       (None, 64, 64, 512)       2359808   
+                                                                 
+ block4_pool (MaxPooling2D)  (None, 32, 32, 512)       0         
+                                                                 
+ block5_conv1 (Conv2D)       (None, 32, 32, 512)       2359808   
+                                                                 
+ block5_conv2 (Conv2D)       (None, 32, 32, 512)       2359808   
+                                                                 
+ block5_conv3 (Conv2D)       (None, 32, 32, 512)       2359808   
+                                                                 
+ block5_pool (MaxPooling2D)  (None, 16, 16, 512)       0         
+                                                                 
+ global_average_pooling2d (G  (None, 512)              0         
+ lobalAveragePooling2D)                                          
+                                                                 
+=================================================================
+Total params: 14,714,688
+Trainable params: 14,714,688
+Non-trainable params: 0
+_________________________________________________________________
+>>> plotting model: vgg16
+>>> training vgg16 model ...
+8/8 [==============================] - 24s 1s/step - loss: 10.6210 - accuracy: 0.3000
+>>> testing vgg16 model ...
+2/2 - 46s - loss: 9.1577 - accuracy: 0.5000 - 46s/epoch - 23s/step
+>>> Restored model, accuracy: 50.00%
+>>> successful model: vgg16 with : program_0
+xxx deleted, model vgg16
+<><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><>
+>>> starting model: vgg16seq with : program_0
+XXX Error in model: vgg16seq with : program_0 'vgg16seq'
+<><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><>
+>>> starting model: vggLstm with : program_0
+>>> vggLstm model intiated ...
+>>> bulding vggLstm model ...
+ch 1
+ch 2
+ch 3
+ch 4
+ch 5
+ch 6
+>>> showing vggLstm summery ...
+Model: "model_4"
+_________________________________________________________________
+ Layer (type)                Output Shape              Param #   
+=================================================================
+ input_4 (InputLayer)        [(None, 5, 512, 512, 3)]  0         
+                                                                 
+ time_distributed (TimeDistr  (None, 5, 512)           14714688  
+ ibuted)                                                         
+                                                                 
+ lstm (LSTM)                 (None, 256)               787456    
+                                                                 
+ dense_4 (Dense)             (None, 1024)              263168    
+                                                                 
+ dense_5 (Dense)             (None, 10)                10250     
+                                                                 
+=================================================================
+Total params: 15,775,562
+Trainable params: 15,775,562
+Non-trainable params: 0
+_________________________________________________________________
+>>> plotting model: vggLstm
+>>> training vggLstm model ...
+XXX Error in model: vggLstm with : program_0 in user code:
+
+    File "/usr/local/lib/python3.7/dist-packages/keras/engine/training.py", line 878, in train_function  *
+        return step_function(self, iterator)
+    File "/usr/local/lib/python3.7/dist-packages/keras/engine/training.py", line 867, in step_function  **
+        outputs = model.distribute_strategy.run(run_step, args=(data,))
+    File "/usr/local/lib/python3.7/dist-packages/keras/engine/training.py", line 860, in run_step  **
+        outputs = model.train_step(data)
+    File "/usr/local/lib/python3.7/dist-packages/keras/engine/training.py", line 808, in train_step
+        y_pred = self(x, training=True)
+    File "/usr/local/lib/python3.7/dist-packages/keras/utils/traceback_utils.py", line 67, in error_handler
+        raise e.with_traceback(filtered_tb) from None
+    File "/usr/local/lib/python3.7/dist-packages/keras/engine/input_spec.py", line 199, in assert_input_compatibility
+        raise ValueError(f'Layer "{layer_name}" expects {len(input_spec)} input(s),'
+
+    ValueError: Layer "model_4" expects 1 input(s), but it received 7 input tensors. Inputs received: [<tf.Tensor 'IteratorGetNext:0' shape=(5, 512, 512, 3) dtype=float32>, <tf.Tensor 'IteratorGetNext:1' shape=(5, 512, 512, 3) dtype=float32>, <tf.Tensor 'IteratorGetNext:2' shape=(5, 512, 512, 3) dtype=float32>, <tf.Tensor 'IteratorGetNext:3' shape=(5, 512, 512, 3) dtype=float32>, <tf.Tensor 'IteratorGetNext:4' shape=(5, 512, 512, 3) dtype=float32>, <tf.Tensor 'IteratorGetNext:5' shape=(5, 512, 512, 3) dtype=float32>, <tf.Tensor 'IteratorGetNext:6' shape=(5, 512, 512, 3) dtype=float32>]
+
+<><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><>
+>>> starting model: lstm with : program_0
+>>> lstm model intiated ...
+xxx deleted, model vggLstm
+>>> bulding lstm model ...
+tf.Tensor(
+[[ 11.   52.   66.   88.   91. ]
+ [100.    1.1  11.   52.   66. ]], shape=(2, 5), dtype=float32)
+(2, 5)
+>>> showing lstm summery ...
+Model: "sequential_2"
+_________________________________________________________________
+ Layer (type)                Output Shape              Param #   
+=================================================================
+ lstm_1 (LSTM)               (None, 5, 1)              12        
+                                                                 
+ dense_6 (Dense)             (None, 5, 1)              2         
+                                                                 
+ activation (Activation)     (None, 5, 1)              0         
+                                                                 
+=================================================================
+Total params: 14
+Trainable params: 14
+Non-trainable params: 0
+_________________________________________________________________
+>>> plotting model: lstm
+>>> training lstm model ...
+1/1 [==============================] - 3s 3s/step - loss: 11.2661 - accuracy: 0.6000
+>>> testing lstm model ...
+1/1 - 1s - loss: 11.2661 - accuracy: 0.6000 - 585ms/epoch - 585ms/step
+>>> Restored model, accuracy: 60.00%
+>>> successful model: lstm with : program_0
+xxx deleted, model lstm
+<><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><>
+>>> starting model: lstmBi with : program_0
+>>> lstmBi model intiated ...
+>>> bulding lstmBi model ...
+tf.Tensor(
+[[ 11.   52.   66.   88.   91. ]
+ [100.    1.1  11.   52.   66. ]], shape=(2, 5), dtype=float32)
+(2, 5)
+>>> showing lstmBi summery ...
+Model: "sequential_3"
+_________________________________________________________________
+ Layer (type)                Output Shape              Param #   
+=================================================================
+ bidirectional (Bidirectiona  (None, 5, 2)             24        
+ l)                                                              
+                                                                 
+ bidirectional_1 (Bidirectio  (None, 5, 2)             32        
+ nal)                                                            
+                                                                 
+ dense_7 (Dense)             (None, 5, 1)              3         
+                                                                 
+ activation_1 (Activation)   (None, 5, 1)              0         
+                                                                 
+=================================================================
+Total params: 59
+Trainable params: 59
+Non-trainable params: 0
+_________________________________________________________________
+>>> plotting model: lstmBi
+>>> training lstmBi model ...
+1/1 [==============================] - 8s 8s/step - loss: 11.2661 - accuracy: 0.6000
+>>> testing lstmBi model ...
+WARNING:tensorflow:5 out of the last 8 calls to <function Model.make_test_function.<locals>.test_function at 0x7fc5bc159ef0> triggered tf.function retracing. Tracing is expensive and the excessive number of tracings could be due to (1) creating @tf.function repeatedly in a loop, (2) passing tensors with different shapes, (3) passing Python objects instead of tensors. For (1), please define your @tf.function outside of the loop. For (2), @tf.function has experimental_relax_shapes=True option that relaxes argument shapes that can avoid unnecessary retracing. For (3), please refer to https://www.tensorflow.org/guide/function#controlling_retracing and https://www.tensorflow.org/api_docs/python/tf/function for  more details.
+1/1 - 2s - loss: 11.2661 - accuracy: 0.6000 - 2s/epoch - 2s/step
+>>> Restored model, accuracy: 60.00%
+>>> successful model: lstmBi with : program_0
+xxx deleted, model lstmBi
+<><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><>
+>>> starting model: conv2Dlstm with : program_0
+XXX Error in model: conv2Dlstm with : program_0 'conv2Dlstm'
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+>>> final results: 
+ cnnFunctional with : program_0 ==> successful 
+cnnSeq with : program_0 ==> failed 
+res with : program_0 ==> successful 
+vgg16 with : program_0 ==> successful 
+vgg16seq with : program_0 ==> failed 
+vggLstm with : program_0 ==> failed 
+lstm with : program_0 ==> successful 
+lstmBi with : program_0 ==> successful 
+conv2Dlstm with : program_0 ==> failed 
+--- execution time: 3 minutes , 29.154 seconds ---

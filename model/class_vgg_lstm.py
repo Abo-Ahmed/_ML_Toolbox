@@ -30,41 +30,14 @@ class vggLstm(basic_model):
                 loss='sparse_categorical_crossentropy',
                 metrics=['accuracy'])
 
-    def program_2(self):
-        self.model.fit(
-            # Training data : features (review) and classes (positive or negative)
-            handler.x_train, handler.y_train,
-                            
-            # Number of samples to work through before updating the 
-            # internal model parameters via back propagation. The 
-            # higher the batch, the more memory you need.
-            batch_size=256, 
+        handler.train_x = dataset.batchizeData(handler.train_x , frames )
+        handler.train_y = dataset.batchizeData(handler.train_y , frames )
+        handler.test_x = dataset.batchizeData(handler.test_x , frames )
+        handler.test_y = dataset.batchizeData(handler.test_y , frames )
 
-            # An epoch is an iteration over the entire training data.
-            epochs=3, 
-            
-            # The model will set apart his fraction of the training 
-            # data, will not train on it, and will evaluate the loss
-            # and any model metrics on this data at the end of 
-            # each epoch.
-            validation_split=0.2,
-            
-            verbose=1
-        )
-        handler.y_test = self.model.predict_classes(handler.x_test)
+        print(handler.train_x)
+        print(handler.train_x.shape)
 
-        print(y_test)
-
-    def train(self , epochs = 10):
-        new_x = []
-        new_y = []
-        for i in range(len(handler.train_x)):
-            if i % 5 == 0 and i != 0 and i != len(handler.train_x) :
-                new_x.append(handler.train_x[i-5 : i])
-                new_y.append(handler.train_y[i-5 : i])
-        handler.train_x = new_x
-        handler.train_y = new_y
-        super().train(epochs)
 
 
 # ValueError: in user code:
