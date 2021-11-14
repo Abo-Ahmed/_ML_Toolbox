@@ -18,7 +18,7 @@ class vggLstm(basic_model):
         print("ch 1")
         encoded_frames = TimeDistributed(cnn)(video)
         print("ch 2")
-        encoded_sequence = LSTM(nClasses)(encoded_frames)
+        encoded_sequence = LSTM(nClasses , return_sequences=True)(encoded_frames)
         print("ch 3")
         hidden_layer = Dense(nClasses, activation="relu")(encoded_sequence)
         print("ch 4")
