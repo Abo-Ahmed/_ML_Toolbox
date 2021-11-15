@@ -37,7 +37,7 @@ class BasicModel (object):
         print('>>> loading ' + self.name + ' weights ...')
         try:
             # odd only retrieved - even for backup
-            self.model.load_weights(self.path + "odd-" + self.name + ".index")
+            self.model.load_weights(self.path + "odd-" + self.name + ".h5")
         except Exception as e:
             print('XXX failed loading weights for: ' + self.name  ,e)
             
@@ -123,7 +123,7 @@ class BasicModel (object):
     def save_weights(self, title = ""): # saves the current weights
         print('>>> saving ' + self.name + ' weights ...')
         try:
-            self.model.save_weights(self.path + title + "-" + self.name ) # saving weights only
+            self.model.save_weights(self.path + title + "-" + self.name + ".h5" ) # saving weights only
         except Exception as e:
             print('XXX failed saving ' + self.name + ' weights ...' , e)
 

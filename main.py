@@ -12,7 +12,7 @@ handler.read_data(None , 512 , 512) # datapath , width , height
 #                     "Vgg16"         , "vgg16Seq"        , "VggLstm",
 #                     "LstmConv2d"    , "Lstm"            , "LstmBi"])
 
-handler.special_run("CnnSeq","program_1")
+handler.special_run("CnnFunctional","program_1")
 # handler.run_model("CnnFunctional","program_0") # model , program
 
 handler.final_configurations()
