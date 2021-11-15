@@ -1,0 +1,29 @@
+
+drive link
+https://drive.google.com/drive/folders/1lD1n_3O1GTM3fVWKZf0wy2rw2d5bEzqS?usp=sharing
+
+Network : resnet based (299x299 image -> about 6000 tags)
+Training time : about 28 days (Ryzen 7 1800X + Geforce 1070)
+Here is brief changes from last post:
+ML library is changed from CNTK to Tensorflow 2.x
+Optimizer is changed from Adam to SGD with momentum
+
+Web app
+http://dev.kanotype.net:8003/deepdanbooru/view/general/77b00b7cab5b49bcde7cfc96c465a47792a9ff3ca132f3d7c78cb616c64ab864.jpg%26crop%3Dfalse
+
+
+https://www.reddit.com/r/MachineLearning/comments/edzqp8/p_deep_danbooru_girl_image_tag_estimation_source/
+
+
+https://github.com/KichangKim/DeepDanbooru
+
+
+I hope you enjoy this.
+[2019/04/17] Pre-trained model for evaluation is available now. See readme.txt in archive file for usage.
+resnet-custom-v1 (current web version)
+https://drive.google.com/open?id=1A9XbamcusitGdR6QRjXaPCAWsd0IidUe
+resnet-custom-v2 (experimental)
+https://drive.google.com/open?id=1BQXr6l6xumGlvJwLhNaow7nvrCi3uHdJ
+
+Danbooru downloader 
+https://github.com/KichangKim/DanbooruDownloader
