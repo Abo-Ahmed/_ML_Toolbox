@@ -1,6 +1,3 @@
-from google.colab import files
-files.upload()
-
 !pip install -q kaggle
 !pip install -q kaggle-cli
 !mkdir -p ~/.kaggle
