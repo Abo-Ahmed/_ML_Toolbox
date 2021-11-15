@@ -9,7 +9,8 @@ class handler:
   predict_x = []
   predict_y = []
 
-  dataLimit = 20
+  dataSize = 100
+  batchSize = 20
   imageWidth = 512
   imageHeight = 512
   colored = True
