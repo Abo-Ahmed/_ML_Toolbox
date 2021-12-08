@@ -31,8 +31,16 @@ class VggBiLstm(BasicModel):
         self.model.add(Dense(sFilter / 4, activation='relu', name='fc2'))
         self.model.add(Dense(1, activation='sigmoid', name='output'))
 
-        opt = SGD(lr=1e-4, momentum=0.9)
-        self.model.compile(loss="binary_crossentropy", optimizer=opt,metrics=["accuracy"])
+        outShape = self.model.output_shape
+        print(outShape)
+        self.model.add(Reshape((sequenceLength,  outShape[2] * outShape[3] * outShape[4])))
+        self.model.add(LSTM(sequenceLength, return_sequences=False))
+        self.model.add(Dropout(0.5))
+        self.model.add(Dense(sequenceLength, activation='softmax'))
+        self.model.compile(loss='categorical_crossentropy', optimizer='sgd', metrics=['accuracy'])
+
+        # opt = SGD(lr=1e-4, momentum=0.9)
+        # self.model.compile(loss="binary_crossentropy", optimizer=opt,metrics=["accuracy"])
 
 
 
