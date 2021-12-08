@@ -29,7 +29,9 @@ class VggBiLstm(BasicModel):
         self.model.add(Flatten(name='flatten'))
         self.model.add(Dense(sFilter / 2, activation='relu', name='fc1'))
         self.model.add(Dense(sFilter / 4, activation='relu', name='fc2'))
-        self.model.add(Dense(1, activation='sigmoid', name='output'))
+        # self.model.add(Dense(1, activation='sigmoid', name='output')) # old
+        self.model.add(Dropout(0.5)) # new
+
 
         outShape = self.model.output_shape
         print(outShape)
