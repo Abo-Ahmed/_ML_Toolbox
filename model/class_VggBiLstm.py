@@ -36,7 +36,7 @@ class VggBiLstm(BasicModel):
         
         outShape = self.model.output_shape
         print(outShape)
-        self.model.add(Reshape((sequenceLength,  outShape[1])))
+        self.model.add(Reshape((sequenceLength,  outShape[1] / sequenceLength)))
 
         
         self.model.add(Bidirectional(LSTM(nClasses, return_sequences=True), input_shape=(sequenceLength, 1)))
