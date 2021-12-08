@@ -11,7 +11,7 @@ class BasicModel (object):
         self.path = "/content/drive/MyDrive/eng-mahmoud/models/"
         self.loopEpochs = 15
         self.loopIndex = 0 
-        self.loopLimit = 100
+        self.loopLimit = 1000
         self.loss = 0
         self.acc = 0
         self.result = results()
