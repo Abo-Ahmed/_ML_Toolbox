@@ -32,6 +32,12 @@ class VggBiLstm(BasicModel):
         # self.model.add(Dense(sFilter / 4, activation='relu', name='fc2')) # old
         self.model.add(Dense(nClasses, activation='relu', name='fc2'))
         # self.model.add(Dense(1, activation='sigmoid', name='output')) # old
+        
+        outShape = self.model.output_shape
+        print(outShape)
+        self.model.add(Reshape((sequenceLength,  outShape[2] * outShape[3] * outShape[4])))
+
+        
         self.model.add(Bidirectional(LSTM(nClasses, return_sequences=True), input_shape=(sequenceLength, 1)))
         self.model.add(Bidirectional(LSTM(nClasses, return_sequences=True), input_shape=(sequenceLength, 1)))
         self.model.add(Dense(nClasses))
