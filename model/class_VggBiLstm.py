@@ -5,6 +5,51 @@ class VggBiLstm(BasicModel):
         channels, rows, columns = 3,224,224
         sequenceLength = 3 
         nClasses = 3
+        sFilter = 224
+
+        self.model = Sequential()
+        self.model.add(Conv2D(input_shape=(rows,columns,channels),filters=64,kernel_size=(3,3),padding="same", activation="relu"))
+        self.model.add(Conv2D(filters=64,kernel_size=(3,3),padding="same", activation="relu"))
+        self.model.add(MaxPool2D(pool_size=(2,2),strides=(2,2)))
+        self.model.add(Conv2D(filters=sFilter / 4, kernel_size=(3,3), padding="same", activation="relu"))
+        self.model.add(Conv2D(filters=sFilter / 4, kernel_size=(3,3), padding="same", activation="relu"))
+        self.model.add(MaxPool2D(pool_size=(2,2),strides=(2,2)))
+        self.model.add(Conv2D(filters=sFilter / 2, kernel_size=(3,3), padding="same", activation="relu"))
+        self.model.add(Conv2D(filters=sFilter / 2, kernel_size=(3,3), padding="same", activation="relu"))
+        self.model.add(Conv2D(filters=sFilter / 2, kernel_size=(3,3), padding="same", activation="relu"))
+        self.model.add(MaxPool2D(pool_size=(2,2),strides=(2,2)))
+        self.model.add(Conv2D(filters=sFilter, kernel_size=(3,3), padding="same", activation="relu"))
+        self.model.add(Conv2D(filters=sFilter, kernel_size=(3,3), padding="same", activation="relu"))
+        self.model.add(Conv2D(filters=sFilter, kernel_size=(3,3), padding="same", activation="relu"))
+        self.model.add(MaxPool2D(pool_size=(2,2),strides=(2,2)))
+        self.model.add(Conv2D(filters=sFilter, kernel_size=(3,3), padding="same", activation="relu"))
+        self.model.add(Conv2D(filters=sFilter, kernel_size=(3,3), padding="same", activation="relu"))
+        self.model.add(Conv2D(filters=sFilter, kernel_size=(3,3), padding="same", activation="relu"))
+        self.model.add(MaxPool2D(pool_size=(2,2),strides=(2,2),name='vgg16'))
+        self.model.add(Flatten(name='flatten'))
+        self.model.add(Dense(sFilter / 2, activation='relu', name='fc1'))
+        self.model.add(Dense(sFilter / 4, activation='relu', name='fc2'))
+        self.model.add(Dense(1, activation='sigmoid', name='output'))
+
+        opt = SGD(lr=1e-4, momentum=0.9)
+        self.model.compile(loss="binary_crossentropy", optimizer=opt,metrics=["accuracy"])
+
+
+
+        # if(not handler.batched):
+        #     handler.train_x = dataset.batchize_data(handler.train_x , sequenceLength )
+        #     handler.train_y = dataset.batchize_data(handler.train_y , sequenceLength )
+        #     handler.test_x = dataset.batchize_data(handler.test_x , sequenceLength )
+        #     handler.test_y = dataset.batchize_data(handler.test_y , sequenceLength )
+        #     print(handler.train_x)
+        #     print(handler.train_x.shape)
+        #     handler.batched = True
+
+    def build_2 (self):
+        super().build()
+        channels, rows, columns = 3,224,224
+        sequenceLength = 3 
+        nClasses = 3
         video = Input(shape=(sequenceLength, rows, columns,channels))
         cnnBase = VGG16(   input_shape=(rows, columns, channels),
                             weights="imagenet", 
