@@ -6,6 +6,7 @@ class VggBiLstm(BasicModel):
         sequenceLength = 3 
         nClasses = 3
         sFilter = 512
+        video = Input(shape=(sequenceLength, rows, columns,channels))
 
         self.model = Sequential()
         self.model.add(Conv2D(input_shape=(rows,columns,channels),filters=64,kernel_size=(3,3),padding="same", activation="relu"))
@@ -27,8 +28,9 @@ class VggBiLstm(BasicModel):
         self.model.add(Conv2D(filters=sFilter, kernel_size=(3,3), padding="same", activation="relu"))
         self.model.add(MaxPool2D(pool_size=(2,2),strides=(2,2),name='vgg16'))
         self.model.add(Flatten(name='flatten'))
-        self.model.add(Dense(sFilter / 2, activation='relu', name='fc1'))
-        self.model.add(Dense(sFilter / 4, activation='relu', name='fc2'))
+        # self.model.add(Dense(sFilter / 2, activation='relu', name='fc1')) # old
+        # self.model.add(Dense(sFilter / 4, activation='relu', name='fc2')) # old
+        self.model.add(Dense(nClasses, activation='relu', name='fc2'))
         # self.model.add(Dense(1, activation='sigmoid', name='output')) # old
         self.model.add(Bidirectional(LSTM(nClasses, return_sequences=True), input_shape=(sequenceLength, 1)))
         self.model.add(Bidirectional(LSTM(nClasses, return_sequences=True), input_shape=(sequenceLength, 1)))
