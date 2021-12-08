@@ -5,7 +5,7 @@ class VggBiLstm(BasicModel):
         channels, rows, columns = 3,224,224
         sequenceLength = 3 
         nClasses = 3
-        sFilter = 224
+        sFilter = 512
 
         self.model = Sequential()
         self.model.add(Conv2D(input_shape=(rows,columns,channels),filters=64,kernel_size=(3,3),padding="same", activation="relu"))
