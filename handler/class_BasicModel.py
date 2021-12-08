@@ -67,6 +67,7 @@ class BasicModel (object):
                 print(">>> DO you wish to continue?")
                 b = input() 
                 if(b != 'yes'):
+                    print("flagger")
                     print(b)
                     break
 
