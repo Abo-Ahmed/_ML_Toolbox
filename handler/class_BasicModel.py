@@ -65,7 +65,9 @@ class BasicModel (object):
             configure.print_line()
             if(i % 30 == 0):
                 print(">>> DO you wish to continue?")
-                if(input() != 'y'):
+                b = input() 
+                if(b != 'yes'):
+                    print(b)
                     break
 
     # verbose=0 --> (silent), 1 --> animated progress , 2 -->  mention epoch no. 
