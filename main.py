@@ -8,7 +8,7 @@ execfile('/content/_master/handler/handler.py')
 handler.intial_configurations(True , True , '/content/_master') # mount , details , project path
 
 # loading and preparing dataset images
-handler.read_data(None , 512 , 512) # datapath , width , height
+handler.read_data(None , 224 , 224) # datapath , width , height
 
 # handler.run_models(["CnnSeq"        , "CnnFunctional"   , "ResNet" , 
 #                     "Vgg16"         , "vgg16Seq"        , "VggLstm",
