@@ -16,7 +16,10 @@ class VggBiLstm(BasicModel):
         cnnOut = GlobalAveragePooling2D()(cnnBase.output)
         cnn = Model(cnnBase.input, cnnOut)
         encodedFrames = TimeDistributed(cnn)(video)
-        encodedSequence = LSTM(nClasses , return_sequences=True)(encodedFrames)
+        # encodedSequence = LSTM(nClasses , return_sequences=True)(encodedFrames) # old
+        encodedSequence = Bidirectional(LSTM(nClasses , return_sequences=True), input_shape=(sequenceLength, 1))(encodedFrames) # old
+        encodedSequence = Bidirectional(LSTM(nClasses , return_sequences=True), input_shape=(sequenceLength, 1))(encodedSequence) # old
+
         hiddenLayer = Dense(nClasses, activation="relu")(encodedSequence)
         outputs = Dense(nClasses, activation="softmax")(hiddenLayer)
         self.model = Model(video, outputs)

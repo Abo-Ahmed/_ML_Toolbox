@@ -63,6 +63,10 @@ class BasicModel (object):
             self.save_weights(title=("odd" if ((i + self.loopIndex ) % 2) else "even"))
             self.save_parameters(i + self.loopIndex)
             configure.print_line()
+            if(i % 30 == 0):
+                print(">>> DO you wish to continue?")
+                if(input() != 'y'):
+                    break
 
     # verbose=0 --> (silent), 1 --> animated progress , 2 -->  mention epoch no. 
     def train (self , epochs = 5):
