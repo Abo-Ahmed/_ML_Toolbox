@@ -5,7 +5,7 @@ class VggLstm(BasicModel):
         super().build()
         channels, rows, columns = 3,224,224
         sequenceLength = 3 
-        nClasses = 1
+        nClasses = 3
         video = Input(shape=(sequenceLength, rows, columns,channels))
         cnnBase = VGG16(   input_shape=(rows, columns, channels),
                             weights="imagenet", 
