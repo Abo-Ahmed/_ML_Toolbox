@@ -3,11 +3,10 @@ class VggLstm(BasicModel):
 
     def build (self):
         super().build()
-        channels, rows, columns = 3,224,224
         sequenceLength = 3 
         nClasses = 1
-        video = Input(shape=(sequenceLength, rows, columns,channels))
-        cnnBase = VGG16(   input_shape=(rows, columns, channels),
+        video = Input(shape=(sequenceLength, self.rows, self.columns,self.channels))
+        cnnBase = VGG16(   input_shape=(self.rows, self.columns, self.channels),
                             weights="imagenet", 
                             include_top=False ,                         
                             input_tensor=None,
@@ -25,10 +24,5 @@ class VggLstm(BasicModel):
         self.model.compile(loss='categorical_crossentropy', optimizer='adam', metrics=['accuracy'])
 
         if(not handler.batched):
-            handler.train_x = dataset.batchize_data(handler.train_x , sequenceLength )
-            handler.train_y = dataset.batchize_data(handler.train_y , sequenceLength )
-            handler.test_x = dataset.batchize_data(handler.test_x , sequenceLength )
-            handler.test_y = dataset.batchize_data(handler.test_y , sequenceLength )
-            print(handler.train_x)
-            print(handler.train_x.shape)
+            self.batchize_data(sequenceLength)
             handler.batched = True

@@ -43,7 +43,7 @@ Function tree:
 	 read_special_image
 	 read_random
 	 upload_images
-	 batchize_data
+	 batchize
 	 load_new_batch
 -----------------------------
 

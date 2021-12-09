@@ -103,6 +103,14 @@ class BasicModel (object):
         handler.predict_y = self.model.predict(handler.predict_x)
         print('>>> predict_y:' , handler.predict_y)
 
+    def batchize_data(self,sequenceLength):
+        handler.train_x = dataset.batchize(handler.train_x , sequenceLength )
+        handler.train_y = dataset.batchize(handler.train_y , sequenceLength )
+        handler.test_x = dataset.batchize(handler.test_x , sequenceLength )
+        handler.test_y = dataset.batchize(handler.test_y , sequenceLength )
+        print(handler.train_x)
+        print(">>> shape after batchizing: " , handler.train_x.shape)
+
     ################
     ## loading and saving model
     ################
