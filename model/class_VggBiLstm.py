@@ -3,49 +3,25 @@ class VggBiLstm(BasicModel):
     def build (self):
         super().build()
         channels, rows, columns = 3,224,224
-        sequenceLength = 3
-        nClasses = 3
-        nNodes = 32 # originally it was 32
-        in_shape = (sequenceLength, rows, columns, channels)
-
+        sequenceLength = 3 
+        nClasses = 1
+        video = Input(shape=(sequenceLength, rows, columns,channels))
         cnnBase = VGG16(   input_shape=(rows, columns, channels),
-                    weights="imagenet", 
-                    include_top=False ,                         
-                    input_tensor=None,
-                    pooling=None,
-                    classes=1000,
-                    classifier_activation="softmax")
+                            weights="imagenet", 
+                            include_top=False ,                         
+                            input_tensor=None,
+                            pooling=None,
+                            classes=nClasses,
+                            classifier_activation="softmax")
+        cnnOut = GlobalAveragePooling2D()(cnnBase.output)
+        cnn = Model(cnnBase.input, cnnOut)
+        encodedFrames = TimeDistributed(cnn)(video)
+        encodedSequence = LSTM(nClasses , return_sequences=True)(encodedFrames)
+        hiddenLayer = Dense(nClasses, activation="relu")(encodedSequence)
+        outputs = Dense(nClasses, activation="softmax")(hiddenLayer)
+        self.model = Model(video, outputs)
 
-        
-        self.model = Sequential()
-        self.model.add(cnnBase)
-        self.model.add(GlobalAveragePooling2D())
-
-        # self.model.add(ConvLSTM2D(nNodes, kernel_size=(7, 7), padding='valid', return_sequences=True, input_shape=in_shape))
-        # self.model.add(Activation('relu'))
-        # self.model.add(MaxPooling3D(pool_size=(1, 2, 2)))
-        # self.model.add(ConvLSTM2D(nNodes * 2, kernel_size=(5, 5), padding='valid', return_sequences=True))
-        # self.model.add(MaxPooling3D(pool_size=(1, 2, 2)))
-        # self.model.add(ConvLSTM2D(nNodes * 3, kernel_size=(3, 3), padding='valid', return_sequences=True))
-        # self.model.add(Activation('relu'))
-        # self.model.add(ConvLSTM2D(nNodes * 3, kernel_size=(3, 3), padding='valid', return_sequences=True))
-        # self.model.add(Activation('relu'))
-        # self.model.add(ConvLSTM2D(nNodes * 3, kernel_size=(3, 3), padding='valid', return_sequences=True))
-        
-        self.model.add(MaxPooling3D(pool_size=(1, 2, 2)))
-        self.model.add(Dense(320))
-        self.model.add(Activation('relu'))
-        self.model.add(Dropout(0.5))
-
-        outShape = self.model.output_shape
-        print(outShape)
-        self.model.add(Reshape((sequenceLength,  outShape[2] * outShape[3] * outShape[4])))
-        self.model.add(Bidirectional(LSTM(nClasses, return_sequences=True), input_shape=(sequenceLength, 1)))
-        self.model.add(Bidirectional(LSTM(nClasses), input_shape=(sequenceLength, 1)))
-        # self.model.add(LSTM(sequenceLength, return_sequences=False)) old
-        self.model.add(Dropout(0.5))
-        self.model.add(Dense(sequenceLength, activation='softmax'))
-        self.model.compile(loss='categorical_crossentropy', optimizer='sgd', metrics=['accuracy'])
+        self.model.compile(loss='categorical_crossentropy', optimizer='adam', metrics=['accuracy'])
 
         if(not handler.batched):
             handler.train_x = dataset.batchize_data(handler.train_x , sequenceLength )
@@ -55,7 +31,7 @@ class VggBiLstm(BasicModel):
             print(handler.train_x)
             print(handler.train_x.shape)
             handler.batched = True
-
+            
     def build_4 (self):
         super().build()
         channels, rows, columns = 3,512,512
