@@ -26,9 +26,9 @@ class VggBiLstm(BasicModel):
         outShape = self.model.output_shape
         print(outShape)
         self.model.add(Reshape((sequenceLength,  outShape[2] * outShape[3] * outShape[4])))
-        # self.model.add(Bidirectional(LSTM(nClasses, return_sequences=True), input_shape=(sequenceLength, 1)))
-        # self.model.add(Bidirectional(LSTM(nClasses), input_shape=(sequenceLength, 1)))
-        self.model.add(LSTM(sequenceLength, return_sequences=False))
+        self.model.add(Bidirectional(LSTM(nClasses, return_sequences=True), input_shape=(sequenceLength, 1)))
+        self.model.add(Bidirectional(LSTM(nClasses), input_shape=(sequenceLength, 1)))
+        # self.model.add(LSTM(sequenceLength, return_sequences=False))
         self.model.add(Dropout(0.5))
         self.model.add(Dense(sequenceLength, activation='softmax'))
         self.model.compile(loss='categorical_crossentropy', optimizer='sgd', metrics=['accuracy'])
