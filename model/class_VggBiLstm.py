@@ -3,7 +3,7 @@ class VggBiLstm(BasicModel):
     def build (self):
         super().build()
         channels, rows, columns = 3,224,224
-        sequenceLength = 2 
+        sequenceLength = 3
         nClasses = 1
         nNodes = 32 # originally it was 32
         in_shape = (sequenceLength, rows, columns, channels)
@@ -26,6 +26,8 @@ class VggBiLstm(BasicModel):
         outShape = self.model.output_shape
         print(outShape)
         self.model.add(Reshape((sequenceLength,  outShape[2] * outShape[3] * outShape[4])))
+        # self.model.add(Bidirectional(LSTM(nClasses, return_sequences=True), input_shape=(sequenceLength, 1)))
+        # self.model.add(Bidirectional(LSTM(nClasses), input_shape=(sequenceLength, 1)))
         self.model.add(LSTM(sequenceLength, return_sequences=False))
         self.model.add(Dropout(0.5))
         self.model.add(Dense(sequenceLength, activation='softmax'))
