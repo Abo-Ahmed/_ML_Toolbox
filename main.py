@@ -14,6 +14,6 @@ handler.read_data(None , 224 , 224) # datapath , width , height
 #                     "Vgg16"         , "vgg16Seq"        , "VggLstm",
 #                     "LstmConv2d"    , "Lstm"            , "LstmBi" , "VggBiLstm"])
 
-handler.special_run("Vgg16","program_0")
+handler.special_run("VggBiLstm","program_0")
 
 handler.final_configurations()
