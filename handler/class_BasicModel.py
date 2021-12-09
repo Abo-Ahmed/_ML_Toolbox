@@ -63,7 +63,7 @@ class BasicModel (object):
             self.save_weights(title=("odd" if ((i + self.loopIndex ) % 2) else "even"))
             self.save_parameters(i + self.loopIndex)
             configure.print_line()
-            if(i % 30 == 0):
+            if(i % 100 == 0):
                 print(">>> DO you wish to continue?")
                 if(input() != 'y'):
                     break
