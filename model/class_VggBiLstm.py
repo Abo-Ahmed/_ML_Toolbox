@@ -5,7 +5,9 @@ class VggBiLstm(BasicModel):
         channels, rows, columns = 3,224,224
         sequenceLength = 3 
         nClasses = 1
+
         video = Input(shape=(sequenceLength, rows, columns,channels))
+
         cnnBase = VGG16(   input_shape=(rows, columns, channels),
                             weights="imagenet", 
                             include_top=False ,                         
@@ -15,11 +17,13 @@ class VggBiLstm(BasicModel):
                             classifier_activation="softmax")
         cnnOut = GlobalAveragePooling2D()(cnnBase.output)
         cnn = Model(cnnBase.input, cnnOut)
-        encodedFrames = TimeDistributed(cnn)(video)
-        encodedSequence = LSTM(nClasses , return_sequences=True)(encodedFrames)
-        hiddenLayer = Dense(nClasses, activation="relu")(encodedSequence)
-        outputs = Dense(nClasses, activation="softmax")(hiddenLayer)
-        self.model = Model(video, outputs)
+
+        self.model = Sequential()
+        self.model.add(video)
+        self.model.add(TimeDistributed(cnn))
+        self.model.add(LSTM(nClasses , return_sequences=True))
+        self.model.add(Dense(nClasses, activation="relu"))
+        self.model.add(Dense(nClasses, activation="softmax")(hiddenLayer))
 
         self.model.compile(loss='categorical_crossentropy', optimizer='adam', metrics=['accuracy'])
 
@@ -31,7 +35,7 @@ class VggBiLstm(BasicModel):
             print(handler.train_x)
             print(handler.train_x.shape)
             handler.batched = True
-            
+
     def build_4 (self):
         super().build()
         channels, rows, columns = 3,512,512
