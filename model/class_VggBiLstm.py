@@ -21,7 +21,9 @@ class VggBiLstm(BasicModel):
         self.model = Sequential()
         self.model.add(video)
         self.model.add(TimeDistributed(cnn))
-        self.model.add(LSTM(nClasses , return_sequences=True))
+        # self.model.add(LSTM(nClasses , return_sequences=True))
+        self.model.add(Bidirectional(LSTM(nClasses, return_sequences=True), input_shape=(sequenceLength, 1)))
+        self.model.add(Bidirectional(LSTM(nClasses, return_sequences=True), input_shape=(sequenceLength, 1)))
         self.model.add(Dense(nClasses, activation="relu"))
         self.model.add(Dense(nClasses, activation="softmax"))
 
