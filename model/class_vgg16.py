@@ -13,7 +13,7 @@ class Vgg16(BasicModel):
 
         self.model = Sequential()
         self.model.add(cnnBase)
-        self.model.add(GlobalAveragePooling2D()(cnnBase.output))
+        self.model.add(GlobalAveragePooling2D())
         self.model.add()
 
         # cnnOut = GlobalAveragePooling2D()(cnnBase.output)
