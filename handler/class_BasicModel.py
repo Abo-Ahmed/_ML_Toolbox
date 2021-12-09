@@ -12,12 +12,15 @@ class BasicModel (object):
         self.loopEpochs = 15
         self.loopIndex = 0 
         self.loopLimit = 1000
+        
         self.loss = 0
         self.acc = 0
         self.result = results()
+
         self.channels = 3 if(handler.colored) else 1
         self.rows = handler.imageWidth
         self.columns =  handler.imageHeight
+        self.nClasses = 3
 
         print(">>> " + self.name + " model intiated ...")
 

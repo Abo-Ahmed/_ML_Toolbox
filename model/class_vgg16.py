@@ -12,7 +12,7 @@ class Vgg16(BasicModel):
 
         self.model = Sequential()
         self.model.add(cnnBase)
-        self.model.add(Flatten())
+        self.model.add(Dense(self.nClasses))
 
         # cnnOut = GlobalAveragePooling2D()(cnnBase.output)
         # cnnBase.trainable = False

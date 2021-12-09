@@ -2,12 +2,12 @@ class LstmBi(BasicModel):
 
     def build (self):
         sequenceLength = 5 
-        nClasses = 1
+        self.nClasses = 1
         super().build()
         self.model = Sequential()
-        self.model.add(Bidirectional(LSTM(nClasses, return_sequences=True), input_shape=(sequenceLength, 1)))
-        self.model.add(Bidirectional(LSTM(nClasses, return_sequences=True), input_shape=(sequenceLength, 1)))
-        self.model.add(Dense(nClasses))
+        self.model.add(Bidirectional(LSTM(self.nClasses, return_sequences=True), input_shape=(sequenceLength, 1)))
+        self.model.add(Bidirectional(LSTM(self.nClasses, return_sequences=True), input_shape=(sequenceLength, 1)))
+        self.model.add(Dense(self.nClasses))
         self.model.add(Activation('softmax'))
         
         self.model.compile(loss='categorical_crossentropy', optimizer='rmsprop' ,  metrics='accuracy')
