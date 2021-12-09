@@ -1,3 +1,4 @@
+
 class VggLstm(BasicModel): 
 
     def build (self):

@@ -2,6 +2,42 @@ class VggBiLstm(BasicModel):
 
     def build (self):
         super().build()
+        channels, rows, columns = 3,512,512
+        sequenceLength = 3 
+        nClasses = 1
+        video = Input(shape=(sequenceLength, rows, columns,channels))
+
+
+        cnnBase = VGG16(   input_shape=(rows, columns, channels),
+                            weights="imagenet", 
+                            include_top=False ,                         
+                            input_tensor=None,
+                            pooling=None,
+                            classes=nClasses,
+                            classifier_activation="softmax")
+        cnnOut = GlobalAveragePooling2D()(cnnBase.output)
+        cnn = Model(cnnBase.input, cnnOut)
+
+        self.model = Sequential()
+        self.model.add(video)
+        self.model.add(Dense(nClasses, activation="softmax"))
+        self.model.add(Dense(nClasses, activation="relu"))
+        self.model.add(LSTM(nClasses , return_sequences=True))
+        self.model.add(TimeDistributed(cnn)(video))
+
+        self.model.compile(loss='categorical_crossentropy', optimizer='adam', metrics=['accuracy'])
+
+        if(not handler.batched):
+            handler.train_x = dataset.batchize_data(handler.train_x , sequenceLength )
+            handler.train_y = dataset.batchize_data(handler.train_y , sequenceLength )
+            handler.test_x = dataset.batchize_data(handler.test_x , sequenceLength )
+            handler.test_y = dataset.batchize_data(handler.test_y , sequenceLength )
+            print(handler.train_x)
+            print(handler.train_x.shape)
+            handler.batched = True
+
+    def build_ (self):
+        super().build()
         channels, rows, columns = 3,224,224
         sequenceLength = 3 
         nClasses = 3
@@ -36,7 +72,7 @@ class VggBiLstm(BasicModel):
         
         outShape = self.model.output_shape
         print(outShape)
-        self.model.add(Reshape((sequenceLength,  outShape[1] / sequenceLength)))
+        self.model.add(Reshape((sequenceLength,  outShape[1] // sequenceLength)))
 
         
         self.model.add(Bidirectional(LSTM(nClasses, return_sequences=True), input_shape=(sequenceLength, 1)))
