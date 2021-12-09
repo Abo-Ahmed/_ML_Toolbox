@@ -23,7 +23,7 @@ class VggBiLstm(BasicModel):
         self.model.add(TimeDistributed(cnn))
         self.model.add(LSTM(nClasses , return_sequences=True))
         self.model.add(Dense(nClasses, activation="relu"))
-        self.model.add(Dense(nClasses, activation="softmax")(hiddenLayer))
+        self.model.add(Dense(nClasses, activation="softmax"))
 
         self.model.compile(loss='categorical_crossentropy', optimizer='adam', metrics=['accuracy'])
 
