@@ -4,7 +4,7 @@ class VggBiLstm(BasicModel):
         super().build()
         channels, rows, columns = 3,224,224
         sequenceLength = 3
-        nClasses = 1
+        nClasses = 3
         nNodes = 32 # originally it was 32
         in_shape = (sequenceLength, rows, columns, channels)
         self.model = Sequential()
