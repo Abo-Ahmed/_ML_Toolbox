@@ -2,13 +2,12 @@ class Vgg16(BasicModel):
 
     def build (self):
         super().build()
-        channels, rows, columns = 3,224,224
-        cnnBase = VGG16(   input_shape=(rows, columns, channels),
+        cnnBase = VGG16(   input_shape=(self.rows, self.columns, self.channels),
+                            classes=1000,
                             weights="imagenet", 
                             include_top=False ,                         
                             input_tensor=None,
                             pooling=None,
-                            classes=1000,
                             classifier_activation="softmax")
 
         self.model = Sequential()

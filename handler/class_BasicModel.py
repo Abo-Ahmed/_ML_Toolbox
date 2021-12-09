@@ -15,6 +15,10 @@ class BasicModel (object):
         self.loss = 0
         self.acc = 0
         self.result = results()
+        self.channels = 3 if(handler.colored) else 1
+        self.rows = handler.imageWidth
+        self.columns =  handler.imageHeight
+
         print(">>> " + self.name + " model intiated ...")
 
     def __del__(self):
@@ -25,6 +29,8 @@ class BasicModel (object):
     ################
     def build (self):
         print('>>> bulding ' + self.name + ' model ...')
+
+
 
     def summery_plot(self , details = True, plotted = True):
         try:
