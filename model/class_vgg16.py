@@ -6,11 +6,7 @@ class Vgg16(BasicModel):
         self.model = Sequential()
         self.model.add(VGG16(   input_shape=(self.rows, self.columns, self.channels),
                             classes=3,
-                            weights=None, 
-                            include_top=False ,                         
-                            input_tensor=None,
-                            pooling=None,
-                            classifier_activation="softmax"))
+                            weights=None))
         # self.model.add(Dense(self.nClasses))
 
         # cnnOut = GlobalAveragePooling2D()(cnnBase.output)
