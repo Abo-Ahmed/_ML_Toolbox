@@ -5,7 +5,7 @@ class Vgg16(BasicModel):
 
         self.model = Sequential()
         self.model.add(VGG16(   input_shape=(self.rows, self.columns, self.channels),
-                            classes=3, weights=None))
+                            classes=self.nClasses, weights=None))
 
         self.model.compile(optimizer='adam',
             loss='sparse_categorical_crossentropy', metrics=['accuracy'])
