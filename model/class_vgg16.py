@@ -2,17 +2,16 @@ class Vgg16(BasicModel):
 
     def build (self):
         super().build()
-        cnnBase = VGG16(   input_shape=(self.rows, self.columns, self.channels),
+
+        self.model = Sequential()
+        self.model.add(VGG16(   input_shape=(self.rows, self.columns, self.channels),
                             classes=3,
                             weights=None, 
                             include_top=False ,                         
                             input_tensor=None,
                             pooling=None,
-                            classifier_activation="softmax")
-
-        self.model = Sequential()
-        self.model.add(cnnBase)
-        self.model.add(Dense(self.nClasses))
+                            classifier_activation="softmax"))
+        # self.model.add(Dense(self.nClasses))
 
         # cnnOut = GlobalAveragePooling2D()(cnnBase.output)
         # cnnBase.trainable = False
