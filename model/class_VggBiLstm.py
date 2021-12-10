@@ -4,16 +4,12 @@ class VggBiLstm(BasicModel):
         super().build()
         sequenceLength = 3 
 
-        video = Input(shape=(sequenceLength, self.rows, self.columns,self.channels))
-
-        cnnBase = VGG16(   input_shape=(self.rows, self.columns, self.channels),
-                            classes=self.nClasses, weights=None)
-        # cnnOut = GlobalAveragePooling2D()(cnnBase.output)
-        cnn = Model(cnnBase)
-
         self.model = Sequential()
-        self.model.add(video)
-        self.model.add(TimeDistributed(cnn))
+        self.model.add(Input(shape=(sequenceLength, self.rows, self.columns,self.channels)))
+        self.model.add(TimeDistributed(
+                            VGG16(   
+                                input_shape=(self.rows, self.columns, self.channels),
+                                classes=self.nClasses, weights=None)))
         self.model.add(Bidirectional(LSTM(self.nClasses, return_sequences=True), input_shape=(sequenceLength, 1)))
         self.model.add(Bidirectional(LSTM(self.nClasses), input_shape=(sequenceLength, 1)))
         self.model.add(Dense(self.nClasses, activation="relu"))
