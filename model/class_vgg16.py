@@ -5,17 +5,10 @@ class Vgg16(BasicModel):
 
         self.model = Sequential()
         self.model.add(VGG16(   input_shape=(self.rows, self.columns, self.channels),
-                            classes=3,
-                            weights=None))
-        # self.model.add(Dense(self.nClasses))
-
-        # cnnOut = GlobalAveragePooling2D()(cnnBase.output)
-        # cnnBase.trainable = False
-        # self.model = Model(cnnBase.input, cnnOut)
+                            classes=3, weights=None, name="vgg_1"))
 
         self.model.compile(optimizer='adam',
-            loss='sparse_categorical_crossentropy',
-            metrics=['accuracy'])
+            loss='sparse_categorical_crossentropy', metrics=['accuracy'])
 
 
     def build_2 (self):
