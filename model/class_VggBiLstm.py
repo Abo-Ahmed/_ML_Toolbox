@@ -9,7 +9,7 @@ class VggBiLstm(BasicModel):
         cnnBase = VGG16(   input_shape=(self.rows, self.columns, self.channels),
                             classes=self.nClasses, weights=None)
         # cnnOut = GlobalAveragePooling2D()(cnnBase.output)
-        cnn = Model(cnnBase.input, cnnBase)
+        cnn = Model(cnnBase)
 
         self.model = Sequential()
         self.model.add(video)
