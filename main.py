@@ -8,7 +8,7 @@ print(">>> main module loaded ...")
 execfile('/content/_master/handler/handler.py')
 handler.intial_configurations(True , True , '/content/_master') # mount , details , project path
 
-handler.read_real_data('/content/drive/MyDrive/eng-mahmoud/dataSet/danbooru2019/images/512px/0000' , 512 , 512)
+handler.read_real_data('/content/drive/MyDrive/eng-mahmoud/dataSet/danbooru2019/images/512px/0000' , 224 , 224)
 print(handler.train_x)
 print(handler.train_y)
 
