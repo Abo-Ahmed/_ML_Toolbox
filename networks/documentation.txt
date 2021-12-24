@@ -41,8 +41,8 @@ Function tree:
 >>> dataset.py
 	 get_prediction_matrix
 	 read_folder_images
-	 prepare_matrix
-	 read_images
+	 prepare_sample
+	 read_sample_images
 	 read_resize_image
 	 read_real_data
 	 read_predict
@@ -76,7 +76,7 @@ Function tree:
 >>> handler.py
 	 load_modules
 	 intial_configurations
-	 read_data
+	 read_sample
 	 read_real
 	 run_models
 	 run_model

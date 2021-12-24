@@ -2,11 +2,10 @@
 
 class dataset:
 
-  @staticmethod
-  def get_prediction_matrix(destnation_path , batchNo = 0):
-    batchNo = ((batchNo * handler.batchSize) % handler.dataSize) // handler.batchSize
-    pred = [ prediction.values[int(file.replace(".jpg","").split("/")[-1])] for indx , file in enumerate(glob.glob( destnation_path + "/*.jpg")) if indx > batchNo * handler.batchSize and indx < handler.batchSize * batchNo + handler.batchSize]
-    return pred
+
+  ##############################
+  ## real data methods
+  ##############################  
 
   @staticmethod
   def read_folder_images(destnation_path , batchNo = 0):
@@ -19,7 +18,81 @@ class dataset:
     return np.array(img_array)
 
   @staticmethod
-  def prepare_matrix(true_set ,false_set , title):
+  def get_prediction_matrix(destnation_path , batchNo = 0):
+    batchNo = ((batchNo * handler.batchSize) % handler.dataSize) // handler.batchSize
+    pred = [ prediction.values[int(file.replace(".jpg","").split("/")[-1])] for indx , file in enumerate(glob.glob( destnation_path + "/*.jpg")) if indx > batchNo * handler.batchSize and indx < handler.batchSize * batchNo + handler.batchSize]
+    return pred
+
+  @staticmethod
+  def read_real_data():
+
+    handler.train_x = dataset.read_folder_images(handler.dataPath,handler.batchNo)
+    print(">>> train_x: " + str(handler.batchNo) , handler.train_x)
+    handler.train_y = dataset.get_prediction_matrix(handler.dataPath,handler.batchNo)
+    print(">>> train_y: " + str(handler.batchNo) , handler.train_y)
+
+    handler.test_x = dataset.read_folder_images(handler.dataPath,handler.batchNo)
+    print(">>> test_x: " + str(handler.batchNo) , handler.test_x)
+    handler.test_y = dataset.get_prediction_matrix(handler.dataPath,handler.batchNo)
+    print(">>> test_y: " + str(handler.batchNo) , handler.test_y)
+
+
+  @staticmethod
+  def batchize( dataList ,  batchSize ):
+      batches = []
+      for i in range(len(dataList) // batchSize ):
+          batches.append(dataList[i * batchSize:i * batchSize + batchSize])
+      # return np.ndarray(batches)
+      return tf.convert_to_tensor(batches, dtype=tf.float32)
+      # return batches
+
+  ##############################
+  ## predict data methods
+  ##############################  
+
+  @staticmethod
+  def read_resize_image(img):
+    if (handler.colored):
+      return np.resize( cv2.imread( img).shape  , (handler.imageWidth , handler.imageHeight , 3 )) 
+    else:
+      return np.resize( cv2.cvtColor(cv2.imread( img),cv2.COLOR_BGR2GRAY).shape  , (handler.imageWidth , handler.imageHeight ))
+
+  @staticmethod
+  def read_predict():
+      print(">>> reading PREDICT images ...")
+      imageSet = []
+      items = dataset.upload_images()
+      for img in items:
+        if img.endswith(".jpg"):
+          imageSet.append(dataset.read_resize_image('/content/' + img))
+      handler.predict_x = np.array(imageSet)
+      print( '>>> {}: {}'.format( 'predict: ' , len(handler.predict_x)))
+      print(handler.predict_x)
+      configure.print_line('=')
+
+  @staticmethod
+  def read_random():
+      print(">>> reading RANDOM images ...")
+      randomImg = random.choice(os.listdir("/content/_master/dataset/random"))
+      handler.predict_x = np.array([dataset.read_resize_image("/content/_master/dataset/random/"+randomImg)])
+      print( '>>> {}: {}'.format( 'random: ' , len(handler.predict_x)))
+      print(handler.predict_x)
+      configure.print_line('=')
+
+  @staticmethod
+  def upload_images():
+    uploaded = files.upload()
+    for fn in uploaded.keys():
+      print('>>> User uploaded file "{name}" with length {length} bytes'.format(name=fn, length=len(uploaded[fn])))
+      print(uploaded[fn])
+    print(uploaded.keys())
+    return list(uploaded.keys())
+  
+  ##############################
+  ## sample data methods
+  ##############################  
+  @staticmethod
+  def prepare_sample(true_set ,false_set , title):
     if(handler.colored):
       x_set =  np.random.rand(len(true_set)+len(false_set),handler.imageWidth,handler.imageHeight , 3 )
       x_set[0:len(true_set),:,:,:] = true_set
@@ -40,70 +113,6 @@ class dataset:
     return x_set , y_set
 
   @staticmethod
-  def read_images(first_path , second_path , title):
-      print(">>> reading " + title + " dataset ...")
-      return dataset.prepare_matrix( dataset.read_folder_images(first_path ) , dataset.read_folder_images(second_path ) , title)
-
-  @staticmethod
-  def read_resize_image(img):
-    if (handler.colored):
-      return np.resize( cv2.imread( img).shape  , (handler.imageWidth , handler.imageHeight , 3 )) 
-    else:
-      return np.resize( cv2.cvtColor(cv2.imread( img),cv2.COLOR_BGR2GRAY).shape  , (handler.imageWidth , handler.imageHeight ))
-
-  @staticmethod
-  def read_real_data():
-
-    handler.train_x = dataset.read_folder_images(handler.dataPath,handler.batchNo)
-    print(">>> train_x: " + str(handler.batchNo) , handler.train_x)
-    handler.train_y = dataset.get_prediction_matrix(handler.dataPath,handler.batchNo)
-    print(">>> train_y: " + str(handler.batchNo) , handler.train_y)
-
-    handler.test_x = dataset.read_folder_images(handler.dataPath,handler.batchNo)
-    print(">>> test_x: " + str(handler.batchNo) , handler.test_x)
-    handler.test_y = dataset.get_prediction_matrix(handler.dataPath,handler.batchNo)
-    print(">>> test_y: " + str(handler.batchNo) , handler.test_y)
-
-  @staticmethod
-  def read_predict():
-      print(">>> reading PREDICT images ...")
-      imageSet = []
-      items = dataset.upload_images()
-      for img in items:
-        if img.endswith(".jpg"):
-          imageSet.append(dataset.read_resize_image('/content/' + img))
-      handler.predict_x = np.array(imageSet)
-      print( '>>> {}: {}'.format( 'predict: ' , len(handler.predict_x)))
-      print(handler.predict_x)
-      configure.print_line('=')
-
-  @staticmethod
-  def read_special_image(path):
-    return  np.resize( cv2.cvtColor(cv2.imread(path),cv2.COLOR_BGR2GRAY).shape  , (handler.imageWidth , handler.imageHeight ))
-    
-  @staticmethod
-  def read_random():
-      print(">>> reading RANDOM images ...")
-      randomImg = random.choice(os.listdir("/content/_master/dataset/random"))
-      handler.predict_x = np.array([dataset.read_resize_image("/content/_master/dataset/random/"+randomImg)])
-      print( '>>> {}: {}'.format( 'random: ' , len(handler.predict_x)))
-      print(handler.predict_x)
-      configure.print_line('=')
-
-  @staticmethod
-  def upload_images():
-    uploaded = files.upload()
-    for fn in uploaded.keys():
-      print('>>> User uploaded file "{name}" with length {length} bytes'.format(name=fn, length=len(uploaded[fn])))
-      print(uploaded[fn])
-    print(uploaded.keys())
-    return list(uploaded.keys())
-  
-  @staticmethod
-  def batchize( dataList ,  batchSize ):
-      batches = []
-      for i in range(len(dataList) // batchSize ):
-          batches.append(dataList[i * batchSize:i * batchSize + batchSize])
-      # return np.ndarray(batches)
-      return tf.convert_to_tensor(batches, dtype=tf.float32)
-      # return batches
+  def read_sample_images(first_path , second_path , title):
+      print(">>> reading sample" + title + " dataset ...")
+      return dataset.prepare_sample( dataset.read_folder_images(first_path ) , dataset.read_folder_images(second_path ) , title)

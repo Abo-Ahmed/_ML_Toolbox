@@ -45,13 +45,13 @@ class handler:
     configure.printer(">>> intial configurations done...")
 
   @staticmethod
-  def read_data(dataPath = None , imgWidth = 512 , imgHeight = 512):
+  def read_sample(dataPath = None , imgWidth = 512 , imgHeight = 512):
       handler.imageWidth = imgWidth
       handler.imageHeight = imgHeight
       if dataPath == None:
         dataPath = handler.projectDir + '/dataset'
-      handler.test_x , handler.test_y = dataset.read_images(dataPath + '/test/NSFW', dataPath + '/test/SFW' , "TEST")
-      handler.train_x , handler.train_y = dataset.read_images(dataPath + '/train/NSFW', dataPath + '/train/SFW' , "TRAIN")
+      handler.test_x , handler.test_y = dataset.read_sample_images(dataPath + '/test/NSFW', dataPath + '/test/SFW' , "TEST")
+      handler.train_x , handler.train_y = dataset.read_sample_images(dataPath + '/train/NSFW', dataPath + '/train/SFW' , "TRAIN")
 
   @staticmethod
   def read_real(dataPath , imgWidth , imgHeight , startBatch):
