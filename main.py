@@ -3,12 +3,21 @@
 # https://colab.research.google.com/drive/1weN1Kz-UcRYYFSnYW5ABB0RX77npMmWO?authuser=2#scrollTo=63C7VVdMx0wa
 # https://colab.research.google.com/drive/1QA3ufl7lur76WzBhuwerLdyjLj-8hoHC?authuser=2
 
+from dataset.dataset import dataset
+
+
 print(">>> main module loaded ...")
 execfile('/content/_master/handler/handler.py')
 handler.intial_configurations(True , True , '/content/_master') # mount , details , project path
 
 
-print(prediction.values[1629015])
+x = dataset.read_folder_images('/content/drive/MyDrive/eng-mahmoud/dataSet/danbooru2019/images/512px/0000',0)
+print(x)
+print(x.shape)
+
+y = dataset.get_prediction_matrix('/content/drive/MyDrive/eng-mahmoud/dataSet/danbooru2019/images/512px/0000',0)
+print(y)
+print(y.shape)
 
 # loading and preparing dataset images
 # handler.read_data(None , 224 , 224) # datapath , width , height

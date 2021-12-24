@@ -3,9 +3,16 @@
 class dataset:
 
   @staticmethod
+  def get_prediction_matrix(destnation_path , batchNo = 0):
+    batchNo = ((batchNo * handler.batchSize) % handler.dataSize) // handler.batchSize
+    pred = [ prediction.values[file.replace(".jpg","")] for indx , file in enumerate(glob.glob( destnation_path + "/*.jpg")) if indx > batchNo * handler.batchSize and indx < handler.batchSize * batchNo + handler.batchSize]
+    return pred
+
+  @staticmethod
   def read_folder_images(destnation_path , batchNo = 0):
     batchNo = ((batchNo * handler.batchSize) % handler.dataSize) // handler.batchSize
     images = [ cv2.imread(file) for indx , file in enumerate(glob.glob( destnation_path + "/*.jpg")) if indx > batchNo * handler.batchSize and indx < handler.batchSize * batchNo + handler.batchSize]
+    pred = [ prediction.values[file.replace(".jpg","")] for indx , file in enumerate(glob.glob( destnation_path + "/*.jpg")) if indx > batchNo * handler.batchSize and indx < handler.batchSize * batchNo + handler.batchSize]
     if (handler.colored):
       img_array = [ np.resize( img.shape  , (handler.imageWidth , handler.imageHeight , 3 )) for img in images ]
     else:
