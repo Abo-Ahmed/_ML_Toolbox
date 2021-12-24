@@ -88,7 +88,6 @@ class BasicModel (object):
     def test (self):
         print('>>> testing ' + self.name + ' model ...')
         self.loss, self.acc = self.model.evaluate(handler.test_x, handler.test_y, verbose=2)
-        print('>>> current accuracy: {:5.2f}%'.format(100 * self.acc))
 
     def predict (self , smpl = None):
         print('>>> Predicting with ' + self.name + ' model ...')
@@ -168,7 +167,7 @@ class BasicModel (object):
             print('XXX failed loading parameters for: ' + self.name  , e)
 
     def save_parameters(self,index):
-        print('>>> saving ' + self.name + ' parameters with index: ' + str(index))
+
         print(self.name , self.loopEpochs , index , self.loopLimit)
         dic =   {
                     "name": self.name,
