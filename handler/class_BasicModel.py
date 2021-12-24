@@ -10,7 +10,7 @@ class BasicModel (object):
         self.model = None
         self.name = type(self).__name__
         self.path = "/content/drive/MyDrive/eng-mahmoud/models/"
-        self.loopEpochs = 15
+        self.loopEpochs = 30
         self.loopIndex = 0 
         self.loopLimit = 1000
         

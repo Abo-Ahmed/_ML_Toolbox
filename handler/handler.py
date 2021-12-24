@@ -11,7 +11,7 @@ class handler:
   predict_y = []
 
   dataSize = 100
-  batchSize = 20
+  batchSize = 30
   batched = False
   projectDir = ''
   dataPath = ''
