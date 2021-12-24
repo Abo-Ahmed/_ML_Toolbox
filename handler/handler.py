@@ -56,6 +56,9 @@ class handler:
       handler.train_x = dataset.read_folder_images(dataPath,0)
       handler.train_y = dataset.get_prediction_matrix(dataPath,0)
 
+      handler.test_x = dataset.read_folder_images(dataPath,1)
+      handler.test_y = dataset.get_prediction_matrix(dataPath,1)
+
   @staticmethod
   def run_models(models):
     for m in models:
