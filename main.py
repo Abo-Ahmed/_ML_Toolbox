@@ -8,11 +8,9 @@ print(">>> main module loaded ...")
 execfile('/content/_master/handler/handler.py')
 handler.intial_configurations(True , True , '/content/_master') # mount , details , project path
 
-handler.read_real_data('/content/drive/MyDrive/eng-mahmoud/dataSet/danbooru2019/images/512px/0000' , 224 , 224)
-print(handler.train_x)
-print(handler.train_y)
 
 # loading and preparing dataset images
+handler.read_real('/content/drive/MyDrive/eng-mahmoud/dataSet/danbooru2019/images/512px/0000' , 224 , 224 , 1)
 # handler.read_data(None , 224 , 224) # datapath , width , height
 
 # handler.run_models(["CnnSeq"        , "CnnFunctional"   , "ResNet" , 
@@ -20,6 +18,6 @@ print(handler.train_y)
 #                     "LstmConv2d"    , "Lstm"            , "LstmBi" , "VggBiLstm"])
 
 # handler.special_run("Vgg16","program_1")
-handler.special_run("VggBiLstm","program_1")
+handler.special_run("VggBiLstm","program_0")
 
 handler.final_configurations()

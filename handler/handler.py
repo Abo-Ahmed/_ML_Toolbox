@@ -1,5 +1,6 @@
 
 
+
 class handler:
 
   test_x = []
@@ -11,11 +12,14 @@ class handler:
 
   dataSize = 100
   batchSize = 20
+  batched = False
+  projectDir = ''
+  dataPath = ''
+  batchNo = 0 
+
   imageWidth = 512
   imageHeight = 512
   colored = True
-  batched = False
-  projectDir = ''
 
   currentNetwork = None
   startTime = 0 
@@ -50,14 +54,12 @@ class handler:
       handler.train_x , handler.train_y = dataset.read_images(dataPath + '/train/NSFW', dataPath + '/train/SFW' , "TRAIN")
 
   @staticmethod
-  def read_real_data(dataPath , imgWidth = 512 , imgHeight = 512):
+  def read_real(dataPath , imgWidth , imgHeight , startBatch):
       handler.imageWidth = imgWidth
       handler.imageHeight = imgHeight
-      handler.train_x = dataset.read_folder_images(dataPath,0)
-      handler.train_y = dataset.get_prediction_matrix(dataPath,0)
-
-      handler.test_x = dataset.read_folder_images(dataPath,1)
-      handler.test_y = dataset.get_prediction_matrix(dataPath,1)
+      handler.dataPath = dataPath
+      handler.batchNo = startBatch
+      dataset.read_real_data()
 
   @staticmethod
   def run_models(models):

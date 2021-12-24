@@ -20,6 +20,8 @@ for root, dirs, files in os.walk(root):
         newRoot = root+"\\"+d   
         for newRoot, ds, fs in os.walk(newRoot):
             for f in fs:
+                if f == "prediction.py":
+                    continue
                 if f.endswith(".py"):
                     fileTree = fileTree + "\n\t" + f
                     functionTree = functionTree + "\n>>> " + f

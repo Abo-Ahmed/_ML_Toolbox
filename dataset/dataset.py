@@ -52,6 +52,19 @@ class dataset:
       return np.resize( cv2.cvtColor(cv2.imread( img),cv2.COLOR_BGR2GRAY).shape  , (handler.imageWidth , handler.imageHeight ))
 
   @staticmethod
+  def read_real_data():
+
+    handler.train_x = dataset.read_folder_images(handler.dataPath,handler.batchNo)
+    print(">>> train_x: " + str(handler.batchNo) , handler.train_x)
+    handler.train_y = dataset.get_prediction_matrix(handler.dataPath,handler.batchNo)
+    print(">>> train_y: " + str(handler.batchNo) , handler.train_y)
+
+    handler.test_x = dataset.read_folder_images(handler.dataPath,handler.batchNo)
+    print(">>> test_x: " + str(handler.batchNo) , handler.test_x)
+    handler.test_y = dataset.get_prediction_matrix(handler.dataPath,handler.batchNo)
+    print(">>> test_y: " + str(handler.batchNo) , handler.test_y)
+
+  @staticmethod
   def read_predict():
       print(">>> reading PREDICT images ...")
       imageSet = []
@@ -94,7 +107,3 @@ class dataset:
       # return np.ndarray(batches)
       return tf.convert_to_tensor(batches, dtype=tf.float32)
       # return batches
-
-  @staticmethod
-  def load_new_batch(batchNo):
-    pass

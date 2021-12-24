@@ -1,7 +1,7 @@
 
-Number of files: 15
-Number of functions: 72
-Number of line: 692
+Number of files: 16
+Number of functions: 79
+Number of line: 770
 ==================================
 File tree:
 
@@ -23,6 +23,7 @@ File tree:
 	class_ResNet.py
 	class_Vgg16.py
 	class_Vgg16Seq.py
+	class_VggBiLstm.py
 	class_VggLstm.py
 -----------------------------
 
@@ -31,29 +32,33 @@ File tree:
 	results.py
 -----------------------------
 
+>>> __pycache__
+-----------------------------
+
 ==================================
 Function tree:
 
 >>> dataset.py
+	 get_prediction_matrix
 	 read_folder_images
 	 prepare_matrix
 	 read_images
 	 read_resize_image
+	 read_real_data
 	 read_predict
 	 read_special_image
 	 read_random
 	 upload_images
 	 batchize
-	 load_new_batch
 -----------------------------
 
 >>> class_BasicModel.py
 	 __init__
 	 __del__
 	 build 
-	 load_model
-	 load_weights
-	 load_parameters
+	 summery_plot
+	 plot
+	 summery
 	 program_0
 	 program_1
 	 loop_train
@@ -62,15 +67,17 @@ Function tree:
 	 predict 
 	 inf_predict 
 	 random_predict 
-	 save_parameters
+	 batchize_data
+	 load_model
 	 save_model
-	 summery_plot
-	 plot
-	 summery
+	 load_weights
+	 load_parameters
+	 save_parameters
 >>> handler.py
 	 load_modules
 	 intial_configurations
 	 read_data
+	 read_real
 	 run_models
 	 run_model
 	 special_run
@@ -97,8 +104,13 @@ Function tree:
 	 get_rating
 >>> class_Vgg16.py
 	 build 
+	 build_2 
+	 build_1 
 >>> class_Vgg16Seq.py
 	 build 
+>>> class_VggBiLstm.py
+	 build 
+	 build_1 
 >>> class_VggLstm.py
 	 build 
 -----------------------------
@@ -126,4 +138,6 @@ Function tree:
 	 cm_accuracy
 	 plot_array
 	 show_graphs
+-----------------------------
+
 -----------------------------

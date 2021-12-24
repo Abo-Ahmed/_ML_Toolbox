@@ -1,6 +1,7 @@
 
 # fit() --> training , evaluate() --> testing , predict() --> prediction
 
+
 class BasicModel (object):
     ################
     ## constructor and destructor
@@ -66,14 +67,15 @@ class BasicModel (object):
         self.load_parameters() 
         self.load_weights()
         for i in range(self.loopLimit - self.loopIndex):
-            dataset.load_new_batch(i + self.loopIndex) # todo: implement
+            handler.batchNo += 1 
+            dataset.read_real_data()
             self.train(self.loopEpochs)
             self.test()
             self.save_weights(title=("odd" if ((i + self.loopIndex ) % 2) else "even"))
             self.save_parameters(i + self.loopIndex)
             configure.print_line()
             if(i % 100 == 99):
-                print(">>> DO you wish to continue?")
+                print(">>> DO you wish to continue? y / n")
                 if(input() != 'y'):
                     break
 
