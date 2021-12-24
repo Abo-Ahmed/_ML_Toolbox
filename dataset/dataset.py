@@ -27,15 +27,14 @@ class dataset:
   def read_real_data():
 
     handler.train_x = dataset.read_folder_images(handler.dataPath,handler.batchNo)
-    print(">>> train_x: " + str(handler.batchNo) , handler.train_x)
+    print(">>> train_x: " + str(handler.batchNo))
     handler.train_y = dataset.get_prediction_matrix(handler.dataPath,handler.batchNo)
     print(">>> train_y: " + str(handler.batchNo) , handler.train_y)
 
-    handler.test_x = dataset.read_folder_images(handler.dataPath,handler.batchNo)
-    print(">>> test_x: " + str(handler.batchNo) , handler.test_x)
-    handler.test_y = dataset.get_prediction_matrix(handler.dataPath,handler.batchNo)
+    handler.test_x = dataset.read_folder_images(handler.dataPath,handler.batchNo +1)
+    print(">>> test_x: " + str(handler.batchNo) )
+    handler.test_y = dataset.get_prediction_matrix(handler.dataPath,handler.batchNo+1)
     print(">>> test_y: " + str(handler.batchNo) , handler.test_y)
-
 
   @staticmethod
   def batchize( dataList ,  batchSize ):
