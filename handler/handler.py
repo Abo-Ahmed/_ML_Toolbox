@@ -50,6 +50,12 @@ class handler:
       handler.train_x , handler.train_y = dataset.read_images(dataPath + '/train/NSFW', dataPath + '/train/SFW' , "TRAIN")
 
   @staticmethod
+  def read_real_data(dataPath , imgWidth = 512 , imgHeight = 512):
+      handler.imageWidth = imgWidth
+      handler.imageHeight = imgHeight
+      handler.train_x = dataset.read_folder_images(dataPath , 0)
+
+  @staticmethod
   def run_models(models):
     for m in models:
       handler.run_model(m,"program_0") # model , program

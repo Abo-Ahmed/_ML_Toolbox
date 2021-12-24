@@ -7,14 +7,17 @@ print(">>> main module loaded ...")
 execfile('/content/_master/handler/handler.py')
 handler.intial_configurations(True , True , '/content/_master') # mount , details , project path
 
+
+print(prediction.values[1629015])
+
 # loading and preparing dataset images
-handler.read_data(None , 224 , 224) # datapath , width , height
+# handler.read_data(None , 224 , 224) # datapath , width , height
 
 # handler.run_models(["CnnSeq"        , "CnnFunctional"   , "ResNet" , 
 #                     "Vgg16"         , "vgg16Seq"        , "VggLstm",
 #                     "LstmConv2d"    , "Lstm"            , "LstmBi" , "VggBiLstm"])
 
 # handler.special_run("Vgg16","program_1")
-handler.special_run("VggBiLstm","program_1")
+# handler.special_run("VggBiLstm","program_1")
 
 handler.final_configurations()
