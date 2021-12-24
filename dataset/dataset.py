@@ -32,7 +32,7 @@ class dataset:
     handler.test_x = dataset.read_folder_images(handler.dataPath,handler.batchNo +1)
     handler.test_y = dataset.get_prediction_matrix(handler.dataPath,handler.batchNo+1)
 
-    print(">>> batch: " + str(handler.batchNo) + " - train_x shape:" + handler.train_x.shape  , handler.train_y)
+    print(">>> batch: " + str(handler.batchNo) + " - train_x shape:" + str(handler.train_x.shape)  , handler.train_y)
 
   @staticmethod
   def batchize( dataList ,  batchSize ):
