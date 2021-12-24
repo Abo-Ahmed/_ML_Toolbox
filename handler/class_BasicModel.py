@@ -69,6 +69,7 @@ class BasicModel (object):
         for i in range(self.loopLimit - self.loopIndex):
             handler.batchNo += 1 
             dataset.read_real_data()
+            self.batchize_data(sequenceLength=3)
             self.train(self.loopEpochs)
             self.test()
             self.save_weights(title=("odd" if ((i + self.loopIndex ) % 2) else "even"))
