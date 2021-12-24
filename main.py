@@ -20,6 +20,6 @@ print(handler.train_y)
 #                     "LstmConv2d"    , "Lstm"            , "LstmBi" , "VggBiLstm"])
 
 # handler.special_run("Vgg16","program_1")
-# handler.special_run("VggBiLstm","program_1")
+handler.special_run("VggBiLstm","program_1")
 
 handler.final_configurations()
