@@ -3,8 +3,6 @@
 # https://colab.research.google.com/drive/1weN1Kz-UcRYYFSnYW5ABB0RX77npMmWO?authuser=2#scrollTo=63C7VVdMx0wa
 # https://colab.research.google.com/drive/1QA3ufl7lur76WzBhuwerLdyjLj-8hoHC?authuser=2
 
-from dataset.dataset import dataset
-
 
 print(">>> main module loaded ...")
 execfile('/content/_master/handler/handler.py')
