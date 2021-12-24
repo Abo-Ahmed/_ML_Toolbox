@@ -114,7 +114,6 @@ class BasicModel (object):
         handler.train_y = dataset.batchize(handler.train_y , sequenceLength )
         handler.test_x = dataset.batchize(handler.test_x , sequenceLength )
         handler.test_y = dataset.batchize(handler.test_y , sequenceLength )
-        print(handler.train_x)
         print(">>> shape after batchizing: " , handler.train_x.shape)
 
     ################
