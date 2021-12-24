@@ -53,7 +53,8 @@ class handler:
   def read_real_data(dataPath , imgWidth = 512 , imgHeight = 512):
       handler.imageWidth = imgWidth
       handler.imageHeight = imgHeight
-      handler.train_x = dataset.read_folder_images(dataPath , 0)
+      handler.train_x = dataset.read_folder_images(dataPath,0)
+      handler.train_y = dataset.get_prediction_matrix(dataPath,0)
 
   @staticmethod
   def run_models(models):

@@ -4,19 +4,13 @@
 # https://colab.research.google.com/drive/1QA3ufl7lur76WzBhuwerLdyjLj-8hoHC?authuser=2
 
 
-
 print(">>> main module loaded ...")
 execfile('/content/_master/handler/handler.py')
 handler.intial_configurations(True , True , '/content/_master') # mount , details , project path
 
-print(prediction.values[3168000])
-x = dataset.read_folder_images('/content/drive/MyDrive/eng-mahmoud/dataSet/danbooru2019/images/512px/0000',0)
-print(x)
-print(x.shape)
-
-y = dataset.get_prediction_matrix('/content/drive/MyDrive/eng-mahmoud/dataSet/danbooru2019/images/512px/0000',0)
-print(y)
-print(y.shape)
+handler.read_real_data('/content/drive/MyDrive/eng-mahmoud/dataSet/danbooru2019/images/512px/0000' , 512 , 512)
+print(handler.train_x)
+print(handler.train_y)
 
 # loading and preparing dataset images
 # handler.read_data(None , 224 , 224) # datapath , width , height
