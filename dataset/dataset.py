@@ -5,7 +5,7 @@ class dataset:
   @staticmethod
   def get_prediction_matrix(destnation_path , batchNo = 0):
     batchNo = ((batchNo * handler.batchSize) % handler.dataSize) // handler.batchSize
-    pred = [ prediction.values[file.replace(".jpg","").split("/")[-1]] for indx , file in enumerate(glob.glob( destnation_path + "/*.jpg")) if indx > batchNo * handler.batchSize and indx < handler.batchSize * batchNo + handler.batchSize]
+    pred = [ prediction.values[int(file.replace(".jpg","").split("/")[-1])] for indx , file in enumerate(glob.glob( destnation_path + "/*.jpg")) if indx > batchNo * handler.batchSize and indx < handler.batchSize * batchNo + handler.batchSize]
     return pred
 
   @staticmethod
