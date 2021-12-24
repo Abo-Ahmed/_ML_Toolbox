@@ -4,8 +4,6 @@
 # https://colab.research.google.com/drive/1QA3ufl7lur76WzBhuwerLdyjLj-8hoHC?authuser=2
 
 
-from dataset.prediction import prediction
-
 
 print(">>> main module loaded ...")
 execfile('/content/_master/handler/handler.py')
