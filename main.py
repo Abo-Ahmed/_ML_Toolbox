@@ -18,6 +18,6 @@ handler.read_real('/content/drive/MyDrive/eng-mahmoud/dataSet/danbooru2019/image
 #                     "LstmConv2d"    , "Lstm"            , "LstmBi" , "VggBiLstm"])
 
 # handler.special_run("Vgg16","program_1")
-handler.special_run("VggBiLstm","program_0")
+handler.special_run("VggBiLstm","program_1")
 
 handler.final_configurations()
