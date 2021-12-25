@@ -29,7 +29,7 @@ class configure:
     print('>>> Keras version: ' + tf.keras.__version__)
     
     if(mount):
-      drive.mount('/content/drive')
+      drive._mount('/content/drive')
     else:
       print(">>> Drive already mounted... ")
     
