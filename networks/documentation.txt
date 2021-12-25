@@ -1,7 +1,7 @@
 
 Number of files: 16
-Number of functions: 79
-Number of line: 770
+Number of functions: 77
+Number of line: 731
 ==================================
 File tree:
 
@@ -39,17 +39,16 @@ File tree:
 Function tree:
 
 >>> dataset.py
-	 get_prediction_matrix
 	 read_folder_images
-	 prepare_sample
-	 read_sample_images
-	 read_resize_image
+	 get_prediction_matrix
 	 read_real_data
+	 batchize
+	 read_resize_image
 	 read_predict
-	 read_special_image
 	 read_random
 	 upload_images
-	 batchize
+	 prepare_sample
+	 read_sample_images
 -----------------------------
 
 >>> class_BasicModel.py
@@ -76,6 +75,7 @@ Function tree:
 >>> handler.py
 	 load_modules
 	 intial_configurations
+	 dataset_configurations
 	 read_sample
 	 read_real
 	 run_models
@@ -104,13 +104,11 @@ Function tree:
 	 get_rating
 >>> class_Vgg16.py
 	 build 
-	 build_2 
 	 build_1 
 >>> class_Vgg16Seq.py
 	 build 
 >>> class_VggBiLstm.py
 	 build 
-	 build_1 
 >>> class_VggLstm.py
 	 build 
 -----------------------------
