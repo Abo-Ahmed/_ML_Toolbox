@@ -5,7 +5,7 @@ class Lstm(BasicModel):
         self.sequenceLength = 5 
         self.nClasses = 1
         self.model = Sequential()
-        temp = keras_layers.keras_layers.Activation(
+        temp = keras_layers.Activation(
             units = self.nClasses,
             input_shape=(self.sequenceLength , 1 ),
             activation="tanh",
