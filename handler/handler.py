@@ -14,6 +14,7 @@ class handler:
   batchSize = 30
   imageWidth = 512
   imageHeight = 512
+  imageDepth = 3 
   isColored = True
 
   # dataSize = 100
