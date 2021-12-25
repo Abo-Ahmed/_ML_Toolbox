@@ -5,10 +5,10 @@ class LstmBi(BasicModel):
         self.nClasses = 1
         super().build()
         self.model = Sequential()
-        self.model.add(Bidirectional(LSTM(self.nClasses, return_sequences=True), input_shape=(self.sequenceLength, 1)))
-        self.model.add(Bidirectional(LSTM(self.nClasses, return_sequences=True), input_shape=(self.sequenceLength, 1)))
-        self.model.add(Dense(self.nClasses))
-        self.model.add(Activation('softmax'))
+        self.model.add(keras_layers.Bidirectional(keras_layers.Activation(self.nClasses, return_sequences=True), input_shape=(self.sequenceLength, 1)))
+        self.model.add(keras_layers.Bidirectional(keras_layers.Activation(self.nClasses, return_sequences=True), input_shape=(self.sequenceLength, 1)))
+        self.model.add(keras_layers.Dense(self.nClasses))
+        self.model.add(keras_layers.Activation('softmax'))
         
         self.model.compile(loss='categorical_crossentropy', optimizer='rmsprop' ,  metrics='accuracy')
 

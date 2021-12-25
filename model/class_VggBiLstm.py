@@ -10,10 +10,10 @@ class VggBiLstm(BasicModel):
                             VGG16(   
                                 input_shape=(self.rows, self.columns, self.channels),
                                 classes=self.nClasses, weights=None)))
-        self.model.add(Bidirectional(LSTM(self.nClasses, return_sequences=True), input_shape=(self.sequenceLength, 1)))
-        self.model.add(Bidirectional(LSTM(self.nClasses), input_shape=(self.sequenceLength, 1)))
-        self.model.add(Dense(self.nClasses, activation="relu"))
-        self.model.add(Dense(self.nClasses, activation="softmax"))
+        self.model.add(keras_layers.Bidirectional(keras_layers.Activation(self.nClasses, return_sequences=True), input_shape=(self.sequenceLength, 1)))
+        self.model.add(keras_layers.Bidirectional(keras_layers.Activation(self.nClasses), input_shape=(self.sequenceLength, 1)))
+        self.model.add(keras_layers.Dense(self.nClasses, activation="relu"))
+        self.model.add(keras_layers.Dense(self.nClasses, activation="softmax"))
 
         self.model.compile(loss='categorical_crossentropy', optimizer='adam', metrics=['accuracy'])
 

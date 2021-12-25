@@ -21,7 +21,7 @@ class Vgg16(BasicModel):
                             classes=1000,
                             classifier_activation="softmax")
         # cnnBase.trainable = False
-        cnnOut = GlobalAveragePooling2D()(cnnBase.output)
+        cnnOut = keras_layers.GlobalAveragePooling2D()(cnnBase.output)
         self.model = Model(cnnBase.input, cnnOut)
 
         self.model.compile(optimizer='adam',

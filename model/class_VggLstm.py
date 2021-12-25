@@ -13,12 +13,12 @@ class VggLstm(BasicModel):
                             pooling=None,
                             classes=self.nClasses,
                             classifier_activation="softmax")
-        cnnOut = GlobalAveragePooling2D()(cnnBase.output)
+        cnnOut = keras_layers.GlobalAveragePooling2D()(cnnBase.output)
         cnn = Model(cnnBase.input, cnnOut)
         encodedFrames = TimeDistributed(cnn)(video)
-        encodedSequence = LSTM(self.nClasses , return_sequences=True)(encodedFrames)
-        hiddenLayer = Dense(self.nClasses, activation="relu")(encodedSequence)
-        outputs = Dense(self.nClasses, activation="softmax")(hiddenLayer)
+        encodedSequence = keras_layers.Activation(self.nClasses , return_sequences=True)(encodedFrames)
+        hiddenLayer = keras_layers.Dense(self.nClasses, activation="relu")(encodedSequence)
+        outputs = keras_layers.Dense(self.nClasses, activation="softmax")(hiddenLayer)
         self.model = Model(video, outputs)
 
         self.model.compile(loss='categorical_crossentropy', optimizer='adam', metrics=['accuracy'])

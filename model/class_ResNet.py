@@ -2,9 +2,9 @@
 
 class ResNet(BasicModel): 
 
-    def relu_bn(self,inputs: Tensor) -> Tensor:
-        relu = ReLU()(inputs)
-        bn = BatchNormalization()(relu)
+    def relu_bn(self,inputs: tf.Tensor) -> tf.Tensor:
+        relu = keras_layers.ReLU()(inputs)
+        bn = keras_layers.BatchNormalization()(relu)
         return bn
 
     def create_plain_net(self):
@@ -12,8 +12,8 @@ class ResNet(BasicModel):
         inputs = Input(shape=(512, 512, 3))
         nFilters = 32
         
-        t = BatchNormalization()(inputs)
-        t = Conv2D(kernel_size=3,
+        t = keras_layers.BatchNormalization()(inputs)
+        t = keras_layers.Conv2D(kernel_size=3,
                 strides=1,
                 filters=nFilters,
                 padding="same")(t)
@@ -24,16 +24,16 @@ class ResNet(BasicModel):
             nBlocks = nBlocksList[i]
             for j in range(nBlocks):
                 downsample = (j==0 and i!=0)
-                t = Conv2D(kernel_size=3,
+                t = keras_layers.Conv2D(kernel_size=3,
                         strides= (1 if not downsample else 2),
                         filters=nFilters,
                         padding="same")(t)
                 t = self.relu_bn(t)
             nFilters *= 2
         
-        t = AveragePooling2D(4)(t)
-        t = Flatten()(t)
-        outputs = Dense(10, activation='softmax')(t)
+        t = keras_layers.AveragePooling2D(4)(t)
+        t = keras_layers.Flatten()(t)
+        outputs = keras_layers.Dense(10, activation='softmax')(t)
         
         model = Model(inputs, outputs)
 
