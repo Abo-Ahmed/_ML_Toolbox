@@ -18,7 +18,7 @@ class BasicModel (object):
         self.acc = 0
         self.result = results()
 
-        self.channels = 3 if(handler.colored) else 1
+        self.channels = 3 if(handler.isColored) else 1
         self.rows = handler.imageWidth
         self.columns =  handler.imageHeight
         self.nClasses = 3
@@ -109,11 +109,13 @@ class BasicModel (object):
         print('>>> predict_y:' , handler.predict_y)
 
     def batchize_data(self,sequenceLength):
-        handler.train_x = dataset.batchize(handler.train_x , sequenceLength )
-        handler.train_y = dataset.batchize(handler.train_y , sequenceLength )
-        handler.test_x = dataset.batchize(handler.test_x , sequenceLength )
-        handler.test_y = dataset.batchize(handler.test_y , sequenceLength )
-        print(">>> shape after batchizing: " , handler.train_x.shape)
+        if(not handler.batched):
+            handler.train_x = dataset.batchize(handler.train_x , sequenceLength )
+            handler.train_y = dataset.batchize(handler.train_y , sequenceLength )
+            handler.test_x = dataset.batchize(handler.test_x , sequenceLength )
+            handler.test_y = dataset.batchize(handler.test_y , sequenceLength )
+            handler.batched = True
+            print(">>> shape after batchizing: " , handler.train_x.shape)
 
     ################
     ## loading and saving model

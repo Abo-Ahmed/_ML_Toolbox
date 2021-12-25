@@ -10,17 +10,16 @@ class handler:
   predict_x = []
   predict_y = []
 
-  dataSize = 100
-  batchSize = 30
   batched = False
-  projectDir = ''
-  dataPath = ''
   batchNo = 0 
-
+  dataPath = ''
+  batchSize = 30
   imageWidth = 512
   imageHeight = 512
-  colored = True
+  isColored = True
 
+  # dataSize = 100
+  projectDir = ''
   currentNetwork = None
   startTime = 0 
   modelReport = []
@@ -45,20 +44,23 @@ class handler:
     configure.printer(">>> intial configurations done...")
 
   @staticmethod
-  def read_sample(dataPath = None , imgWidth = 512 , imgHeight = 512):
+  def dataset_configurations( imgWidth  , imgHeight , batchSize , startBatch,  isColored = True):
       handler.imageWidth = imgWidth
       handler.imageHeight = imgHeight
+      handler.batchSize = batchSize
+      handler.batchNo = startBatch
+      handler.isColored = isColored
+    
+  @staticmethod
+  def read_sample(dataPath = None ):
       if dataPath == None:
         dataPath = handler.projectDir + '/dataset'
       handler.test_x , handler.test_y = dataset.read_sample_images(dataPath + '/test/NSFW', dataPath + '/test/SFW' , "TEST")
       handler.train_x , handler.train_y = dataset.read_sample_images(dataPath + '/train/NSFW', dataPath + '/train/SFW' , "TRAIN")
 
   @staticmethod
-  def read_real(dataPath , imgWidth , imgHeight , startBatch):
-      handler.imageWidth = imgWidth
-      handler.imageHeight = imgHeight
+  def read_real(dataPath ):
       handler.dataPath = dataPath
-      handler.batchNo = startBatch
       dataset.read_real_data()
 
   @staticmethod

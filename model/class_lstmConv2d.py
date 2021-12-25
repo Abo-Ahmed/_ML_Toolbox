@@ -30,6 +30,4 @@ class LstmConv2d(BasicModel):
         self.model.add(Dense(sequenceLength, activation='softmax'))
         self.model.compile(loss='categorical_crossentropy', optimizer='sgd', metrics=['accuracy'])
 
-        if(not handler.batched):
-            self.batchize_data(sequenceLength)
-            handler.batched = True
+        self.batchize_data(sequenceLength)

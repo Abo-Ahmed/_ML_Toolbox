@@ -9,9 +9,9 @@ class dataset:
 
   @staticmethod
   def read_folder_images(destnation_path , batchNo = 0):
-    batchNo = ((batchNo * handler.batchSize) % handler.dataSize) // handler.batchSize
+    # batchNo = ((batchNo * handler.batchSize) % handler.dataSize) // handler.batchSize
     images = [ cv2.imread(file) for indx , file in enumerate(glob.glob( destnation_path + "/*.jpg")) if indx > batchNo * handler.batchSize and indx < handler.batchSize * batchNo + handler.batchSize]
-    if (handler.colored):
+    if (handler.isColored):
       img_array = [ np.resize( img.shape  , (handler.imageWidth , handler.imageHeight , 3 )) for img in images ]
     else:
       img_array = [ np.resize( cv2.cvtColor( img ,cv2.COLOR_BGR2GRAY).shape   , (handler.imageWidth , handler.imageHeight  )) for img in images ]
@@ -19,9 +19,16 @@ class dataset:
 
   @staticmethod
   def get_prediction_matrix(destnation_path , batchNo = 0):
-    batchNo = ((batchNo * handler.batchSize) % handler.dataSize) // handler.batchSize
+    # batchNo = ((batchNo * handler.batchSize) % handler.dataSize) // handler.batchSize
     pred = [ prediction.values[int(file.replace(".jpg","").split("/")[-1])] for indx , file in enumerate(glob.glob( destnation_path + "/*.jpg")) if indx > batchNo * handler.batchSize and indx < handler.batchSize * batchNo + handler.batchSize]
     return pred
+
+  # @staticmethod
+  # def load_prediction():
+  #   with open('/content/drive/MyDrive/eng-mahmoud/dataSet/danbooru2019/metadata.pickle', 'rb') as handle:
+  #     jsonMetadata = pickle.load(handle)
+  #     prediction =  [item["rating"] for item in jsonMetadata if item["id"] == str(3165000) ][0]
+  #     print(prediction)
 
   @staticmethod
   def read_real_data():
@@ -29,7 +36,7 @@ class dataset:
     handler.train_x = dataset.read_folder_images(handler.dataPath,handler.batchNo)
     handler.train_y = dataset.get_prediction_matrix(handler.dataPath,handler.batchNo)
 
-    handler.test_x = dataset.read_folder_images(handler.dataPath,handler.batchNo +1)
+    handler.test_x = dataset.read_folder_images(handler.dataPath,handler.batchNo+1)
     handler.test_y = dataset.get_prediction_matrix(handler.dataPath,handler.batchNo+1)
 
     print(">>> batch: " + str(handler.batchNo) + " - train_x shape:" + str(handler.train_x.shape)  , handler.train_y)
@@ -49,7 +56,7 @@ class dataset:
 
   @staticmethod
   def read_resize_image(img):
-    if (handler.colored):
+    if (handler.isColored):
       return np.resize( cv2.imread( img).shape  , (handler.imageWidth , handler.imageHeight , 3 )) 
     else:
       return np.resize( cv2.cvtColor(cv2.imread( img),cv2.COLOR_BGR2GRAY).shape  , (handler.imageWidth , handler.imageHeight ))
@@ -90,7 +97,7 @@ class dataset:
   ##############################  
   @staticmethod
   def prepare_sample(true_set ,false_set , title):
-    if(handler.colored):
+    if(handler.isColored):
       x_set =  np.random.rand(len(true_set)+len(false_set),handler.imageWidth,handler.imageHeight , 3 )
       x_set[0:len(true_set),:,:,:] = true_set
       x_set[len(true_set):len(true_set)+len(false_set),:,:,:] = false_set

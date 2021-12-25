@@ -23,6 +23,4 @@ class VggLstm(BasicModel):
 
         self.model.compile(loss='categorical_crossentropy', optimizer='adam', metrics=['accuracy'])
 
-        if(not handler.batched):
-            self.batchize_data(sequenceLength)
-            handler.batched = True
+        self.batchize_data(sequenceLength)
