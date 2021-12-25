@@ -2,12 +2,12 @@ class Lstm(BasicModel):
 
     def build (self):
         super().build()
-        sequenceLength = 5 
+        self.sequenceLength = 5 
         self.nClasses = 1
         self.model = Sequential()
         temp = tf.keras.layers.LSTM(
             units = self.nClasses,
-            input_shape=(sequenceLength , 1 ),
+            input_shape=(self.sequenceLength , 1 ),
             activation="tanh",
             recurrent_activation="sigmoid",
             use_bias=True,
@@ -43,4 +43,4 @@ class Lstm(BasicModel):
         handler.test_x = [ 11 , 52 , 66 , 88 , 91 , 100 , 1.1 , 11 , 52 , 66 , 88 , 91 , 100 , 1.1 ]
         handler.test_y = [ 1 , 2  ,  1 , 2  , 1 ,  1  , 2 , 1 , 2  ,  1 , 2  , 1 ,  1  , 2]
 
-        self.batchize_data(sequenceLength)
+        self.batchize_data()

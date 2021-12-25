@@ -1,6 +1,4 @@
 
-
-
 class handler:
 
   test_x = []

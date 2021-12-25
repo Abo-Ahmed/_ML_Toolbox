@@ -1,7 +1,6 @@
 
 # fit() --> training , evaluate() --> testing , predict() --> prediction
 
-
 class BasicModel (object):
     ################
     ## constructor and destructor
@@ -13,6 +12,7 @@ class BasicModel (object):
         self.loopEpochs = 30
         self.loopIndex = 0 
         self.loopLimit = 1000
+        self.sequenceLength = 3
         
         self.loss = 0
         self.acc = 0
@@ -69,13 +69,14 @@ class BasicModel (object):
         for i in range(self.loopLimit - self.loopIndex):
             handler.batchNo += 1 
             dataset.read_real_data()
-            self.batchize_data(sequenceLength=3)
+            handler.batched = False
+            self.batchize_data()
             self.train(self.loopEpochs)
             self.test()
             self.save_weights(title=("odd" if ((i + self.loopIndex ) % 2) else "even"))
             self.save_parameters(i + self.loopIndex)
             configure.print_line()
-            if(i % 100 == 99):
+            if(i % 151 == 150):
                 print(">>> DO you wish to continue? y / n")
                 if(input() != 'y'):
                     break
@@ -108,12 +109,12 @@ class BasicModel (object):
         handler.predict_y = self.model.predict(handler.predict_x)
         print('>>> predict_y:' , handler.predict_y)
 
-    def batchize_data(self,sequenceLength):
+    def batchize_data(self,):
         if(not handler.batched):
-            handler.train_x = dataset.batchize(handler.train_x , sequenceLength )
-            handler.train_y = dataset.batchize(handler.train_y , sequenceLength )
-            handler.test_x = dataset.batchize(handler.test_x , sequenceLength )
-            handler.test_y = dataset.batchize(handler.test_y , sequenceLength )
+            handler.train_x = dataset.batchize(handler.train_x , self.sequenceLength )
+            handler.train_y = dataset.batchize(handler.train_y , self.sequenceLength )
+            handler.test_x = dataset.batchize(handler.test_x , self.sequenceLength )
+            handler.test_y = dataset.batchize(handler.test_y , self.sequenceLength )
             handler.batched = True
             print(">>> shape after batchizing: " , handler.train_x.shape)
 

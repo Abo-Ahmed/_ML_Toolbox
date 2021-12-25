@@ -3,9 +3,9 @@ class VggLstm(BasicModel):
 
     def build (self):
         super().build()
-        sequenceLength = 3 
+        self.sequenceLength = 3 
         self.nClasses = 1
-        video = Input(shape=(sequenceLength, self.rows, self.columns,self.channels))
+        video = Input(shape=(self.sequenceLength, self.rows, self.columns,self.channels))
         cnnBase = VGG16(   input_shape=(self.rows, self.columns, self.channels),
                             weights="imagenet", 
                             include_top=False ,                         
@@ -23,4 +23,4 @@ class VggLstm(BasicModel):
 
         self.model.compile(loss='categorical_crossentropy', optimizer='adam', metrics=['accuracy'])
 
-        self.batchize_data(sequenceLength)
+        self.batchize_data()

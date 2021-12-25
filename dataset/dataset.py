@@ -20,15 +20,11 @@ class dataset:
   @staticmethod
   def get_prediction_matrix(destnation_path , batchNo = 0):
     # batchNo = ((batchNo * handler.batchSize) % handler.dataSize) // handler.batchSize
-    pred = [ prediction.values[int(file.replace(".jpg","").split("/")[-1])] for indx , file in enumerate(glob.glob( destnation_path + "/*.jpg")) if indx > batchNo * handler.batchSize and indx < handler.batchSize * batchNo + handler.batchSize]
-    return pred
+    batchStart = batchNo * handler.batchSize
+    batchEnd = batchStart + handler.batchSize
 
-  # @staticmethod
-  # def load_prediction():
-  #   with open('/content/drive/MyDrive/eng-mahmoud/dataSet/danbooru2019/metadata.pickle', 'rb') as handle:
-  #     jsonMetadata = pickle.load(handle)
-  #     prediction =  [item["rating"] for item in jsonMetadata if item["id"] == str(3165000) ][0]
-  #     print(prediction)
+    pred = [ rating.values[int(file.replace(".jpg","").split("/")[-1])] for indx , file in enumerate(glob.glob( destnation_path + "/*.jpg")) if indx > batchStart and indx < batchEnd]
+    return pred
 
   @staticmethod
   def read_real_data():
