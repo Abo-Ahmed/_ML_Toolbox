@@ -6,7 +6,7 @@ class LstmConv2d(BasicModel):
         self.sequenceLength = 2 
         nNodes = 32 # originally it was 32
         in_shape = (self.sequenceLength, self.rows, self.columns, self.channels)
-        self.model = Sequential()
+        self.model = tf.keras.models.Sequential()
         self.model.add(keras_layers.ConvLSTM2D(nNodes, kernel_size=(7, 7), padding='valid', return_sequences=True, input_shape=in_shape))
         self.model.add(keras_layers.Activation('relu'))
         self.model.add(keras_layers.MaxPooling3D(pool_size=(1, 2, 2)))

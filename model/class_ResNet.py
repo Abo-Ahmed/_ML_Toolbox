@@ -9,7 +9,7 @@ class ResNet(BasicModel):
 
     def create_plain_net(self):
         
-        inputs = Input(shape=(512, 512, 3))
+        inputs = tf.keras.Input(shape=(512, 512, 3))
         nFilters = 32
         
         t = keras_layers.BatchNormalization()(inputs)
@@ -35,7 +35,7 @@ class ResNet(BasicModel):
         t = keras_layers.Flatten()(t)
         outputs = keras_layers.Dense(10, activation='softmax')(t)
         
-        model = Model(inputs, outputs)
+        model = tf.keras.Model(inputs, outputs)
 
         model.compile(
             optimizer='adam',

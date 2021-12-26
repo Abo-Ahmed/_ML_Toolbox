@@ -3,7 +3,7 @@ class Vgg16(BasicModel):
     def build (self):
         super().build()
 
-        self.model = Sequential()
+        self.model = tf.keras.models.Sequential()
         self.model.add(VGG16(   input_shape=(self.rows, self.columns, self.channels),
                             classes=self.nClasses, weights=None))
 
@@ -22,7 +22,7 @@ class Vgg16(BasicModel):
                             classifier_activation="softmax")
         # cnnBase.trainable = False
         cnnOut = keras_layers.GlobalAveragePooling2D()(cnnBase.output)
-        self.model = Model(cnnBase.input, cnnOut)
+        self.model = tf.keras.Model(cnnBase.input, cnnOut)
 
         self.model.compile(optimizer='adam',
             loss='sparse_categorical_crossentropy',

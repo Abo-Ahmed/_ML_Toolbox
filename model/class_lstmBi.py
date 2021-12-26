@@ -4,7 +4,7 @@ class LstmBi(BasicModel):
         self.sequenceLength = 5 
         self.nClasses = 1
         super().build()
-        self.model = Sequential()
+        self.model = tf.keras.models.Sequential()
         self.model.add(keras_layers.Bidirectional(keras_layers.Activation(self.nClasses, return_sequences=True), input_shape=(self.sequenceLength, 1)))
         self.model.add(keras_layers.Bidirectional(keras_layers.Activation(self.nClasses, return_sequences=True), input_shape=(self.sequenceLength, 1)))
         self.model.add(keras_layers.Dense(self.nClasses))

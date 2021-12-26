@@ -4,8 +4,8 @@ class VggBiLstm(BasicModel):
         super().build()
         self.sequenceLength = 3 
 
-        self.model = Sequential()
-        self.model.add(Input(shape=(self.sequenceLength, self.rows, self.columns,self.channels)))
+        self.model = tf.keras.models.Sequential()
+        self.model.add(tf.keras.Input(shape=(self.sequenceLength, self.rows, self.columns,self.channels)))
         self.model.add(TimeDistributed(
                             VGG16(   
                                 input_shape=(self.rows, self.columns, self.channels),

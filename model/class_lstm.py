@@ -4,7 +4,7 @@ class Lstm(BasicModel):
         super().build()
         self.sequenceLength = 5 
         self.nClasses = 1
-        self.model = Sequential()
+        self.model = tf.keras.models.Sequential()
         temp = keras_layers.Activation(
             units = self.nClasses,
             input_shape=(self.sequenceLength , 1 ),
