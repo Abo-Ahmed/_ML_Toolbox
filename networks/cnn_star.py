@@ -10,7 +10,6 @@ import numpy as np
 import matplotlib.pyplot as plt
 from google.colab import drive , files
 from sklearn.metrics import confusion_matrix
-from PIL import Image
 from __future__ import print_function
 
 import tensorflow as tf
