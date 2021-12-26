@@ -16,7 +16,7 @@ class VggLstm(BasicModel):
         cnnOut = keras_layers.GlobalAveragePooling2D()(cnnBase.output)
         cnn = tf.keras.Model(cnnBase.input, cnnOut)
         encodedFrames = TimeDistributed(cnn)(video)
-        encodedSequence = keras_layers.Activation(self.nClasses , return_sequences=True)(encodedFrames)
+        encodedSequence = keras_layers.LSTM(self.nClasses , return_sequences=True)(encodedFrames)
         hiddenLayer = keras_layers.Dense(self.nClasses, activation="relu")(encodedSequence)
         outputs = keras_layers.Dense(self.nClasses, activation="softmax")(hiddenLayer)
         self.model = tf.keras.Model(video, outputs)
