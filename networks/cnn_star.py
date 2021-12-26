@@ -10,15 +10,11 @@ import numpy as np
 import matplotlib.pyplot as plt
 from google.colab import drive , files
 from sklearn.metrics import confusion_matrix
-from __future__ import print_function
 from PIL import Image
+from __future__ import print_function
+
 import tensorflow as tf
-from tensorflow import Tensor
-from tensorflow.python.client import device_lib
-from tensorflow.keras import Model, Input , activations
-from tensorflow.keras.models import Sequential 
-from tensorflow.keras.optimizers import SGD , Adam
-from tensorflow.keras.datasets import mnist
+import tensorflow.keras.layers as keras_layers
 from keras.applications.vgg16 import VGG16
 from keras.layers.wrappers import TimeDistributed
 
