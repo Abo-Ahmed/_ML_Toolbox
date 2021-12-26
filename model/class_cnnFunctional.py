@@ -5,7 +5,7 @@ class CnnFunctional(BasicModel):
 
     def build (self):
         super().build()
-        self.model = tf.keras.tf.keras.models.Sequential()
+        self.model = tf.keras.models.Sequential()
         inputs = tf.keras.Input(shape=(handler.imageWidth, handler.imageHeight, 3), name="input_1")
         t = keras_layers.Flatten(name="flatten_2") (inputs)
         t = keras_layers.Dense(handler.imageWidth, activation=tf.nn.relu , name="dense_3") (t)
