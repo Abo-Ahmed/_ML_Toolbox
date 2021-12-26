@@ -8,9 +8,12 @@ class dataset:
   ##############################  
 
   @staticmethod
-  def read_folder_images(destnation_path , batchNo = 0):
+  def read_folder_images(destnation_path):
     # batchNo = ((batchNo * handler.batchSize) % handler.dataSize) // handler.batchSize
-    images = [ cv2.imread(file) for indx , file in enumerate(glob.glob( destnation_path + "/*.jpg")) if indx > batchNo * handler.batchSize and indx < handler.batchSize * batchNo + handler.batchSize]
+    batchStart = handler.batchNo * handler.batchSize
+    batchEnd = batchStart + handler.batchSize
+
+    images = [ cv2.imread(file) for indx , file in enumerate(glob.glob( destnation_path + "/*.jpg")) if indx > batchStart and indx < batchEnd]
     if (handler.isColored):
       img_array = [ np.resize( img.shape  , (handler.imageWidth , handler.imageHeight , 3 )) for img in images ]
     else:
@@ -18,9 +21,9 @@ class dataset:
     return np.array(img_array)
 
   @staticmethod
-  def get_prediction_matrix(destnation_path , batchNo = 0):
+  def get_rating(destnation_path ):
     # batchNo = ((batchNo * handler.batchSize) % handler.dataSize) // handler.batchSize
-    batchStart = batchNo * handler.batchSize
+    batchStart = handler.batchNo * handler.batchSize
     batchEnd = batchStart + handler.batchSize
 
     pred = [ rating.values[int(file.replace(".jpg","").split("/")[-1])] for indx , file in enumerate(glob.glob( destnation_path + "/*.jpg")) if indx > batchStart and indx < batchEnd]
@@ -30,10 +33,10 @@ class dataset:
   def read_real_data():
 
     handler.train_x = dataset.read_folder_images(handler.dataPath,handler.batchNo)
-    handler.train_y = dataset.get_prediction_matrix(handler.dataPath,handler.batchNo)
+    handler.train_y = dataset.get_rating(handler.dataPath,handler.batchNo)
 
     handler.test_x = dataset.read_folder_images(handler.dataPath,handler.batchNo+1)
-    handler.test_y = dataset.get_prediction_matrix(handler.dataPath,handler.batchNo+1)
+    handler.test_y = dataset.get_rating(handler.dataPath,handler.batchNo+1)
 
     print(">>> batch: " + str(handler.batchNo) + " - train_x shape:" + str(handler.train_x.shape)  , handler.train_y)
 

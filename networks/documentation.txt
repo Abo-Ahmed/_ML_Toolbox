@@ -40,7 +40,7 @@ Function tree:
 
 >>> dataset.py
 	 read_folder_images
-	 get_prediction_matrix
+	 get_rating
 	 read_real_data
 	 batchize
 	 read_resize_image
