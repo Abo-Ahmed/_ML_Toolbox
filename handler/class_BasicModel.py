@@ -13,7 +13,7 @@ class BasicModel (object):
         self.loopIndex = 0 
         self.loopLimit = 1000
         self.sequenceLength = 3
-        
+
         self.loss = 0
         self.acc = 0
         self.result = results()
@@ -163,6 +163,7 @@ class BasicModel (object):
             self.loopEpochs = int(dir["loopEpochs"])
             self.loopIndex = int(dir["loopIndex"]) 
             self.loopLimit = int(dir["loopLimit"])
+            handler.batchNo = self.loopIndex
             print(self.name , self.loopEpochs , self.loopIndex , self.loopLimit)
         except Exception as e:
             print('XXX failed loading parameters for: ' + self.name  , e)
