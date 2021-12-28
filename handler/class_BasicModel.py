@@ -34,8 +34,6 @@ class BasicModel (object):
     def build (self):
         print('>>> bulding ' + self.name + ' model ...')
 
-
-
     def summery_plot(self , details = True, plotted = True):
         try:
             if(details):
