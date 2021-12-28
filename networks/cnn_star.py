@@ -14,6 +14,7 @@ from __future__ import print_function
 
 import tensorflow as tf
 import tensorflow.keras.layers as keras_layers
+from tensorflow.python.client import device_lib
 from keras.applications.vgg16 import VGG16
 from keras.layers.wrappers import TimeDistributed
 

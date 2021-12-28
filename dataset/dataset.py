@@ -13,6 +13,8 @@ class dataset:
     batchStart = handler.batchNo * handler.batchSize
     batchEnd = batchStart + handler.batchSize
 
+    [ print(file) for indx , file in enumerate(glob.glob( destnation_path + "/*.jpg")) if indx > batchStart and indx < batchEnd]
+
     images = [ cv2.imread(file) for indx , file in enumerate(glob.glob( destnation_path + "/*.jpg")) if indx > batchStart and indx < batchEnd]
     if (handler.isColored):
       img_array = [ np.resize( img.shape  , (handler.imageWidth , handler.imageHeight , 3 )) for img in images ]
