@@ -26,7 +26,7 @@ class dataset:
     batchStart = handler.batchNo * handler.batchSize
     batchEnd = batchStart + handler.batchSize
 
-    pred = [ print(int(file.replace(".jpg","").split("/")[-1])) for indx , file in enumerate(glob.glob( destnation_path + "/*.jpg")) if indx > batchStart and indx < batchEnd and rating.values[int(file.replace(".jpg","").split("/")[-1])] > 0]
+    pred = [ print("explisit found") for indx , file in enumerate(glob.glob( destnation_path + "/*.jpg")) if indx > batchStart and indx < batchEnd and rating.values[int(file.replace(".jpg","").split("/")[-1])] > 0]
 
     pred = [ rating.values[int(file.replace(".jpg","").split("/")[-1])] for indx , file in enumerate(glob.glob( destnation_path + "/*.jpg")) if indx > batchStart and indx < batchEnd]
     return pred
