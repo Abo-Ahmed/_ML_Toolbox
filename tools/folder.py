@@ -1,9 +1,5 @@
 
 
-from tkinter import image_names
-from handler.handler import handler
-
-
 class folder:
     @staticmethod
     def init_path():
