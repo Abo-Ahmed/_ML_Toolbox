@@ -23,6 +23,12 @@ class handler:
   startTime = 0 
   modelReport = []
  
+  danbooruPath ='/content/drive/MyDrive/eng-mahmoud/dataSet/danbooru2019/images'
+  ePath = danbooruPath + '/explicit' 
+  qPath = danbooruPath + '/questionable'
+  sPath = danbooruPath + '/safe'
+  fileList = []
+
   @staticmethod
   def load_modules():
     folders = ['/handler' , '/tools', '/dataset' , '/model']
@@ -34,16 +40,17 @@ class handler:
     configure.printer(">>> all modules loaded ...")
 
   @staticmethod
-  def intial_configurations(mount , details , path):
+  def intial_config(mount , details , path):
     handler.startTime = time.time()
     handler.projectDir = path
     handler.load_modules()
     configure.show_version(mount, details) 
     configure.configure_tensor()
-    configure.printer(">>> intial configurations done...")
+    configure.printer(">>> intial config done...")
 
   @staticmethod
-  def dataset_configurations( imgWidth  , imgHeight , batchSize , startBatch,  isColored = True):
+  def dataset_config( path , imgWidth  , imgHeight , batchSize , startBatch,  isColored = True):
+      handler.path = path
       handler.imageWidth = imgWidth
       handler.imageHeight = imgHeight
       handler.batchSize = batchSize
@@ -93,7 +100,7 @@ class handler:
       getattr(handler.currentNetwork, program)()
 
   @staticmethod
-  def final_configurations() :
+  def final_config() :
     configure.print_line()
     print(">>> final results: \n", "\n".join(handler.modelReport))
     configure.show_period(time.time() - handler.startTime)
