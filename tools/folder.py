@@ -53,6 +53,6 @@ class folder:
             folderName , imageName = folder.get_dir_image_name(fd,fl)
             path = handler.dataPath
             position = "rsync://176.9.41.242:873/danbooru2020/original/" + folderName + "/" + imageName + ".jpg"
-            !rsync $position $path
+            !rsync position path
         except Exception as e:
             print("XXX failed to download " + fd + " , " + fl , e)
