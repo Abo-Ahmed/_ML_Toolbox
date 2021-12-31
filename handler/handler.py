@@ -50,7 +50,7 @@ class handler:
 
   @staticmethod
   def dataset_config( path , imgWidth  , imgHeight , batchSize , startBatch,  isColored = True):
-      handler.path = path
+      handler.dataPath = path
       handler.imageWidth = imgWidth
       handler.imageHeight = imgHeight
       handler.batchSize = batchSize
