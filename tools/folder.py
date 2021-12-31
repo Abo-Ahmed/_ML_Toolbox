@@ -52,7 +52,7 @@ class folder:
     def download_patch():
         counter = 0
         for item in explicit.values:
-            if counter == 1533:
+            if counter <= 1533:
                 continue
             fd , fl = folder.get_dir_image_num(item)
             folder.download_image(fd, fl)
