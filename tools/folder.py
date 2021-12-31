@@ -46,9 +46,9 @@ class folder:
     def download_image( fd , fl):
 
         try:
-            folderName , imageName = folder.get_dir_image_name(fd,fl)
-            path = handler.dataPath
-            position = "rsync://176.9.41.242:873/danbooru2020/original/" + folderName + "/" + imageName + ".jpg"
+            # folderName , imageName = folder.get_dir_image_name(fd,fl)
+            # path = handler.dataPath
+            # position = "rsync://176.9.41.242:873/danbooru2020/original/" + folderName + "/" + imageName + ".jpg"
             os.system('rsync rsync://176.9.41.242:873/danbooru2020/original/0236/218236.jpg "/content/wow"')
             # !rsync position path
         except Exception as e:
