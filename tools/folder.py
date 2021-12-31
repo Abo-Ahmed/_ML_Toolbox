@@ -47,10 +47,10 @@ class folder:
 
         try:
             folderName , imageName = folder.get_dir_image_name(fd,fl)
-            # position = "rsync://176.9.41.242:873/danbooru2020/original/" + folderName + "/" + imageName + ".jpg"
-            print('rsync rsync://176.9.41.242:873/danbooru2020/original/0236/218236.jpg ' + handler.dataPath)
-            print(os.system('rsync rsync://176.9.41.242:873/danbooru2020/original/0236/218236.jpg ' + handler.dataPath))
+
+            print('rsync rsync://176.9.41.242:873/danbooru2020/original/' + folderName + '/' + imageName + '.jpg ' + handler.dataPath)
+            print(os.system('rsync rsync://176.9.41.242:873/danbooru2020/original/' + folderName + '/' + imageName + '.jpg ' + handler.dataPath))
             print("done")
             # !rsync position path
         except Exception as e:
-            print("XXX failed to download " + fd + " , " + fl , e)
+            print("XXX failed to download " + fd + " , " + fl  , folderName , imageName , e)
