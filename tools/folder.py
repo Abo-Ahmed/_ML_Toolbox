@@ -1,5 +1,4 @@
 
-
 class folder:
     @staticmethod
     def init_path():
@@ -36,7 +35,6 @@ class folder:
 
         if(len(folder_num) == 1 ):
             folder_num = "00" + folder_num
-
         if(len(folder_num) == 2 ):
             folder_num = "0" + folder_num
 
@@ -44,13 +42,17 @@ class folder:
 
     @staticmethod
     def download_image( fd , fl):
-
         try:
             folderName , imageName = folder.get_dir_image_name(fd,fl)
-
-            print('rsync rsync://176.9.41.242:873/danbooru2020/original/' + folderName + '/' + imageName + '.jpg ' + handler.dataPath)
-            print(os.system('rsync rsync://176.9.41.242:873/danbooru2020/original/' + folderName + '/' + imageName + '.jpg ' + handler.dataPath))
-            print("done")
-            # !rsync position path
+            os.system('rsync rsync://176.9.41.242:873/danbooru2020/original/' + folderName + '/' + imageName + '.jpg ' + handler.dataPath)
         except Exception as e:
             print("XXX failed to download " + fd + " , " + fl  , folderName , imageName , e)
+
+    @staticmethod
+    def download_patch():
+        counter = 0
+        for item in explicit.values:
+            fd , fl = folder.get_dir_image_num(item)
+            folder.download_image(fd, fl)
+            print("counter " + int(counter))
+            counter += 1
