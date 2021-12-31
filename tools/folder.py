@@ -40,16 +40,15 @@ class folder:
         if(len(folder_num) == 2 ):
             folder_num = "0" + folder_num
 
-        return "0"+folder_num , int(file_num + folder_num)
+        return "0"+folder_num , str(int(file_num + folder_num))
 
     @staticmethod
     def download_image( fd , fl):
 
         try:
-            # folderName , imageName = folder.get_dir_image_name(fd,fl)
-            # path = handler.dataPath
+            folderName , imageName = folder.get_dir_image_name(fd,fl)
             # position = "rsync://176.9.41.242:873/danbooru2020/original/" + folderName + "/" + imageName + ".jpg"
-            os.system('rsync rsync://176.9.41.242:873/danbooru2020/original/0236/218236.jpg "/content/wow"')
+            os.system('rsync rsync://176.9.41.242:873/danbooru2020/original/0236/218236.jpg ' + handler.dataPath)
             # !rsync position path
         except Exception as e:
             print("XXX failed to download " + fd + " , " + fl , e)
