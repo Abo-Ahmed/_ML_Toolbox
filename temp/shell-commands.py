@@ -13,3 +13,15 @@ for x in range(99,100):
   
 ## unzip metadate file
 !tar -xvf  '/content/drive/My Drive/dataSet/danbooru2019/metadata.json.tar.xz' -C '/content/drive/My Drive/dataSet/danbooru2019/metadata'
+
+
+# kaggle
+!pip install -q kaggle
+!pip install -q kaggle-cli
+!mkdir -p ~/.kaggle
+!cp kaggle.json ~/.kaggle/
+!kaggle datasets list -s tagged-anime-illustrations
+!kaggle datasets download -d mylesoneill/tagged-anime-illustrations
+
+!unzip tagged-anime-illustrations.zip
+!unzip danbooru-metadata.zip
