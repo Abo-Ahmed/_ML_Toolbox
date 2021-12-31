@@ -54,5 +54,5 @@ class folder:
         for item in explicit.values:
             fd , fl = folder.get_dir_image_num(item)
             folder.download_image(fd, fl)
-            print("counter " + int(counter))
+            print("counter " + str(counter))
             counter += 1
