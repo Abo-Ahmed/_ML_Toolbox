@@ -6,16 +6,16 @@ class folder:
 
     @staticmethod
     def get_file_count():
-        return len(files)
+        return len(handler.fileList)
 
     @staticmethod
     def update_list():
-        files = os.listdir(dataset_path)
+        files = os.listdir(handler.dataPath)
         return files
 
     @staticmethod
     def is_exist(x):
-        if str(x)+".jpg" in files:
+        if str(x)+".jpg" in handler.fileList:
             return True
         else:
             return False
@@ -50,7 +50,7 @@ class folder:
 
     @staticmethod
     def download_patch():
-        files = os.listdir(handler.datasetPath)
+        files = os.listdir(handler.dataPath)
         counter = 0
         for item in explicit.values:
             if str(item)+".jpg" in files :
