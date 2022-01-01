@@ -62,6 +62,6 @@ class folder:
                 folder.update_list()
                 if str(item)+".jpg" not in handler.fileList :
                     print("xxx error in" , str(item))
-                    return
+                    continue
                 print("counter " + str(counter))
                 counter += 1
