@@ -50,9 +50,10 @@ class folder:
 
     @staticmethod
     def download_patch():
+        files = os.listdir(handler.datasetPath)
         counter = 0
         for item in explicit.values:
-            if counter <= 11514 :
+            if str(item)+".jpg" in files :
                 counter += 1
                 continue
             fd , fl = folder.get_dir_image_num(item)
