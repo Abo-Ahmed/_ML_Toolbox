@@ -56,11 +56,12 @@ class folder:
             if str(item)+".jpg" in  handler.fileList :
                 counter += 1
                 continue
-            fd , fl = folder.get_dir_image_num(item)
-            folder.download_image(fd, fl)
-            folder.update_list()
-            if str(item)+".jpg" in  handler.fileList :
-                print("xxx error in" , str(item))
-                return
-            print("counter " + str(counter))
-            counter += 1
+            else:
+                fd , fl = folder.get_dir_image_num(item)
+                folder.download_image(fd, fl)
+                folder.update_list()
+                if str(item)+".jpg" not in handler.fileList :
+                    print("xxx error in" , str(item))
+                    return
+                print("counter " + str(counter))
+                counter += 1
