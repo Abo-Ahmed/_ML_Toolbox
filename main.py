@@ -6,7 +6,7 @@
 print(">>> main module loaded ...")
 execfile('/content/_master/handler/handler.py')
 handler.intial_config(True , True , '/content/_master') # mount , details , project path
-handler.dataset_config( handler.ePath , 224 , 224 , 30 , 1 , True) # path ,width , height , batchSize , startBatch , isColored
+handler.dataset_config( handler.qPath , 224 , 224 , 30 , 1 , True) # path ,width , height , batchSize , startBatch , isColored
 
 folder.download_patch()
 

@@ -50,18 +50,13 @@ class folder:
 
     @staticmethod
     def download_patch():
-        handler.fileList = os.listdir(handler.dataPath)
+        handler.file = os.listdir(handler.dataPath)
         counter = 0
-        for item in explicit.values:
-            if str(item)+".jpg" in  handler.fileList :
+        for item in questionable.values:
+            if str(item)+".jpg" in handler.file :
                 counter += 1
                 continue
-            else:
-                fd , fl = folder.get_dir_image_num(item)
-                folder.download_image(fd, fl)
-                folder.update_list()
-                if str(item)+".jpg" not in handler.fileList :
-                    print("xxx error in" , str(item))
-                    continue
-                print("counter " + str(counter))
-                counter += 1
+            fd , fl = folder.get_dir_image_num(item)
+            folder.download_image(fd, fl)
+            print("counter " + str(counter) + " --> " + item)
+            counter += 1
