@@ -70,5 +70,5 @@ class folder:
             if counter > 9999 :
                 break
             content += item
-        with open("/content/content-e.txt", "w") as text_file:
+        with open("/content/content-q.txt", "w") as text_file:
             text_file.write(content)
