@@ -60,3 +60,15 @@ class folder:
             folder.download_image(fd, fl)
             print("counter " + str(counter) + " --> " + str(item))
             counter += 1
+
+    @staticmethod
+    def collect_names_patch():
+        handler.file = os.listdir(handler.dataPath)
+        content = ""
+        counter = 0
+        for item in handler.file:
+            if counter > 9999 :
+                break
+            content += item
+        with open("/content/content-e.txt", "w") as text_file:
+            text_file.write(results)
