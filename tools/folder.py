@@ -53,7 +53,7 @@ class folder:
         handler.file = os.listdir(handler.dataPath)
         counter = 0
         for item in questionable.values:
-            if counter < 6751 or str(item)+".jpg" in handler.file :
+            if counter < 12524  or str(item)+".jpg" in handler.file :
                 counter += 1
                 continue
             fd , fl = folder.get_dir_image_num(item)
