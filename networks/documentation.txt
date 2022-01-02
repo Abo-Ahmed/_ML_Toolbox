@@ -1,9 +1,12 @@
 
-Number of files: 16
-Number of functions: 77
-Number of line: 732
+Number of files: 17
+Number of functions: 86
+Number of line: 807
 ==================================
 File tree:
+
+>>> .vscode
+-----------------------------
 
 >>> dataset
 	dataset.py
@@ -29,6 +32,7 @@ File tree:
 
 >>> tools
 	configure.py
+	folder.py
 	results.py
 -----------------------------
 
@@ -37,6 +41,8 @@ File tree:
 
 ==================================
 Function tree:
+
+-----------------------------
 
 >>> dataset.py
 	 read_folder_images
@@ -74,14 +80,14 @@ Function tree:
 	 save_parameters
 >>> handler.py
 	 load_modules
-	 intial_configurations
-	 dataset_configurations
+	 intial_config
+	 dataset_config
 	 read_sample
 	 read_real
 	 run_models
 	 run_model
 	 special_run
-	 final_configurations
+	 final_config
 -----------------------------
 
 >>> class_CnnFunctional.py
@@ -124,6 +130,16 @@ Function tree:
 	 use_gpu 
 	 use_device 
 	 show_period
+>>> folder.py
+	 init_path
+	 get_file_count
+	 update_list
+	 is_exist
+	 get_dir_image_num
+	 get_dir_image_name
+	 download_image
+	 download_patch
+	 collect_names_patch
 >>> results.py
 	 __init__
 	 print_results
