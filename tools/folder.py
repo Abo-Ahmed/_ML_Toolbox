@@ -71,4 +71,4 @@ class folder:
                 break
             content += item
         with open("/content/content-e.txt", "w") as text_file:
-            text_file.write(results)
+            text_file.write(content)
