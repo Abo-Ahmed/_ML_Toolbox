@@ -17,7 +17,6 @@ class handler:
   imageDepth = 3 
   isColored = True
 
-  # dataSize = 100
   projectDir = ''
   currentNetwork = None
   startTime = 0 
@@ -27,6 +26,16 @@ class handler:
   ePath = danbooruPath + '/explicit' 
   qPath = danbooruPath + '/questionable'
   sPath = danbooruPath + '/safe'
+
+  pornography2k = '/content/drive/MyDrive/eng-mahmoud/dataSet/pornography-2k'
+  pFrames = pornography2k + '/frames/vPorn'
+  NEFrames = pornography2k + '/frames/vNonPornEasy'
+  NDFrames = pornography2k + '/frames/vNonPornDifficulty'
+
+  pFrames = pornography2k + '/videos/vPorn'
+  NEFrames = pornography2k + '/videos/vNonPornEasy'
+  NDFrames = pornography2k + '/videos/vNonPornDifficulty'
+
   fileList = []
 
   @staticmethod

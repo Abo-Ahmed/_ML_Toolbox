@@ -2,14 +2,12 @@
 
 class dataset:
 
-
   ##############################
   ## real data methods
   ##############################  
 
   @staticmethod
   def read_folder_images(destnation_path):
-    # batchNo = ((batchNo * handler.batchSize) % handler.dataSize) // handler.batchSize
     batchStart = handler.batchNo * handler.batchSize
     batchEnd = batchStart + handler.batchSize
 
@@ -22,7 +20,6 @@ class dataset:
 
   @staticmethod
   def get_rating(destnation_path ):
-    # batchNo = ((batchNo * handler.batchSize) % handler.dataSize) // handler.batchSize
     batchStart = handler.batchNo * handler.batchSize
     batchEnd = batchStart + handler.batchSize
 
