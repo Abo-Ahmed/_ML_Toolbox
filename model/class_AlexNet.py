@@ -8,7 +8,7 @@ class AlexNet(BasicModel):
         self.model = tf.keras.models.Sequential()
 
         # Layer 1
-        self.model.add(keras_layers.Conv2D(96, (11, 11), input_shape=(self.imageWidth ,self.imageHeight , self.channels),padding='same', kernel_regularizer=l2(l2_reg)))
+        self.model.add(keras_layers.Conv2D(96, (11, 11), input_shape=(self.rows ,self.columns , self.channels),padding='same', kernel_regularizer=l2(l2_reg)))
         self.model.add(keras_layers.normalization.BatchNormalization())
         self.model.add(keras_layers.Activation('relu'))
         self.model.add(keras_layers.convolutional.MaxPooling2D(pool_size=(2, 2)))
