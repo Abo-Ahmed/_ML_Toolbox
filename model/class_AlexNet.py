@@ -13,20 +13,20 @@ class AlexNet(BasicModel):
         self.model.add(keras_layers.Conv2D(96, (11, 11), input_shape=(self.rows ,self.columns , self.channels),padding='same', kernel_regularizer=l2(self.l2_reg)))
         self.model.add(keras_layers.BatchNormalization())
         self.model.add(keras_layers.Activation('relu'))
-        self.model.add(keras_layers.convolutional.MaxPooling2D(pool_size=(2, 2)))
+        self.model.add(keras_layers.MaxPooling2D(pool_size=(2, 2)))
 
         # Layer 2
         self.model.add(keras_layers.Conv2D(256, (5, 5), padding='same'))
         self.model.add(keras_layers.BatchNormalization())
         self.model.add(keras_layers.Activation('relu'))
-        self.model.add(keras_layers.convolutional.MaxPooling2D(pool_size=(2, 2)))
+        self.model.add(keras_layers.MaxPooling2D(pool_size=(2, 2)))
 
         # Layer 3
         self.model.add(keras_layers.convolutional.ZeroPadding2D((1, 1)))
         self.model.add(keras_layers.Conv2D(512, (3, 3), padding='same'))
         self.model.add(keras_layers.BatchNormalization())
         self.model.add(keras_layers.Activation('relu'))
-        self.model.add(keras_layers.convolutional.MaxPooling2D(pool_size=(2, 2)))
+        self.model.add(keras_layers.MaxPooling2D(pool_size=(2, 2)))
 
         # Layer 4
         self.model.add(keras_layers.convolutional.ZeroPadding2D((1, 1)))
@@ -39,7 +39,7 @@ class AlexNet(BasicModel):
         self.model.add(keras_layers.Conv2D(1024, (3, 3), padding='same'))
         self.model.add(keras_layers.BatchNormalization())
         self.model.add(keras_layers.Activation('relu'))
-        self.model.add(keras_layers.convolutional.MaxPooling2D(pool_size=(2, 2)))
+        self.model.add(keras_layers.MaxPooling2D(pool_size=(2, 2)))
 
         # Layer 6
         self.model.add(keras_layers.Flatten())
