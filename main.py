@@ -10,8 +10,8 @@ handler.intial_config(True, True, '/content/_master')
 # path ,width , height , batchSize , startBatch , isColored
 handler.dataset_config(handler.sPath, 224, 224, 30, 1, True)
 
-handler.read_real('/content/drive/MyDrive/eng-mahmoud/dataSet/danbooru2019/images/512px/0000')
-# # handler.read_sample( None)
+# handler.read_real('/content/drive/MyDrive/eng-mahmoud/dataSet/danbooru2019/images/512px/0000')
+handler.read_sample( None)
 
 # # handler.run_models(["CnnSeq"      , "CnnFunctional" , "ResNet" , "Vgg16"  , "vgg16Seq" ,
 # #                     "VggLstm"     , "LstmConv2d"    , "Lstm"   , "LstmBi" , "VggBiLstm" ] )
