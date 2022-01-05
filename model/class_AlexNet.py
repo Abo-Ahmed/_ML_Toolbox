@@ -60,7 +60,7 @@ class AlexNet(BasicModel):
         self.model.add(keras_layers.Activation('softmax'))
         
         
-        # self.model.compile(optimizer='adam',
-        #                 loss='sparse_categorical_crossentropy',
-        #                 metrics=['accuracy'])
+        self.model.compile(optimizer='adam',
+                        loss='sparse_categorical_crossentropy',
+                        metrics=['accuracy'])
 
