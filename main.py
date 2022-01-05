@@ -8,7 +8,7 @@ execfile('/content/_master/handler/handler.py')
 # mount , details , project path
 handler.intial_config(True, True, '/content/_master')
 # path ,width , height , batchSize , startBatch , isColored
-handler.dataset_config(handler.sPath, 224, 224, 30, 1, True)
+handler.dataset_config(handler.sPath, 100, 100, 30, 1, True)
 
 # handler.read_real('/content/drive/MyDrive/eng-mahmoud/dataSet/danbooru2019/images/512px/0000')
 handler.read_sample( None)
