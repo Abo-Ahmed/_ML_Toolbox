@@ -32,9 +32,11 @@ class handler:
   NEFrames = pornography2k + '/frames/vNonPornEasy'
   NDFrames = pornography2k + '/frames/vNonPornDifficulty'
 
-  pFrames = pornography2k + '/videos/vPorn'
-  NEFrames = pornography2k + '/videos/vNonPornEasy'
-  NDFrames = pornography2k + '/videos/vNonPornDifficulty'
+  pVideos = pornography2k + '/videos/vPorn'
+  NEVideos = pornography2k + '/videos/vNonPornEasy'
+  NDVideos = pornography2k + '/videos/vNonPornDifficulty'
+
+  img512Path = '/content/drive/MyDrive/eng-mahmoud/dataSet/danbooru2019/images/512px/0000'
 
   fileList = []
 
@@ -74,8 +76,7 @@ class handler:
       handler.train_x , handler.train_y = dataset.read_sample_images(dataPath + '/train/NSFW', dataPath + '/train/SFW' , "TRAIN")
 
   @staticmethod
-  def read_real(dataPath ):
-      handler.dataPath = dataPath
+  def read_real():
       dataset.read_real_data()
 
   @staticmethod
