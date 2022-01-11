@@ -17,6 +17,7 @@ from keras.layers.wrappers import TimeDistributed
 from google.colab import drive , files
 from sklearn.metrics import confusion_matrix
 from __future__ import print_function
+from psutil import virtual_memory
 
 def getGitRepo(name):
   !rm -rf '/content/'$name

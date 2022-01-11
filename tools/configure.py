@@ -25,9 +25,24 @@ class configure:
     if deviceName != '/device:GPU:0':
       print('XXX GPU device not found')
       deviceName = "GPU not found"
+    else:
+      print(gpu_info)
     print('>>> Tenserflow version: ' + tf.__version__ + ' - with ' + deviceName )
     print('>>> Keras version: ' + tf.keras.__version__)
     
+    # show gpu usage
+    gpu_info = '\n'.join(!nvidia-smi)
+    if gpu_info.find('failed') >= 0:
+      print('XXX Not connected to a GPU')
+
+    # show high ram usage
+    ram_gb = virtual_memory().total / 1e9
+    print('>>> Your runtime has {:.1f} gigabytes of available RAM\n'.format(ram_gb))
+    if ram_gb < 20:
+      print('XXX Not using a high-RAM runtime')
+    else:
+      print('>>> You are using a high-RAM runtime!')
+      
     if(mount):
       drive._mount('/content/drive')
     else:
