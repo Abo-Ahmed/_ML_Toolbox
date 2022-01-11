@@ -1,7 +1,7 @@
 
 # colab link
 # https://colab.research.google.com/drive/1QA3ufl7lur76WzBhuwerLdyjLj-8hoHC?authuser=2
-
+# https://colab.research.google.com/notebooks/pro.ipynb
 
 print(">>> main module loaded ...")
 execfile('/content/_master/handler/handler.py')
