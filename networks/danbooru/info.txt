@@ -1,4 +1,24 @@
 
+The best known booru, with a focus on quality, is 
+	Danbooru⁠. We provide a torrent/​​​
+	rsync 
+	mirror which contains ~3.4TB of 4.22m images with 130m tag instances 
+
+(8.5% of images are classified as “e”, 15% as “q”, and 77% as “s”
+
+315k explicit
+539k questionable
+2853k safe
+
+
+Pornography-2k
+
+6387 pornographic
+
+6785  safe
+
+3555 questionable 
+
 drive link
 https://drive.google.com/drive/folders/1lD1n_3O1GTM3fVWKZf0wy2rw2d5bEzqS?usp=sharing
 
@@ -27,3 +47,7 @@ https://drive.google.com/open?id=1BQXr6l6xumGlvJwLhNaow7nvrCi3uHdJ
 
 Danbooru downloader 
 https://github.com/KichangKim/DanbooruDownloader
+
+
+http://kanotype.iptime.org:8003/deepdanbooru/ with image structure --> 
+this can classify images and videos https://www.picpurify.com/demo-nudity.html
