@@ -1,0 +1,11 @@
+
+However, unlike RNNs, transformers process the entire input all at once. The attention mechanism provides context for any position in the input sequence. For example, if the input data is a natural language sentence, the transformer does not have to process one word at a time. This allows for more parallelization than RNNs and therefore reduces training times.
+
+
+A clear example of the value of attention is in language translation, where context is essential to assign the meaning of a word in a sentence. In an English-to-French translation system, the first word of the French output most probably depends heavily on the first few words of the English input. However, in a classic LSTM model, in order to produce the first word of the French output, the model is given only the state vector after processing the last English word
+
+
+An attention mechanism can be added to address this problem: the decoder is given access to the state vectors of every English input word, not just the last, and can learn attention weights that dictate how much to attend to each English input state vector.
+
+Training transformer-based architectures can be expensive, especially for long inputs.[10] Alternative architectures include the Reformer (which reduces the computational load from {\displaystyle O(N^{2})}O(N^{2}) to {\displaystyle O(N\ln N)}O(N\ln N)), or models like ETC/BigBird (which can reduce it to {\displaystyle O(N)}O(N))[11] where {\displaystyle N}N is the length of the sequence. This is done using locality-sensitive hashing and reversible layers.
+
