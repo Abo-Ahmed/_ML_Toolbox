@@ -31,7 +31,7 @@ class configure:
     print('>>> Keras version: ' + tf.keras.__version__)
     
     # show gpu usage
-    gpu_info = '\n'.join(!nvidia-smi)
+    # gpu_info = '\n'.join(!nvidia-smi)
     if gpu_info.find('failed') >= 0:
       print('XXX Not connected to a GPU')
 
