@@ -11,3 +11,6 @@ confusion_matrix = pd.crosstab(df['y_Actual'], df['y_Predicted'], rownames=['Act
 
 sn.heatmap(confusion_matrix, annot=True)
 plt.show()
+
+from sklearn.metrics import accuracy_score
+accuracy_score(actual, predicted)
