@@ -37,12 +37,12 @@ class configure:
     #   print('XXX Not connected to a GPU')
 
     # show high ram usage
-    ram_gb = virtual_memory().total / 1e9
-    print('>>> Your runtime has {:.1f} gigabytes of available RAM\n'.format(ram_gb))
-    if ram_gb < 20:
-      print('XXX Not using a high-RAM runtime')
-    else:
-      print('>>> You are using a high-RAM runtime!')
+    # ram_gb = virtual_memory().total / 1e9
+    # print('>>> Your runtime has {:.1f} gigabytes of available RAM\n'.format(ram_gb))
+    # if ram_gb < 20:
+    #   print('XXX Not using a high-RAM runtime')
+    # else:
+      # print('>>> You are using a high-RAM runtime!')
       
     if(mount):
       drive._mount('/content/drive')
