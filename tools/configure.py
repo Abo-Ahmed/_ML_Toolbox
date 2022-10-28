@@ -33,8 +33,8 @@ class configure:
     
     # show gpu usage
     # gpu_info = '\n'.join(!nvidia-smi)
-    if gpu_info.find('failed') >= 0:
-      print('XXX Not connected to a GPU')
+    # if gpu_info.find('failed') >= 0:
+    #   print('XXX Not connected to a GPU')
 
     # show high ram usage
     ram_gb = virtual_memory().total / 1e9
