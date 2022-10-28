@@ -74,8 +74,8 @@ class dataset:
   @staticmethod
   def read_random():
       print(">>> reading RANDOM images ...")
-      randomImg = random.choice(os.listdir("/content/_master/dataset/random"))
-      handler.predict_x = np.array([dataset.read_resize_image("/content/_master/dataset/random/"+randomImg)])
+      randomImg = random.choice(os.listdir("/content/_master_network/dataset/random"))
+      handler.predict_x = np.array([dataset.read_resize_image("/content/_master_network/dataset/random/"+randomImg)])
       print( '>>> {}: {}'.format( 'random: ' , len(handler.predict_x)))
       print(handler.predict_x)
       configure.print_line('=')

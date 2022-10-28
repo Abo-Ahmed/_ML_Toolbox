@@ -6,7 +6,7 @@ fileCounter = 0
 functionCounter = 0
 fileTree = ""
 functionTree = ""
-root = "D:\master\_master"
+root = "D:\master\_master_network"
 removedFolders = [".git" , "networks" , "0000" , "temp" , "test" , "train" , "random"]
 
 for root, dirs, files in os.walk(root):
@@ -26,7 +26,7 @@ for root, dirs, files in os.walk(root):
                     fileTree = fileTree + "\n\t" + f
                     functionTree = functionTree + "\n>>> " + f
                     fileCounter = fileCounter + 1
-                    fileName = "D:\\master\\_master\\"+ d + "\\" + f
+                    fileName = "D:\\master\\_master_network\\"+ d + "\\" + f
                     with open(fileName) as file:
                         for line in file:
                             if(len(line.strip()) != 0):
@@ -51,5 +51,5 @@ results = results + "\n==================================\nFunction tree:\n" + f
 
 print(results)
 
-with open("D:\\master\\_master\\networks\\documentation.txt", "w") as text_file:
+with open("D:\\master\\_master_network\\networks\\documentation.txt", "w") as text_file:
     text_file.write(results)

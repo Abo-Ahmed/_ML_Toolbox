@@ -4,9 +4,9 @@
 # https://colab.research.google.com/notebooks/pro.ipynb
 
 print(">>> main module loaded ...")
-execfile('/content/_master/handler/handler.py')
+execfile('/content/_master_network/handler/handler.py')
 # mount , details , project path
-handler.intial_config(True, True, '/content/_master')
+handler.intial_config(True, True, '/content/_master_network')
 # path ,width , height , batchSize , startBatch , isColored
 handler.dataset_config(handler.ePath, 100, 100, 30, 1, True)
 
