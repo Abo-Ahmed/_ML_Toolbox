@@ -16,6 +16,6 @@ handler.read_real()
 # # handler.run_models(["CnnSeq"      , "CnnFunctional" , "ResNet" , "Vgg16"  , "vgg16Seq" ,
 # #                     "VggLstm"     , "LstmConv2d"    , "Lstm"   , "LstmBi" , "VggBiLstm" ] )
 # handler.special_run("VggBiLstm","program_1")
-handler.special_run("ResNet","program_1")
+handler.special_run("CnnSeq","program_1")
 
 handler.final_config()
