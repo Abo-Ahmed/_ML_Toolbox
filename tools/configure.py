@@ -26,7 +26,8 @@ class configure:
       print('XXX GPU device not found')
       deviceName = "GPU not found"
     else:
-      print(gpu_info)
+      # print(gpu_info)
+      print(tf.test.gpu_device_name())
     print('>>> Tenserflow version: ' + tf.__version__ + ' - with ' + deviceName )
     print('>>> Keras version: ' + tf.keras.__version__)
     
