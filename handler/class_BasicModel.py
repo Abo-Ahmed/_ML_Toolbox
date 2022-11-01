@@ -82,7 +82,7 @@ class BasicModel (object):
     # verbose=0 --> (silent), 1 --> animated progress , 2 -->  mention epoch no. 
     def train (self , epochs = 5):
         print('>>> training ' + self.name + ' model ...')
-        self.model.fit(np.array(handler.train_x), np.array(handler.train_y), epochs , verbose=1)
+        self.model.fit(handler.train_x, handler.train_y, epochs , verbose=1)
 
     def test (self):
         print('>>> testing ' + self.name + ' model ...')
