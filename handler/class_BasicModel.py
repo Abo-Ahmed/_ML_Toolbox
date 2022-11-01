@@ -82,11 +82,11 @@ class BasicModel (object):
     # verbose=0 --> (silent), 1 --> animated progress , 2 -->  mention epoch no. 
     def train (self , epochs = 5):
         print('>>> training ' + self.name + ' model ...')
-        self.model.fit(handler.train_x, handler.train_y, epochs , verbose=1)
+        self.model.fit(np.array(handler.train_x), np.array(handler.train_y), epochs , verbose=1)
 
     def test (self):
         print('>>> testing ' + self.name + ' model ...')
-        self.loss, self.acc = self.model.evaluate(handler.test_x, handler.test_y, verbose=2)
+        self.loss, self.acc = self.model.evaluate(np.array(handler.test_x), np.array(handler.test_y), verbose=2)
 
     def predict (self , smpl = None):
         print('>>> Predicting with ' + self.name + ' model ...')
