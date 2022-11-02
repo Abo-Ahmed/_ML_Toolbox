@@ -106,6 +106,12 @@ class Transformer(BasicModel):
 
     def build (self):
         super().build()
+        # Label preprocessing with StringLookup.
+        label_processor = keras.layers.StringLookup(
+            num_oov_indices=0, vocabulary=np.unique(train_df["image_rate"]), mask_token=None
+        )
+        print(">>> label processor" , label_processor.get_vocabulary())
+
         sequence_length = self.MAX_SEQ_LENGTH
         embed_dim = self.NUM_FEATURES
         dense_dim = 4
