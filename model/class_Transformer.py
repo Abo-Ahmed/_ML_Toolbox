@@ -81,42 +81,15 @@ class Transformer(BasicModel):
             proj_output = self.dense_proj(proj_input)
             return self.layernorm_2(proj_input + proj_output)
 
-    def get_compiled_model(self):
-        sequence_length = self.MAX_SEQ_LENGTH
-        embed_dim = self.NUM_FEATURES
-        dense_dim = 4
-        num_heads = 1
-        classes = len(label_processor.get_vocabulary())
-
-        inputs = keras.Input(shape=(None, None))
-        x = PositionalEmbedding(
-            sequence_length, embed_dim, name="frame_position_embedding"
-        )(inputs)
-        x = TransformerEncoder(embed_dim, dense_dim, num_heads, name="transformer_layer")(x)
-        x = layers.GlobalMaxPooling1D()(x)
-        x = layers.Dropout(0.5)(x)
-        outputs = layers.Dense(classes, activation="softmax")(x)
-        model = keras.Model(inputs, outputs)
-
-        model.compile(
-            optimizer="adam", loss="sparse_categorical_crossentropy", metrics=["accuracy"]
-        )
-        return model
-
 
     def build (self):
         super().build()
-        # Label preprocessing with StringLookup.
-        label_processor = keras.layers.StringLookup(
-            num_oov_indices=0, vocabulary=np.unique(train_df["image_rate"]), mask_token=None
-        )
-        print(">>> label processor" , label_processor.get_vocabulary())
 
         sequence_length = self.MAX_SEQ_LENGTH
         embed_dim = self.NUM_FEATURES
         dense_dim = 4
         num_heads = 1
-        classes = len(label_processor.get_vocabulary())
+        classes = self.nClasses
 
         inputs = keras.Input(shape=(None, None))
         x = PositionalEmbedding(
