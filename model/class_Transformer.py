@@ -92,10 +92,10 @@ class Transformer(BasicModel):
         classes = self.nClasses
 
         inputs = keras.Input(shape=(None, None))
-        x = PositionalEmbedding(
+        x = self.PositionalEmbedding(
             sequence_length, embed_dim, name="frame_position_embedding"
         )(inputs)
-        x = TransformerEncoder(embed_dim, dense_dim, num_heads, name="transformer_layer")(x)
+        x = self.TransformerEncoder(embed_dim, dense_dim, num_heads, name="transformer_layer")(x)
         x = layers.GlobalMaxPooling1D()(x)
         x = layers.Dropout(0.5)(x)
         outputs = layers.Dense(classes, activation="softmax")(x)
