@@ -13,11 +13,6 @@ class Transformer(BasicModel):
         self.IMG_SIZE = 128
         self.EPOCHS = 30
 
-        self.batchStart = 0
-        self.batchEnd = 200
-        self.imageWidth = 128
-        self.imageHeight = 128
-
         self.base_path = '/content/drive/MyDrive/eng-mahmoud/dataSet/danbooru2019/'
         self.images_path = self.base_path + 'images/'
 
@@ -86,8 +81,8 @@ class Transformer(BasicModel):
         super().build()
 
         sequence_length = self.MAX_SEQ_LENGTH
-        embed_dim = self.NUM_FEATURES
-        dense_dim = 4
+        embed_dim = handler.imageWidth
+        dense_dim = handler.imageHeight
         num_heads = 1
         classes = self.nClasses
 
