@@ -51,6 +51,12 @@ class handler:
     configure.printer(">>> all modules loaded ...")
 
   @staticmethod
+  def install_dependencies():
+    !pip install tensorflow==2.4.1
+    !pip install keras==2.4.0
+    !pip install -q git+https://github.com/tensorflow/docs
+
+  @staticmethod
   def intial_config(mount , details , path):
     handler.startTime = time.time()
     handler.projectDir = path
