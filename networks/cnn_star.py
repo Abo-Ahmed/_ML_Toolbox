@@ -1,3 +1,10 @@
+
+# dependencies
+# !pip install tensorflow==2.4.1
+# !pip install keras==2.4.0
+# !pip install -q git+https://github.com/tensorflow/docs
+
+
 from __future__ import print_function
 import PIL
 import os
