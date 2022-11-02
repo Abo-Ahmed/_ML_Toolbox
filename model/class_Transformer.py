@@ -81,7 +81,7 @@ class Transformer(BasicModel):
         super().build()
 
         sequence_length = self.MAX_SEQ_LENGTH
-        embed_dim = handler.imageWidth
+        embed_dim = self.nClasses
         dense_dim = handler.imageHeight
         num_heads = 3
         classes = self.nClasses
