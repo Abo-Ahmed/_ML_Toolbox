@@ -83,7 +83,7 @@ class Transformer(BasicModel):
         sequence_length = self.MAX_SEQ_LENGTH
         embed_dim = handler.imageWidth
         dense_dim = handler.imageHeight
-        num_heads = 1
+        num_heads = 3
         classes = self.nClasses
 
         inputs = keras.Input(shape=(None, None))
