@@ -8,6 +8,7 @@ class Transformer(BasicModel):
     ################
     def __init__(self):
         super().__init__()
+        self.MAX_SEQ_LENGTH = 1
         self.NUM_FEATURES = 1024
 
         self.base_path = '/content/drive/MyDrive/eng-mahmoud/dataSet/danbooru2019/'
