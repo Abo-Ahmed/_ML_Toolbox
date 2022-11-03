@@ -8,12 +8,6 @@ class Transformer(BasicModel):
     ################
     def __init__(self):
         super().__init__()
-        self.MAX_SEQ_LENGTH = 1
-        self.NUM_FEATURES = 1024
-
-        self.base_path = '/content/drive/MyDrive/eng-mahmoud/dataSet/danbooru2019/'
-        self.images_path = self.base_path + 'images/'
-
         self.s = "safe"
         self.e = "explicit"
         self.q = "questionable"
@@ -78,7 +72,7 @@ class Transformer(BasicModel):
     def build (self):
         super().build()
 
-        sequence_length = self.MAX_SEQ_LENGTH
+        sequence_length = 2
         embed_dim = self.nClasses
         dense_dim = 100
         num_heads = 100
