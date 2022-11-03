@@ -77,6 +77,8 @@ class Transformer(BasicModel):
                 mask = mask[:, tf.newaxis, :]
 
             print(">>> TransformerEncoder 5")
+            print(inputs)
+            print(mask)
             attention_output = self.attention(inputs, inputs, attention_mask=mask)
             print(">>> TransformerEncoder 6")
             proj_input = self.layernorm_1(inputs + attention_output)
