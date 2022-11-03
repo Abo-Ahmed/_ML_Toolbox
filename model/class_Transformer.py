@@ -78,7 +78,7 @@ class Transformer(BasicModel):
         num_heads = 2
         classes = self.nClasses
 
-        inputs = keras.Input(shape=( 100 , 100  , 3))
+        inputs = keras.Input(shape=( 100  , 3))
         x = self.TransformerEncoder(embed_dim, dense_dim, num_heads, name="transformer_layer")(inputs)
         x = layers.GlobalMaxPooling1D()(x)
         x = layers.Dropout(0.5)(x)
