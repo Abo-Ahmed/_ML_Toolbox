@@ -47,8 +47,9 @@ class Transformer(BasicModel):
             return inputs + embedded_positions
 
         def compute_mask(self, inputs, mask=None):
-            mask = tf.reduce_any(tf.cast(inputs, "bool"), axis=-1)
             print(">>> PositionalEmbedding 7")
+            mask = tf.reduce_any(tf.cast(inputs, "bool"), axis=-1)
+            print(">>> PositionalEmbedding 8")
             return mask
 
 
