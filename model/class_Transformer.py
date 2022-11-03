@@ -73,7 +73,7 @@ class Transformer(BasicModel):
         super().build()
 
         sequence_length = 1
-        embed_dim = self.nClasses
+        embed_dim = 1024
         dense_dim = 4
         num_heads = 1
         classes = self.nClasses
