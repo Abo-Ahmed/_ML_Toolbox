@@ -94,7 +94,7 @@ class Transformer(BasicModel):
         # self.model = keras.Model(inputs, outputs)
 
         inputs = keras.Input(shape=( None , 100 , 100  , 3))
-        print(">>> input created" , inputs)
+        print(">>> check point 0" , inputs)
         x = self.PositionalEmbedding(
             sequence_length, embed_dim, name="frame_position_embedding"
         )(inputs)
