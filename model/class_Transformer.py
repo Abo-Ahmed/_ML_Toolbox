@@ -39,12 +39,16 @@ class Transformer(BasicModel):
         def call(self, inputs):
             # The inputs are of shape: `(batch_size, frames, num_features)`
             length = tf.shape(inputs)[1]
+            print(">>> PositionalEmbedding 4")
             positions = tf.range(start=0, limit=length, delta=1)
+            print(">>> PositionalEmbedding 5")
             embedded_positions = self.position_embeddings(positions)
+            print(">>> PositionalEmbedding 6")
             return inputs + embedded_positions
 
         def compute_mask(self, inputs, mask=None):
             mask = tf.reduce_any(tf.cast(inputs, "bool"), axis=-1)
+            print(">>> PositionalEmbedding 7")
             return mask
 
 
@@ -71,9 +75,13 @@ class Transformer(BasicModel):
             if mask is not None:
                 mask = mask[:, tf.newaxis, :]
 
+            print(">>> TransformerEncoder 5")
             attention_output = self.attention(inputs, inputs, attention_mask=mask)
+            print(">>> TransformerEncoder 6")
             proj_input = self.layernorm_1(inputs + attention_output)
+            print(">>> TransformerEncoder 7")
             proj_output = self.dense_proj(proj_input)
+            print(">>> TransformerEncoder 8")
             return self.layernorm_2(proj_input + proj_output)
 
 
