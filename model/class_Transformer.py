@@ -72,13 +72,13 @@ class Transformer(BasicModel):
     def build (self):
         super().build()
 
-        sequence_length = 2
+        sequence_length = 1
         embed_dim = self.nClasses
-        dense_dim = 100
+        dense_dim = 4
         num_heads = 1
         classes = self.nClasses
 
-        inputs = keras.Input(shape=( 100 , 100 ))
+        inputs = keras.Input(shape=( 100 , 100  , 3))
         x = self.PositionalEmbedding(
             sequence_length, embed_dim, name="frame_position_embedding"
         )(inputs)
