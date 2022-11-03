@@ -47,9 +47,6 @@ class Transformer(BasicModel):
     class TransformerEncoder(layers.Layer):
         def __init__(self, embed_dim, dense_dim, num_heads, **kwargs):
             super().__init__(**kwargs)
-            self.embed_dim = embed_dim
-            self.dense_dim = dense_dim
-            self.num_heads = num_heads
             self.attention = layers.MultiHeadAttention(
                 num_heads=num_heads, key_dim=embed_dim, dropout=0.3
             )
@@ -78,22 +75,22 @@ class Transformer(BasicModel):
         num_heads = 2
         classes = self.nClasses
 
-        inputs = keras.Input(shape=( 100  , 3))
-        x = self.TransformerEncoder(embed_dim, dense_dim, num_heads, name="transformer_layer")(inputs)
-        x = layers.GlobalMaxPooling1D()(x)
-        x = layers.Dropout(0.5)(x)
-        outputs = layers.Dense(classes, activation="softmax")(x)
-        self.model = keras.Model(inputs, outputs)
-
-        # inputs = keras.Input(shape=( None , 100 , 100  , 3))
-        # x = self.PositionalEmbedding(
-        #     sequence_length, embed_dim, name="frame_position_embedding"
-        # )(inputs)
-        # x = self.TransformerEncoder(embed_dim, dense_dim, num_heads, name="transformer_layer")(x)
+        # inputs = keras.Input(shape=( 100  , 3))
+        # x = self.TransformerEncoder(embed_dim, dense_dim, num_heads, name="transformer_layer")(inputs)
         # x = layers.GlobalMaxPooling1D()(x)
         # x = layers.Dropout(0.5)(x)
         # outputs = layers.Dense(classes, activation="softmax")(x)
         # self.model = keras.Model(inputs, outputs)
+
+        inputs = keras.Input(shape=( None , 100 , 100  , 3))
+        x = self.PositionalEmbedding(
+            sequence_length, embed_dim, name="frame_position_embedding"
+        )(inputs)
+        x = self.TransformerEncoder(embed_dim, dense_dim, num_heads, name="transformer_layer")(x)
+        x = layers.GlobalMaxPooling1D()(x)
+        x = layers.Dropout(0.5)(x)
+        outputs = layers.Dense(classes, activation="softmax")(x)
+        self.model = keras.Model(inputs, outputs)
 
         self.model.compile(
             optimizer="adam", loss="sparse_categorical_crossentropy", metrics=["accuracy"]
