@@ -25,11 +25,16 @@ class Transformer(BasicModel):
     class PositionalEmbedding(layers.Layer):
         def __init__(self, sequence_length, output_dim, **kwargs):
             super().__init__(**kwargs)
+            
+            print(">>> PositionalEmbedding 0")
             self.position_embeddings = layers.Embedding(
                 input_dim=sequence_length, output_dim=output_dim
             )
+            print(">>> PositionalEmbedding 1")
             self.sequence_length = sequence_length
+            print(">>> PositionalEmbedding 2")
             self.output_dim = output_dim
+            print(">>> PositionalEmbedding 3")
 
         def call(self, inputs):
             # The inputs are of shape: `(batch_size, frames, num_features)`
@@ -47,14 +52,20 @@ class Transformer(BasicModel):
     class TransformerEncoder(layers.Layer):
         def __init__(self, embed_dim, dense_dim, num_heads, **kwargs):
             super().__init__(**kwargs)
+            
+            print(">>> TransformerEncoder 0")
             self.attention = layers.MultiHeadAttention(
                 num_heads=num_heads, key_dim=embed_dim, dropout=0.3
             )
+            print(">>> TransformerEncoder 1")
             self.dense_proj = keras.Sequential(
                 [layers.Dense(dense_dim, activation=tf.nn.gelu), layers.Dense(embed_dim),]
             )
+            print(">>> TransformerEncoder 2")
             self.layernorm_1 = layers.LayerNormalization()
+            print(">>> TransformerEncoder 3")
             self.layernorm_2 = layers.LayerNormalization()
+            print(">>> TransformerEncoder 4")
 
         def call(self, inputs, mask=None):
             if mask is not None:
@@ -70,9 +81,9 @@ class Transformer(BasicModel):
         super().build()
 
         sequence_length = 1
-        embed_dim = 3
+        embed_dim = 1024
         dense_dim = 4
-        num_heads = 2
+        num_heads = 1
         classes = self.nClasses
 
         # inputs = keras.Input(shape=( 100  , 3))
@@ -83,15 +94,23 @@ class Transformer(BasicModel):
         # self.model = keras.Model(inputs, outputs)
 
         inputs = keras.Input(shape=( None , 100 , 100  , 3))
+        print(">>> input created" , inputs)
         x = self.PositionalEmbedding(
             sequence_length, embed_dim, name="frame_position_embedding"
         )(inputs)
+        print(">>> check point 1")
         x = self.TransformerEncoder(embed_dim, dense_dim, num_heads, name="transformer_layer")(x)
+        print(">>> check point 2")
         x = layers.GlobalMaxPooling1D()(x)
+        print(">>> check point 3")
         x = layers.Dropout(0.5)(x)
+        print(">>> check point 4")
         outputs = layers.Dense(classes, activation="softmax")(x)
+        print(">>> check point 5")
         self.model = keras.Model(inputs, outputs)
+        print(">>> check point 6")
 
         self.model.compile(
             optimizer="adam", loss="sparse_categorical_crossentropy", metrics=["accuracy"]
         )
+        print(">>> check point 7")
