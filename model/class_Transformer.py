@@ -8,10 +8,7 @@ class Transformer(BasicModel):
     ################
     def __init__(self):
         super().__init__()
-        self.MAX_SEQ_LENGTH = 1
         self.NUM_FEATURES = 1024
-        self.IMG_SIZE = 128
-        self.EPOCHS = 30
 
         self.base_path = '/content/drive/MyDrive/eng-mahmoud/dataSet/danbooru2019/'
         self.images_path = self.base_path + 'images/'
@@ -81,9 +78,9 @@ class Transformer(BasicModel):
         super().build()
 
         sequence_length = self.MAX_SEQ_LENGTH
-        embed_dim = self.nClasses
-        dense_dim = handler.imageHeight
-        num_heads = 1
+        embed_dim = self.NUM_FEATURES
+        dense_dim = 4
+        num_heads = 2
         classes = self.nClasses
 
         inputs = keras.Input(shape=(None, None))
