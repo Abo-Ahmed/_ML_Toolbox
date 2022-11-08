@@ -111,7 +111,9 @@ class Transformer(BasicModel):
         print(">>> check point 3")
         x = layers.Dropout(0.5)(x)
         print(">>> check point 4")
-        outputs = layers.Dense(classes, activation="softmax")(x)
+        # outputs = layers.Dense(classes, activation="softmax")(x)
+        outputs = x
+
         print(">>> check point 5")
         self.model = keras.Model(inputs, outputs)
         print(">>> check point 6")
