@@ -104,7 +104,7 @@ class Transformer(BasicModel):
         # outputs = layers.Dense(classes, activation="softmax")(x)
         # self.model = keras.Model(inputs, outputs)
 
-        inputs = keras.Input(shape=( None  , None , 3))
+        inputs = keras.Input(shape=( 100  , 100 , 3))
         print(">>> check point 0" , inputs)
         x = self.PositionalEmbedding(
             sequence_length, embed_dim, name="frame_position_embedding"
@@ -112,7 +112,7 @@ class Transformer(BasicModel):
         print(">>> check point 1")
         x = self.TransformerEncoder(embed_dim, dense_dim, num_heads, name="transformer_layer")(x)
         print(">>> check point 2")
-        x = layers.GlobalMaxPooling2D()(x)
+        x = layers.GlobalMaxPooling1D()(x)
         print(">>> check point 3")
         x = layers.Dropout(0.5)(x)
         print(">>> check point 4")
