@@ -85,7 +85,9 @@ class Transformer(BasicModel):
             print(">>> TransformerEncoder 7")
             proj_output = self.dense_proj(proj_input)
             print(">>> TransformerEncoder 8")
-            return self.layernorm_2(proj_input + proj_output)
+            temp = proj_input + proj_output
+            print(">>> TransformerEncoder 9")
+            return self.layernorm_2(temp)
 
 
     def build (self):
