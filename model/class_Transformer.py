@@ -92,7 +92,7 @@ class Transformer(BasicModel):
         super().build()
 
         sequence_length = 1
-        embed_dim = 100 , 100 , 3
+        embed_dim = 3
         dense_dim = 5
         num_heads = 1
         classes = self.nClasses
@@ -104,7 +104,7 @@ class Transformer(BasicModel):
         # outputs = layers.Dense(classes, activation="softmax")(x)
         # self.model = keras.Model(inputs, outputs)
 
-        inputs = keras.Input(shape=( 100  , 100 , 3))
+        inputs = keras.Input(shape=( None  , None , 3))
         print(">>> check point 0" , inputs)
         x = self.PositionalEmbedding(
             sequence_length, embed_dim, name="frame_position_embedding"
