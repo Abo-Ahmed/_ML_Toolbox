@@ -112,7 +112,7 @@ class Transformer(BasicModel):
         print(">>> check point 1")
         x = self.TransformerEncoder(embed_dim, dense_dim, num_heads, name="transformer_layer")(x)
         print(">>> check point 2")
-        x = layers.GlobalMaxPooling1D()(x)
+        x = layers.GlobalMaxPooling3D()(x)
         print(">>> check point 3")
         x = layers.Dropout(0.5)(x)
         print(">>> check point 4")
