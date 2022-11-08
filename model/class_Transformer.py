@@ -101,9 +101,10 @@ class Transformer(BasicModel):
 
         inputs = keras.Input(shape=( 100  , 100 , 3))
         print(">>> check point 0" , inputs)
-        x = self.PositionalEmbedding(
-            sequence_length, embed_dim, name="frame_position_embedding"
-        )(inputs)
+        x = inputs
+        # x = self.PositionalEmbedding(
+        #     sequence_length, embed_dim, name="frame_position_embedding"
+        # )(x)
         print(">>> check point 1")
         x = self.TransformerEncoder(embed_dim, dense_dim, num_heads, name="transformer_layer")(x)
         print(">>> check point 2")
