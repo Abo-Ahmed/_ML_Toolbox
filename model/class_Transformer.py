@@ -87,8 +87,7 @@ class Transformer(BasicModel):
             print(">>> TransformerEncoder 8")
             temp = proj_input + proj_output
             print(">>> TransformerEncoder 9")
-            return temp
-            # return self.layernorm_2(temp)
+            return self.layernorm_2(temp)
 
 
     def build (self):
@@ -100,13 +99,6 @@ class Transformer(BasicModel):
         num_heads = 1
         classes = self.nClasses
 
-        # inputs = keras.Input(shape=( 100  , 3))
-        # x = self.TransformerEncoder(embed_dim, dense_dim, num_heads, name="transformer_layer")(inputs)
-        # x = layers.GlobalMaxPooling1D()(x)
-        # x = layers.Dropout(0.5)(x)
-        # outputs = layers.Dense(classes, activation="softmax")(x)
-        # self.model = keras.Model(inputs, outputs)
-
         inputs = keras.Input(shape=( 100  , 100 , 3))
         print(">>> check point 0" , inputs)
         x = self.PositionalEmbedding(
@@ -115,7 +107,7 @@ class Transformer(BasicModel):
         print(">>> check point 1")
         x = self.TransformerEncoder(embed_dim, dense_dim, num_heads, name="transformer_layer")(x)
         print(">>> check point 2")
-        x = layers.GlobalMaxPooling2D()(x)
+        # x = layers.GlobalMaxPooling2D()(x)
         print(">>> check point 3")
         x = layers.Dropout(0.5)(x)
         print(">>> check point 4")
