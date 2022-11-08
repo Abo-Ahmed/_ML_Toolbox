@@ -94,9 +94,9 @@ class Transformer(BasicModel):
         super().build()
 
         sequence_length = 1
-        embed_dim = 1
+        embed_dim = 5
         dense_dim = 1
-        num_heads = 2
+        num_heads = 1
         classes = self.nClasses
 
         inputs = keras.Input(shape=( 100  , 100 , 3))
@@ -111,7 +111,7 @@ class Transformer(BasicModel):
         print(">>> check point 3")
         x = layers.Dropout(0.5)(x)
         print(">>> check point 4")
-        # outputs = layers.Dense(classes, activation="softmax")(x)
+        outputs = layers.Dense(classes, activation="softmax")(x)
         outputs = x
 
         print(">>> check point 5")
