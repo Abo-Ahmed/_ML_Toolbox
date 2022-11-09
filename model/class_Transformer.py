@@ -92,7 +92,8 @@ class Transformer(BasicModel):
     def experiment_3(self,ep = 5):
         self.train(ep)
         self.test()
-        # results.confusion_matrix()
+        predicted_y = self.model.predict(handler.train_x)
+        results.confusion_matrix(handler.train_y , predicted_y)
 
     def build (self):
         super().build()
