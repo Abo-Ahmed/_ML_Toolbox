@@ -20,6 +20,6 @@ handler.read_real()
 #                     "LstmBi" , "VggBiLstm"  , "Transformer"] )
 
 # handler.special_run("VggBiLstm","program_1")
-handler.special_run("Transformer","program_0" , 10)
+handler.special_run("Transformer","program_0" , 50)
 
 handler.final_config()
