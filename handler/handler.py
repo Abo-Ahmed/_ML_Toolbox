@@ -23,7 +23,7 @@ class handler:
   modelReport = []
  
   danbooruPath ='/content/drive/MyDrive/eng-mahmoud/dataSet/danbooru2019/images'
-  generalPath = danbooruPath + '/512px/0000' 
+  generalPath = danbooruPath + '/original/0000' 
   trainPath = danbooruPath + '/train' 
   ePath = danbooruPath + '/explicit' 
   qPath = danbooruPath + '/questionable'
