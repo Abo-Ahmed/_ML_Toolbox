@@ -58,7 +58,7 @@ class BasicModel (object):
         self.train(ep)
         self.test()
 
-    def program_1(self):
+    def program_1(self , ep = 5 ):
         self.loop_train()
 
     def loop_train(self):
