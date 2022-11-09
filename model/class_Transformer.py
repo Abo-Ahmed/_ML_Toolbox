@@ -99,7 +99,12 @@ class Transformer(BasicModel):
         num_heads = 1
         classes = self.nClasses
 
-        inputs = keras.Input(shape=( handler.imageWidth , handler.imageHeight , 1))
+        if(handler.isColored):
+            depth = 3
+        else:
+            depth = 1 
+
+        inputs = keras.Input(shape=( handler.imageWidth , handler.imageHeight , depth))
         print(">>> check point 0" , inputs)
         x = inputs
         # x = self.PositionalEmbedding(

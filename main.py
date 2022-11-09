@@ -5,8 +5,10 @@
 
 print(">>> main module loaded ...")
 execfile('/content/_master_network/handler/handler.py')
+
 # mount , details , project path
 handler.intial_config(True, True, '/content/_master_network')
+
 # path ,width , height , batchSize , startBatch , isColored
 handler.dataset_config(handler.ePath, 70, 70, 30, 1, False)
 
