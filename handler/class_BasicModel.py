@@ -54,11 +54,11 @@ class BasicModel (object):
     ################
     ## model operations
     ################
-    def program_0(self,ep = 5):
+    def experiment_0(self,ep = 5):
         self.train(ep)
         self.test()
 
-    def program_1(self , ep = 5 ):
+    def experiment_1(self , ep = 5 ):
         self.loop_train()
 
     def loop_train(self):

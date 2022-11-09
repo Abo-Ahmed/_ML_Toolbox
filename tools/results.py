@@ -32,6 +32,9 @@ class results:
     def accuracy(self,tp, tn , fp , fn ):
         return (tp + tn)/(tp+tn+fp+fn)
 
+    def accuracy_score(self , actual , predicted):
+        return accuracy_score(actual, predicted)
+
     def recall(self,tp , fn ):
         return (tp)/(tp+fn)
 
@@ -51,3 +54,11 @@ class results:
     def show_graphs(self):
         self.plot_array(self.allAcc)
         self.plot_array(self.allLoss)
+    
+    @staticmethod
+    def confusion_matrix( actual , predicted ):
+        data = {'y_Actual':    actual, 'y_Predicted': predicted }
+        df = pd.DataFrame(data, columns=['y_Actual','y_Predicted'])
+        confusion_matrix = pd.crosstab(df['y_Actual'], df['y_Predicted'], rownames=['Actual'], colnames=['Predicted'])
+        sn.heatmap(confusion_matrix, annot=True)
+        plt.show()

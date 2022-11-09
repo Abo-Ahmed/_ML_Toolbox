@@ -64,8 +64,8 @@ Function tree:
 	 summery_plot
 	 plot
 	 summery
-	 program_0
-	 program_1
+	 experiment_0
+	 experiment_1
 	 loop_train
 	 train 
 	 test 
@@ -104,7 +104,7 @@ Function tree:
 	 relu_bn
 	 create_plain_net
 	 build
-	 program_2
+	 experiment_2
 	 special_predict
 	 load_metadata
 	 get_rating

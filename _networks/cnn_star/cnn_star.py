@@ -5,6 +5,8 @@
 # !pip install -q git+https://github.com/tensorflow/docs
 
 from __future__ import print_function
+from sklearn.metrics import accuracy_score
+import seaborn as sn
 import PIL
 import os
 import random

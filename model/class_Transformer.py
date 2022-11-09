@@ -89,6 +89,10 @@ class Transformer(BasicModel):
             print(">>> TransformerEncoder 9")
             return self.layernorm_2(temp)
 
+    def experiment_3(self,ep = 5):
+        self.train(ep)
+        self.test()
+        # results.confusion_matrix()
 
     def build (self):
         super().build()

@@ -44,7 +44,7 @@ Drive already mounted at /content/drive; to attempt to forcibly remount, call dr
 >>> TRAIN dimensions: (40, 512, 512, 3) , (40,)
 ========================================
 <><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><>
->>> starting model: CnnSeq with : program_0
+>>> starting model: CnnSeq with : experiment_0
 >>> CnnSeq model intiated ...
 >>> bulding CnnSeq model ...
 >>> showing CnnSeq summery ...
@@ -72,15 +72,15 @@ WARNING:tensorflow:5 out of the last 14 calls to <function Model.make_train_func
 >>> testing CnnSeq model ...
 2/2 - 0s - loss: 1856.8184 - accuracy: 0.5000 - 256ms/epoch - 128ms/step
 >>> Restored model, accuracy: 50.00%
->>> successful model: CnnSeq with : program_0
+>>> successful model: CnnSeq with : experiment_0
 XXX deleted, model CnnSeq
 <><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><>
->>> starting model: CnnFunctional with : program_0
+>>> starting model: CnnFunctional with : experiment_0
 >>> CnnFunctional model intiated ...
 >>> bulding CnnFunctional model ...
-XXX Error in model: CnnFunctional with : program_0 failed to allocate memory [Op:AddV2]
+XXX Error in model: CnnFunctional with : experiment_0 failed to allocate memory [Op:AddV2]
 <><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><>
->>> starting model: ResNet with : program_0
+>>> starting model: ResNet with : experiment_0
 >>> ResNet model intiated ...
 XXX deleted, model CnnFunctional
 >>> bulding ResNet model ...
@@ -175,10 +175,10 @@ _________________________________________________________________
 >>> testing ResNet model ...
 2/2 - 2s - loss: 5.7384 - accuracy: 0.5000 - 2s/epoch - 911ms/step
 >>> Restored model, accuracy: 50.00%
->>> successful model: ResNet with : program_0
+>>> successful model: ResNet with : experiment_0
 XXX deleted, model ResNet
 <><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><>
->>> starting model: Vgg16 with : program_0
+>>> starting model: Vgg16 with : experiment_0
 >>> Vgg16 model intiated ...
 >>> bulding Vgg16 model ...
 >>> showing Vgg16 summery ...
@@ -238,10 +238,10 @@ _________________________________________________________________
 >>> testing Vgg16 model ...
 2/2 - 2s - loss: 8.0591 - accuracy: 0.5000 - 2s/epoch - 1s/step
 >>> Restored model, accuracy: 50.00%
->>> successful model: Vgg16 with : program_0
+>>> successful model: Vgg16 with : experiment_0
 XXX deleted, model Vgg16
 <><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><>
->>> starting model: vgg16Seq with : program_0
+>>> starting model: vgg16Seq with : experiment_0
 >>> vgg16Seq model intiated ...
 >>> bulding vgg16Seq model ...
 /usr/local/lib/python3.7/dist-packages/keras/optimizer_v2/gradient_descent.py:102: UserWarning: The `lr` argument is deprecated, use `learning_rate` instead.
@@ -310,10 +310,10 @@ _________________________________________________________________
 >>> testing vgg16Seq model ...
 2/2 - 2s - loss: 0.6903 - accuracy: 0.5000 - 2s/epoch - 1s/step
 >>> Restored model, accuracy: 50.00%
->>> successful model: vgg16Seq with : program_0
+>>> successful model: vgg16Seq with : experiment_0
 XXX deleted, model vgg16Seq
 <><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><>
->>> starting model: VggLstm with : program_0
+>>> starting model: VggLstm with : experiment_0
 >>> VggLstm model intiated ...
 >>> bulding VggLstm model ...
 tf.Tensor(
@@ -1270,10 +1270,10 @@ _________________________________________________________________
 >>> testing VggLstm model ...
 1/1 - 40s - loss: 1.6902 - accuracy: 0.5128 - 40s/epoch - 40s/step
 >>> Restored model, accuracy: 51.28%
->>> successful model: VggLstm with : program_0
+>>> successful model: VggLstm with : experiment_0
 XXX deleted, model VggLstm
 <><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><>
->>> starting model: LstmConv2d with : program_0
+>>> starting model: LstmConv2d with : experiment_0
 >>> LstmConv2d model intiated ...
 >>> bulding LstmConv2d model ...
 (None, 2, 59, 59, 320)
@@ -1328,7 +1328,7 @@ Non-trainable params: 0
 _________________________________________________________________
 >>> plotting model: LstmConv2d
 >>> training LstmConv2d model ...
-XXX Error in model: LstmConv2d with : program_0 in user code:
+XXX Error in model: LstmConv2d with : experiment_0 in user code:
 
     File "/usr/local/lib/python3.7/dist-packages/keras/engine/training.py", line 878, in train_function  *
         return step_function(self, iterator)
@@ -1346,7 +1346,7 @@ XXX Error in model: LstmConv2d with : program_0 in user code:
     ValueError: Input 0 of layer "sequential_9" is incompatible with the layer: expected shape=(None, 2, 512, 512, 3), found shape=(None, 3, 512, 512, 3)
 
 <><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><>
->>> starting model: Lstm with : program_0
+>>> starting model: Lstm with : experiment_0
 >>> Lstm model intiated ...
 XXX deleted, model LstmConv2d
 >>> bulding Lstm model ...
@@ -1376,10 +1376,10 @@ _________________________________________________________________
 >>> testing Lstm model ...
 1/1 - 1s - loss: 11.2661 - accuracy: 0.6000 - 626ms/epoch - 626ms/step
 >>> Restored model, accuracy: 60.00%
->>> successful model: Lstm with : program_0
+>>> successful model: Lstm with : experiment_0
 XXX deleted, model Lstm
 <><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><>
->>> starting model: LstmBi with : program_0
+>>> starting model: LstmBi with : experiment_0
 >>> LstmBi model intiated ...
 >>> bulding LstmBi model ...
 tf.Tensor(
@@ -1412,18 +1412,18 @@ _________________________________________________________________
 >>> testing LstmBi model ...
 1/1 - 2s - loss: 11.2661 - accuracy: 0.6000 - 2s/epoch - 2s/step
 >>> Restored model, accuracy: 60.00%
->>> successful model: LstmBi with : program_0
+>>> successful model: LstmBi with : experiment_0
 XXX deleted, model LstmBi
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 >>> final results: 
- CnnSeq with : program_0 ==> successful 
-CnnFunctional with : program_0 ==> failed failed to allocate memory [Op:AddV2]
-ResNet with : program_0 ==> successful 
-Vgg16 with : program_0 ==> successful 
-vgg16Seq with : program_0 ==> successful 
-VggLstm with : program_0 ==> successful 
-LstmConv2d with : program_0 ==> failed in user code:
-Lstm with : program_0 ==> successful 
-LstmBi with : program_0 ==> successful 
+ CnnSeq with : experiment_0 ==> successful 
+CnnFunctional with : experiment_0 ==> failed failed to allocate memory [Op:AddV2]
+ResNet with : experiment_0 ==> successful 
+Vgg16 with : experiment_0 ==> successful 
+vgg16Seq with : experiment_0 ==> successful 
+VggLstm with : experiment_0 ==> successful 
+LstmConv2d with : experiment_0 ==> failed in user code:
+Lstm with : experiment_0 ==> successful 
+LstmBi with : experiment_0 ==> successful 
 --- execution time: 2 minutes , 46.247 seconds ---
