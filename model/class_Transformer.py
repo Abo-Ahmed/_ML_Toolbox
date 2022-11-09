@@ -93,10 +93,20 @@ class Transformer(BasicModel):
         self.train(ep)
         self.test()
         predicted_y = self.model.predict(handler.train_x)
-        print(predicted_y)
+
+        predicted = []
+        for item in predicted_y:
+            if(predicted_y[0] > predicted_y[1] and predicted_y[0] > predicted_y[2] ):
+                predicted.append(0)
+            elif (predicted_y[1] > predicted_y[0] and predicted_y[1] > predicted_y[2] ):
+                predicted.append(1)
+            else:
+                predicted.append(2)
+
+        print(predicted)
         print("****************************")
         print(handler.train_y)
-        results.confusion_matrix(handler.train_y , predicted_y)
+        results.confusion_matrix(handler.train_y , predicted)
 
     def build (self):
         super().build()
