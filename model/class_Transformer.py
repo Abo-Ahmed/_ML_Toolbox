@@ -96,9 +96,9 @@ class Transformer(BasicModel):
 
         predicted = []
         for item in predicted_y:
-            if(predicted_y[0] > predicted_y[1] and predicted_y[0] > predicted_y[2] ):
+            if(item[0] > item[1] and item[0] > item[2] ):
                 predicted.append(0)
-            elif (predicted_y[1] > predicted_y[0] and predicted_y[1] > predicted_y[2] ):
+            elif (item[1] > item[0] and item[1] > item[2] ):
                 predicted.append(1)
             else:
                 predicted.append(2)
