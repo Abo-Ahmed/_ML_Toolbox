@@ -11,11 +11,13 @@ handler.intial_config(True, True, '/content/_master_network')
 handler.dataset_config(handler.ePath, 80, 80, 30, 1, True)
 
 handler.read_real()
-# handler.read_sample( None)
+# handler.read_sample(None)
 
-# # handler.run_models(["CnnSeq"      , "CnnFunctional" , "ResNet" , "Vgg16"  , "vgg16Seq" ,
-# #                     "VggLstm"     , "LstmConv2d"    , "Lstm"   , "LstmBi" , "VggBiLstm" ] )
+# handler.run_models(["CnnSeq"      , "CnnFunctional" , "ResNet" , "Vgg16"  , "vgg16Seq" ,
+#                     "VggLstm"     , "LstmConv2d"    , "Lstm"   , 
+#                     "LstmBi" , "VggBiLstm"  , "Transformer"] )
+
 # handler.special_run("VggBiLstm","program_1")
-handler.special_run("Transformer","program_0")
+handler.special_run("Transformer","program_1")
 
 handler.final_config()
