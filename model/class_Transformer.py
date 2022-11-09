@@ -99,7 +99,7 @@ class Transformer(BasicModel):
         num_heads = 1
         classes = self.nClasses
 
-        inputs = keras.Input(shape=( 100  , 100 , 3))
+        inputs = keras.Input(shape=( 80  , 80 , 3))
         print(">>> check point 0" , inputs)
         x = inputs
         # x = self.PositionalEmbedding(
