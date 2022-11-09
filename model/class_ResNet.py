@@ -53,7 +53,7 @@ class ResNet(BasicModel):
     def program_2(self):
         self.load_model('/content/drive/MyDrive/CoLab/p_dan_pre_model/model-resnet_custom_v4.h5')
         self.summery_plot()
-        configure.readTags("_master_network/networks/resnet_custom_v4/tags.txt")
+        configure.readTags("_master_network/_networks/resnet_custom_v4/tags.txt")
 
     def special_predict(self):
         self.predict()

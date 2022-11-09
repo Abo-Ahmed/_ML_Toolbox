@@ -7,7 +7,7 @@ functionCounter = 0
 fileTree = ""
 functionTree = ""
 root = "D:\master\_master_network"
-removedFolders = [".git" , "networks" , "0000" , "temp" , "test" , "train" , "random"]
+removedFolders = [".git" , "_networks" , "0000" , "_temp" , "test" , "train" , "random"]
 
 for root, dirs, files in os.walk(root):
 
@@ -51,5 +51,5 @@ results = results + "\n==================================\nFunction tree:\n" + f
 
 print(results)
 
-with open("D:\\master\\_master_network\\networks\\documentation.txt", "w") as text_file:
+with open("D:\\master\\_master_network\\_networks\\documentation.txt", "w") as text_file:
     text_file.write(results)
