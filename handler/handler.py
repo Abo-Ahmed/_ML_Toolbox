@@ -23,6 +23,7 @@ class handler:
   modelReport = []
  
   danbooruPath ='/content/drive/MyDrive/eng-mahmoud/dataSet/danbooru2019/images'
+  trainPath = danbooruPath + '/train' 
   ePath = danbooruPath + '/explicit' 
   qPath = danbooruPath + '/questionable'
   sPath = danbooruPath + '/safe'
@@ -76,7 +77,8 @@ class handler:
       handler.train_x , handler.train_y = dataset.read_sample_images(dataPath + '/train/NSFW', dataPath + '/train/SFW' , "TRAIN")
 
   @staticmethod
-  def read_real():
+  def read_real(batchSize = 30 ):
+      handler.batchSize = batchSize
       dataset.read_real_data()
       dataset.randomize_data(handler.train_x , handler.train_y)
       dataset.randomize_data(handler.test_x , handler.test_y)
