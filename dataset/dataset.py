@@ -39,6 +39,12 @@ class dataset:
     print(">>> batch: " + str(handler.batchNo) + " - train_x shape:" + str(handler.train_x.shape)  , handler.train_y)
 
   @staticmethod
+  def randomize_data( x , y ):
+    fixed_seed = random.random()
+    random.Random(fixed_seed).shuffle(x)
+    random.Random(fixed_seed).shuffle(y)
+
+  @staticmethod
   def batchize( dataList ,  batchSize ):
       batches = []
       for i in range(len(dataList) // batchSize ):

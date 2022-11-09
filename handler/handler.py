@@ -78,6 +78,8 @@ class handler:
   @staticmethod
   def read_real():
       dataset.read_real_data()
+      dataset.randomize_data(handler.train_x , handler.train_y)
+      dataset.randomize_data(handler.test_x , handler.test_y)
 
   @staticmethod
   def run_models(models):
