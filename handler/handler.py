@@ -85,12 +85,12 @@ class handler:
       handler.run_model(m,"program_0") # model , program
 
   @staticmethod
-  def run_model(model_name , program = None, load = None):
+  def run_model(model_name , program = None, epoches = 5 , load = None):
     try:
       case = model_name + " with : " + program
       print("<>"*50 )
       print(">>> starting model: " +  case)
-      handler.special_run(model_name , program , load )
+      handler.special_run(model_name , program , epoches ,  load )
       handler.modelReport.append(case + " ==> successful ")
       print(">>> successful model: " + case )
       handler.currentNetwork = None
@@ -99,7 +99,7 @@ class handler:
       print("XXX Error in model: " + case , e)
   
   @staticmethod
-  def special_run(model_name , program = None, load = None):
+  def special_run(model_name , program = None, epoches = 5 , load = None):
     handler.currentNetwork = globals()[model_name]()
     if (load):
       handler.currentNetwork.load_model(load)
@@ -107,7 +107,7 @@ class handler:
       handler.currentNetwork.build()
       handler.currentNetwork.summery_plot()
     if(program):
-      getattr(handler.currentNetwork, program)()
+      getattr(handler.currentNetwork, program)(epoches)
 
   @staticmethod
   def final_config() :
