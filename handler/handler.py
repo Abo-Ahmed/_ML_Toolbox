@@ -23,6 +23,7 @@ class handler:
   modelReport = []
  
   danbooruPath ='/content/drive/MyDrive/eng-mahmoud/dataSet/danbooru2019/images'
+  generalPath = danbooruPath + '/512px/0000' 
   trainPath = danbooruPath + '/train' 
   ePath = danbooruPath + '/explicit' 
   qPath = danbooruPath + '/questionable'
@@ -62,6 +63,7 @@ class handler:
 
   @staticmethod
   def dataset_config( path , imgWidth  , imgHeight , batchSize , startBatch,  isColored = True):
+      print(">>> train data path: " +  path)
       handler.dataPath = path
       handler.imageWidth = imgWidth
       handler.imageHeight = imgHeight

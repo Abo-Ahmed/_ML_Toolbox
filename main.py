@@ -10,9 +10,9 @@ execfile('/content/_master_network/handler/handler.py')
 handler.intial_config(True, True, '/content/_master_network')
 
 # path ,width , height , batchSize , startBatch , isColored
-handler.dataset_config(handler.trainPath, 60, 60, 30, 1, True)
+handler.dataset_config(handler.generalPath, 60, 60, 30, 1, True)
 
-handler.read_real( batchSize = 30 )
+handler.read_real( batchSize = 50 )
 # handler.read_sample(None)
 
 # handler.run_models(["CnnSeq"      , "CnnFunctional" , "ResNet" , "Vgg16"  , "vgg16Seq" ,
