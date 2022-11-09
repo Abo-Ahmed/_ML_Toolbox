@@ -52,8 +52,6 @@ class Transformer(BasicModel):
             print(">>> PositionalEmbedding 8")
             return mask
 
-
-
     class TransformerEncoder(layers.Layer):
         def __init__(self, embed_dim, dense_dim, num_heads, **kwargs):
             super().__init__(**kwargs)
@@ -88,25 +86,6 @@ class Transformer(BasicModel):
             temp = proj_input + proj_output
             print(">>> TransformerEncoder 9")
             return self.layernorm_2(temp)
-
-    def experiment_3(self,ep = 5):
-        self.train(ep)
-        self.test()
-        predicted_y = self.model.predict(handler.train_x)
-
-        predicted = []
-        for item in predicted_y:
-            if(item[0] > item[1] and item[0] > item[2] ):
-                predicted.append(0)
-            elif (item[1] > item[0] and item[1] > item[2] ):
-                predicted.append(1)
-            else:
-                predicted.append(2)
-
-        print(predicted)
-        print("****************************")
-        print(handler.train_y)
-        results.confusion_matrix(handler.train_y , predicted)
 
     def build (self):
         super().build()

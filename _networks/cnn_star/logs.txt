@@ -44,7 +44,7 @@ Mounted at /content/drive
 >>> TRAIN dimensions: (40, 512, 512, 3) , (40,)
 ========================================
 <><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><>
->>> starting model: CnnFunctional with : experiment_0
+>>> starting model: CnnFunctional with : experiment_basic
 >>> CnnFunctional model intiated ...
 >>> bulding CnnFunctional model ...
 >>> showing CnnFunctional summery ...
@@ -73,15 +73,15 @@ _________________________________________________________________
 >>> testing CnnFunctional model ...
 2/2 - 0s - loss: 339.9829 - accuracy: 0.5000 - 259ms/epoch - 129ms/step
 >>> Restored model, accuracy: 50.00%
->>> successful model: CnnFunctional with : experiment_0
+>>> successful model: CnnFunctional with : experiment_basic
 XXX deleted, model CnnFunctional
 <><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><>
->>> starting model: CnnSeq with : experiment_0
+>>> starting model: CnnSeq with : experiment_basic
 >>> CnnSeq model intiated ...
 >>> bulding CnnSeq model ...
-XXX Error in model: CnnSeq with : experiment_0 failed to allocate memory [Op:AddV2]
+XXX Error in model: CnnSeq with : experiment_basic failed to allocate memory [Op:AddV2]
 <><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><>
->>> starting model: res with : experiment_0
+>>> starting model: res with : experiment_basic
 >>> res model intiated ...
 XXX deleted, model CnnSeq
 >>> bulding res model ...
@@ -176,10 +176,10 @@ _________________________________________________________________
 >>> testing res model ...
 2/2 - 9s - loss: 0.3989 - accuracy: 0.7500 - 9s/epoch - 4s/step
 >>> Restored model, accuracy: 75.00%
->>> successful model: res with : experiment_0
+>>> successful model: res with : experiment_basic
 XXX deleted, model res
 <><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><>
->>> starting model: vgg16 with : experiment_0
+>>> starting model: vgg16 with : experiment_basic
 >>> vgg16 model intiated ...
 >>> bulding vgg16 model ...
 Downloading data from https://storage.googleapis.com/tensorflow/keras-applications/vgg16/vgg16_weights_tf_dim_ordering_tf_kernels_notop.h5
@@ -242,13 +242,13 @@ _________________________________________________________________
 >>> testing vgg16 model ...
 2/2 - 42s - loss: 10.2563 - accuracy: 0.5000 - 42s/epoch - 21s/step
 >>> Restored model, accuracy: 50.00%
->>> successful model: vgg16 with : experiment_0
+>>> successful model: vgg16 with : experiment_basic
 XXX deleted, model vgg16
 <><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><>
->>> starting model: vgg16seq with : experiment_0
-XXX Error in model: vgg16seq with : experiment_0 'vgg16seq'
+>>> starting model: vgg16seq with : experiment_basic
+XXX Error in model: vgg16seq with : experiment_basic 'vgg16seq'
 <><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><>
->>> starting model: vgg16Seq with : experiment_0
+>>> starting model: vgg16Seq with : experiment_basic
 >>> vgg16Seq model intiated ...
 >>> bulding vgg16Seq model ...
 /usr/local/lib/python3.7/dist-packages/keras/optimizer_v2/gradient_descent.py:102: UserWarning: The `lr` argument is deprecated, use `learning_rate` instead.
@@ -317,10 +317,10 @@ _________________________________________________________________
 >>> testing vgg16Seq model ...
 2/2 - 2s - loss: 0.6937 - accuracy: 0.5000 - 2s/epoch - 1s/step
 >>> Restored model, accuracy: 50.00%
->>> successful model: vgg16Seq with : experiment_0
+>>> successful model: vgg16Seq with : experiment_basic
 XXX deleted, model vgg16Seq
 <><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><>
->>> starting model: LstmConv2d with : experiment_0
+>>> starting model: LstmConv2d with : experiment_basic
 >>> LstmConv2d model intiated ...
 >>> bulding LstmConv2d model ...
 (None, 2, 59, 59, 320)
@@ -1001,10 +1001,10 @@ _________________________________________________________________
 WARNING:tensorflow:5 out of the last 9 calls to <function Model.make_test_function.<locals>.test_function at 0x7f05c136b830> triggered tf.function retracing. Tracing is expensive and the excessive number of tracings could be due to (1) creating @tf.function repeatedly in a loop, (2) passing tensors with different shapes, (3) passing Python objects instead of tensors. For (1), please define your @tf.function outside of the loop. For (2), @tf.function has experimental_relax_shapes=True option that relaxes argument shapes that can avoid unnecessary retracing. For (3), please refer to https://www.tensorflow.org/guide/function#controlling_retracing and https://www.tensorflow.org/api_docs/python/tf/function for  more details.
 1/1 - 21s - loss: 0.6931 - accuracy: 1.0000 - 21s/epoch - 21s/step
 >>> Restored model, accuracy: 100.00%
->>> successful model: LstmConv2d with : experiment_0
+>>> successful model: LstmConv2d with : experiment_basic
 XXX deleted, model LstmConv2d
 <><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><>
->>> starting model: lstm with : experiment_0
+>>> starting model: lstm with : experiment_basic
 >>> lstm model intiated ...
 >>> bulding lstm model ...
 tf.Tensor(
@@ -1034,10 +1034,10 @@ _________________________________________________________________
 WARNING:tensorflow:6 out of the last 10 calls to <function Model.make_test_function.<locals>.test_function at 0x7f05c1aef170> triggered tf.function retracing. Tracing is expensive and the excessive number of tracings could be due to (1) creating @tf.function repeatedly in a loop, (2) passing tensors with different shapes, (3) passing Python objects instead of tensors. For (1), please define your @tf.function outside of the loop. For (2), @tf.function has experimental_relax_shapes=True option that relaxes argument shapes that can avoid unnecessary retracing. For (3), please refer to https://www.tensorflow.org/guide/function#controlling_retracing and https://www.tensorflow.org/api_docs/python/tf/function for  more details.
 1/1 - 1s - loss: 11.2661 - accuracy: 0.6000 - 595ms/epoch - 595ms/step
 >>> Restored model, accuracy: 60.00%
->>> successful model: lstm with : experiment_0
+>>> successful model: lstm with : experiment_basic
 XXX deleted, model lstm
 <><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><>
->>> starting model: LstmBi with : experiment_0
+>>> starting model: LstmBi with : experiment_basic
 >>> LstmBi model intiated ...
 >>> bulding LstmBi model ...
 tf.Tensor(
@@ -1070,18 +1070,18 @@ _________________________________________________________________
 >>> testing LstmBi model ...
 1/1 - 2s - loss: 11.2661 - accuracy: 0.6000 - 2s/epoch - 2s/step
 >>> Restored model, accuracy: 60.00%
->>> successful model: LstmBi with : experiment_0
+>>> successful model: LstmBi with : experiment_basic
 XXX deleted, model LstmBi
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 >>> final results: 
- CnnFunctional with : experiment_0 ==> successful 
-CnnSeq with : experiment_0 ==> failed 
-res with : experiment_0 ==> successful 
-vgg16 with : experiment_0 ==> successful 
-vgg16seq with : experiment_0 ==> failed 
-vgg16Seq with : experiment_0 ==> successful 
-LstmConv2d with : experiment_0 ==> successful 
-lstm with : experiment_0 ==> successful 
-LstmBi with : experiment_0 ==> successful 
+ CnnFunctional with : experiment_basic ==> successful 
+CnnSeq with : experiment_basic ==> failed 
+res with : experiment_basic ==> successful 
+vgg16 with : experiment_basic ==> successful 
+vgg16seq with : experiment_basic ==> failed 
+vgg16Seq with : experiment_basic ==> successful 
+LstmConv2d with : experiment_basic ==> successful 
+lstm with : experiment_basic ==> successful 
+LstmBi with : experiment_basic ==> successful 
 --- execution time: 5 minutes , 24.845 seconds ---

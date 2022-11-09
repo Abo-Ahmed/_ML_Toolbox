@@ -19,7 +19,7 @@ handler.read_real()
 #                     "VggLstm"     , "LstmConv2d"    , "Lstm"   , 
 #                     "LstmBi" , "VggBiLstm"  , "Transformer"] )
 
-# handler.special_run("VggBiLstm","experiment_1")
-handler.special_run("Transformer","experiment_3" , 5)
+# handler.special_run("VggBiLstm","experiment_loop")
+handler.special_run("Transformer","experiment_confusion" , 5)
 
 handler.final_config()

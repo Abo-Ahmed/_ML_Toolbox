@@ -54,11 +54,11 @@ class BasicModel (object):
     ################
     ## model operations
     ################
-    def experiment_0(self,ep = 5):
+    def experiment_basic(self,ep = 5):
         self.train(ep)
         self.test()
 
-    def experiment_1(self , ep = 5 ):
+    def experiment_loop(self , ep = 5 ):
         self.loop_train()
 
     def loop_train(self):
@@ -78,6 +78,22 @@ class BasicModel (object):
                 print(">>> DO you wish to continue? y / n")
                 if(input() != 'y'):
                     break
+
+    def experiment_confusion(self,ep = 5):
+        self.train(ep)
+        self.test()
+
+        predicted_y = self.model.predict(handler.train_x)
+        predicted = []
+        for item in predicted_y:
+            if(item[0] > item[1] and item[0] > item[2] ):
+                predicted.append(0)
+            elif (item[1] > item[0] and item[1] > item[2] ):
+                predicted.append(1)
+            else:
+                predicted.append(2)
+        results.confusion_matrix(handler.train_y , predicted)
+
 
     # verbose=0 --> (silent), 1 --> animated progress , 2 -->  mention epoch no. 
     def train (self , epochs = 5):

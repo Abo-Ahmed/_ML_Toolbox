@@ -64,8 +64,8 @@ Function tree:
 	 summery_plot
 	 plot
 	 summery
-	 experiment_0
-	 experiment_1
+	 experiment_basic
+	 experiment_loop
 	 loop_train
 	 train 
 	 test 

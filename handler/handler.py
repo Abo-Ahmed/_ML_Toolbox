@@ -82,7 +82,7 @@ class handler:
   @staticmethod
   def run_models(models):
     for m in models:
-      handler.run_model(m,"experiment_0") # model , program
+      handler.run_model(m,"experiment_basic") # model , program
 
   @staticmethod
   def run_model(model_name , program = None, epoches = 5 , load = None):
