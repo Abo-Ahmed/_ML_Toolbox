@@ -115,11 +115,5 @@ class handler:
     print(">>> final results: \n", "\n".join(handler.modelReport))
     configure.show_period(time.time() - handler.startTime)
     del handler.currentNetwork
-    del test_x
-    del test_y 
-    del train_x
-    del train_y 
-    del predict_x 
-    del predict_y
     
 print(">>> handler module loadded ...")

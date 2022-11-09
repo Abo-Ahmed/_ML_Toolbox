@@ -10,7 +10,7 @@ execfile('/content/_master_network/handler/handler.py')
 handler.intial_config(True, True, '/content/_master_network')
 
 # path ,width , height , batchSize , startBatch , isColored
-handler.dataset_config(handler.ePath, 50, 50, 30, 1, True)
+handler.dataset_config(handler.ePath, 70, 70, 30, 1, False)
 
 handler.read_real()
 # handler.read_sample(None)
