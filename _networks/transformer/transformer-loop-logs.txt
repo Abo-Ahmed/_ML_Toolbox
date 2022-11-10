@@ -1,0 +1,125 @@
+Cloning into '_master_network'...
+remote: Enumerating objects: 3269, done.
+remote: Counting objects: 100% (88/88), done.
+remote: Compressing objects: 100% (60/60), done.
+remote: Total 3269 (delta 45), reused 62 (delta 28), pack-reused 3181
+Receiving objects: 100% (3269/3269), 336.83 MiB | 32.05 MiB/s, done.
+Resolving deltas: 100% (1332/1332), done.
+Checking out files: 100% (1293/1293), done.
+>>> main module loaded ...
+>>> handler module loadded ...
+>>> class_BasicModel.py loadded ...
+>>> configure.py loadded ...
+>>> folder.py loadded ...
+>>> results.py loadded ...
+>>> rating.py loadded ...
+>>> dataset.py loadded ...
+>>> class_VggBiLstm.py loadded ...
+>>> class_cnnSeq.py loadded ...
+>>> class_ResNet.py loadded ...
+>>> class_lstmConv2d.py loadded ...
+>>> class_lstm.py loadded ...
+>>> class_lstmBi.py loadded ...
+>>> class_cnnFunctional.py loadded ...
+>>> class_Transformer.py loadded ...
+>>> class_VggLstm.py loadded ...
+>>> class_vgg16.py loadded ...
+>>> class_AlexNet.py loadded ...
+>>> class_vgg16Seq.py loadded ...
+>>> all modules loaded ...
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+XXX GPU device not found
+>>> Tenserflow version: 2.4.1 - with GPU not found
+>>> Keras version: 2.4.0
+Drive already mounted at /content/drive; to attempt to forcibly remount, call drive.mount("/content/drive", force_remount=True).
+>>> List of all local devices:
+['/device:CPU:0']
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+>>> tensor configuration ...
+>>> cannot configure tensorflow
+>>> intial config done...
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+>>> train data path: /content/drive/MyDrive/eng-mahmoud/dataSet/danbooru2019/images/original/0000
+>>> batch: 1 - train_x shape:(499, 65, 65, 3) [0, 0, 0, 0, 0, 1, 0, 0, 2, 1, 2, 1, 2, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 2, 0, 0, 0, 0, 1, 0, 0, 0, 2, 1, 1, 1, 0, 0, 0, 1, 1, 1, 1, 0, 0, 0, 1, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 2, 0, 0, 0, 0, 1, 1, 0, 0, 0, 0, 1, 1, 0, 0, 2, 0, 0, 1, 0, 0, 0, 0, 1, 2, 0, 0, 0, 0, 1, 0, 0, 2, 0, 0, 0, 0, 1, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 2, 0, 0, 2, 0, 0, 1, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 2, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 2, 2, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 2, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 2, 0, 1, 0, 0, 2, 2, 0, 0, 1, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 2, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 1, 1, 0, 0, 0, 0, 0, 2, 0, 0, 0, 1, 2, 0, 0, 0, 0, 0, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 2, 2, 0, 0, 0, 0, 0, 0, 0, 0, 0, 2, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 2, 1, 0, 0, 0, 0, 0, 0, 2, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 2, 1, 0, 0, 0, 0, 0, 0, 2, 0, 1, 1, 0, 0, 0, 0, 0, 2, 1, 0, 0, 0, 0, 0, 0, 0, 2, 0, 0, 0, 2, 0, 0, 0, 0, 2, 0, 0, 0, 2, 0, 0, 0, 1, 0, 2, 0, 1, 0, 0, 0, 2, 1, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 2, 1, 0, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 1, 2, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 2, 1, 0, 0, 1, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 1, 0, 1, 0, 0, 0, 1, 0, 0, 0, 0]
+>>> Transformer model intiated ...
+>>> bulding Transformer model ...
+>>> check point 0 KerasTensor(type_spec=TensorSpec(shape=(None, 65, 65, 3), dtype=tf.float32, name='input_4'), name='input_4', description="created by layer 'input_4'")
+>>> check point 1
+>>> TransformerEncoder 0
+>>> TransformerEncoder 1
+>>> TransformerEncoder 2
+>>> TransformerEncoder 3
+>>> TransformerEncoder 4
+>>> TransformerEncoder 5
+Tensor("Placeholder:0", shape=(None, 65, 65, 3), dtype=float32)
+None
+>>> TransformerEncoder 6
+>>> TransformerEncoder 7
+>>> TransformerEncoder 8
+>>> TransformerEncoder 9
+>>> check point 2
+>>> check point 3
+>>> check point 4
+>>> check point 5
+>>> check point 6
+>>> check point 7
+>>> showing Transformer summery ...
+Model: "model_3"
+_________________________________________________________________
+Layer (type)                 Output Shape              Param #   
+=================================================================
+input_4 (InputLayer)         [(None, 65, 65, 3)]       0         
+_________________________________________________________________
+transformer_layer (Transform (None, 65, 65, 3)         36        
+_________________________________________________________________
+global_max_pooling2d_3 (Glob (None, 3)                 0         
+_________________________________________________________________
+dropout_3 (Dropout)          (None, 3)                 0         
+=================================================================
+Total params: 36
+Trainable params: 36
+Non-trainable params: 0
+_________________________________________________________________
+>>> plotting model: Transformer
+>>> training Transformer model ...
+>>> TransformerEncoder 5
+Tensor("model_3/Cast:0", shape=(None, 65, 65, 3), dtype=float32)
+None
+>>> TransformerEncoder 6
+>>> TransformerEncoder 7
+>>> TransformerEncoder 8
+>>> TransformerEncoder 9
+>>> TransformerEncoder 5
+Tensor("model_3/Cast:0", shape=(None, 65, 65, 3), dtype=float32)
+None
+>>> TransformerEncoder 6
+>>> TransformerEncoder 7
+>>> TransformerEncoder 8
+>>> TransformerEncoder 9
+100/100 [==============================] - 301s 3s/step - loss: 5.2378 - accuracy: 0.4484
+>>> testing Transformer model ...
+>>> TransformerEncoder 5
+Tensor("model_3/Cast:0", shape=(None, 65, 65, 3), dtype=float32)
+None
+>>> TransformerEncoder 6
+>>> TransformerEncoder 7
+>>> TransformerEncoder 8
+>>> TransformerEncoder 9
+16/16 - 135s - loss: 1.9343 - accuracy: 0.2485
+>>> TransformerEncoder 5
+Tensor("model_3/Cast:0", shape=(None, 65, 65, 3), dtype=float32)
+None
+>>> TransformerEncoder 6
+>>> TransformerEncoder 7
+>>> TransformerEncoder 8
+>>> TransformerEncoder 9
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+>>> final results: 
+ 
+--- execution time: 14 minutes , 4.8611 seconds ---
+XXX deleted, model Transformer
